@@ -1,0 +1,1316 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"8442 C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 8442:     struct {
+[s S427 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S427 . RD WR WREN WRERR FREE LWLO NVMREGS ]
+"8451
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 8451:     struct {
+[s S428 :6 `uc 1 :1 `uc 1 ]
+[n S428 . . CFGS ]
+"8441
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 8441: typedef union {
+[u S426 `S427 1 `S428 1 ]
+[n S426 . . . ]
+"8456
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 8456: extern volatile NVMCON1bits_t NVMCON1bits __attribute__((address(0x895)));
+[v _NVMCON1bits `VS426 ~T0 @X0 0 e@2197 ]
+"6929
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 6929: extern volatile unsigned char NVMADRL __attribute__((address(0x891)));
+[v _NVMADRL `Vuc ~T0 @X0 0 e@2193 ]
+"7331
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 7331: extern volatile unsigned char NVMADRH __attribute__((address(0x892)));
+[v _NVMADRH `Vuc ~T0 @X0 0 e@2194 ]
+"7695
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 7695: extern volatile unsigned char NVMDATL __attribute__((address(0x893)));
+[v _NVMDATL `Vuc ~T0 @X0 0 e@2195 ]
+"8097
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 8097: extern volatile unsigned char NVMDATH __attribute__((address(0x894)));
+[v _NVMDATH `Vuc ~T0 @X0 0 e@2196 ]
+"118
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 118:     struct {
+[s S13 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S13 . C DC Z nPD nTO ]
+"125
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 125:     struct {
+[s S14 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S14 . CARRY . ZERO ]
+"117
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 117: typedef union {
+[u S12 `S13 1 `S14 1 ]
+[n S12 . . . ]
+"131
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 131: extern volatile STATUSbits_t STATUSbits __attribute__((address(0x003)));
+[v _STATUSbits `VS12 ~T0 @X0 0 e@3 ]
+"357
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 357:     struct {
+[s S31 :1 `uc 1 :5 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S31 . INTEDG . PEIE GIE ]
+"356
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 356: typedef union {
+[u S30 `S31 1 ]
+[n S30 . . ]
+"364
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 364: extern volatile INTCONbits_t INTCONbits __attribute__((address(0x00B)));
+[v _INTCONbits `VS30 ~T0 @X0 0 e@11 ]
+"8616
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 8616: extern volatile unsigned char NVMCON2 __attribute__((address(0x896)));
+[v _NVMCON2 `Vuc ~T0 @X0 0 e@2198 ]
+"54 C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 54: __asm("INDF0 equ 00h");
+[; <" INDF0 equ 00h ;# ">
+"74
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 74: __asm("INDF1 equ 01h");
+[; <" INDF1 equ 01h ;# ">
+"94
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 94: __asm("PCL equ 02h");
+[; <" PCL equ 02h ;# ">
+"114
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 114: __asm("STATUS equ 03h");
+[; <" STATUS equ 03h ;# ">
+"177
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 177: __asm("FSR0L equ 04h");
+[; <" FSR0L equ 04h ;# ">
+"197
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 197: __asm("FSR0H equ 05h");
+[; <" FSR0H equ 05h ;# ">
+"221
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 221: __asm("FSR1L equ 06h");
+[; <" FSR1L equ 06h ;# ">
+"241
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 241: __asm("FSR1H equ 07h");
+[; <" FSR1H equ 07h ;# ">
+"261
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 261: __asm("BSR equ 08h");
+[; <" BSR equ 08h ;# ">
+"313
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 313: __asm("WREG equ 09h");
+[; <" WREG equ 09h ;# ">
+"333
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 333: __asm("PCLATH equ 0Ah");
+[; <" PCLATH equ 0Ah ;# ">
+"353
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 353: __asm("INTCON equ 0Bh");
+[; <" INTCON equ 0Bh ;# ">
+"386
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 386: __asm("PORTA equ 0Ch");
+[; <" PORTA equ 0Ch ;# ">
+"436
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 436: __asm("PIR0 equ 010h");
+[; <" PIR0 equ 010h ;# ">
+"469
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 469: __asm("PIR1 equ 011h");
+[; <" PIR1 equ 011h ;# ">
+"531
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 531: __asm("PIR2 equ 012h");
+[; <" PIR2 equ 012h ;# ">
+"564
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 564: __asm("PIR3 equ 013h");
+[; <" PIR3 equ 013h ;# ">
+"603
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 603: __asm("PIR4 equ 014h");
+[; <" PIR4 equ 014h ;# ">
+"636
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 636: __asm("TMR0L equ 015h");
+[; <" TMR0L equ 015h ;# ">
+"641
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 641: __asm("TMR0 equ 015h");
+[; <" TMR0 equ 015h ;# ">
+"774
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 774: __asm("TMR0H equ 016h");
+[; <" TMR0H equ 016h ;# ">
+"779
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 779: __asm("PR0 equ 016h");
+[; <" PR0 equ 016h ;# ">
+"1028
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 1028: __asm("T0CON0 equ 017h");
+[; <" T0CON0 equ 017h ;# ">
+"1093
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 1093: __asm("T0CON1 equ 018h");
+[; <" T0CON1 equ 018h ;# ">
+"1170
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 1170: __asm("TMR1 equ 019h");
+[; <" TMR1 equ 019h ;# ">
+"1177
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 1177: __asm("TMR1L equ 019h");
+[; <" TMR1L equ 019h ;# ">
+"1197
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 1197: __asm("TMR1H equ 01Ah");
+[; <" TMR1H equ 01Ah ;# ">
+"1217
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 1217: __asm("T1CON equ 01Bh");
+[; <" T1CON equ 01Bh ;# ">
+"1289
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 1289: __asm("T1GCON equ 01Ch");
+[; <" T1GCON equ 01Ch ;# ">
+"1359
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 1359: __asm("TMR2 equ 01Dh");
+[; <" TMR2 equ 01Dh ;# ">
+"1379
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 1379: __asm("PR2 equ 01Eh");
+[; <" PR2 equ 01Eh ;# ">
+"1399
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 1399: __asm("T2CON equ 01Fh");
+[; <" T2CON equ 01Fh ;# ">
+"1470
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 1470: __asm("TRISA equ 08Ch");
+[; <" TRISA equ 08Ch ;# ">
+"1515
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 1515: __asm("PIE0 equ 090h");
+[; <" PIE0 equ 090h ;# ">
+"1548
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 1548: __asm("PIE1 equ 091h");
+[; <" PIE1 equ 091h ;# ">
+"1610
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 1610: __asm("PIE2 equ 092h");
+[; <" PIE2 equ 092h ;# ">
+"1643
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 1643: __asm("PIE3 equ 093h");
+[; <" PIE3 equ 093h ;# ">
+"1682
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 1682: __asm("PIE4 equ 094h");
+[; <" PIE4 equ 094h ;# ">
+"1715
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 1715: __asm("WDTCON equ 097h");
+[; <" WDTCON equ 097h ;# ">
+"1774
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 1774: __asm("ADRES equ 09Bh");
+[; <" ADRES equ 09Bh ;# ">
+"1781
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 1781: __asm("ADRESL equ 09Bh");
+[; <" ADRESL equ 09Bh ;# ">
+"1801
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 1801: __asm("ADRESH equ 09Ch");
+[; <" ADRESH equ 09Ch ;# ">
+"1821
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 1821: __asm("ADCON0 equ 09Dh");
+[; <" ADCON0 equ 09Dh ;# ">
+"1907
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 1907: __asm("ADCON1 equ 09Eh");
+[; <" ADCON1 equ 09Eh ;# ">
+"1979
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 1979: __asm("ADACT equ 09Fh");
+[; <" ADACT equ 09Fh ;# ">
+"2025
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 2025: __asm("LATA equ 010Ch");
+[; <" LATA equ 010Ch ;# ">
+"2070
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 2070: __asm("CM1CON0 equ 0111h");
+[; <" CM1CON0 equ 0111h ;# ">
+"2122
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 2122: __asm("CM1CON1 equ 0112h");
+[; <" CM1CON1 equ 0112h ;# ">
+"2198
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 2198: __asm("CMOUT equ 0115h");
+[; <" CMOUT equ 0115h ;# ">
+"2218
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 2218: __asm("BORCON equ 0116h");
+[; <" BORCON equ 0116h ;# ">
+"2245
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 2245: __asm("FVRCON equ 0117h");
+[; <" FVRCON equ 0117h ;# ">
+"2321
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 2321: __asm("DACCON0 equ 0118h");
+[; <" DACCON0 equ 0118h ;# ">
+"2377
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 2377: __asm("DACCON1 equ 0119h");
+[; <" DACCON1 equ 0119h ;# ">
+"2429
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 2429: __asm("ANSELA equ 018Ch");
+[; <" ANSELA equ 018Ch ;# ">
+"2474
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 2474: __asm("VREGCON equ 0197h");
+[; <" VREGCON equ 0197h ;# ">
+"2495
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 2495: __asm("RC1REG equ 0199h");
+[; <" RC1REG equ 0199h ;# ">
+"2500
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 2500: __asm("RCREG equ 0199h");
+[; <" RCREG equ 0199h ;# ">
+"2504
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 2504: __asm("RCREG1 equ 0199h");
+[; <" RCREG1 equ 0199h ;# ">
+"2549
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 2549: __asm("TX1REG equ 019Ah");
+[; <" TX1REG equ 019Ah ;# ">
+"2554
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 2554: __asm("TXREG1 equ 019Ah");
+[; <" TXREG1 equ 019Ah ;# ">
+"2558
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 2558: __asm("TXREG equ 019Ah");
+[; <" TXREG equ 019Ah ;# ">
+"2603
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 2603: __asm("SP1BRG equ 019Bh");
+[; <" SP1BRG equ 019Bh ;# ">
+"2608
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 2608: __asm("SPBRG equ 019Bh");
+[; <" SPBRG equ 019Bh ;# ">
+"2615
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 2615: __asm("SP1BRGL equ 019Bh");
+[; <" SP1BRGL equ 019Bh ;# ">
+"2620
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 2620: __asm("SPBRG1 equ 019Bh");
+[; <" SPBRG1 equ 019Bh ;# ">
+"2624
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 2624: __asm("SPBRGL equ 019Bh");
+[; <" SPBRGL equ 019Bh ;# ">
+"2669
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 2669: __asm("SP1BRGH equ 019Ch");
+[; <" SP1BRGH equ 019Ch ;# ">
+"2674
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 2674: __asm("SPBRGH equ 019Ch");
+[; <" SPBRGH equ 019Ch ;# ">
+"2678
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 2678: __asm("SPBRGH1 equ 019Ch");
+[; <" SPBRGH1 equ 019Ch ;# ">
+"2723
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 2723: __asm("RC1STA equ 019Dh");
+[; <" RC1STA equ 019Dh ;# ">
+"2728
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 2728: __asm("RCSTA1 equ 019Dh");
+[; <" RCSTA1 equ 019Dh ;# ">
+"2732
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 2732: __asm("RCSTA equ 019Dh");
+[; <" RCSTA equ 019Dh ;# ">
+"2903
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 2903: __asm("TX1STA equ 019Eh");
+[; <" TX1STA equ 019Eh ;# ">
+"2908
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 2908: __asm("TXSTA1 equ 019Eh");
+[; <" TXSTA1 equ 019Eh ;# ">
+"2912
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 2912: __asm("TXSTA equ 019Eh");
+[; <" TXSTA equ 019Eh ;# ">
+"3083
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 3083: __asm("BAUD1CON equ 019Fh");
+[; <" BAUD1CON equ 019Fh ;# ">
+"3088
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 3088: __asm("BAUDCON1 equ 019Fh");
+[; <" BAUDCON1 equ 019Fh ;# ">
+"3092
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 3092: __asm("BAUDCTL1 equ 019Fh");
+[; <" BAUDCTL1 equ 019Fh ;# ">
+"3096
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 3096: __asm("BAUDCON equ 019Fh");
+[; <" BAUDCON equ 019Fh ;# ">
+"3100
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 3100: __asm("BAUDCTL equ 019Fh");
+[; <" BAUDCTL equ 019Fh ;# ">
+"3329
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 3329: __asm("WPUA equ 020Ch");
+[; <" WPUA equ 020Ch ;# ">
+"3379
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 3379: __asm("SSP1BUF equ 0211h");
+[; <" SSP1BUF equ 0211h ;# ">
+"3384
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 3384: __asm("SSPBUF equ 0211h");
+[; <" SSPBUF equ 0211h ;# ">
+"3633
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 3633: __asm("SSP1ADD equ 0212h");
+[; <" SSP1ADD equ 0212h ;# ">
+"3638
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 3638: __asm("SSPADD equ 0212h");
+[; <" SSPADD equ 0212h ;# ">
+"3887
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 3887: __asm("SSP1MSK equ 0213h");
+[; <" SSP1MSK equ 0213h ;# ">
+"3892
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 3892: __asm("SSPMSK equ 0213h");
+[; <" SSPMSK equ 0213h ;# ">
+"4141
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 4141: __asm("SSP1STAT equ 0214h");
+[; <" SSP1STAT equ 0214h ;# ">
+"4146
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 4146: __asm("SSPSTAT equ 0214h");
+[; <" SSPSTAT equ 0214h ;# ">
+"4263
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 4263: __asm("SSP1CON1 equ 0215h");
+[; <" SSP1CON1 equ 0215h ;# ">
+"4268
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 4268: __asm("SSPCON equ 0215h");
+[; <" SSPCON equ 0215h ;# ">
+"4272
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 4272: __asm("SSPCON1 equ 0215h");
+[; <" SSPCON1 equ 0215h ;# ">
+"4276
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 4276: __asm("SSP1CON equ 0215h");
+[; <" SSP1CON equ 0215h ;# ">
+"4533
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 4533: __asm("SSP1CON2 equ 0216h");
+[; <" SSP1CON2 equ 0216h ;# ">
+"4538
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 4538: __asm("SSPCON2 equ 0216h");
+[; <" SSPCON2 equ 0216h ;# ">
+"4655
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 4655: __asm("SSP1CON3 equ 0217h");
+[; <" SSP1CON3 equ 0217h ;# ">
+"4660
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 4660: __asm("SSPCON3 equ 0217h");
+[; <" SSPCON3 equ 0217h ;# ">
+"4777
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 4777: __asm("ODCONA equ 028Ch");
+[; <" ODCONA equ 028Ch ;# ">
+"4822
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 4822: __asm("CCPR1 equ 0291h");
+[; <" CCPR1 equ 0291h ;# ">
+"4829
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 4829: __asm("CCPR1L equ 0291h");
+[; <" CCPR1L equ 0291h ;# ">
+"4849
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 4849: __asm("CCPR1H equ 0292h");
+[; <" CCPR1H equ 0292h ;# ">
+"4869
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 4869: __asm("CCP1CON equ 0293h");
+[; <" CCP1CON equ 0293h ;# ">
+"4934
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 4934: __asm("CCP1CAP equ 0294h");
+[; <" CCP1CAP equ 0294h ;# ">
+"4974
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 4974: __asm("CCPR2 equ 0295h");
+[; <" CCPR2 equ 0295h ;# ">
+"4981
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 4981: __asm("CCPR2L equ 0295h");
+[; <" CCPR2L equ 0295h ;# ">
+"5001
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 5001: __asm("CCPR2H equ 0296h");
+[; <" CCPR2H equ 0296h ;# ">
+"5021
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 5021: __asm("CCP2CON equ 0297h");
+[; <" CCP2CON equ 0297h ;# ">
+"5086
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 5086: __asm("CCP2CAP equ 0298h");
+[; <" CCP2CAP equ 0298h ;# ">
+"5126
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 5126: __asm("SLRCONA equ 030Ch");
+[; <" SLRCONA equ 030Ch ;# ">
+"5171
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 5171: __asm("INLVLA equ 038Ch");
+[; <" INLVLA equ 038Ch ;# ">
+"5221
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 5221: __asm("IOCAP equ 0391h");
+[; <" IOCAP equ 0391h ;# ">
+"5271
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 5271: __asm("IOCAN equ 0392h");
+[; <" IOCAN equ 0392h ;# ">
+"5321
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 5321: __asm("IOCAF equ 0393h");
+[; <" IOCAF equ 0393h ;# ">
+"5371
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 5371: __asm("CLKRCON equ 039Ah");
+[; <" CLKRCON equ 039Ah ;# ">
+"5436
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 5436: __asm("MDCON equ 039Ch");
+[; <" MDCON equ 039Ch ;# ">
+"5476
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 5476: __asm("MDSRC equ 039Dh");
+[; <" MDSRC equ 039Dh ;# ">
+"5522
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 5522: __asm("MDCARH equ 039Eh");
+[; <" MDCARH equ 039Eh ;# ">
+"5581
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 5581: __asm("MDCARL equ 039Fh");
+[; <" MDCARL equ 039Fh ;# ">
+"5642
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 5642: __asm("NCO1ACC equ 0498h");
+[; <" NCO1ACC equ 0498h ;# ">
+"5649
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 5649: __asm("NCO1ACCL equ 0498h");
+[; <" NCO1ACCL equ 0498h ;# ">
+"5669
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 5669: __asm("NCO1ACCH equ 0499h");
+[; <" NCO1ACCH equ 0499h ;# ">
+"5689
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 5689: __asm("NCO1ACCU equ 049Ah");
+[; <" NCO1ACCU equ 049Ah ;# ">
+"5711
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 5711: __asm("NCO1INC equ 049Bh");
+[; <" NCO1INC equ 049Bh ;# ">
+"5718
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 5718: __asm("NCO1INCL equ 049Bh");
+[; <" NCO1INCL equ 049Bh ;# ">
+"5738
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 5738: __asm("NCO1INCH equ 049Ch");
+[; <" NCO1INCH equ 049Ch ;# ">
+"5758
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 5758: __asm("NCO1INCU equ 049Dh");
+[; <" NCO1INCU equ 049Dh ;# ">
+"5778
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 5778: __asm("NCO1CON equ 049Eh");
+[; <" NCO1CON equ 049Eh ;# ">
+"5818
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 5818: __asm("NCO1CLK equ 049Fh");
+[; <" NCO1CLK equ 049Fh ;# ">
+"5845
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 5845: __asm("PWM5DCL equ 0617h");
+[; <" PWM5DCL equ 0617h ;# ">
+"5881
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 5881: __asm("PWM5DCH equ 0618h");
+[; <" PWM5DCH equ 0618h ;# ">
+"5951
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 5951: __asm("PWM5CON equ 0619h");
+[; <" PWM5CON equ 0619h ;# ">
+"5956
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 5956: __asm("PWM5CON0 equ 0619h");
+[; <" PWM5CON0 equ 0619h ;# ">
+"6017
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 6017: __asm("PWM6DCL equ 061Ah");
+[; <" PWM6DCL equ 061Ah ;# ">
+"6053
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 6053: __asm("PWM6DCH equ 061Bh");
+[; <" PWM6DCH equ 061Bh ;# ">
+"6123
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 6123: __asm("PWM6CON equ 061Ch");
+[; <" PWM6CON equ 061Ch ;# ">
+"6128
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 6128: __asm("PWM6CON0 equ 061Ch");
+[; <" PWM6CON0 equ 061Ch ;# ">
+"6189
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 6189: __asm("CWG1CLKCON equ 0691h");
+[; <" CWG1CLKCON equ 0691h ;# ">
+"6217
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 6217: __asm("CWG1DAT equ 0692h");
+[; <" CWG1DAT equ 0692h ;# ">
+"6263
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 6263: __asm("CWG1DBR equ 0693h");
+[; <" CWG1DBR equ 0693h ;# ">
+"6367
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 6367: __asm("CWG1DBF equ 0694h");
+[; <" CWG1DBF equ 0694h ;# ">
+"6471
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 6471: __asm("CWG1CON0 equ 0695h");
+[; <" CWG1CON0 equ 0695h ;# ">
+"6572
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 6572: __asm("CWG1CON1 equ 0696h");
+[; <" CWG1CON1 equ 0696h ;# ">
+"6650
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 6650: __asm("CWG1AS0 equ 0697h");
+[; <" CWG1AS0 equ 0697h ;# ">
+"6770
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 6770: __asm("CWG1AS1 equ 0698h");
+[; <" CWG1AS1 equ 0698h ;# ">
+"6803
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 6803: __asm("CWG1STR equ 0699h");
+[; <" CWG1STR equ 0699h ;# ">
+"6915
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 6915: __asm("NVMADR equ 0891h");
+[; <" NVMADR equ 0891h ;# ">
+"6920
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 6920: __asm("EEADR equ 0891h");
+[; <" EEADR equ 0891h ;# ">
+"6924
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 6924: __asm("PMADR equ 0891h");
+[; <" PMADR equ 0891h ;# ">
+"6931
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 6931: __asm("NVMADRL equ 0891h");
+[; <" NVMADRL equ 0891h ;# ">
+"6936
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 6936: __asm("EEADRL equ 0891h");
+[; <" EEADRL equ 0891h ;# ">
+"6940
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 6940: __asm("PMADRL equ 0891h");
+[; <" PMADRL equ 0891h ;# ">
+"7333
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 7333: __asm("NVMADRH equ 0892h");
+[; <" NVMADRH equ 0892h ;# ">
+"7338
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 7338: __asm("EEADRH equ 0892h");
+[; <" EEADRH equ 0892h ;# ">
+"7342
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 7342: __asm("PMADRH equ 0892h");
+[; <" PMADRH equ 0892h ;# ">
+"7681
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 7681: __asm("NVMDAT equ 0893h");
+[; <" NVMDAT equ 0893h ;# ">
+"7686
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 7686: __asm("EEDAT equ 0893h");
+[; <" EEDAT equ 0893h ;# ">
+"7690
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 7690: __asm("PMDAT equ 0893h");
+[; <" PMDAT equ 0893h ;# ">
+"7697
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 7697: __asm("NVMDATL equ 0893h");
+[; <" NVMDATL equ 0893h ;# ">
+"7702
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 7702: __asm("EEDATL equ 0893h");
+[; <" EEDATL equ 0893h ;# ">
+"7706
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 7706: __asm("PMDATL equ 0893h");
+[; <" PMDATL equ 0893h ;# ">
+"8099
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 8099: __asm("NVMDATH equ 0894h");
+[; <" NVMDATH equ 0894h ;# ">
+"8104
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 8104: __asm("EEDATH equ 0894h");
+[; <" EEDATH equ 0894h ;# ">
+"8108
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 8108: __asm("PMDATH equ 0894h");
+[; <" PMDATH equ 0894h ;# ">
+"8429
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 8429: __asm("NVMCON1 equ 0895h");
+[; <" NVMCON1 equ 0895h ;# ">
+"8434
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 8434: __asm("EECON1 equ 0895h");
+[; <" EECON1 equ 0895h ;# ">
+"8438
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 8438: __asm("PMCON1 equ 0895h");
+[; <" PMCON1 equ 0895h ;# ">
+"8618
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 8618: __asm("NVMCON2 equ 0896h");
+[; <" NVMCON2 equ 0896h ;# ">
+"8623
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 8623: __asm("EECON2 equ 0896h");
+[; <" EECON2 equ 0896h ;# ">
+"8627
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 8627: __asm("PMCON2 equ 0896h");
+[; <" PMCON2 equ 0896h ;# ">
+"8720
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 8720: __asm("PCON0 equ 089Bh");
+[; <" PCON0 equ 089Bh ;# ">
+"8777
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 8777: __asm("PMD0 equ 0911h");
+[; <" PMD0 equ 0911h ;# ">
+"8822
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 8822: __asm("PMD1 equ 0912h");
+[; <" PMD1 equ 0912h ;# ">
+"8861
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 8861: __asm("PMD2 equ 0913h");
+[; <" PMD2 equ 0913h ;# ">
+"8895
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 8895: __asm("PMD3 equ 0914h");
+[; <" PMD3 equ 0914h ;# ">
+"8940
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 8940: __asm("PMD4 equ 0915h");
+[; <" PMD4 equ 0915h ;# ">
+"8968
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 8968: __asm("PMD5 equ 0916h");
+[; <" PMD5 equ 0916h ;# ">
+"9000
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 9000: __asm("CPUDOZE equ 0918h");
+[; <" CPUDOZE equ 0918h ;# ">
+"9065
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 9065: __asm("OSCCON1 equ 0919h");
+[; <" OSCCON1 equ 0919h ;# ">
+"9135
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 9135: __asm("OSCCON2 equ 091Ah");
+[; <" OSCCON2 equ 091Ah ;# ">
+"9205
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 9205: __asm("OSCCON3 equ 091Bh");
+[; <" OSCCON3 equ 091Bh ;# ">
+"9250
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 9250: __asm("OSCSTAT1 equ 091Ch");
+[; <" OSCSTAT1 equ 091Ch ;# ">
+"9302
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 9302: __asm("OSCEN equ 091Dh");
+[; <" OSCEN equ 091Dh ;# ">
+"9348
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 9348: __asm("OSCTUNE equ 091Eh");
+[; <" OSCTUNE equ 091Eh ;# ">
+"9406
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 9406: __asm("OSCFRQ equ 091Fh");
+[; <" OSCFRQ equ 091Fh ;# ">
+"9452
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 9452: __asm("PPSLOCK equ 0E0Fh");
+[; <" PPSLOCK equ 0E0Fh ;# ">
+"9472
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 9472: __asm("INTPPS equ 0E10h");
+[; <" INTPPS equ 0E10h ;# ">
+"9524
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 9524: __asm("T0CKIPPS equ 0E11h");
+[; <" T0CKIPPS equ 0E11h ;# ">
+"9576
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 9576: __asm("T1CKIPPS equ 0E12h");
+[; <" T1CKIPPS equ 0E12h ;# ">
+"9628
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 9628: __asm("T1GPPS equ 0E13h");
+[; <" T1GPPS equ 0E13h ;# ">
+"9680
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 9680: __asm("CCP1PPS equ 0E14h");
+[; <" CCP1PPS equ 0E14h ;# ">
+"9732
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 9732: __asm("CCP2PPS equ 0E15h");
+[; <" CCP2PPS equ 0E15h ;# ">
+"9784
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 9784: __asm("CWG1PPS equ 0E18h");
+[; <" CWG1PPS equ 0E18h ;# ">
+"9836
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 9836: __asm("MDCIN1PPS equ 0E1Ah");
+[; <" MDCIN1PPS equ 0E1Ah ;# ">
+"9888
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 9888: __asm("MDCIN2PPS equ 0E1Bh");
+[; <" MDCIN2PPS equ 0E1Bh ;# ">
+"9940
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 9940: __asm("MDMINPPS equ 0E1Ch");
+[; <" MDMINPPS equ 0E1Ch ;# ">
+"9992
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 9992: __asm("SSP1CLKPPS equ 0E20h");
+[; <" SSP1CLKPPS equ 0E20h ;# ">
+"10044
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 10044: __asm("SSP1DATPPS equ 0E21h");
+[; <" SSP1DATPPS equ 0E21h ;# ">
+"10096
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 10096: __asm("SSP1SSPPS equ 0E22h");
+[; <" SSP1SSPPS equ 0E22h ;# ">
+"10148
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 10148: __asm("RXPPS equ 0E24h");
+[; <" RXPPS equ 0E24h ;# ">
+"10200
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 10200: __asm("TXPPS equ 0E25h");
+[; <" TXPPS equ 0E25h ;# ">
+"10252
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 10252: __asm("CLCIN0PPS equ 0E28h");
+[; <" CLCIN0PPS equ 0E28h ;# ">
+"10304
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 10304: __asm("CLCIN1PPS equ 0E29h");
+[; <" CLCIN1PPS equ 0E29h ;# ">
+"10356
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 10356: __asm("CLCIN2PPS equ 0E2Ah");
+[; <" CLCIN2PPS equ 0E2Ah ;# ">
+"10408
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 10408: __asm("CLCIN3PPS equ 0E2Bh");
+[; <" CLCIN3PPS equ 0E2Bh ;# ">
+"10460
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 10460: __asm("RA0PPS equ 0E90h");
+[; <" RA0PPS equ 0E90h ;# ">
+"10512
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 10512: __asm("RA1PPS equ 0E91h");
+[; <" RA1PPS equ 0E91h ;# ">
+"10564
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 10564: __asm("RA2PPS equ 0E92h");
+[; <" RA2PPS equ 0E92h ;# ">
+"10616
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 10616: __asm("RA4PPS equ 0E94h");
+[; <" RA4PPS equ 0E94h ;# ">
+"10668
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 10668: __asm("RA5PPS equ 0E95h");
+[; <" RA5PPS equ 0E95h ;# ">
+"10720
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 10720: __asm("CLCDATA equ 0F0Fh");
+[; <" CLCDATA equ 0F0Fh ;# ">
+"10746
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 10746: __asm("CLC1CON equ 0F10h");
+[; <" CLC1CON equ 0F10h ;# ">
+"10864
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 10864: __asm("CLC1POL equ 0F11h");
+[; <" CLC1POL equ 0F11h ;# ">
+"10942
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 10942: __asm("CLC1SEL0 equ 0F12h");
+[; <" CLC1SEL0 equ 0F12h ;# ">
+"11034
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 11034: __asm("CLC1SEL1 equ 0F13h");
+[; <" CLC1SEL1 equ 0F13h ;# ">
+"11126
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 11126: __asm("CLC1SEL2 equ 0F14h");
+[; <" CLC1SEL2 equ 0F14h ;# ">
+"11218
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 11218: __asm("CLC1SEL3 equ 0F15h");
+[; <" CLC1SEL3 equ 0F15h ;# ">
+"11310
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 11310: __asm("CLC1GLS0 equ 0F16h");
+[; <" CLC1GLS0 equ 0F16h ;# ">
+"11422
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 11422: __asm("CLC1GLS1 equ 0F17h");
+[; <" CLC1GLS1 equ 0F17h ;# ">
+"11534
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 11534: __asm("CLC1GLS2 equ 0F18h");
+[; <" CLC1GLS2 equ 0F18h ;# ">
+"11646
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 11646: __asm("CLC1GLS3 equ 0F19h");
+[; <" CLC1GLS3 equ 0F19h ;# ">
+"11758
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 11758: __asm("CLC2CON equ 0F1Ah");
+[; <" CLC2CON equ 0F1Ah ;# ">
+"11876
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 11876: __asm("CLC2POL equ 0F1Bh");
+[; <" CLC2POL equ 0F1Bh ;# ">
+"11954
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 11954: __asm("CLC2SEL0 equ 0F1Ch");
+[; <" CLC2SEL0 equ 0F1Ch ;# ">
+"12046
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 12046: __asm("CLC2SEL1 equ 0F1Dh");
+[; <" CLC2SEL1 equ 0F1Dh ;# ">
+"12138
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 12138: __asm("CLC2SEL2 equ 0F1Eh");
+[; <" CLC2SEL2 equ 0F1Eh ;# ">
+"12230
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 12230: __asm("CLC2SEL3 equ 0F1Fh");
+[; <" CLC2SEL3 equ 0F1Fh ;# ">
+"12322
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 12322: __asm("CLC2GLS0 equ 0F20h");
+[; <" CLC2GLS0 equ 0F20h ;# ">
+"12434
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 12434: __asm("CLC2GLS1 equ 0F21h");
+[; <" CLC2GLS1 equ 0F21h ;# ">
+"12546
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 12546: __asm("CLC2GLS2 equ 0F22h");
+[; <" CLC2GLS2 equ 0F22h ;# ">
+"12658
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 12658: __asm("CLC2GLS3 equ 0F23h");
+[; <" CLC2GLS3 equ 0F23h ;# ">
+"12770
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 12770: __asm("STATUS_SHAD equ 0FE4h");
+[; <" STATUS_SHAD equ 0FE4h ;# ">
+"12802
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 12802: __asm("WREG_SHAD equ 0FE5h");
+[; <" WREG_SHAD equ 0FE5h ;# ">
+"12822
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 12822: __asm("BSR_SHAD equ 0FE6h");
+[; <" BSR_SHAD equ 0FE6h ;# ">
+"12842
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 12842: __asm("PCLATH_SHAD equ 0FE7h");
+[; <" PCLATH_SHAD equ 0FE7h ;# ">
+"12862
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 12862: __asm("FSR0L_SHAD equ 0FE8h");
+[; <" FSR0L_SHAD equ 0FE8h ;# ">
+"12882
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 12882: __asm("FSR0H_SHAD equ 0FE9h");
+[; <" FSR0H_SHAD equ 0FE9h ;# ">
+"12902
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 12902: __asm("FSR1L_SHAD equ 0FEAh");
+[; <" FSR1L_SHAD equ 0FEAh ;# ">
+"12922
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 12922: __asm("FSR1H_SHAD equ 0FEBh");
+[; <" FSR1H_SHAD equ 0FEBh ;# ">
+"12942
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 12942: __asm("STKPTR equ 0FEDh");
+[; <" STKPTR equ 0FEDh ;# ">
+"12962
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 12962: __asm("TOSL equ 0FEEh");
+[; <" TOSL equ 0FEEh ;# ">
+"12982
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 12982: __asm("TOSH equ 0FEFh");
+[; <" TOSH equ 0FEFh ;# ">
+"6 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 6: __eecpymem(volatile unsigned char *to, __eeprom unsigned char * from, unsigned char size)
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 6: }
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 6: 
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 6: 
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 6: }
+[v ___eecpymem `(v ~T0 @X0 1 ef3`*Vuc`*Euc`uc ]
+"7
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 7: {
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 7: 
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 7: unsigned int
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 7: 
+{
+[e :U ___eecpymem ]
+"6
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 6: __eecpymem(volatile unsigned char *to, __eeprom unsigned char * from, unsigned char size)
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 6: }
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 6: 
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 6: 
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 6: }
+[v _to `*Vuc ~T0 @X0 1 r1 ]
+[v _from `*Euc ~T0 @X0 1 r2 ]
+[v _size `uc ~T0 @X0 1 r3 ]
+"7
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 7: {
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 7: 
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 7: unsigned int
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 7: 
+[f ]
+"8
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 8:  volatile unsigned char *cp = to;
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 8: __itoee(__eeprom void *addr, unsigned int data)
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 8: double
+[v _cp `*Vuc ~T0 @X0 1 a ]
+[e = _cp _to ]
+"22
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 22:  while (NVMCON1bits.WR) {
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 22: 
+[e $U 661  ]
+[e :U 662 ]
+{
+"23
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 23:   continue;
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 23: double
+[e $U 661  ]
+"24
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 24:  }
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 24: __fltoee(__eeprom void *addr, double data)
+}
+[e :U 661 ]
+"22
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 22:  while (NVMCON1bits.WR) {
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 22: 
+[e $ != -> . . _NVMCON1bits 0 1 `i -> 0 `i 662  ]
+[e :U 663 ]
+"25
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 25:  NVMCON1bits.NVMREGS = 1;
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 25: {
+[e = . . _NVMCON1bits 0 6 -> -> 1 `i `uc ]
+"26
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 26:  NVMADRL = (unsigned char) from;
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 26:  __memcpyee(addr,(unsigned char *) &data,4);
+[e = _NVMADRL -> _from `uc ]
+"27
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 27:  NVMADRH = 0x70;
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 27:  return data;
+[e = _NVMADRH -> -> 112 `i `uc ]
+"28
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 28:  while (size--) {
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 28: }
+[e $U 664  ]
+[e :U 665 ]
+{
+"29
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 29:   NVMCON1bits.RD = 1;
+[e = . . _NVMCON1bits 0 0 -> -> 1 `i `uc ]
+"30
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 30:   *cp++ = NVMDATL;
+[e = *U ++ _cp * -> -> 1 `i `x -> -> # *U _cp `i `x _NVMDATL ]
+"31
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 31:   NVMADRL++;
+[e ++ _NVMADRL -> -> 1 `i `Vuc ]
+"32
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 32:  }
+}
+[e :U 664 ]
+"28
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 28:  while (size--) {
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 28: }
+[e $ != -> -- _size -> -> 1 `i `uc `i -> 0 `i 665  ]
+[e :U 666 ]
+"36
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 36: }
+[e :UE 660 ]
+}
+"39
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 39: __memcpyee(__eeprom unsigned char * to, const unsigned char *from, unsigned char size)
+[v ___memcpyee `(v ~T0 @X0 1 ef3`*Euc`*Cuc`uc ]
+"40
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 40: {
+{
+[e :U ___memcpyee ]
+"39
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 39: __memcpyee(__eeprom unsigned char * to, const unsigned char *from, unsigned char size)
+[v _to `*Euc ~T0 @X0 1 r1 ]
+[v _from `*Cuc ~T0 @X0 1 r2 ]
+[v _size `uc ~T0 @X0 1 r3 ]
+"40
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 40: {
+[f ]
+"41
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 41:  const unsigned char *ptr =from;
+[v _ptr `*Cuc ~T0 @X0 1 a ]
+[e = _ptr _from ]
+"69
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 69:  while (NVMCON1bits.WR) {
+[e $U 668  ]
+[e :U 669 ]
+{
+"70
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 70:   continue;
+[e $U 668  ]
+"71
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 71:  }
+}
+[e :U 668 ]
+"69
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 69:  while (NVMCON1bits.WR) {
+[e $ != -> . . _NVMCON1bits 0 1 `i -> 0 `i 669  ]
+[e :U 670 ]
+"72
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 72:  NVMCON1bits.NVMREGS = 1;
+[e = . . _NVMCON1bits 0 6 -> -> 1 `i `uc ]
+"73
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 73:  NVMADRL = (unsigned char) to - 1U;
+[e = _NVMADRL -> - -> -> _to `uc `ui -> 1 `ui `uc ]
+"74
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 74:  NVMADRH = 0x70;
+[e = _NVMADRH -> -> 112 `i `uc ]
+"75
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 75:  NVMDATH = 0;
+[e = _NVMDATH -> -> 0 `i `uc ]
+"76
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 76:  while (size--) {
+[e $U 671  ]
+[e :U 672 ]
+{
+"77
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 77:   while (NVMCON1bits.WR) {
+[e $U 674  ]
+[e :U 675 ]
+{
+"78
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 78:    continue;
+[e $U 674  ]
+"79
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 79:   }
+}
+[e :U 674 ]
+"77
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 77:   while (NVMCON1bits.WR) {
+[e $ != -> . . _NVMCON1bits 0 1 `i -> 0 `i 675  ]
+[e :U 676 ]
+"80
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 80:   NVMDATL = *ptr++;
+[e = _NVMDATL *U ++ _ptr * -> -> 1 `i `x -> -> # *U _ptr `i `x ]
+"81
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 81:   NVMADRL++;
+[e ++ _NVMADRL -> -> 1 `i `Vuc ]
+"82
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 82:   STATUSbits.CARRY = 0;
+[e = . . _STATUSbits 1 0 -> -> 0 `i `uc ]
+"83
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 83:   if (INTCONbits.GIE) {
+[e $ ! != -> . . _INTCONbits 0 3 `i -> 0 `i 677  ]
+{
+"84
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 84:    STATUSbits.CARRY = 1;
+[e = . . _STATUSbits 1 0 -> -> 1 `i `uc ]
+"85
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 85:   }
+}
+[e :U 677 ]
+"86
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 86:   NVMCON1bits.WREN = 1;
+[e = . . _NVMCON1bits 0 2 -> -> 1 `i `uc ]
+"87
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 87:   NVMCON2 = 0x55;
+[e = _NVMCON2 -> -> 85 `i `uc ]
+"88
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 88:   NVMCON2 = 0xAA;
+[e = _NVMCON2 -> -> 170 `i `uc ]
+"89
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 89:   NVMCON1bits.WR = 1;
+[e = . . _NVMCON1bits 0 1 -> -> 1 `i `uc ]
+"90
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 90:   while (NVMCON1bits.WR) {
+[e $U 678  ]
+[e :U 679 ]
+{
+"91
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 91:    continue;
+[e $U 678  ]
+"92
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 92:   }
+}
+[e :U 678 ]
+"90
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 90:   while (NVMCON1bits.WR) {
+[e $ != -> . . _NVMCON1bits 0 1 `i -> 0 `i 679  ]
+[e :U 680 ]
+"93
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 93:   NVMCON1bits.WREN = 0;
+[e = . . _NVMCON1bits 0 2 -> -> 0 `i `uc ]
+"94
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 94:   if (STATUSbits.CARRY) {
+[e $ ! != -> . . _STATUSbits 1 0 `i -> 0 `i 681  ]
+{
+"95
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 95:    INTCONbits.GIE = 1;
+[e = . . _INTCONbits 0 3 -> -> 1 `i `uc ]
+"96
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 96:   }
+}
+[e :U 681 ]
+"97
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 97:  }
+}
+[e :U 671 ]
+"76
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 76:  while (size--) {
+[e $ != -> -- _size -> -> 1 `i `uc `i -> 0 `i 672  ]
+[e :U 673 ]
+"101
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 101: }
+[e :UE 667 ]
+}
+"104
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 104: __eetoc(__eeprom void *addr)
+[v ___eetoc `(uc ~T0 @X0 1 ef1`*Ev ]
+"105
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 105: {
+{
+[e :U ___eetoc ]
+"104
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 104: __eetoc(__eeprom void *addr)
+[v _addr `*Ev ~T0 @X0 1 r1 ]
+"105
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 105: {
+[f ]
+"106
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 106:  unsigned char data;
+[v _data `uc ~T0 @X0 1 a ]
+"107
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 107:  __eecpymem((unsigned char *) &data,addr,1);
+[e ( ___eecpymem (3 , , -> &U _data `*Vuc -> _addr `*Euc -> -> 1 `i `uc ]
+"108
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 108:  return data;
+[e ) _data ]
+[e $UE 682  ]
+"109
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 109: }
+[e :UE 682 ]
+}
+"112
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 112: __eetoi(__eeprom void *addr)
+[v ___eetoi `(ui ~T0 @X0 1 ef1`*Ev ]
+"113
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 113: {
+{
+[e :U ___eetoi ]
+"112
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 112: __eetoi(__eeprom void *addr)
+[v _addr `*Ev ~T0 @X0 1 r1 ]
+"113
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 113: {
+[f ]
+"114
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 114:  unsigned int data;
+[v _data `ui ~T0 @X0 1 a ]
+"115
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 115:  __eecpymem((unsigned char *) &data,addr,2);
+[e ( ___eecpymem (3 , , -> -> &U _data `*uc `*Vuc -> _addr `*Euc -> -> 2 `i `uc ]
+"116
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 116:  return data;
+[e ) _data ]
+[e $UE 683  ]
+"117
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c: 117: }
+[e :UE 683 ]
+}
+"119
+[p k ]
+"120
+[p n 2040 ]
+"122
+[v ___eetom `(um ~T0 @X0 1 ef1`*Ev ]
+"123
+{
+[e :U ___eetom ]
+"122
+[v _addr `*Ev ~T0 @X0 1 r1 ]
+"123
+[f ]
+"124
+[v _data `um ~T0 @X0 1 a ]
+"125
+[e ( ___eecpymem (3 , , -> -> &U _data `*uc `*Vuc -> _addr `*Euc -> -> 3 `i `uc ]
+"126
+[e ) _data ]
+[e $UE 684  ]
+"127
+[e :UE 684 ]
+}
+"128
+[p o ]
+"131
+[v ___eetol `(ul ~T0 @X0 1 ef1`*Ev ]
+"132
+{
+[e :U ___eetol ]
+"131
+[v _addr `*Ev ~T0 @X0 1 r1 ]
+"132
+[f ]
+"133
+[v _data `ul ~T0 @X0 1 a ]
+"134
+[e ( ___eecpymem (3 , , -> -> &U _data `*uc `*Vuc -> _addr `*Euc -> -> 4 `i `uc ]
+"135
+[e ) _data ]
+[e $UE 685  ]
+"136
+[e :UE 685 ]
+}
+"138
+[p k ]
+"139
+[p n 1516 ]
+"141
+[v ___eetoo `(uo ~T0 @X0 1 ef1`*Ev ]
+"142
+{
+[e :U ___eetoo ]
+"141
+[v _addr `*Ev ~T0 @X0 1 r1 ]
+"142
+[f ]
+"143
+[v _data `uo ~T0 @X0 1 a ]
+"144
+[e ( ___eecpymem (3 , , -> -> &U _data `*uc `*Vuc -> _addr `*Euc -> -> 8 `i `uc ]
+"145
+[e ) _data ]
+[e $UE 686  ]
+"146
+[e :UE 686 ]
+}
+"147
+[p o ]
+"150
+[v ___ctoee `(uc ~T0 @X0 1 ef2`*Ev`uc ]
+"151
+{
+[e :U ___ctoee ]
+"150
+[v _addr `*Ev ~T0 @X0 1 r1 ]
+[v _data `uc ~T0 @X0 1 r2 ]
+"151
+[f ]
+"152
+[e ( ___memcpyee (3 , , -> _addr `*Euc -> &U _data `*Cuc -> -> 1 `i `uc ]
+"153
+[e ) _data ]
+[e $UE 687  ]
+"154
+[e :UE 687 ]
+}
+"157
+[v ___itoee `(ui ~T0 @X0 1 ef2`*Ev`ui ]
+"158
+{
+[e :U ___itoee ]
+"157
+[v _addr `*Ev ~T0 @X0 1 r1 ]
+[v _data `ui ~T0 @X0 1 r2 ]
+"158
+[f ]
+"159
+[e ( ___memcpyee (3 , , -> _addr `*Euc -> -> &U _data `*uc `*Cuc -> -> 2 `i `uc ]
+"160
+[e ) _data ]
+[e $UE 688  ]
+"161
+[e :UE 688 ]
+}
+"163
+[p k ]
+"164
+[p n 2040 ]
+"166
+[v ___mtoee `(um ~T0 @X0 1 ef2`*Ev`um ]
+"167
+{
+[e :U ___mtoee ]
+"166
+[v _addr `*Ev ~T0 @X0 1 r1 ]
+[v _data `um ~T0 @X0 1 r2 ]
+"167
+[f ]
+"168
+[e ( ___memcpyee (3 , , -> _addr `*Euc -> -> &U _data `*uc `*Cuc -> -> 3 `i `uc ]
+"169
+[e ) _data ]
+[e $UE 689  ]
+"170
+[e :UE 689 ]
+}
+"171
+[p o ]
+"174
+[v ___ltoee `(ul ~T0 @X0 1 ef2`*Ev`ul ]
+"175
+{
+[e :U ___ltoee ]
+"174
+[v _addr `*Ev ~T0 @X0 1 r1 ]
+[v _data `ul ~T0 @X0 1 r2 ]
+"175
+[f ]
+"176
+[e ( ___memcpyee (3 , , -> _addr `*Euc -> -> &U _data `*uc `*Cuc -> -> 4 `i `uc ]
+"177
+[e ) _data ]
+[e $UE 690  ]
+"178
+[e :UE 690 ]
+}
+"180
+[p k ]
+"181
+[p n 1516 ]
+"183
+[v ___otoee `(uo ~T0 @X0 1 ef2`*Ev`uo ]
+"184
+{
+[e :U ___otoee ]
+"183
+[v _addr `*Ev ~T0 @X0 1 r1 ]
+[v _data `uo ~T0 @X0 1 r2 ]
+"184
+[f ]
+"185
+[e ( ___memcpyee (3 , , -> _addr `*Euc -> -> &U _data `*uc `*Cuc -> -> 8 `i `uc ]
+"186
+[e ) _data ]
+[e $UE 691  ]
+"187
+[e :UE 691 ]
+}
+"188
+[p o ]
+"191
+[v ___eetoft `(f ~T0 @X0 1 ef1`*Ev ]
+"192
+{
+[e :U ___eetoft ]
+"191
+[v _addr `*Ev ~T0 @X0 1 r1 ]
+"192
+[f ]
+"193
+[v _data `f ~T0 @X0 1 a ]
+"194
+[e ( ___eecpymem (3 , , -> -> &U _data `*uc `*Vuc -> _addr `*Euc -> -> 3 `i `uc ]
+"195
+[e ) _data ]
+[e $UE 692  ]
+"196
+[e :UE 692 ]
+}
+"199
+[v ___eetofl `(d ~T0 @X0 1 ef1`*Ev ]
+"200
+{
+[e :U ___eetofl ]
+"199
+[v _addr `*Ev ~T0 @X0 1 r1 ]
+"200
+[f ]
+"201
+[v _data `d ~T0 @X0 1 a ]
+"202
+[e ( ___eecpymem (3 , , -> -> &U _data `*uc `*Vuc -> _addr `*Euc -> -> 4 `i `uc ]
+"203
+[e ) _data ]
+[e $UE 693  ]
+"204
+[e :UE 693 ]
+}
+"207
+[v ___fttoee `(f ~T0 @X0 1 ef2`*Ev`f ]
+"208
+{
+[e :U ___fttoee ]
+"207
+[v _addr `*Ev ~T0 @X0 1 r1 ]
+[v _data `f ~T0 @X0 1 r2 ]
+"208
+[f ]
+"209
+[e ( ___memcpyee (3 , , -> _addr `*Euc -> -> &U _data `*uc `*Cuc -> -> 3 `i `uc ]
+"210
+[e ) _data ]
+[e $UE 694  ]
+"211
+[e :UE 694 ]
+}
+"214
+[v ___fltoee `(d ~T0 @X0 1 ef2`*Ev`d ]
+"215
+{
+[e :U ___fltoee ]
+"214
+[v _addr `*Ev ~T0 @X0 1 r1 ]
+[v _data `d ~T0 @X0 1 r2 ]
+"215
+[f ]
+"216
+[e ( ___memcpyee (3 , , -> _addr `*Euc -> -> &U _data `*uc `*Cuc -> -> 4 `i `uc ]
+"217
+[e ) _data ]
+[e $UE 695  ]
+"218
+[e :UE 695 ]
+}

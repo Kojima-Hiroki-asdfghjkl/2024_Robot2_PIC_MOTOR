@@ -1,0 +1,2277 @@
+Disassembly Listing for 18313_I2C_PWM_2024_3
+Generated From:
+C:/Users/kojim/MPLABXProjects/18313_I2C_PWM_2024_3.X/dist/default/debug/18313_I2C_PWM_2024_3.X.debug.elf
+2024/10/03 0:10:14
+
+---  C:/Users/kojim/MPLABXProjects/18313_I2C_PWM_2024_3.X/newmain.c  ------------------------------------
+1:             /*
+2:              * File:   newmain.c
+3:              * Author: kojim
+4:              *
+5:              * Created on 2024/05/16, 22:28
+6:              */
+7:             
+8:             
+9:             /*
+10:             * メモ
+11:             * 方向切り替え中の動作について
+12:             * 現状態ではオーバードライブを行っていない物とする
+13:             * 方向切り替え間に受信したタイミングでオーバードライブカウントフラグを代入する
+14:             * その後，オンフラグを立てる
+15:             * 方向切り替えが完了したタイミングでフラグの2ビット目がたって動作を開始する
+16:             * 
+17:             * 次に，現状態で働いている場合
+18:             * 受信したタイミングでオーバードライブカウントフラグを代入する．
+19:             * その後オンフラグを立てる
+20:             * 方向切り替え中は方向切り替えフラグを監視して完了するまで2ビット目を立てないことで動作を行わないようにする
+21:             * 上の状態ではオンフラグを消さない
+22:             * 方向切り替えが完了してフラグが消えた場合，かつ，台形制御の増加が開始した場合にオーバードライブを開始する．
+23:             * 
+24:             * オーバードライブ動作中にデューティー比減少の命令が来た場合
+25:             * まず，逆転の場合にもデューティー比が減少する
+26:             * この場合でも動作するような物にしなければならない
+27:             * 
+28:             * それで，オンビットを取り消すのは停止命令（デューティー比0が入力されたとき，ブレーキ命令が入力されたとき，モーターオフ命令が入力されたとき）に行う物とする
+29:             * 自動で取り消されるタイミングはオーバードライブが完了したタイミングとなる．
+30:             * 
+31:             * 上の物に従ってプログラムを作成する．
+32:             * 
+33:             */
+34:            
+35:            // PIC16F18313 Configuration Bit Settings
+36:            
+37:            // 'C' source line config statements
+38:            
+39:            // CONFIG1
+40:            #pragma config FEXTOSC = OFF    // FEXTOSC External Oscillator mode Selection bits (Oscillator not enabled)
+41:            #pragma config RSTOSC = HFINT32 // Power-up default value for COSC bits (HFINTOSC with 2x PLL (32MHz))
+42:            #pragma config CLKOUTEN = OFF   // Clock Out Enable bit (CLKOUT function is disabled; I/O or oscillator function on OSC2)
+43:            #pragma config CSWEN = OFF      // Clock Switch Enable bit (The NOSC and NDIV bits cannot be changed by user software)
+44:            #pragma config FCMEN = OFF      // Fail-Safe Clock Monitor Enable (Fail-Safe Clock Monitor is disabled)
+45:            
+46:            // CONFIG2
+47:            #pragma config MCLRE = OFF      // Master Clear Enable bit (MCLR/VPP pin function is digital input; MCLR internally disabled; Weak pull-up under control of port pin's WPU control bit.)
+48:            #pragma config PWRTE = ON       // Power-up Timer Enable bit (PWRT enabled)
+49:            #pragma config WDTE = OFF       // Watchdog Timer Enable bits (WDT disabled; SWDTEN is ignored)
+50:            #pragma config LPBOREN = OFF    // Low-power BOR enable bit (ULPBOR disabled)
+51:            #pragma config BOREN = OFF      // Brown-out Reset Enable bits (Brown-out Reset disabled)
+52:            #pragma config BORV = LOW       // Brown-out Reset Voltage selection bit (Brown-out voltage (Vbor) set to 2.45V)
+53:            #pragma config PPS1WAY = ON     // PPSLOCK bit One-Way Set Enable bit (The PPSLOCK bit can be cleared and set only once; PPS registers remain locked after one clear/set cycle)
+54:            #pragma config STVREN = ON      // Stack Overflow/Underflow Reset Enable bit (Stack Overflow or Underflow will cause a Reset)
+55:            #pragma config DEBUG = OFF      // Debugger enable bit (Background debugger disabled)
+56:            
+57:            // CONFIG3
+58:            #pragma config WRT = OFF        // User NVM self-write protection bits (Write protection off)
+59:            #pragma config LVP = OFF        // Low Voltage Programming Enable bit (HV on MCLR/VPP must be used for programming.)
+60:            //RA3を入力として使用するために、これをオフにする必要がある。
+61:            
+62:            // CONFIG4
+63:            #pragma config CP = OFF         // User NVM Program Memory Code Protection bit (User NVM code protection disabled)
+64:            #pragma config CPD = OFF        // Data NVM Memory Code Protection bit (Data NVM code protection disabled)
+65:            
+66:            // #pragma config statements should precede project file includes.
+67:            // Use project enums instead of #define for ON and OFF.
+68:            
+69:            
+70:            #include <xc.h>
+71:            #define _XTAL_FREQ 32000000
+72:            /*
+73:             * ピンアサイン
+74:             * 0:PWM_ch1,1/PWM3
+75:             * 1:PWm_ch1,2/PWM4
+76:             * 2:I2C_SDA
+77:             * 3:I2C_SCL
+78:             * 4:PWM_ch2,1/PWM5
+79:             * 5;PWM_cH2,2/PWM6
+80:             */
+81:            
+82:            /*
+83:             * コメント
+84:             * このプログラムは元々16F886用に作成したものを流用しています．
+85:             * すべての部分に手を入れてあるので動きますが，せつめいが所々変です．
+86:             * 直す元気がなかったからです．
+87:             * これは16F15313用に書いてますが，16F18313用に書き換えたかったらPWM3とPWM4の部分をCCP1,CCP2に変更
+88:             * デューティー比設定用にCCPRxL,Hを左詰にしてPPSを書き換えたら動くと思います．(もちろんほかの設定用のレジスタはいじるけど)
+89:             */
+90:            
+91:            //I2C---------------------------------------------------------------------------
+92:            
+93:            #define I2C_ADD 0x12//9
+94:            
+95:            char I2C_BUFF = 0;
+96:            char I2C_SEND = 0;
+97:            char I2C_COUNT = 0;
+98:            char I2C_ORDER = 0;
+99:            
+100:           //MAIN
+101:           /*
+102:            * 
+103:            * 命令の仕様として命令とデータを使用して通信を行う
+104:            * 別のマイコンからこのマイコンに対してデータが送られてくる場合
+105:            * 命令バイトの最上位ビットは0とする
+106:            * ２バイト：まず、命令バイトを入力した後に、それに対応するデータが来る
+107:            * １バイト：命令だけで動作が決まるものはこれで動作を行う
+108:            * 
+109:            * 別のマイコンに対してデータを送信する場合(使いそうなら送信部分のプログラムも書く)
+110:            * 命令バイトの最上位ビットは1とする
+111:            * まず命令を受信してからマスターはアドレスを送信するときに受信にする
+112:            * その後、このマイコンが先ほどの命令に対応したデータを送信する
+113:            * 
+114:            * 命令の連続受信はマスターがRSENを送り連続的に処理する方法をとる（仮）
+115:            * 
+116:            */
+117:           
+118:           
+119:           //以下命令のマクロ
+120:           //左側のモーターに対する命令
+121:           //#define MOTOR_L_DUTY 0x10//デューティー比を変更させるための命令
+122:           //#define MOTOR_L_FOR  0x11//正転させるための命令
+123:           //#define MOTOR_L_REV  0x12//逆転させるための命令
+124:           //
+125:           ////右側のモーターに対する命令
+126:           //#define MOTOR_R_DUTY 0x13//デューティー比を変更させるための命令
+127:           //#define MOTOR_R_FOR  0x14//正転させるための命令
+128:           //#define MOTOR_R_REV  0x15//逆転させるための命令
+129:           
+130:           //テスト用の命令
+131:           //左側のモーターに対する命令
+132:           #define MOTOR_L_DUTY 'A'//デューティー比を変更させるための命令
+133:           #define MOTOR_L_FOR  'B'//正転させるための命令
+134:           #define MOTOR_L_REV  'C'//逆転させるための命令
+135:           
+136:           //右側のモーターに対する命令
+137:           #define MOTOR_R_DUTY 'D'//デューティー比を変更させるための命令
+138:           #define MOTOR_R_FOR  'E'//正転させるための命令
+139:           #define MOTOR_R_REV  'F'//逆転させるための命令
+140:           
+141:           //ブレーキ開始の動作
+142:           #define MOTOR_L_STOP 'G'//左側のブレーキ
+143:           #define MOTOR_R_STOP 'H'//右側
+144:           
+145:           //すべての出力を0にする命令
+146:           #define MOTOR_L_OFF  'I'
+147:           #define MOTOR_R_OFF  'J'
+148:           
+149:           #define CHANGE_ODD 'X'//オーバードライブのデューティー比を変更するこまんど
+150:           
+151:           
+152:           //MOTOR-------------------------------------------------------------------------
+153:           /*
+154:            * もちろん台形制御もしたいし、デッドタイムも入れる必要がある
+155:            * タイマー2はPWMで使用されているからそれをうまく使用してデッドタイムと台形制御を入れる
+156:            * 
+157:            * モーターの制御の方法として、デューティー比0にセットされて台形制御が完了した場合に自動的にモーターの回転方向をリセットする
+158:            * 台形制御でモーターを停止しているときに逆方向の信号が入ってきた場合にはそれに対応するフラグをセットする。
+159:            * 逆方向の信号を受信した後にデューティー比を変更する命令が入ってきたときはそれを一時的に保存して一度モーターが停止したタイミングで受信したデューティー比に台形制御する
+160:            * とりあえずそれで書いていく
+161:            * 
+162:            * PWMは基本8BITで使用する（そのため255をセットしても若干出力がLoの時間がある)
+163:            * ブレーキを使用するときは10bitの値を全部1でうめてLoが出ないようにする．
+164:            * ブレーキを解除するときに最下位ビットの1をクリアするのを忘れないこと
+165:            * 
+166:            */
+167:           
+168:           
+169:           //台形制御用変数
+170:           short DUTY_L_NOW = 0;//台形制御時に減算すると0より小さくなりいきなりMAXになるのを防止するため
+171:           //現在のPWMのデューティー比はCCPのレジスタを参照のこと
+172:           char DUTY_L_TARGET = 0;//台形制御用の目標値を格納
+173:           char DUTY_L_KEEP = 0;//逆回転を行うときにデューティー比を格納するために使用
+174:           
+175:           short DUTY_R_NOW = 0;
+176:           char DUTY_R_TARGET = 0;
+177:           char DUTY_R_KEEP = 0;
+178:           
+179:           
+180:           //台形制御用パラメータ
+181:           #define DUTY_UP 5//一回の台形制御で上がるデューティー比
+182:           #define DUTY_DOWN 5//下がる
+183:           
+184:           
+185:           //#define DUTY_COUNT_UP 0x7C
+186:           //#define DUTY_COUNT_DOWN 0x7C
+187:           //↑実際に使用する台形制御用遅延時間
+188:           
+189:           #define DUTY_COUNT_UP 0xFF
+190:           #define DUTY_COUNT_DOWN 0xFF
+191:           //TEST
+192:           
+193:           //#define DUTY_COUNT_UP 0xFF
+194:           //#define DUTY_COUNT_DOWN 0xFF
+195:           //↑カウントを行わないですぐに台形制御を行う場合
+196:           //#define DUTY_COUNT_UP 0x7E
+197:           //#define DUTY_COUNT_DOWN 0x7E
+198:           //↑カウントを行ってから台形制御を行う場合(カウント2回する)
+199:           //上のマクロはタイマー割込み何回に一回台形制御を行うかのマクロ
+200:           //7:台形制御を行うかカウントを行うか(1:台形制御を行う 0:カウントを行う)
+201:           //0の場合カウントが行われるが、カウントが終了すると最上位ビットが1になる。この時台形制御が行われる
+202:           
+203:           char DUTY_COUNT_L = 0;
+204:           char DUTY_COUNT_R = 0;
+205:           //この変数は台形制御を行う間隔をカウントするための変数
+206:           
+207:           
+208:           //PWM管理用変数
+209:           char PWM_FLAG1 = 0;//色々なフラグを格納する
+210:           //LCH
+211:           //3:L,増加 2:L,減少 1:L,0フラグ 0:L,方向切り替え中
+212:           //RCHは7~4で↑のLをRと読み替えて書く
+213:           
+214:           char PWM_FLAG2 = 0;
+215:           //3:LCHのPWMのデューティー比が0になり、逆転するためのフラグが立っている場合に逆転させる方向を決める(1:逆転 0:正転)
+216:           //2:ブレーキ動作を行う。これが1のときにデューティー比が0になるとブレーキがかかるようになる。ちなみに、これが1だと上のビットは無視される。
+217:           //RCHは7~4で↑のLをRと読み替えて書く
+218:           
+219:           char PWM_OUTPUT_FLAG = 0;
+220:           //2:L,ブレーキ 1:L,逆転 0:L,正転
+221:           //RCHは7~4で↑のLをRと読み替えて書く
+222:           
+223:           //PWMの出力ピンを把握するためにつかう変数を扱いやすくするためにするデファイン
+224:           #define MOTOR_1_A 0x01
+225:           #define NOT_MOTOR_1_A 0xFE
+226:           #define MOTOR_1_B 0x02
+227:           #define NOT_MOTOR_1_B 0xFD
+228:           //ブレーキ動作
+229:           #define MOTOR_1_BRAKE 0x04
+230:           #define NOT_MOTOR_1_BRAKE 0xFB
+231:           //ストップ動作
+232:           #define NOT_MOTOR_1_STOP 0xFC
+233:           
+234:           #define MOTOR_2_A 0x10
+235:           #define NOT_MOTOR_2_A 0xEF
+236:           #define MOTOR_2_B 0x20
+237:           #define NOT_MOTOR_2_B 0xDF
+238:           //ブレーキ動作
+239:           #define MOTOR_2_BRAKE 0x40
+240:           #define NOT_MOTOR_2_BRAKE 0xBF
+241:           //ストップ動作
+242:           #define NOT_MOTOR_2_STOP 0xCF
+243:           
+244:           //デッドタイム
+245:           /*
+246:            * デッドタイムは以下のように動作させる
+247:            * まず、カウンタ用の変数がある。
+248:            * タイマーを動作させる場合は最上位ビットを1にする必要がある
+249:            * 1の場合はカウンタが増加するようになる
+250:            * オーバーフローするとすべて0になる。
+251:            * この方法をとると最大値が128になる
+252:            * さらにもう一つの変数を使用して、その後の動作を決定する。
+253:            */
+254:           
+255:           //現在値
+256:           #define DEAD_TIME 0xFF//0b1111 1110
+257:           //20MHz 1:16 専用
+258:           
+259:           //2回でデッドタイム終了(内部発振専用)
+260:           //データシートに書かれているデッドタイムの時間を満たすことができるようにする(0.1ms)
+261:           
+262:           char DEAD_TIME_L = 0;
+263:           //7:デッドタイムカウンタ動作ビット(1:動作 0:待機) 6~0カウンタ
+264:           char DEAD_TIME_R = 0;
+265:           char DEAD_TIME_FLAG = 0;
+266:           //デッドタイムのフラグ
+267:           //3:Lのデッドタイムがオンの状態 2:PWMストップフラグ 1:デッドタイムのカウントが終了したときにブレーキ状態に移行する 0:ポート操作ビット（1:デッドタイムが終了した場合にポートを逆転(B)の状態にする 0:デッドタイムが終了した場合にポートを正転(A)の状態にする
+268:           //7~4:↑の物をRに置き換えたもの
+269:           
+270:           /*
+271:            * PWMストップフラグに対しての説明
+272:            * これはデューティー比が0のときに1にするとPWMの計算がスキップされて動作しなくなるもの。なので、デューティー比が0じゃない場合は手動で様々な変数をリセットし、CCPRxLレジスタに0を入れる必要がある。
+273:            * そうすると、デューティー比が自由に変更できるようになる
+274:            * 
+275:            *  
+276:            * PWMのデューティー比を0にするとモーターの出力が0になることについての補足
+277:            * これは↑の動作で問題ない。現在のデューティー比が0のときでも動作する。←これも問題ない
+278:            * 何が問題化というと、台形制御に使うカウントの時間はポートが変化しないため、この時間が空くことが問題である。
+279:            * そのため、モーターの出力をなしにする命令を追加する。
+280:            * 
+281:            * ブレーキ動作についての補足説明
+282:            * オシロで見たらデューティー比100%の時でも若干LOの時間がある
+283:            * 気に食わないのでPPSをいじってLATで動作させることにする
+284:            * 面倒なのでPPS1WAYをオフにする
+285:            */
+286:           
+287:           
+288:           /*
+289:            * スタート時モーターが始動しない可能性があるため始動時に一瞬だけデューティー比を大きく（オーバードライブ）して始動させる方法をとる．
+290:            * まぁモーターが調子悪いのでどうだろうね
+291:            */
+292:           
+293:           char PWM_OVD_DUTY = 128;//ボーバードライブのデューティー比
+294:           #define PWM_OVD_TIME 200  //カウンタ代入用
+295:           //上のマクロはタイマー割込み何回でスタート時のオーバードライブを停止させるかのマクロ
+296:           //動作させたい回数をそのまま指定する．0になったら自動で停止する
+297:           //0の場合カウントが行われオーバードライブが働くが、カウントが終了すると最上位ビットが1になり停止する。
+298:           
+299:           char PWM_L_OVD_COUNT = 0;//カウンタ用変数
+300:           char PWM_R_OVD_COUNT = 0;
+301:           
+302:           char PWM3DCH_BUFF = 0;//PWMデューティー比格納用変数．コレを使用することでオーバードライブ時のデータ入力時等の誤動作を防ぐ
+303:           char PWM4DCH_BUFF = 0;
+304:           char PWM5DCH_BUFF = 0;
+305:           char PWM6DCH_BUFF = 0;
+306:           
+307:           char PWM_OVD_FLAG = 0;
+308:           //PWMオーバードライブ用フラグ格納変数
+309:           //CH_L
+310:           //1:確実に始動時のみ1になる変数0:オーバードライブを実行するか．このフラグは完了すると自動的にクリアされる．
+311:           //CH_R
+312:           //4:うえとおなじ
+313:           
+314:           #define OVD_EN_1 0x01
+315:           #define OVD_ON_1 0x02
+316:           
+317:           #define OVD_EN_2 0x10
+318:           #define OVD_ON_2 0x20
+319:           
+320:           
+321:           //スロースタートモード
+322:           
+323:           #define OVD_EN_1 0x01
+324:           #define OVD_ON_1 0x02
+325:           
+326:           #define OVD_EN_2 0x10
+327:           #define OVD_ON_2 0x20
+328:           
+329:           
+330:           //移植用(PIC 16F15313 > PIC 16F18313)
+331:           //レジスタを置き換えることすら面倒というか，付け足せるようにマクロしておく
+332:           #define PWM3DCH CCPR1H
+333:           #define PWM3DCL CCPR1L
+334:           #define PWM4DCH CCPR2H
+335:           #define PWM4DCL CCPR2L
+336:           
+337:           #define CH1_1_PPS 0b01100//CCP1
+338:           #define CH1_2_PPS 0b01101//CCP2
+339:           #define CH2_1_PPS 0b00010//PWM5
+340:           #define CH2_2_PPS 0b00011//PWM6
+341:           #define PPS_LATXY 0
+342:           
+343:           void main(void) {
+344:               //PORT SETTING--------------------------------------------------------------
+345:               TRISA = 0x0C;
+0457  300C     MOVLW 0xC
+0458  0021     MOVLB 0x1
+0459  008C     MOVWF TRISA
+346:               ANSELA = 0x00;
+045A  0023     MOVLB 0x3
+045B  018C     CLRF ANSELA
+347:               LATA = 0x33;
+045C  3033     MOVLW 0x33
+045D  0022     MOVLB 0x2
+045E  008C     MOVWF LATA
+348:               
+349:               //PPS SETTING---------------------------------------------------------------
+350:               //I2C
+351:               RA2PPS = 0b11001;//SDA
+045F  3019     MOVLW 0x19
+0460  003D     MOVLB 0x1D
+0461  0092     MOVWF RA2PPS
+352:               SSP1DATPPS = 2;//RA2
+0462  3002     MOVLW 0x2
+0463  003C     MOVLB 0x1C
+0464  00A1     MOVWF SSP1DATPPS
+353:               SSP1CLKPPS = 3;//RA3
+0465  3003     MOVLW 0x3
+0466  00A0     MOVWF SSP1CLKPPS
+354:               
+355:               //PWM
+356:               RA0PPS = CH1_1_PPS;
+0467  300C     MOVLW 0xC
+0468  003D     MOVLB 0x1D
+0469  0090     MOVWF RA0PPS
+357:               RA1PPS = CH1_2_PPS;
+046A  300D     MOVLW 0xD
+046B  0091     MOVWF RA1PPS
+358:               RA4PPS = CH2_1_PPS;
+046C  3002     MOVLW 0x2
+046D  0094     MOVWF RA4PPS
+359:               RA5PPS = CH2_2_PPS;
+046E  3003     MOVLW 0x3
+046F  0095     MOVWF RA5PPS
+360:               
+361:               //INT SETTING---------------------------------------------------------------
+362:               INTCON = 0xC0;
+0470  30C0     MOVLW 0xC0
+0471  008B     MOVWF INTCON
+363:               PIE1 = 0x0A;//SSP1IE TMR2IE
+0472  300A     MOVLW 0xA
+0473  0021     MOVLB 0x1
+0474  0091     MOVWF PIE1
+364:               
+365:               //MSSP SETTING--------------------------------------------------------------
+366:               //I2C_7BITADD
+367:               SSP1STAT = 0b10000000;
+0475  3080     MOVLW 0x80
+0476  0024     MOVLB 0x4
+0477  0094     MOVWF SSP1STAT
+368:               SSP1CON1 = 0b00110110;
+0478  3036     MOVLW 0x36
+0479  0095     MOVWF SSP1CON1
+369:               SSP1CON2 = 0x00;
+047A  0196     CLRF SSP1CON2
+370:               SSP1CON3 = 0x00;
+047B  0197     CLRF SSP1CON3
+371:               SSP1MSK = 0xFE;
+047C  30FE     MOVLW 0xFE
+047D  0093     MOVWF SSP1MSK
+372:               SSP1ADD = I2C_ADD;
+047E  3012     MOVLW 0x12
+047F  0092     MOVWF SSP1ADD
+373:               
+374:               //TIMER2 SETTING------------------------------------------------------------
+375:               //ここの部分はテストしてもらう
+376:               T2CON = 0b00000110;//POST1:1 PRE1:16
+0480  3006     MOVLW 0x6
+0481  0020     MOVLB 0x0
+0482  009F     MOVWF T2CON
+377:               PR2 = 0xFF;
+0483  30FF     MOVLW 0xFF
+0484  009E     MOVWF PR2
+378:               
+379:               //PWM SETTING---------------------------------------------------------------
+380:               //PWM5
+381:               PWM5CON = 0x80;
+0485  3080     MOVLW 0x80
+0486  002C     MOVLB 0xC
+0487  0099     MOVWF PWM5CON
+382:               PWM5DCH = 0x00;
+0488  0198     CLRF PWM5DCH
+383:               PWM5DCL = 0x00;
+0489  0197     CLRF PWM5DCL
+384:               
+385:               //PWM6
+386:               PWM6CON = 0x80;
+048A  3080     MOVLW 0x80
+048B  009C     MOVWF PWM6CON
+387:               PWM6DCH = 0x00;
+048C  019B     CLRF PWM6DCH
+388:               PWM6DCL = 0x00;
+048D  019A     CLRF PWM6DCL
+389:               
+390:               //CCP SETTING---------------------------------------------------------------
+391:               //CCP1
+392:               CCP1CON = 0x9F;
+048E  309F     MOVLW 0x9F
+048F  0025     MOVLB 0x5
+0490  0093     MOVWF CCP1CON
+393:               CCPR1H = 0x00;
+0491  0192     CLRF CCPR1H
+394:               CCPR1L = 0x00;
+0492  0191     CLRF CCPR1
+395:               
+396:               //CCP2
+397:               CCP2CON = 0x9F;
+0493  309F     MOVLW 0x9F
+0494  0097     MOVWF CCP2CON
+398:               CCPR2H = 0x00;
+0495  0196     CLRF CCPR2H
+399:               CCPR2L = 0x00;
+0496  0195     CLRF CCPR2
+400:               
+401:               
+402:               while(1);
+0497  2C97     GOTO 0x497
+403:               return;
+404:           }
+405:           
+406:           void __interrupt() isr(void){
+0004  147E     BSF 0x2FE, 0x0
+0005  3180     MOVLP 0x0
+407:               if(SSP1IF){//MSSP INT
+0006  0020     MOVLB 0x0
+0007  1D91     BTFSS PIR1, 0x3
+0008  2A1E     GOTO 0x21E
+408:                   //動作の説明
+409:                   /*
+410:                    * まず、一番初めにアドレスを受信したときは受信・送信バイト数のカウントの変数をインクリメントする
+411:                    * はじめのバイトのデータは命令なのでそれをどこかの件数に保存する必要がある
+412:                    * このマイコンが書き込みの動作を行う場合は、前の命令を保持する必要があるため命令だけ削除しないようなプログラムとする
+413:                    */
+414:                   I2C_BUFF = SSP1BUF;
+0009  0024     MOVLB 0x4
+000A  0811     MOVF SSP1BUF, W
+000B  00FB     MOVWF 0x27B
+415:                   if(D_nA == 0){//アドレス受信のとき
+000C  1A94     BTFSC SSP1STAT, 0x5
+000D  2813     GOTO 0x13
+416:                       I2C_COUNT = 0;//カウントリセット
+000E  0020     MOVLB 0x0
+000F  01AD     CLRF I2C_COUNT
+417:                       if(R_nW == 0){
+0010  0024     MOVLB 0x4
+0011  1D14     BTFSS SSP1STAT, 0x2
+418:                           I2C_ORDER = 0;//命令リセット
+0012  01FA     CLRF 0x27A
+419:                       }
+420:                   }
+421:                   if(R_nW){//送信のとき
+0013  1D14     BTFSS SSP1STAT, 0x2
+422:                       
+423:                   }
+424:                   else if(D_nA){//データ受信のとき
+0014  1E94     BTFSS SSP1STAT, 0x5
+0015  2A19     GOTO 0x219
+425:                       if(I2C_COUNT == 0){//命令受信のとき
+0016  0020     MOVLB 0x0
+0017  082D     MOVF I2C_COUNT, W
+0018  1D03     BTFSS STATUS, 0x2
+0019  29B3     GOTO 0x1B3
+426:                           I2C_ORDER = I2C_BUFF;
+001A  087B     MOVF I2C_BUFF, W
+001B  00FA     MOVWF I2C_ORDER
+427:                           //ここから命令実行
+428:                           if(I2C_ORDER == MOTOR_L_FOR){//L 正転
+001C  3042     MOVLW 0x42
+001D  067A     XORWF I2C_ORDER, W
+001E  1D03     BTFSS STATUS, 0x2
+001F  285B     GOTO 0x5B
+429:                               //ブレーキ動作の場合の判定を書かなければいけない
+430:                               if(PWM_OUTPUT_FLAG & MOTOR_1_BRAKE){//現在ブレーキ動作の場合
+0020  1D76     BTFSS PWM_OUTPUT_FLAG, 0x2
+0021  2837     GOTO 0x37
+431:                                   RA0PPS = CH1_1_PPS;
+0022  300C     MOVLW 0xC
+0023  003D     MOVLB 0x1D
+0024  0090     MOVWF RA0PPS
+432:                                   RA1PPS = CH1_2_PPS;
+0025  300D     MOVLW 0xD
+0026  0091     MOVWF RA1PPS
+433:                                   PWM_OUTPUT_FLAG &= NOT_MOTOR_1_BRAKE;
+0027  30FB     MOVLW 0xFB
+0028  00FC     MOVWF 0xEFC
+0029  087C     MOVF 0xEFC, W
+002A  05F6     ANDWF 0xEF6, F
+434:                                   DEAD_TIME_FLAG &= 0xF8;
+002B  30F8     MOVLW 0xF8
+002C  00FC     MOVWF 0xEFC
+002D  087C     MOVF 0xEFC, W
+002E  05F5     ANDWF 0xEF5, F
+435:                                   DEAD_TIME_FLAG |= 0x08;
+002F  15F5     BSF 0xEF5, 0x3
+436:                                   DEAD_TIME_L = DEAD_TIME;
+0030  30FF     MOVLW 0xFF
+0031  0020     MOVLB 0x0
+0032  00A7     MOVWF DEAD_TIME_L
+437:                                   PWM_L_OVD_COUNT = PWM_OVD_TIME;
+0033  30C8     MOVLW 0xC8
+0034  00A5     MOVWF PWM_L_OVD_COUNT
+438:                                   PWM_OVD_FLAG |= OVD_EN_1;
+0035  1470     BSF PWM_OVD_FLAG, 0x0
+439:                               }
+0036  2A15     GOTO 0x215
+440:                               else if(PWM_OUTPUT_FLAG & MOTOR_1_B){//現在逆転動作の場合
+0037  1CF6     BTFSS PWM_OUTPUT_FLAG, 0x1
+0038  2849     GOTO 0x49
+441:                                   PWM_FLAG1 |= 0x07;
+0039  3007     MOVLW 0x7
+003A  00FC     MOVWF __pcstackCOMMON
+003B  087C     MOVF __pcstackCOMMON, W
+003C  04F7     IORWF PWM_FLAG1, F
+442:                                   PWM_FLAG1 &= 0xF7;
+003D  30F7     MOVLW 0xF7
+003E  00FC     MOVWF __pcstackCOMMON
+003F  087C     MOVF __pcstackCOMMON, W
+0040  05F7     ANDWF PWM_FLAG1, F
+443:                                   PWM_FLAG2 &= 0xF0;
+0041  30F0     MOVLW 0xF0
+0042  00FC     MOVWF __pcstackCOMMON
+0043  087C     MOVF __pcstackCOMMON, W
+0044  05A8     ANDWF PWM_FLAG2, F
+444:                                   DUTY_COUNT_L = DUTY_COUNT_DOWN;
+0045  30FF     MOVLW 0xFF
+0046  00AA     MOVWF DUTY_COUNT_L
+445:                                   DUTY_L_TARGET = 0;
+0047  01F9     CLRF DUTY_L_TARGET
+446:                                   PWM_L_OVD_COUNT = PWM_OVD_TIME;
+0048  2833     GOTO 0x33
+447:                                   PWM_OVD_FLAG |= OVD_EN_1;
+448:                               }
+449:                               else if(PWM_OUTPUT_FLAG & MOTOR_1_A){//現在正転している場合 (逆転キャンセル)
+0049  1C76     BTFSS PWM_OUTPUT_FLAG, 0x0
+004A  2850     GOTO 0x50
+450:                                   PWM_FLAG1 &= 0xF0;
+004B  30F0     MOVLW 0xF0
+004C  00FC     MOVWF __pcstackCOMMON
+004D  087C     MOVF __pcstackCOMMON, W
+004E  05F7     ANDWF PWM_FLAG1, F
+004F  2835     GOTO 0x35
+451:                                   PWM_OVD_FLAG |= OVD_EN_1;
+452:                                   
+453:                               }
+454:                               else{//残りの場合　この場合はどっちにも回転していない場合　デッドタイムを入れて回転させる
+455:                                   if(DEAD_TIME_L & 0x80){//デッドタイムのカウンタが作動中の場合にデッドタイムの動作のフラグを立てる
+0050  1FA7     BTFSS DEAD_TIME_L, 0x7
+0051  2858     GOTO 0x58
+456:                                       DEAD_TIME_FLAG |= 0x09;
+0052  3009     MOVLW 0x9
+0053  00FC     MOVWF __pcstackCOMMON
+0054  087C     MOVF __pcstackCOMMON, W
+0055  04F5     IORWF DEAD_TIME_FLAG, F
+457:                                       DEAD_TIME_FLAG &= 0xF9;
+0056  30F9     MOVLW 0xF9
+0057  2889     GOTO 0x89
+458:                                       PWM_L_OVD_COUNT = PWM_OVD_TIME;
+459:                                       PWM_OVD_FLAG |= OVD_EN_1;
+460:                                   }
+461:                                   else{
+462:                                       PWM_OUTPUT_FLAG |= MOTOR_1_A;
+0058  1476     BSF PWM_OUTPUT_FLAG, 0x0
+463:                                       DEAD_TIME_L = DEAD_TIME;
+0059  30FF     MOVLW 0xFF
+005A  2832     GOTO 0x32
+464:                                       PWM_L_OVD_COUNT = PWM_OVD_TIME;
+465:                                       PWM_OVD_FLAG |= OVD_EN_1;
+466:                                   }
+467:                               }
+468:                           }
+469:                           else if(I2C_ORDER == MOTOR_L_REV){//{L 逆転
+005B  3043     MOVLW 0x43
+005C  067A     XORWF I2C_ORDER, W
+005D  1D03     BTFSS STATUS, 0x2
+005E  288F     GOTO 0x8F
+470:                               if(PWM_OUTPUT_FLAG & MOTOR_1_BRAKE){
+005F  1D76     BTFSS PWM_OUTPUT_FLAG, 0x2
+0060  2873     GOTO 0x73
+471:                                   RA0PPS = CH1_1_PPS;
+0061  300C     MOVLW 0xC
+0062  003D     MOVLB 0x1D
+0063  0090     MOVWF RA0PPS
+472:                                   RA1PPS = CH1_2_PPS;
+0064  300D     MOVLW 0xD
+0065  0091     MOVWF RA1PPS
+473:                                   PWM_OUTPUT_FLAG &= NOT_MOTOR_1_BRAKE;
+0066  30FB     MOVLW 0xFB
+0067  00FC     MOVWF 0xEFC
+0068  087C     MOVF 0xEFC, W
+0069  05F6     ANDWF 0xEF6, F
+474:                                   DEAD_TIME_FLAG &= 0xF9;
+006A  30F9     MOVLW 0xF9
+006B  00FC     MOVWF 0xEFC
+006C  087C     MOVF 0xEFC, W
+006D  05F5     ANDWF 0xEF5, F
+475:                                   DEAD_TIME_FLAG |= 0x09;
+006E  3009     MOVLW 0x9
+006F  00FC     MOVWF 0xEFC
+0070  087C     MOVF 0xEFC, W
+0071  04F5     IORWF 0xEF5, F
+0072  2830     GOTO 0x30
+476:                                   DEAD_TIME_L = DEAD_TIME;
+477:                                   PWM_L_OVD_COUNT = PWM_OVD_TIME;
+478:                                   PWM_OVD_FLAG |= OVD_EN_1;
+479:                               }
+480:                               else if(PWM_OUTPUT_FLAG & MOTOR_1_A){
+0073  1C76     BTFSS 0xEF6, 0x0
+0074  2880     GOTO 0x80
+481:                                   PWM_FLAG1 |= 0x07;
+0075  3007     MOVLW 0x7
+0076  00FC     MOVWF 0xEFC
+0077  087C     MOVF 0xEFC, W
+0078  04F7     IORWF 0xEF7, F
+482:                                   PWM_FLAG1 &= 0xF7;
+0079  30F7     MOVLW 0xF7
+007A  00FC     MOVWF 0xEFC
+007B  087C     MOVF 0xEFC, W
+007C  05F7     ANDWF 0xEF7, F
+483:                                   PWM_FLAG2 |= 0x08;
+007D  15A8     BSF 0xEA8, 0x3
+484:                                   PWM_FLAG2 &= 0xF8;
+007E  30F8     MOVLW 0xF8
+007F  2842     GOTO 0x42
+485:                                   DUTY_COUNT_L = DUTY_COUNT_DOWN;
+486:                                   DUTY_L_TARGET = 0;
+487:                                   PWM_L_OVD_COUNT = PWM_OVD_TIME;
+488:                                   PWM_OVD_FLAG |= OVD_EN_1;
+489:                                   
+490:                               }
+491:                               else if(PWM_OUTPUT_FLAG & MOTOR_1_B){
+0080  18F6     BTFSC 0xEF6, 0x1
+0081  284B     GOTO 0x4B
+492:                                   PWM_FLAG1 &= 0xF0;
+493:                                   PWM_OVD_FLAG |= OVD_EN_1;
+494:                               }
+495:                               else{
+496:                                   if(DEAD_TIME_L & 0x80){
+0082  1FA7     BTFSS 0xEA7, 0x7
+0083  288D     GOTO 0x8D
+497:                                       DEAD_TIME_FLAG |= 0x0A;
+0084  300A     MOVLW 0xA
+0085  00FC     MOVWF 0xEFC
+0086  087C     MOVF 0xEFC, W
+0087  04F5     IORWF 0xEF5, F
+498:                                       DEAD_TIME_FLAG &= 0xFA;
+0088  30FA     MOVLW 0xFA
+0089  00FC     MOVWF 0xEFC
+008A  087C     MOVF 0xEFC, W
+008B  05F5     ANDWF 0xEF5, F
+008C  2833     GOTO 0x33
+499:                                       PWM_L_OVD_COUNT = PWM_OVD_TIME;
+500:                                       PWM_OVD_FLAG |= OVD_EN_1;
+501:                                   }
+502:                                   else{
+503:                                       PWM_OUTPUT_FLAG |= MOTOR_1_B;
+008D  14F6     BSF 0xEF6, 0x1
+008E  2859     GOTO 0x59
+504:                                       DEAD_TIME_L = DEAD_TIME;
+505:                                       PWM_L_OVD_COUNT = PWM_OVD_TIME;
+506:                                       PWM_OVD_FLAG |= OVD_EN_1;
+507:                                   }
+508:                               }
+509:                           }
+510:                           else if(I2C_ORDER == MOTOR_R_FOR){//R 正転
+008F  3045     MOVLW 0x45
+0090  067A     XORWF 0xEFA, W
+0091  1D03     BTFSS STATUS, 0x2
+0092  28CE     GOTO 0xCE
+511:                               if(PWM_OUTPUT_FLAG & MOTOR_2_BRAKE){
+0093  1F76     BTFSS 0xEF6, 0x6
+0094  28AA     GOTO 0xAA
+512:                                   RA4PPS = CH2_1_PPS;
+0095  3002     MOVLW 0x2
+0096  003D     MOVLB 0x1D
+0097  0094     MOVWF RA4PPS
+513:                                   RA5PPS = CH2_2_PPS;
+0098  3003     MOVLW 0x3
+0099  0095     MOVWF RA5PPS
+514:                                   PWM_OUTPUT_FLAG &= NOT_MOTOR_2_BRAKE;
+009A  30BF     MOVLW 0xBF
+009B  00FC     MOVWF 0xEFC
+009C  087C     MOVF 0xEFC, W
+009D  05F6     ANDWF 0xEF6, F
+515:                                   DEAD_TIME_FLAG &= 0x8F;
+009E  308F     MOVLW 0x8F
+009F  00FC     MOVWF 0xEFC
+00A0  087C     MOVF 0xEFC, W
+00A1  05F5     ANDWF 0xEF5, F
+516:                                   DEAD_TIME_FLAG |= 0x80;
+00A2  17F5     BSF 0xEF5, 0x7
+517:                                   DEAD_TIME_R = DEAD_TIME;
+00A3  30FF     MOVLW 0xFF
+00A4  0020     MOVLB 0x0
+00A5  00A6     MOVWF DEAD_TIME_R
+518:                                   PWM_R_OVD_COUNT = PWM_OVD_TIME;
+00A6  30C8     MOVLW 0xC8
+00A7  00A4     MOVWF PWM_R_OVD_COUNT
+519:                                   PWM_OVD_FLAG |= OVD_ON_2;
+00A8  16F0     BSF PWM_OVD_FLAG, 0x5
+520:                                   
+521:                               }
+00A9  2A15     GOTO 0x215
+522:                               else if(PWM_OUTPUT_FLAG & MOTOR_2_B){
+00AA  1EF6     BTFSS PWM_OUTPUT_FLAG, 0x5
+00AB  28BC     GOTO 0xBC
+523:                                   PWM_FLAG1 |= 0x70;
+00AC  3070     MOVLW 0x70
+00AD  00FC     MOVWF __pcstackCOMMON
+00AE  087C     MOVF __pcstackCOMMON, W
+00AF  04F7     IORWF PWM_FLAG1, F
+524:                                   PWM_FLAG1 &= 0x7F;
+00B0  307F     MOVLW 0x7F
+00B1  00FC     MOVWF __pcstackCOMMON
+00B2  087C     MOVF __pcstackCOMMON, W
+00B3  05F7     ANDWF PWM_FLAG1, F
+525:                                   PWM_FLAG2 &= 0x0F;
+00B4  300F     MOVLW 0xF
+00B5  00FC     MOVWF __pcstackCOMMON
+00B6  087C     MOVF __pcstackCOMMON, W
+00B7  05A8     ANDWF PWM_FLAG2, F
+526:                                   DUTY_COUNT_R = DUTY_COUNT_DOWN;
+00B8  30FF     MOVLW 0xFF
+00B9  00A9     MOVWF DUTY_COUNT_R
+527:                                   DUTY_R_TARGET = 0;
+00BA  01F8     CLRF DUTY_R_TARGET
+528:                                   PWM_R_OVD_COUNT = PWM_OVD_TIME;
+00BB  28A6     GOTO 0xA6
+529:                                   PWM_OVD_FLAG |= OVD_ON_2;
+530:                               }
+531:                               else if(PWM_OUTPUT_FLAG & MOTOR_2_A){
+00BC  1E76     BTFSS PWM_OUTPUT_FLAG, 0x4
+00BD  28C3     GOTO 0xC3
+532:                                   PWM_FLAG1 &= 0x0F;
+00BE  300F     MOVLW 0xF
+00BF  00FC     MOVWF __pcstackCOMMON
+00C0  087C     MOVF __pcstackCOMMON, W
+00C1  05F7     ANDWF PWM_FLAG1, F
+00C2  28A8     GOTO 0xA8
+533:                                   PWM_OVD_FLAG |= OVD_ON_2;
+534:                               }
+535:                               else{
+536:                                   if(DEAD_TIME_R & 0x80){
+00C3  1FA6     BTFSS DEAD_TIME_R, 0x7
+00C4  28CB     GOTO 0xCB
+537:                                       DEAD_TIME_FLAG |= 0x90;
+00C5  3090     MOVLW 0x90
+00C6  00FC     MOVWF __pcstackCOMMON
+00C7  087C     MOVF __pcstackCOMMON, W
+00C8  04F5     IORWF DEAD_TIME_FLAG, F
+538:                                       DEAD_TIME_FLAG &= 0x9F;
+00C9  309F     MOVLW 0x9F
+00CA  28FC     GOTO 0xFC
+539:                                       PWM_R_OVD_COUNT = PWM_OVD_TIME;
+540:                                       PWM_OVD_FLAG |= OVD_ON_2;
+541:                                   }
+542:                                   else{
+543:                                       PWM_OUTPUT_FLAG |= MOTOR_2_A;
+00CB  1676     BSF PWM_OUTPUT_FLAG, 0x4
+544:                                       DEAD_TIME_R = DEAD_TIME;
+00CC  30FF     MOVLW 0xFF
+00CD  28A5     GOTO 0xA5
+545:                                       PWM_R_OVD_COUNT = PWM_OVD_TIME;
+546:                                       PWM_OVD_FLAG |= OVD_ON_2;
+547:                                   }
+548:                               }
+549:                           }
+550:                           else if(I2C_ORDER == MOTOR_R_REV){//R 逆転
+00CE  3046     MOVLW 0x46
+00CF  067A     XORWF I2C_ORDER, W
+00D0  1D03     BTFSS STATUS, 0x2
+00D1  2902     GOTO 0x102
+551:                               if(PWM_OUTPUT_FLAG & MOTOR_2_BRAKE){
+00D2  1F76     BTFSS PWM_OUTPUT_FLAG, 0x6
+00D3  28E6     GOTO 0xE6
+552:                                   RA4PPS = CH2_1_PPS;
+00D4  3002     MOVLW 0x2
+00D5  003D     MOVLB 0x1D
+00D6  0094     MOVWF RA4PPS
+553:                                   RA5PPS = CH2_2_PPS;
+00D7  3003     MOVLW 0x3
+00D8  0095     MOVWF RA5PPS
+554:                                   PWM_OUTPUT_FLAG &= NOT_MOTOR_2_BRAKE;
+00D9  30BF     MOVLW 0xBF
+00DA  00FC     MOVWF 0xEFC
+00DB  087C     MOVF 0xEFC, W
+00DC  05F6     ANDWF 0xEF6, F
+555:                                   DEAD_TIME_FLAG &= 0x9F;
+00DD  309F     MOVLW 0x9F
+00DE  00FC     MOVWF 0xEFC
+00DF  087C     MOVF 0xEFC, W
+00E0  05F5     ANDWF 0xEF5, F
+556:                                   DEAD_TIME_FLAG |= 0x90;
+00E1  3090     MOVLW 0x90
+00E2  00FC     MOVWF 0xEFC
+00E3  087C     MOVF 0xEFC, W
+00E4  04F5     IORWF 0xEF5, F
+00E5  28A3     GOTO 0xA3
+557:                                   DEAD_TIME_R = DEAD_TIME;
+558:                                   PWM_R_OVD_COUNT = PWM_OVD_TIME;
+559:                                   PWM_OVD_FLAG |= OVD_ON_2;
+560:                               }
+561:                               else if(PWM_OUTPUT_FLAG & MOTOR_2_A){
+00E6  1E76     BTFSS 0xEF6, 0x4
+00E7  28F3     GOTO 0xF3
+562:                                   PWM_FLAG1 |= 0x70;
+00E8  3070     MOVLW 0x70
+00E9  00FC     MOVWF 0xEFC
+00EA  087C     MOVF 0xEFC, W
+00EB  04F7     IORWF 0xEF7, F
+563:                                   PWM_FLAG1 &= 0x7F;
+00EC  307F     MOVLW 0x7F
+00ED  00FC     MOVWF 0xEFC
+00EE  087C     MOVF 0xEFC, W
+00EF  05F7     ANDWF 0xEF7, F
+564:                                   PWM_FLAG2 |= 0x80;
+00F0  17A8     BSF 0xEA8, 0x7
+565:                                   PWM_FLAG2 &= 0x8F;
+00F1  308F     MOVLW 0x8F
+00F2  28B5     GOTO 0xB5
+566:                                   DUTY_COUNT_R = DUTY_COUNT_DOWN;
+567:                                   DUTY_R_TARGET = 0;
+568:                                   PWM_R_OVD_COUNT = PWM_OVD_TIME;
+569:                                   PWM_OVD_FLAG |= OVD_ON_2;
+570:                               }
+571:                               else if(PWM_OUTPUT_FLAG & MOTOR_2_B){
+00F3  1AF6     BTFSC 0xEF6, 0x5
+00F4  28BE     GOTO 0xBE
+572:                                   PWM_FLAG1 &= 0x0F;
+573:                                   PWM_OVD_FLAG |= OVD_ON_2;
+574:                               }
+575:                               else{//現在逆転している、もしくは回転していない場合
+576:                                   if(DEAD_TIME_R & 0x80){
+00F5  1FA6     BTFSS 0xEA6, 0x7
+00F6  2900     GOTO 0x100
+577:                                       DEAD_TIME_FLAG |= 0xA0;
+00F7  30A0     MOVLW 0xA0
+00F8  00FC     MOVWF 0xEFC
+00F9  087C     MOVF 0xEFC, W
+00FA  04F5     IORWF 0xEF5, F
+578:                                       DEAD_TIME_FLAG &= 0xAF;
+00FB  30AF     MOVLW 0xAF
+00FC  00FC     MOVWF 0xEFC
+00FD  087C     MOVF 0xEFC, W
+00FE  05F5     ANDWF 0xEF5, F
+00FF  28A6     GOTO 0xA6
+579:                                       PWM_R_OVD_COUNT = PWM_OVD_TIME;
+580:                                       PWM_OVD_FLAG |= OVD_ON_2;
+581:                                   }
+582:                                   else{
+583:                                       PWM_OUTPUT_FLAG |= MOTOR_2_B;
+0100  16F6     BSF 0xEF6, 0x5
+0101  28CC     GOTO 0xCC
+584:                                       DEAD_TIME_R = DEAD_TIME;
+585:                                       PWM_R_OVD_COUNT = PWM_OVD_TIME;
+586:                                       PWM_OVD_FLAG |= OVD_ON_2;
+587:                                   }
+588:                               }
+589:                           }
+590:                           else if(I2C_ORDER == MOTOR_L_STOP){//L ブレーキ
+0102  3047     MOVLW 0x47
+0103  067A     XORWF 0xEFA, W
+0104  1D03     BTFSS STATUS, 0x2
+0105  2934     GOTO 0x134
+591:                               if(PWM_OUTPUT_FLAG & MOTOR_1_BRAKE);//現在ブレーキ動作している場合は何もしないので省略
+0106  1976     BTFSC 0xEF6, 0x2
+0107  2A15     GOTO 0x215
+592:                               //だけど，ブレーキ動作中にブレーキ命令が入って余計なことをしないように判定は入れてすべてスキップさせる
+593:                               else if(PWM_OUTPUT_FLAG & 0x03){//どっちかに回転している場合
+0108  0876     MOVF 0xEF6, W
+0109  3903     ANDLW 0x3
+010A  1903     BTFSC STATUS, 0x2
+010B  291F     GOTO 0x11F
+594:                                   PWM_FLAG1 |= 0x07;
+010C  3007     MOVLW 0x7
+010D  00FC     MOVWF 0xEFC
+010E  087C     MOVF 0xEFC, W
+010F  04F7     IORWF 0xEF7, F
+595:                                   PWM_FLAG1 &= 0xF7;
+0110  30F7     MOVLW 0xF7
+0111  00FC     MOVWF 0xEFC
+0112  087C     MOVF 0xEFC, W
+0113  05F7     ANDWF 0xEF7, F
+596:                                   PWM_FLAG2 &= 0xFB;
+0114  30FB     MOVLW 0xFB
+0115  00FC     MOVWF 0xEFC
+0116  087C     MOVF 0xEFC, W
+0117  05A8     ANDWF 0xEA8, F
+597:                                   PWM_FLAG2 |= 0x04;
+0118  1528     BSF 0xEA8, 0x2
+598:                                   DUTY_COUNT_L = DUTY_COUNT_DOWN;
+0119  30FF     MOVLW 0xFF
+011A  00AA     MOVWF 0xEAA
+599:                                   DUTY_L_TARGET = 0;
+011B  01F9     CLRF 0xEF9
+600:                                   PWM_L_OVD_COUNT = 0;
+011C  01A5     CLRF 0xEA5
+601:                                   PWM_OVD_FLAG &= 0xF0;
+011D  30F0     MOVLW 0xF0
+011E  2950     GOTO 0x150
+602:                               }
+603:                               else{//残りの場合　この場合はどっちにも回転していない場合　デッドタイムを入れてブレーキ動作に移行する
+604:                                   if(DEAD_TIME_L & 0x80){//デッドタイムのカウンタが作動中の場合にデッドタイムの動作のフラグを立てる
+011F  1FA7     BTFSS 0xEA7, 0x7
+0120  292A     GOTO 0x12A
+605:                                       DEAD_TIME_FLAG |= 0x0A;
+0121  300A     MOVLW 0xA
+0122  00FC     MOVWF 0xEFC
+0123  087C     MOVF 0xEFC, W
+0124  04F5     IORWF 0xEF5, F
+606:                                       DEAD_TIME_FLAG &= 0xFA;
+0125  30FA     MOVLW 0xFA
+0126  00FC     MOVWF 0xEFC
+0127  087C     MOVF 0xEFC, W
+0128  05F5     ANDWF 0xEF5, F
+0129  291C     GOTO 0x11C
+607:                                       PWM_L_OVD_COUNT = 0;
+608:                                       PWM_OVD_FLAG &= 0xF0;
+609:                                   }
+610:                                   else{
+611:                                       PWM_OUTPUT_FLAG |= MOTOR_1_BRAKE;
+012A  1576     BSF 0xEF6, 0x2
+612:                                       DEAD_TIME_FLAG |= 0x04;//PWMオフ
+012B  1575     BSF 0xEF5, 0x2
+613:                                       RA0PPS = 0x00;//LATxy
+012C  003D     MOVLB 0x1D
+012D  0190     CLRF RA0PPS
+614:                                       RA1PPS = 0x00;//LATxy
+012E  0191     CLRF RA1PPS
+615:                                       PWM_FLAG1 |= 0x01;
+012F  1477     BSF 0xEF7, 0x0
+616:                                       DEAD_TIME_L = DEAD_TIME;
+0130  30FF     MOVLW 0xFF
+0131  0020     MOVLB 0x0
+0132  00A7     MOVWF DEAD_TIME_L
+0133  291C     GOTO 0x11C
+617:                                       PWM_L_OVD_COUNT = 0;
+618:                                       PWM_OVD_FLAG &= 0xF0;
+619:                                   }
+620:                               }
+621:                           }
+622:                           else if(I2C_ORDER == MOTOR_R_STOP){//R ブレーキ
+0134  3048     MOVLW 0x48
+0135  067A     XORWF I2C_ORDER, W
+0136  1D03     BTFSS STATUS, 0x2
+0137  2969     GOTO 0x169
+623:                               if(PWM_OUTPUT_FLAG & MOTOR_2_BRAKE);
+0138  1B76     BTFSC PWM_OUTPUT_FLAG, 0x6
+0139  2A15     GOTO 0x215
+624:                               else if(PWM_OUTPUT_FLAG & 0x30){
+013A  0876     MOVF PWM_OUTPUT_FLAG, W
+013B  3930     ANDLW 0x30
+013C  1903     BTFSC STATUS, 0x2
+013D  2954     GOTO 0x154
+625:                                   PWM_FLAG1 |= 0x70;
+013E  3070     MOVLW 0x70
+013F  00FC     MOVWF __pcstackCOMMON
+0140  087C     MOVF __pcstackCOMMON, W
+0141  04F7     IORWF PWM_FLAG1, F
+626:                                   PWM_FLAG1 &= 0x7F;
+0142  307F     MOVLW 0x7F
+0143  00FC     MOVWF __pcstackCOMMON
+0144  087C     MOVF __pcstackCOMMON, W
+0145  05F7     ANDWF PWM_FLAG1, F
+627:                                   PWM_FLAG2 &= 0xBF;
+0146  30BF     MOVLW 0xBF
+0147  00FC     MOVWF __pcstackCOMMON
+0148  087C     MOVF __pcstackCOMMON, W
+0149  05A8     ANDWF PWM_FLAG2, F
+628:                                   PWM_FLAG2 |= 0x40;
+014A  1728     BSF PWM_FLAG2, 0x6
+629:                                   DUTY_COUNT_R = DUTY_COUNT_DOWN;
+014B  30FF     MOVLW 0xFF
+014C  00A9     MOVWF DUTY_COUNT_R
+630:                                   DUTY_R_TARGET = 0;
+014D  01F8     CLRF DUTY_R_TARGET
+631:                                   PWM_R_OVD_COUNT = 0;
+014E  01A4     CLRF PWM_R_OVD_COUNT
+632:                                   PWM_OVD_FLAG &= 0x0F;
+014F  300F     MOVLW 0xF
+0150  00FC     MOVWF __pcstackCOMMON
+0151  087C     MOVF __pcstackCOMMON, W
+0152  05F0     ANDWF PWM_OVD_FLAG, F
+633:                               }
+0153  2A15     GOTO 0x215
+634:                               else{//残りの場合　この場合はどっちにも回転していない場合　デッドタイムを入れてブレーキ動作に移行する
+635:                                   if(DEAD_TIME_R & 0x80){//デッドタイムのカウンタが作動中の場合にデッドタイムの動作のフラグを立てる
+0154  1FA6     BTFSS DEAD_TIME_R, 0x7
+0155  295F     GOTO 0x15F
+636:                                       DEAD_TIME_FLAG |= 0xA0;
+0156  30A0     MOVLW 0xA0
+0157  00FC     MOVWF __pcstackCOMMON
+0158  087C     MOVF __pcstackCOMMON, W
+0159  04F5     IORWF DEAD_TIME_FLAG, F
+637:                                       DEAD_TIME_FLAG &= 0xAF;
+015A  30AF     MOVLW 0xAF
+015B  00FC     MOVWF __pcstackCOMMON
+015C  087C     MOVF __pcstackCOMMON, W
+015D  05F5     ANDWF DEAD_TIME_FLAG, F
+015E  294E     GOTO 0x14E
+638:                                       PWM_R_OVD_COUNT = 0;
+639:                                       PWM_OVD_FLAG &= 0x0F;
+640:                                   }
+641:                                   else{
+642:                                       PWM_OUTPUT_FLAG |= MOTOR_2_BRAKE;
+015F  1776     BSF PWM_OUTPUT_FLAG, 0x6
+643:                                       DEAD_TIME_FLAG |= 0x40;//PWMオフ
+0160  1775     BSF DEAD_TIME_FLAG, 0x6
+644:                                       RA4PPS = 0x00;//LATxy
+0161  003D     MOVLB 0x1D
+0162  0194     CLRF RA4PPS
+645:                                       RA5PPS = 0x00;//LATxy
+0163  0195     CLRF RA5PPS
+646:                                       PWM_FLAG1 |= 0x10;
+0164  1677     BSF 0xEF7, 0x4
+647:                                       DEAD_TIME_R = DEAD_TIME;
+0165  30FF     MOVLW 0xFF
+0166  0020     MOVLB 0x0
+0167  00A6     MOVWF DEAD_TIME_R
+0168  294E     GOTO 0x14E
+648:                                       PWM_R_OVD_COUNT = 0;
+649:                                       PWM_OVD_FLAG &= 0x0F;
+650:                                   }
+651:                               }
+652:                           }
+653:                           else if(I2C_ORDER == MOTOR_L_OFF){
+0169  3049     MOVLW 0x49
+016A  067A     XORWF I2C_ORDER, W
+016B  1D03     BTFSS STATUS, 0x2
+016C  298E     GOTO 0x18E
+654:                               PWM3DCH = 0;
+016D  0025     MOVLB 0x5
+016E  0192     CLRF CCPR1H
+655:                               PWM4DCH = 0;
+016F  0196     CLRF CCPR2H
+656:                               PWM3DCH_BUFF = 0;
+0170  01F4     CLRF 0x2F4
+657:                               PWM4DCH_BUFF = 0;
+0171  01F3     CLRF 0x2F3
+658:                               RA0PPS = CH1_1_PPS;
+0172  300C     MOVLW 0xC
+0173  003D     MOVLB 0x1D
+0174  0090     MOVWF RA0PPS
+659:                               RA1PPS = CH1_2_PPS;
+0175  300D     MOVLW 0xD
+0176  0091     MOVWF RA1PPS
+660:                               PWM_OUTPUT_FLAG &= 0xF0;
+0177  30F0     MOVLW 0xF0
+0178  00FC     MOVWF 0xEFC
+0179  087C     MOVF 0xEFC, W
+017A  05F6     ANDWF 0xEF6, F
+661:                               DUTY_L_NOW = 0;
+017B  0020     MOVLB 0x0
+017C  01A2     CLRF DUTY_L_NOW
+017D  01A3     CLRF 0x23
+662:                               DUTY_L_TARGET = 0;
+017E  01F9     CLRF DUTY_L_TARGET
+663:                               DUTY_L_KEEP = 0;
+017F  01AC     CLRF DUTY_L_KEEP
+664:                               DUTY_COUNT_L = 0;
+0180  01AA     CLRF DUTY_COUNT_L
+665:                               PWM_FLAG1 &= 0xF0;
+0181  30F0     MOVLW 0xF0
+0182  00FC     MOVWF __pcstackCOMMON
+0183  087C     MOVF __pcstackCOMMON, W
+0184  05F7     ANDWF PWM_FLAG1, F
+666:                               PWM_FLAG2 &= 0xF0;
+0185  30F0     MOVLW 0xF0
+0186  00FC     MOVWF __pcstackCOMMON
+0187  087C     MOVF __pcstackCOMMON, W
+0188  05A8     ANDWF PWM_FLAG2, F
+667:                               DEAD_TIME_FLAG &= 0xF0;
+0189  30F0     MOVLW 0xF0
+018A  00FC     MOVWF __pcstackCOMMON
+018B  087C     MOVF __pcstackCOMMON, W
+018C  05F5     ANDWF DEAD_TIME_FLAG, F
+018D  2930     GOTO 0x130
+668:                               DEAD_TIME_L = DEAD_TIME;
+669:                               PWM_L_OVD_COUNT = 0;
+670:                               PWM_OVD_FLAG &= 0xF0;
+671:                           }
+672:                           else if(I2C_ORDER == MOTOR_R_OFF){
+018E  304A     MOVLW 0x4A
+018F  067A     XORWF I2C_ORDER, W
+0190  1D03     BTFSS STATUS, 0x2
+0191  2A15     GOTO 0x215
+673:                               PWM5DCH = 0;
+0192  002C     MOVLB 0xC
+0193  0198     CLRF PWM5DCH
+674:                               PWM6DCH = 0;
+0194  019B     CLRF PWM6DCH
+675:                               PWM5DCH_BUFF = 0;
+0195  01F2     CLRF 0x672
+676:                               PWM6DCH_BUFF = 0;
+0196  01F1     CLRF 0x671
+677:                               RA4PPS = CH2_1_PPS;
+0197  3002     MOVLW 0x2
+0198  003D     MOVLB 0x1D
+0199  0094     MOVWF RA4PPS
+678:                               RA5PPS = CH2_2_PPS;
+019A  3003     MOVLW 0x3
+019B  0095     MOVWF RA5PPS
+679:                               PWM_OUTPUT_FLAG &= 0x0F;
+019C  300F     MOVLW 0xF
+019D  00FC     MOVWF 0xEFC
+019E  087C     MOVF 0xEFC, W
+019F  05F6     ANDWF 0xEF6, F
+680:                               DUTY_R_NOW = 0;
+01A0  0020     MOVLB 0x0
+01A1  01A0     CLRF DUTY_R_NOW
+01A2  01A1     CLRF 0x21
+681:                               DUTY_R_TARGET = 0;
+01A3  01F8     CLRF DUTY_R_TARGET
+682:                               DUTY_R_KEEP = 0;
+01A4  01AB     CLRF DUTY_R_KEEP
+683:                               DUTY_COUNT_R = 0;
+01A5  01A9     CLRF DUTY_COUNT_R
+684:                               PWM_FLAG1 &= 0x0F;
+01A6  300F     MOVLW 0xF
+01A7  00FC     MOVWF __pcstackCOMMON
+01A8  087C     MOVF __pcstackCOMMON, W
+01A9  05F7     ANDWF PWM_FLAG1, F
+685:                               PWM_FLAG2 &= 0x0F;
+01AA  300F     MOVLW 0xF
+01AB  00FC     MOVWF __pcstackCOMMON
+01AC  087C     MOVF __pcstackCOMMON, W
+01AD  05A8     ANDWF PWM_FLAG2, F
+686:                               DEAD_TIME_FLAG &= 0x0F;
+01AE  300F     MOVLW 0xF
+01AF  00FC     MOVWF __pcstackCOMMON
+01B0  087C     MOVF __pcstackCOMMON, W
+01B1  05F5     ANDWF DEAD_TIME_FLAG, F
+01B2  2965     GOTO 0x165
+687:                               DEAD_TIME_R = DEAD_TIME;
+688:                               PWM_R_OVD_COUNT = 0;
+689:                               PWM_OVD_FLAG &= 0x0F;
+690:                           }
+691:                       }
+692:                       else{//2バイト目以降のデータ受信の場合
+693:                           if(I2C_ORDER == MOTOR_L_DUTY){//L DUTY
+01B3  3041     MOVLW 0x41
+01B4  067A     XORWF I2C_ORDER, W
+01B5  1D03     BTFSS STATUS, 0x2
+01B6  29E1     GOTO 0x1E1
+694:                               if(PWM_FLAG1 & 0x01){
+01B7  1C77     BTFSS PWM_FLAG1, 0x0
+01B8  29BC     GOTO 0x1BC
+695:                                   DUTY_L_KEEP = I2C_BUFF;
+01B9  087B     MOVF I2C_BUFF, W
+01BA  00AC     MOVWF DUTY_L_KEEP
+696:                               }
+01BB  2A15     GOTO 0x215
+697:                               else{
+698:                                   DUTY_L_TARGET = I2C_BUFF;
+01BC  087B     MOVF I2C_BUFF, W
+01BD  00F9     MOVWF DUTY_L_TARGET
+699:                                   if(PWM_OUTPUT_FLAG & MOTOR_1_A){
+01BE  1C76     BTFSS PWM_OUTPUT_FLAG, 0x0
+01BF  29C3     GOTO 0x1C3
+700:                                       if(PWM3DCH_BUFF < I2C_BUFF){
+01C0  087B     MOVF I2C_BUFF, W
+01C1  0274     SUBWF PWM3DCH_BUFF, W
+01C2  29C7     GOTO 0x1C7
+701:                                           goto GO_MOTOR_1_DUTY_HI;
+702:                                       }
+703:                                       else{
+704:                                           goto GO_MOTOR_1_DUTY_LO;
+705:                                       }
+706:                                   }
+707:                                   else if(PWM_OUTPUT_FLAG & MOTOR_1_B){
+01C3  1CF6     BTFSS PWM_OUTPUT_FLAG, 0x1
+01C4  2A15     GOTO 0x215
+708:                                       if(PWM4DCH_BUFF < I2C_BUFF){
+01C5  087B     MOVF I2C_BUFF, W
+01C6  0273     SUBWF PWM4DCH_BUFF, W
+01C7  1803     BTFSC STATUS, 0x0
+01C8  29D1     GOTO 0x1D1
+709:           GO_MOTOR_1_DUTY_HI:
+710:                                           PWM_FLAG1 |= 0x08;
+01C9  15F7     BSF PWM_FLAG1, 0x3
+711:                                           PWM_FLAG1 &= 0xF8;
+01CA  30F8     MOVLW 0xF8
+01CB  00FC     MOVWF __pcstackCOMMON
+01CC  087C     MOVF __pcstackCOMMON, W
+01CD  05F7     ANDWF PWM_FLAG1, F
+712:                                           DUTY_COUNT_L = DUTY_COUNT_UP;
+01CE  30FF     MOVLW 0xFF
+01CF  00AA     MOVWF DUTY_COUNT_L
+713:                                       }
+01D0  2A15     GOTO 0x215
+714:                                       else{
+715:           GO_MOTOR_1_DUTY_LO:
+716:                                           PWM_FLAG1 &= 0xF4;
+01D1  30F4     MOVLW 0xF4
+01D2  00FC     MOVWF __pcstackCOMMON
+01D3  087C     MOVF __pcstackCOMMON, W
+01D4  05F7     ANDWF PWM_FLAG1, F
+717:                                           DUTY_COUNT_L = DUTY_COUNT_DOWN;
+01D5  30FF     MOVLW 0xFF
+01D6  00AA     MOVWF DUTY_COUNT_L
+718:                                           if(I2C_BUFF == 0){
+01D7  087B     MOVF I2C_BUFF, W
+01D8  1D03     BTFSS STATUS, 0x2
+01D9  29DF     GOTO 0x1DF
+719:                                               PWM_FLAG1 |= 0x06;
+01DA  3006     MOVLW 0x6
+01DB  00FC     MOVWF __pcstackCOMMON
+01DC  087C     MOVF __pcstackCOMMON, W
+01DD  04F7     IORWF PWM_FLAG1, F
+01DE  291C     GOTO 0x11C
+720:                                               PWM_L_OVD_COUNT = 0;
+721:                                               PWM_OVD_FLAG &= 0xF0;
+722:                                           }
+723:                                           else{
+724:                                               PWM_FLAG1 |= 0x04;
+01DF  1577     BSF PWM_FLAG1, 0x2
+01E0  2A15     GOTO 0x215
+725:                                           }
+726:                                       }
+727:                                   }
+728:                               }
+729:                           }
+730:                           else if(I2C_ORDER == MOTOR_R_DUTY){//R DUTY
+01E1  3044     MOVLW 0x44
+01E2  067A     XORWF I2C_ORDER, W
+01E3  1D03     BTFSS STATUS, 0x2
+01E4  2A0F     GOTO 0x20F
+731:                               if(PWM_FLAG1 & 0x10){
+01E5  1E77     BTFSS PWM_FLAG1, 0x4
+01E6  29EA     GOTO 0x1EA
+732:                                   DUTY_R_KEEP = I2C_BUFF;
+01E7  087B     MOVF I2C_BUFF, W
+01E8  00AB     MOVWF DUTY_R_KEEP
+733:                               }
+01E9  2A15     GOTO 0x215
+734:                               else{
+735:                                   DUTY_R_TARGET = I2C_BUFF;
+01EA  087B     MOVF I2C_BUFF, W
+01EB  00F8     MOVWF DUTY_R_TARGET
+736:                                   if(PWM_OUTPUT_FLAG & MOTOR_2_A){
+01EC  1E76     BTFSS PWM_OUTPUT_FLAG, 0x4
+01ED  29F1     GOTO 0x1F1
+737:                                       if(PWM5DCH_BUFF < I2C_BUFF){
+01EE  087B     MOVF I2C_BUFF, W
+01EF  0272     SUBWF PWM5DCH_BUFF, W
+01F0  29F5     GOTO 0x1F5
+738:                                           goto GO_MOTOR_2_DUTY_HI;
+739:                                       }
+740:                                       else{
+741:                                           goto GO_MOTOR_2_DUTY_LO;
+742:                                       }
+743:                                   }
+744:                                   else if(PWM_OUTPUT_FLAG & MOTOR_2_B){
+01F1  1EF6     BTFSS PWM_OUTPUT_FLAG, 0x5
+01F2  2A15     GOTO 0x215
+745:                                       if(PWM6DCH_BUFF < I2C_BUFF){
+01F3  087B     MOVF I2C_BUFF, W
+01F4  0271     SUBWF PWM6DCH_BUFF, W
+01F5  1803     BTFSC STATUS, 0x0
+01F6  29FF     GOTO 0x1FF
+746:           GO_MOTOR_2_DUTY_HI:
+747:                                           PWM_FLAG1 |= 0x80;
+01F7  17F7     BSF PWM_FLAG1, 0x7
+748:                                           PWM_FLAG1 &= 0x8F;
+01F8  308F     MOVLW 0x8F
+01F9  00FC     MOVWF __pcstackCOMMON
+01FA  087C     MOVF __pcstackCOMMON, W
+01FB  05F7     ANDWF PWM_FLAG1, F
+749:                                           DUTY_COUNT_R = DUTY_COUNT_UP;
+01FC  30FF     MOVLW 0xFF
+01FD  00A9     MOVWF DUTY_COUNT_R
+750:                                       }
+01FE  2A15     GOTO 0x215
+751:                                       else{
+752:           GO_MOTOR_2_DUTY_LO:
+753:                                           PWM_FLAG1 &= 0x4F;
+01FF  304F     MOVLW 0x4F
+0200  00FC     MOVWF __pcstackCOMMON
+0201  087C     MOVF __pcstackCOMMON, W
+0202  05F7     ANDWF PWM_FLAG1, F
+754:                                           DUTY_COUNT_R = DUTY_COUNT_DOWN;
+0203  30FF     MOVLW 0xFF
+0204  00A9     MOVWF DUTY_COUNT_R
+755:                                           if(I2C_BUFF == 0){
+0205  087B     MOVF I2C_BUFF, W
+0206  1D03     BTFSS STATUS, 0x2
+0207  2A0D     GOTO 0x20D
+756:                                               PWM_FLAG1 |= 0x60;
+0208  3060     MOVLW 0x60
+0209  00FC     MOVWF __pcstackCOMMON
+020A  087C     MOVF __pcstackCOMMON, W
+020B  04F7     IORWF PWM_FLAG1, F
+020C  294E     GOTO 0x14E
+757:                                               PWM_R_OVD_COUNT = 0;
+758:                                               PWM_OVD_FLAG &= 0x0F;
+759:                                           }
+760:                                           else{
+761:                                               PWM_FLAG1 |= 0x40;
+020D  1777     BSF PWM_FLAG1, 0x6
+020E  2A15     GOTO 0x215
+762:                                           }
+763:                                       }
+764:                                   }
+765:                               }
+766:                           }
+767:                           else if(I2C_ORDER == CHANGE_ODD){
+020F  3058     MOVLW 0x58
+0210  067A     XORWF I2C_ORDER, W
+0211  1D03     BTFSS STATUS, 0x2
+0212  2A15     GOTO 0x215
+768:                               PWM_OVD_DUTY = I2C_BUFF;
+0213  087B     MOVF I2C_BUFF, W
+0214  00AF     MOVWF PWM_OVD_DUTY
+769:                           }
+770:                       }
+771:                       I2C_COUNT ++;
+0215  3001     MOVLW 0x1
+0216  00FC     MOVWF __pcstackCOMMON
+0217  087C     MOVF __pcstackCOMMON, W
+0218  07AD     ADDWF I2C_COUNT, F
+772:                   }
+773:                   CKP = 1;
+0219  0024     MOVLB 0x4
+021A  1615     BSF SSP1CON1, 0x4
+774:                   SSP1IF = 0;//SSP1IF CLEAR
+021B  0020     MOVLB 0x0
+021C  1191     BCF PIR1, 0x3
+775:               }
+021D  2C43     GOTO 0x443
+776:               else if(TMR2IF){//TIMER2 INT -----------------------------------------------
+021E  1C91     BTFSS PIR1, 0x1
+021F  2C43     GOTO 0x443
+777:                   //LCH
+778:                   //デッドタイム計算部分
+779:                   if(DEAD_TIME_L & 0x80){
+0220  1FA7     BTFSS DEAD_TIME_L, 0x7
+0221  2A27     GOTO 0x227
+780:                       DEAD_TIME_L ++;
+0222  3001     MOVLW 0x1
+0223  00FC     MOVWF __pcstackCOMMON
+0224  087C     MOVF __pcstackCOMMON, W
+0225  07A7     ADDWF DEAD_TIME_L, F
+781:                   }
+0226  2A4C     GOTO 0x24C
+782:                   else if(DEAD_TIME_FLAG & 0x08){//デッドタイム後の処理を行うとき
+0227  1DF5     BTFSS DEAD_TIME_FLAG, 0x3
+0228  2A4C     GOTO 0x24C
+783:                       if(PWM_FLAG1 & 0x01){//方向逆転が完了した場合に
+0229  1C77     BTFSS PWM_FLAG1, 0x0
+022A  2A33     GOTO 0x233
+784:                           DUTY_L_TARGET = DUTY_L_KEEP;
+022B  082C     MOVF DUTY_L_KEEP, W
+022C  00F9     MOVWF DUTY_L_TARGET
+785:                           DUTY_L_KEEP = 0;
+022D  01AC     CLRF DUTY_L_KEEP
+786:                           PWM_FLAG1 &= 0xFE;
+022E  30FE     MOVLW 0xFE
+022F  00FC     MOVWF __pcstackCOMMON
+0230  087C     MOVF __pcstackCOMMON, W
+0231  05F7     ANDWF PWM_FLAG1, F
+787:                           PWM_FLAG1 |= 0x08;
+0232  15F7     BSF PWM_FLAG1, 0x3
+788:                       }
+789:                       
+790:                       if(DEAD_TIME_FLAG & 0x02){//ブレーキ動作
+0233  1CF5     BTFSS DEAD_TIME_FLAG, 0x1
+0234  2A40     GOTO 0x240
+791:                           DEAD_TIME_FLAG &= 0xF4;//フラグリセット
+0235  30F4     MOVLW 0xF4
+0236  00FC     MOVWF __pcstackCOMMON
+0237  087C     MOVF __pcstackCOMMON, W
+0238  05F5     ANDWF DEAD_TIME_FLAG, F
+792:                           DEAD_TIME_FLAG |= 0x04;//PWMオフ
+0239  1575     BSF DEAD_TIME_FLAG, 0x2
+793:                           RA0PPS = 0x00;//PWM3OUT
+023A  003D     MOVLB 0x1D
+023B  0190     CLRF RA0PPS
+794:                           RA1PPS = 0x00;//PWM4OUT
+023C  0191     CLRF RA1PPS
+795:                           PWM_OUTPUT_FLAG |= MOTOR_1_BRAKE;
+023D  1576     BSF 0xEF6, 0x2
+796:                           PWM_FLAG1 |= 0x01;
+023E  1477     BSF 0xEF7, 0x0
+797:                       }
+023F  2A49     GOTO 0x249
+798:                       else if(DEAD_TIME_FLAG & 0x01){//逆転動作
+0240  1C75     BTFSS 0xEF5, 0x0
+0241  2A44     GOTO 0x244
+799:                           PWM_OUTPUT_FLAG |= MOTOR_1_B;
+0242  14F6     BSF 0xEF6, 0x1
+800:                           DEAD_TIME_FLAG &= 0xF0;//フラグリセット
+0245  30F0     MOVLW 0xF0
+0246  00FC     MOVWF 0xEFC
+0247  087C     MOVF 0xEFC, W
+0248  05F5     ANDWF 0xEF5, F
+801:                       }
+0243  2A45     GOTO 0x245
+802:                       else{
+803:                           PWM_OUTPUT_FLAG |= MOTOR_1_A;
+0244  1476     BSF 0xEF6, 0x0
+804:                           DEAD_TIME_FLAG &= 0xF0;//フラグリセット
+805:                       }
+806:                       
+807:                       DEAD_TIME_L = DEAD_TIME;
+0249  30FF     MOVLW 0xFF
+024A  0020     MOVLB 0x0
+024B  00A7     MOVWF DEAD_TIME_L
+808:                   }
+809:                   //PWM計算
+810:                   if((DEAD_TIME_FLAG & 0x04) == 0){//PWMオフフラグが立っていないとき
+024C  1975     BTFSC DEAD_TIME_FLAG, 0x2
+024D  2B28     GOTO 0x328
+811:                       //台形制御計算部分
+812:                       if(DUTY_COUNT_L & 0x80){//台形制御を行う場合
+024E  1FAA     BTFSS DUTY_COUNT_L, 0x7
+024F  2AF5     GOTO 0x2F5
+813:                           if(PWM_OUTPUT_FLAG & MOTOR_1_A){//正転時
+0250  1C76     BTFSS PWM_OUTPUT_FLAG, 0x0
+0251  2A8F     GOTO 0x28F
+814:                               DUTY_L_NOW = PWM3DCH_BUFF;
+0252  0874     MOVF PWM3DCH_BUFF, W
+0253  00FC     MOVWF __pcstackCOMMON
+0254  01FD     CLRF 0x7D
+0255  087C     MOVF __pcstackCOMMON, W
+0256  00A2     MOVWF DUTY_L_NOW
+0257  087D     MOVF 0x7D, W
+0258  00A3     MOVWF 0x23
+815:                               if(PWM_FLAG1 & 0x08){//増加する場合
+0259  1DF7     BTFSS PWM_FLAG1, 0x3
+025A  2A79     GOTO 0x279
+816:                                   if(PWM3DCH_BUFF < DUTY_L_TARGET){
+025B  0879     MOVF DUTY_L_TARGET, W
+025C  0274     SUBWF PWM3DCH_BUFF, W
+025D  1803     BTFSC STATUS, 0x0
+025E  2A63     GOTO 0x263
+817:                                       DUTY_L_NOW += DUTY_UP;
+025F  3005     MOVLW 0x5
+0260  07A2     ADDWF DUTY_L_NOW, F
+0261  3000     MOVLW 0x0
+0262  3DA3     ADDWFC 0x23, F
+818:                                   }
+0263  0823     MOVF 0x23, W
+0264  3A80     XORLW 0x80
+0265  00FC     MOVWF __pcstackCOMMON
+0266  3080     MOVLW 0x80
+0267  027C     SUBWF __pcstackCOMMON, W
+819:                                   if(DUTY_L_NOW >= DUTY_L_TARGET){
+0268  1D03     BTFSS STATUS, 0x2
+0269  2A6C     GOTO 0x26C
+026A  0879     MOVF DUTY_L_TARGET, W
+026B  0222     SUBWF DUTY_L_NOW, W
+026C  1C03     BTFSS STATUS, 0x0
+026D  2A75     GOTO 0x275
+820:                                       PWM3DCH_BUFF = DUTY_L_TARGET;
+026E  0879     MOVF DUTY_L_TARGET, W
+026F  00F4     MOVWF PWM3DCH_BUFF
+821:                                       PWM_FLAG1 &= 0xF7;
+0270  30F7     MOVLW 0xF7
+0271  00FC     MOVWF __pcstackCOMMON
+0272  087C     MOVF __pcstackCOMMON, W
+0273  05F7     ANDWF PWM_FLAG1, F
+822:                                   }
+0274  2AF9     GOTO 0x2F9
+823:                                   else{
+824:                                       PWM3DCH_BUFF = (char)DUTY_L_NOW;
+0275  0020     MOVLB 0x0
+0276  0822     MOVF DUTY_L_NOW, W
+0277  00F4     MOVWF PWM3DCH_BUFF
+0278  2AB1     GOTO 0x2B1
+825:                                       DUTY_COUNT_L = DUTY_COUNT_UP;
+826:                                   }
+827:                               }
+828:                               else if(PWM_FLAG1 & 0x04){//減少する場合
+0279  1D77     BTFSS PWM_FLAG1, 0x2
+027A  2AF9     GOTO 0x2F9
+829:                                   if(PWM3DCH_BUFF > DUTY_L_TARGET){
+027B  0874     MOVF PWM3DCH_BUFF, W
+027C  0279     SUBWF DUTY_L_TARGET, W
+027D  1803     BTFSC STATUS, 0x0
+027E  2A83     GOTO 0x283
+830:                                       DUTY_L_NOW -= DUTY_DOWN;
+027F  30FB     MOVLW 0xFB
+0280  07A2     ADDWF DUTY_L_NOW, F
+0281  30FF     MOVLW 0xFF
+0282  3DA3     ADDWFC 0x23, F
+831:                                   }
+0283  0823     MOVF 0x23, W
+0284  3A80     XORLW 0x80
+0285  3C80     SUBLW 0x80
+832:                                   if(DUTY_L_NOW <= DUTY_L_TARGET){
+0286  1D03     BTFSS STATUS, 0x2
+0287  2A8A     GOTO 0x28A
+0288  0822     MOVF DUTY_L_NOW, W
+0289  0279     SUBWF DUTY_L_TARGET, W
+028A  1C03     BTFSS STATUS, 0x0
+028B  2A75     GOTO 0x275
+833:                                       PWM3DCH_BUFF = DUTY_L_TARGET;
+028C  0879     MOVF DUTY_L_TARGET, W
+028D  00F4     MOVWF PWM3DCH_BUFF
+834:                                       PWM_FLAG1 &= 0xFB;
+02C9  30FB     MOVLW 0xFB
+02CA  00FC     MOVWF __pcstackCOMMON
+02CB  087C     MOVF __pcstackCOMMON, W
+02CC  05F7     ANDWF PWM_FLAG1, F
+835:                                       
+836:                                       goto GO_MOTOR_1_STOP;//モーター停止処理へ
+028E  2AC9     GOTO 0x2C9
+837:                                   }
+838:                                   else{
+839:                                       PWM3DCH_BUFF = (char)DUTY_L_NOW;
+840:                                       DUTY_COUNT_L = DUTY_COUNT_DOWN;
+841:                                   }
+842:                               }
+843:                           }
+844:                           else{//逆転時
+845:                               DUTY_L_NOW = PWM4DCH_BUFF;
+028F  0873     MOVF PWM4DCH_BUFF, W
+0290  00FC     MOVWF __pcstackCOMMON
+0291  01FD     CLRF 0x7D
+0292  087C     MOVF __pcstackCOMMON, W
+0293  00A2     MOVWF DUTY_L_NOW
+0294  087D     MOVF 0x7D, W
+0295  00A3     MOVWF 0x23
+846:                               if(PWM_FLAG1 & 0x08){//増加する場合
+0296  1DF7     BTFSS PWM_FLAG1, 0x3
+0297  2AB4     GOTO 0x2B4
+847:                                   if(PWM4DCH_BUFF < DUTY_L_TARGET){
+0298  0879     MOVF DUTY_L_TARGET, W
+0299  0273     SUBWF PWM4DCH_BUFF, W
+029A  1803     BTFSC STATUS, 0x0
+029B  2AA0     GOTO 0x2A0
+848:                                       DUTY_L_NOW += DUTY_UP;
+029C  3005     MOVLW 0x5
+029D  07A2     ADDWF DUTY_L_NOW, F
+029E  3000     MOVLW 0x0
+029F  3DA3     ADDWFC 0x23, F
+849:                                   }
+02A0  0823     MOVF 0x23, W
+02A1  3A80     XORLW 0x80
+02A2  00FC     MOVWF __pcstackCOMMON
+02A3  3080     MOVLW 0x80
+02A4  027C     SUBWF __pcstackCOMMON, W
+850:                                   if(DUTY_L_NOW >= DUTY_L_TARGET){
+02A5  1D03     BTFSS STATUS, 0x2
+02A6  2AA9     GOTO 0x2A9
+02A7  0879     MOVF DUTY_L_TARGET, W
+02A8  0222     SUBWF DUTY_L_NOW, W
+02A9  1C03     BTFSS STATUS, 0x0
+02AA  2AAE     GOTO 0x2AE
+851:                                       PWM4DCH_BUFF = DUTY_L_TARGET;
+02AB  0879     MOVF DUTY_L_TARGET, W
+02AC  00F3     MOVWF PWM4DCH_BUFF
+02AD  2A70     GOTO 0x270
+852:                                       PWM_FLAG1 &= 0xF7;
+853:                                   }
+854:                                   else{
+855:                                       PWM4DCH_BUFF = (char)DUTY_L_NOW;
+02AE  0020     MOVLB 0x0
+02AF  0822     MOVF DUTY_L_NOW, W
+02B0  00F3     MOVWF PWM4DCH_BUFF
+856:                                       DUTY_COUNT_L = DUTY_COUNT_UP;
+02B1  30FF     MOVLW 0xFF
+02B2  00AA     MOVWF DUTY_COUNT_L
+02B3  2AF9     GOTO 0x2F9
+857:                                   }
+858:                               }
+859:                               else if(PWM_FLAG1 & 0x04){//減少する場合
+02B4  1D77     BTFSS PWM_FLAG1, 0x2
+02B5  2AF9     GOTO 0x2F9
+860:                                   if(PWM4DCH_BUFF > DUTY_L_TARGET){
+02B6  0873     MOVF PWM4DCH_BUFF, W
+02B7  0279     SUBWF DUTY_L_TARGET, W
+02B8  1803     BTFSC STATUS, 0x0
+02B9  2ABE     GOTO 0x2BE
+861:                                       DUTY_L_NOW -= DUTY_DOWN;
+02BA  30FB     MOVLW 0xFB
+02BB  07A2     ADDWF DUTY_L_NOW, F
+02BC  30FF     MOVLW 0xFF
+02BD  3DA3     ADDWFC 0x23, F
+862:                                   }
+02BE  0823     MOVF 0x23, W
+02BF  3A80     XORLW 0x80
+02C0  3C80     SUBLW 0x80
+863:                                   if(DUTY_L_NOW <= DUTY_L_TARGET){
+02C1  1D03     BTFSS STATUS, 0x2
+02C2  2AC5     GOTO 0x2C5
+02C3  0822     MOVF DUTY_L_NOW, W
+02C4  0279     SUBWF DUTY_L_TARGET, W
+02C5  1C03     BTFSS STATUS, 0x0
+02C6  2AAE     GOTO 0x2AE
+864:                                       PWM4DCH_BUFF = DUTY_L_TARGET;
+02C7  0879     MOVF DUTY_L_TARGET, W
+02C8  00F3     MOVWF PWM4DCH_BUFF
+865:                                       PWM_FLAG1 &= 0xFB;
+866:           GO_MOTOR_1_STOP://モーター停止処理
+867:                                       if(PWM_FLAG1 & 0x02){
+02CD  1CF7     BTFSS PWM_FLAG1, 0x1
+02CE  2AF9     GOTO 0x2F9
+868:                                           PWM_OUTPUT_FLAG &= NOT_MOTOR_1_STOP;
+02CF  30FC     MOVLW 0xFC
+02D0  00FC     MOVWF __pcstackCOMMON
+02D1  087C     MOVF __pcstackCOMMON, W
+02D2  05F6     ANDWF PWM_OUTPUT_FLAG, F
+869:                                           DEAD_TIME_L = DEAD_TIME;
+02D3  30FF     MOVLW 0xFF
+02D4  0020     MOVLB 0x0
+02D5  00A7     MOVWF DEAD_TIME_L
+870:                                           PWM_FLAG1 &= 0xFD;
+02D6  30FD     MOVLW 0xFD
+02D7  00FC     MOVWF __pcstackCOMMON
+02D8  087C     MOVF __pcstackCOMMON, W
+02D9  05F7     ANDWF PWM_FLAG1, F
+871:                                           if(PWM_FLAG1 & 0x01){
+02DA  1C77     BTFSS PWM_FLAG1, 0x0
+02DB  2AF9     GOTO 0x2F9
+872:                                               if(PWM_FLAG2 & 0x04){//ブレーキ動作の場合
+02DC  1D28     BTFSS PWM_FLAG2, 0x2
+02DD  2AE4     GOTO 0x2E4
+873:                                                   DEAD_TIME_FLAG |= 0x0A;
+02DE  300A     MOVLW 0xA
+02DF  00FC     MOVWF __pcstackCOMMON
+02E0  087C     MOVF __pcstackCOMMON, W
+02E1  04F5     IORWF DEAD_TIME_FLAG, F
+874:                                                   DEAD_TIME_FLAG &= 0xFA;
+02E2  30FA     MOVLW 0xFA
+02E3  2AF1     GOTO 0x2F1
+875:                                               }
+876:                                               else{
+877:                                                   if(PWM_FLAG2 & 0x08){//逆方向の場合
+02E4  1DA8     BTFSS PWM_FLAG2, 0x3
+02E5  2AEC     GOTO 0x2EC
+878:                                                       DEAD_TIME_FLAG |= 0x0D;
+02E6  300D     MOVLW 0xD
+02E7  00FC     MOVWF __pcstackCOMMON
+02E8  087C     MOVF __pcstackCOMMON, W
+02E9  04F5     IORWF DEAD_TIME_FLAG, F
+879:                                                       DEAD_TIME_FLAG &= 0xFD;
+02EA  30FD     MOVLW 0xFD
+02EB  2AF1     GOTO 0x2F1
+880:                                                   }
+881:                                                   else{
+882:                                                       DEAD_TIME_FLAG |= 0x0C;
+02EC  300C     MOVLW 0xC
+02ED  00FC     MOVWF __pcstackCOMMON
+02EE  087C     MOVF __pcstackCOMMON, W
+02EF  04F5     IORWF DEAD_TIME_FLAG, F
+883:                                                       DEAD_TIME_FLAG &= 0xFC;
+02F0  30FC     MOVLW 0xFC
+02F1  00FC     MOVWF __pcstackCOMMON
+02F2  087C     MOVF __pcstackCOMMON, W
+02F3  05F5     ANDWF DEAD_TIME_FLAG, F
+02F4  2AF9     GOTO 0x2F9
+884:                                                   }
+885:                                               }
+886:                                           }
+887:                                       }
+888:                                   }
+889:                                   else{
+890:                                       PWM4DCH_BUFF = (char)DUTY_L_NOW;
+891:                                       DUTY_COUNT_L = DUTY_COUNT_DOWN;
+892:                                   }
+893:                               }
+894:                           }
+895:                       }
+896:                       else{//カウントを行う場合
+897:                           DUTY_COUNT_L ++;
+02F5  3001     MOVLW 0x1
+02F6  00FC     MOVWF __pcstackCOMMON
+02F7  087C     MOVF __pcstackCOMMON, W
+02F8  07AA     ADDWF DUTY_COUNT_L, F
+898:                       }
+899:                       if(PWM_OVD_FLAG & OVD_EN_1){//オーバードライブを行うとき
+02F9  1C70     BTFSS PWM_OVD_FLAG, 0x0
+02FA  2B23     GOTO 0x323
+900:                           if(PWM_FLAG1 & 0x01){//方向切り替え中の場合
+02FB  1C77     BTFSS PWM_FLAG1, 0x0
+02FC  2B02     GOTO 0x302
+901:                               //オンフラグはクリアしないが，DCレジスタにそのままの値を代入する
+902:                               PWM_OVD_FLAG &= 0xFD;
+02FD  30FD     MOVLW 0xFD
+02FE  00FC     MOVWF __pcstackCOMMON
+02FF  087C     MOVF __pcstackCOMMON, W
+0300  05F0     ANDWF PWM_OVD_FLAG, F
+903:                           }
+0301  2B06     GOTO 0x306
+904:                           else if(((PWM_OVD_FLAG & OVD_ON_1) == 0) && (PWM_FLAG1 & 0x08)){
+0302  1CF0     BTFSS PWM_OVD_FLAG, 0x1
+0303  1DF7     BTFSS PWM_FLAG1, 0x3
+0304  2B06     GOTO 0x306
+905:                               PWM_OVD_FLAG |= OVD_ON_1;
+0305  14F0     BSF PWM_OVD_FLAG, 0x1
+906:                           }
+907:                           if(PWM_OVD_FLAG & OVD_ON_1){
+0306  1CF0     BTFSS PWM_OVD_FLAG, 0x1
+0307  2B23     GOTO 0x323
+908:                               if(PWM_L_OVD_COUNT){
+0308  0020     MOVLB 0x0
+0309  0825     MOVF PWM_L_OVD_COUNT, W
+030A  1903     BTFSC STATUS, 0x2
+030B  2B1F     GOTO 0x31F
+909:                                   if(PWM_OUTPUT_FLAG & MOTOR_1_A){
+030C  1C76     BTFSS PWM_OUTPUT_FLAG, 0x0
+030D  2B14     GOTO 0x314
+910:                                       PWM3DCH = PWM_OVD_DUTY;
+030E  082F     MOVF PWM_OVD_DUTY, W
+030F  0025     MOVLB 0x5
+0310  0092     MOVWF CCPR1H
+911:                                       PWM4DCH = PWM4DCH_BUFF;
+0311  0873     MOVF 0x2F3, W
+0312  0096     MOVWF CCPR2H
+912:                                   }
+0313  2B1B     GOTO 0x31B
+913:                                   else if(PWM_OUTPUT_FLAG & MOTOR_1_B){
+0314  1CF6     BTFSS 0x2F6, 0x1
+0315  2B1B     GOTO 0x31B
+914:                                       PWM4DCH = PWM_OVD_DUTY;
+0316  082F     MOVF 0x2AF, W
+0317  0025     MOVLB 0x5
+0318  0096     MOVWF CCPR2H
+915:                                       PWM3DCH = PWM3DCH_BUFF;
+0319  0874     MOVF 0x2F4, W
+031A  0092     MOVWF CCPR1H
+916:                                   }
+917:                                   PWM_L_OVD_COUNT --;
+031B  3001     MOVLW 0x1
+031C  0020     MOVLB 0x0
+031D  02A5     SUBWF PWM_L_OVD_COUNT, F
+918:                               }
+031E  2B28     GOTO 0x328
+919:                               else{
+920:                                   PWM_OVD_FLAG &= 0xFC;
+031F  30FC     MOVLW 0xFC
+0320  00FC     MOVWF __pcstackCOMMON
+0321  087C     MOVF __pcstackCOMMON, W
+0322  05F0     ANDWF PWM_OVD_FLAG, F
+921:                                   PWM3DCH = PWM3DCH_BUFF;
+922:                                   PWM4DCH = PWM4DCH_BUFF;
+923:                               }
+924:                           }
+925:                           else{
+926:                               PWM3DCH = PWM3DCH_BUFF;
+0323  0874     MOVF PWM3DCH_BUFF, W
+0324  0025     MOVLB 0x5
+0325  0092     MOVWF CCPR1H
+927:                               PWM4DCH = PWM4DCH_BUFF;
+0326  0873     MOVF 0x2F3, W
+0327  0096     MOVWF CCPR2H
+928:                           }
+929:                       }
+930:                       else{
+931:                           PWM3DCH = PWM3DCH_BUFF;
+932:                           PWM4DCH = PWM4DCH_BUFF;
+933:                       }
+934:                   }
+935:                   //RCH
+936:                   //デッドタイム計算部分
+937:                   if(DEAD_TIME_R & 0x80){
+0328  0020     MOVLB 0x0
+0329  1FA6     BTFSS DEAD_TIME_R, 0x7
+032A  2B30     GOTO 0x330
+938:                       DEAD_TIME_R ++;
+032B  3001     MOVLW 0x1
+032C  00FC     MOVWF __pcstackCOMMON
+032D  087C     MOVF __pcstackCOMMON, W
+032E  07A6     ADDWF DEAD_TIME_R, F
+939:                   }
+032F  2B55     GOTO 0x355
+940:                   else if(DEAD_TIME_FLAG & 0x80){//デッドタイム後の処理を行うとき
+0330  1FF5     BTFSS DEAD_TIME_FLAG, 0x7
+0331  2B55     GOTO 0x355
+941:                       if(PWM_FLAG1 & 0x10){
+0332  1E77     BTFSS PWM_FLAG1, 0x4
+0333  2B3C     GOTO 0x33C
+942:                           DUTY_R_TARGET = DUTY_R_KEEP;
+0334  082B     MOVF DUTY_R_KEEP, W
+0335  00F8     MOVWF DUTY_R_TARGET
+943:                           DUTY_R_KEEP = 0;
+0336  01AB     CLRF DUTY_R_KEEP
+944:                           PWM_FLAG1 &= 0xEF;
+0337  30EF     MOVLW 0xEF
+0338  00FC     MOVWF __pcstackCOMMON
+0339  087C     MOVF __pcstackCOMMON, W
+033A  05F7     ANDWF PWM_FLAG1, F
+945:                           PWM_FLAG1 |= 0x80;
+033B  17F7     BSF PWM_FLAG1, 0x7
+946:                       }
+947:                       
+948:                       if(DEAD_TIME_FLAG & 0x20){//ブレーキ動作
+033C  1EF5     BTFSS DEAD_TIME_FLAG, 0x5
+033D  2B49     GOTO 0x349
+949:                           DEAD_TIME_FLAG &= 0x4F;//フラグリセット
+033E  304F     MOVLW 0x4F
+033F  00FC     MOVWF __pcstackCOMMON
+0340  087C     MOVF __pcstackCOMMON, W
+0341  05F5     ANDWF DEAD_TIME_FLAG, F
+950:                           DEAD_TIME_FLAG |= 0x40;//PWMオフ
+0342  1775     BSF DEAD_TIME_FLAG, 0x6
+951:                           RA4PPS = 0x00;//PWM5OUT
+0343  003D     MOVLB 0x1D
+0344  0194     CLRF RA4PPS
+952:                           RA5PPS = 0x00;//PWM6OUT
+0345  0195     CLRF RA5PPS
+953:                           PWM_OUTPUT_FLAG |= MOTOR_2_BRAKE;
+0346  1776     BSF 0xEF6, 0x6
+954:                           PWM_FLAG1 |= 0x10;
+0347  1677     BSF 0xEF7, 0x4
+955:                       }
+0348  2B52     GOTO 0x352
+956:                       else if(DEAD_TIME_FLAG & 0x10){//逆転動作
+0349  1E75     BTFSS 0xEF5, 0x4
+034A  2B4D     GOTO 0x34D
+957:                           PWM_OUTPUT_FLAG |= MOTOR_2_B;
+034B  16F6     BSF 0xEF6, 0x5
+958:                           DEAD_TIME_FLAG &= 0x0F;//フラグリセット
+034E  300F     MOVLW 0xF
+034F  00FC     MOVWF 0xEFC
+0350  087C     MOVF 0xEFC, W
+0351  05F5     ANDWF 0xEF5, F
+959:                       }
+034C  2B4E     GOTO 0x34E
+960:                       else{
+961:                           PWM_OUTPUT_FLAG |= MOTOR_2_A;
+034D  1676     BSF 0xEF6, 0x4
+962:                           DEAD_TIME_FLAG &= 0x0F;//フラグリセット
+963:                       }
+964:                       DEAD_TIME_R = DEAD_TIME;
+0352  30FF     MOVLW 0xFF
+0353  0020     MOVLB 0x0
+0354  00A6     MOVWF DEAD_TIME_R
+965:                   }
+966:                   //PWM計算
+967:                   if((DEAD_TIME_FLAG & 0x40) == 0){//PWMオフフラグが立っていないとき
+0355  1B75     BTFSC DEAD_TIME_FLAG, 0x6
+0356  2C41     GOTO 0x441
+968:                       //台形制御計算部分
+969:                       if(DUTY_COUNT_R & 0x80){//台形制御を行う場合
+0357  1FA9     BTFSS DUTY_COUNT_R, 0x7
+0358  2C08     GOTO 0x408
+970:                           if(PWM_OUTPUT_FLAG & MOTOR_2_A){
+0359  1E76     BTFSS PWM_OUTPUT_FLAG, 0x4
+035A  2B98     GOTO 0x398
+971:                               DUTY_R_NOW = PWM5DCH_BUFF;
+035B  0872     MOVF PWM5DCH_BUFF, W
+035C  00FC     MOVWF __pcstackCOMMON
+035D  01FD     CLRF 0x7D
+035E  087C     MOVF __pcstackCOMMON, W
+035F  00A0     MOVWF DUTY_R_NOW
+0360  087D     MOVF 0x7D, W
+0361  00A1     MOVWF 0x21
+972:                               if(PWM_FLAG1 & 0x80){//増加する場合
+0362  1FF7     BTFSS PWM_FLAG1, 0x7
+0363  2B82     GOTO 0x382
+973:                                   if(PWM5DCH_BUFF < DUTY_R_TARGET){
+0364  0878     MOVF DUTY_R_TARGET, W
+0365  0272     SUBWF PWM5DCH_BUFF, W
+0366  1803     BTFSC STATUS, 0x0
+0367  2B6C     GOTO 0x36C
+974:                                       DUTY_R_NOW += DUTY_UP;
+0368  3005     MOVLW 0x5
+0369  07A0     ADDWF DUTY_R_NOW, F
+036A  3000     MOVLW 0x0
+036B  3DA1     ADDWFC 0x21, F
+975:                                   }
+036C  0821     MOVF 0x21, W
+036D  3A80     XORLW 0x80
+036E  00FC     MOVWF __pcstackCOMMON
+036F  3080     MOVLW 0x80
+0370  027C     SUBWF __pcstackCOMMON, W
+976:                                   if(DUTY_R_NOW >= DUTY_R_TARGET){
+0371  1D03     BTFSS STATUS, 0x2
+0372  2B75     GOTO 0x375
+0373  0878     MOVF DUTY_R_TARGET, W
+0374  0220     SUBWF DUTY_R_NOW, W
+0375  1C03     BTFSS STATUS, 0x0
+0376  2B7E     GOTO 0x37E
+977:                                       PWM5DCH_BUFF = DUTY_R_TARGET;
+0377  0878     MOVF DUTY_R_TARGET, W
+0378  00F2     MOVWF PWM5DCH_BUFF
+978:                                       PWM_FLAG1 &= 0x7F;
+0379  307F     MOVLW 0x7F
+037A  00FC     MOVWF __pcstackCOMMON
+037B  087C     MOVF __pcstackCOMMON, W
+037C  05F7     ANDWF PWM_FLAG1, F
+979:                                   }
+037D  2C0C     GOTO 0x40C
+980:                                   else{
+981:                                       PWM5DCH_BUFF = (char)DUTY_R_NOW;
+037E  0020     MOVLB 0x0
+037F  0820     MOVF DUTY_R_NOW, W
+0380  00F2     MOVWF PWM5DCH_BUFF
+0381  2C05     GOTO 0x405
+982:                                       DUTY_COUNT_R = DUTY_COUNT_UP;
+983:                                   }
+984:                               }
+985:                               else if(PWM_FLAG1 & 0x40){//減少する場合
+0382  1F77     BTFSS PWM_FLAG1, 0x6
+0383  2C0C     GOTO 0x40C
+986:                                   if(PWM5DCH_BUFF > DUTY_R_TARGET){
+0384  0872     MOVF PWM5DCH_BUFF, W
+0385  0278     SUBWF DUTY_R_TARGET, W
+0386  1803     BTFSC STATUS, 0x0
+0387  2B8C     GOTO 0x38C
+987:                                       DUTY_R_NOW -= DUTY_DOWN;
+0388  30FB     MOVLW 0xFB
+0389  07A0     ADDWF DUTY_R_NOW, F
+038A  30FF     MOVLW 0xFF
+038B  3DA1     ADDWFC 0x21, F
+988:                                   }
+038C  0821     MOVF 0x21, W
+038D  3A80     XORLW 0x80
+038E  3C80     SUBLW 0x80
+989:                                   if(DUTY_R_NOW <= DUTY_R_TARGET){
+038F  1D03     BTFSS STATUS, 0x2
+0390  2B93     GOTO 0x393
+0391  0820     MOVF DUTY_R_NOW, W
+0392  0278     SUBWF DUTY_R_TARGET, W
+0393  1C03     BTFSS STATUS, 0x0
+0394  2B7E     GOTO 0x37E
+990:                                       PWM5DCH_BUFF = DUTY_R_TARGET;
+0395  0878     MOVF DUTY_R_TARGET, W
+0396  00F2     MOVWF PWM5DCH_BUFF
+991:                                       PWM_FLAG1 &= 0xBF;
+03D6  30BF     MOVLW 0xBF
+03D7  00FC     MOVWF __pcstackCOMMON
+03D8  087C     MOVF __pcstackCOMMON, W
+03D9  05F7     ANDWF PWM_FLAG1, F
+992:                                       
+993:                                       goto GO_MOTOR_2_STOP;
+0397  2BD6     GOTO 0x3D6
+994:                                   }
+995:                                   else{
+996:                                       PWM5DCH_BUFF = (char)DUTY_R_NOW;
+997:                                       DUTY_COUNT_R = DUTY_COUNT_DOWN; 
+998:                                   }
+999:                               }
+1000:                          }
+1001:                          else{
+1002:                              DUTY_R_NOW = PWM6DCH_BUFF;
+0398  0871     MOVF PWM6DCH_BUFF, W
+0399  00FC     MOVWF __pcstackCOMMON
+039A  01FD     CLRF 0x7D
+039B  087C     MOVF __pcstackCOMMON, W
+039C  00A0     MOVWF DUTY_R_NOW
+039D  087D     MOVF 0x7D, W
+039E  00A1     MOVWF 0x21
+1003:                              if(PWM_FLAG1 & 0x80){//増加する場合
+039F  1FF7     BTFSS PWM_FLAG1, 0x7
+03A0  2BC1     GOTO 0x3C1
+1004:                                  if(PWM6DCH_BUFF < DUTY_R_TARGET){
+03A1  0878     MOVF DUTY_R_TARGET, W
+03A2  0271     SUBWF PWM6DCH_BUFF, W
+03A3  1803     BTFSC STATUS, 0x0
+03A4  2BA9     GOTO 0x3A9
+1005:                                      DUTY_R_NOW += DUTY_UP;
+03A5  3005     MOVLW 0x5
+03A6  07A0     ADDWF DUTY_R_NOW, F
+03A7  3000     MOVLW 0x0
+03A8  3DA1     ADDWFC 0x21, F
+1006:                                  }
+03A9  0821     MOVF 0x21, W
+03AA  3A80     XORLW 0x80
+03AB  00FC     MOVWF __pcstackCOMMON
+03AC  3080     MOVLW 0x80
+03AD  027C     SUBWF __pcstackCOMMON, W
+1007:                                  if(DUTY_R_NOW >= DUTY_R_TARGET){
+03AE  1D03     BTFSS STATUS, 0x2
+03AF  2BB2     GOTO 0x3B2
+03B0  0878     MOVF DUTY_R_TARGET, W
+03B1  0220     SUBWF DUTY_R_NOW, W
+03B2  1C03     BTFSS STATUS, 0x0
+03B3  2BBB     GOTO 0x3BB
+1008:                                      PWM6DCH_BUFF = DUTY_R_TARGET;
+03B4  0878     MOVF DUTY_R_TARGET, W
+03B5  00F1     MOVWF PWM6DCH_BUFF
+1009:                                      PWM_FLAG1 &= 0x7F;
+03B6  307F     MOVLW 0x7F
+03B7  00FC     MOVWF __pcstackCOMMON
+03B8  087C     MOVF __pcstackCOMMON, W
+03B9  05F7     ANDWF PWM_FLAG1, F
+1010:                                  }
+03BA  2BBE     GOTO 0x3BE
+1011:                                  else{
+1012:                                      PWM6DCH_BUFF = (char)DUTY_R_NOW;
+03BB  0020     MOVLB 0x0
+03BC  0820     MOVF DUTY_R_NOW, W
+03BD  00F1     MOVWF PWM6DCH_BUFF
+1013:                                  }
+1014:                                  DUTY_COUNT_R = DUTY_COUNT_UP;
+03BE  30FF     MOVLW 0xFF
+03BF  0020     MOVLB 0x0
+03C0  2C06     GOTO 0x406
+1015:                              }
+1016:                              else if(PWM_FLAG1 & 0x40){//減少する場合
+03C1  1F77     BTFSS PWM_FLAG1, 0x6
+03C2  2C0C     GOTO 0x40C
+1017:                                  if(PWM6DCH_BUFF > DUTY_R_TARGET){
+03C3  0871     MOVF PWM6DCH_BUFF, W
+03C4  0278     SUBWF DUTY_R_TARGET, W
+03C5  1803     BTFSC STATUS, 0x0
+03C6  2BCB     GOTO 0x3CB
+1018:                                      DUTY_R_NOW -= DUTY_DOWN;
+03C7  30FB     MOVLW 0xFB
+03C8  07A0     ADDWF DUTY_R_NOW, F
+03C9  30FF     MOVLW 0xFF
+03CA  3DA1     ADDWFC 0x21, F
+1019:                                  }
+03CB  0821     MOVF 0x21, W
+03CC  3A80     XORLW 0x80
+03CD  3C80     SUBLW 0x80
+1020:                                  if(DUTY_R_NOW <= DUTY_R_TARGET){
+03CE  1D03     BTFSS STATUS, 0x2
+03CF  2BD2     GOTO 0x3D2
+03D0  0820     MOVF DUTY_R_NOW, W
+03D1  0278     SUBWF DUTY_R_TARGET, W
+03D2  1C03     BTFSS STATUS, 0x0
+03D3  2C02     GOTO 0x402
+1021:                                      PWM6DCH_BUFF = DUTY_R_TARGET;
+03D4  0878     MOVF DUTY_R_TARGET, W
+03D5  00F1     MOVWF PWM6DCH_BUFF
+1022:                                      PWM_FLAG1 &= 0xBF;
+1023:          GO_MOTOR_2_STOP:
+1024:                                      if(PWM_FLAG1 & 0x20){
+03DA  1EF7     BTFSS PWM_FLAG1, 0x5
+03DB  2C0C     GOTO 0x40C
+1025:                                          PWM_OUTPUT_FLAG &= NOT_MOTOR_2_STOP;
+03DC  30CF     MOVLW 0xCF
+03DD  00FC     MOVWF __pcstackCOMMON
+03DE  087C     MOVF __pcstackCOMMON, W
+03DF  05F6     ANDWF PWM_OUTPUT_FLAG, F
+1026:                                          DEAD_TIME_R = DEAD_TIME;
+03E0  30FF     MOVLW 0xFF
+03E1  0020     MOVLB 0x0
+03E2  00A6     MOVWF DEAD_TIME_R
+1027:                                          PWM_FLAG1 &= 0xDF;
+03E3  30DF     MOVLW 0xDF
+03E4  00FC     MOVWF __pcstackCOMMON
+03E5  087C     MOVF __pcstackCOMMON, W
+03E6  05F7     ANDWF PWM_FLAG1, F
+1028:                                          if(PWM_FLAG1 & 0x10){
+03E7  1E77     BTFSS PWM_FLAG1, 0x4
+03E8  2C0C     GOTO 0x40C
+1029:                                              if(PWM_FLAG2 & 0x40){
+03E9  1F28     BTFSS PWM_FLAG2, 0x6
+03EA  2BF1     GOTO 0x3F1
+1030:                                                  DEAD_TIME_FLAG |= 0xA0;
+03EB  30A0     MOVLW 0xA0
+03EC  00FC     MOVWF __pcstackCOMMON
+03ED  087C     MOVF __pcstackCOMMON, W
+03EE  04F5     IORWF DEAD_TIME_FLAG, F
+1031:                                                  DEAD_TIME_FLAG &= 0xAF;
+03EF  30AF     MOVLW 0xAF
+03F0  2BFE     GOTO 0x3FE
+1032:                                              }
+1033:                                              else{
+1034:                                                  if(PWM_FLAG2 & 0x80){//逆方向の場合
+03F1  1FA8     BTFSS PWM_FLAG2, 0x7
+03F2  2BF9     GOTO 0x3F9
+1035:                                                      DEAD_TIME_FLAG |= 0xD0;
+03F3  30D0     MOVLW 0xD0
+03F4  00FC     MOVWF __pcstackCOMMON
+03F5  087C     MOVF __pcstackCOMMON, W
+03F6  04F5     IORWF DEAD_TIME_FLAG, F
+1036:                                                      DEAD_TIME_FLAG &= 0xDF;
+03F7  30DF     MOVLW 0xDF
+03F8  2BFE     GOTO 0x3FE
+1037:                                                  }
+1038:                                                  else{
+1039:                                                      DEAD_TIME_FLAG |= 0xC0;
+03F9  30C0     MOVLW 0xC0
+03FA  00FC     MOVWF __pcstackCOMMON
+03FB  087C     MOVF __pcstackCOMMON, W
+03FC  04F5     IORWF DEAD_TIME_FLAG, F
+1040:                                                      DEAD_TIME_FLAG &= 0xCF;
+03FD  30CF     MOVLW 0xCF
+03FE  00FC     MOVWF __pcstackCOMMON
+03FF  087C     MOVF __pcstackCOMMON, W
+0400  05F5     ANDWF DEAD_TIME_FLAG, F
+0401  2C0C     GOTO 0x40C
+1041:                                                  }
+1042:                                              }
+1043:                                          }
+1044:                                      }
+1045:                                  }
+1046:                                  else{
+1047:                                      PWM6DCH_BUFF = (char)DUTY_R_NOW;
+0402  0020     MOVLB 0x0
+0403  0820     MOVF DUTY_R_NOW, W
+0404  00F1     MOVWF PWM6DCH_BUFF
+1048:                                      DUTY_COUNT_R = DUTY_COUNT_DOWN; 
+0405  30FF     MOVLW 0xFF
+0406  00A9     MOVWF DUTY_COUNT_R
+0407  2C0C     GOTO 0x40C
+1049:                                  }
+1050:                              }
+1051:                          }
+1052:                      }
+1053:                      else{//カウントを行う場合
+1054:                          DUTY_COUNT_R ++;
+0408  3001     MOVLW 0x1
+0409  00FC     MOVWF __pcstackCOMMON
+040A  087C     MOVF __pcstackCOMMON, W
+040B  07A9     ADDWF DUTY_COUNT_R, F
+1055:                      }
+1056:                      if(PWM_OVD_FLAG & OVD_ON_2){//オーバードライブを行うとき
+040C  1EF0     BTFSS PWM_OVD_FLAG, 0x5
+040D  2C3C     GOTO 0x43C
+1057:                          if(PWM_FLAG1 & 0x10){//方向切り替え中の場合
+040E  1E77     BTFSS PWM_FLAG1, 0x4
+040F  2C15     GOTO 0x415
+1058:                              //オンフラグはクリアしないが，DCレジスタにそのままの値を代入する
+1059:                              PWM_OVD_FLAG &= 0xFD;
+0410  30FD     MOVLW 0xFD
+0411  00FC     MOVWF __pcstackCOMMON
+0412  087C     MOVF __pcstackCOMMON, W
+0413  05F0     ANDWF PWM_OVD_FLAG, F
+1060:                          }
+0414  2C19     GOTO 0x419
+1061:                          else if(((PWM_OVD_FLAG & 0x20) == 0) && (PWM_FLAG1 & 0x80)){
+0415  1EF0     BTFSS PWM_OVD_FLAG, 0x5
+0416  1FF7     BTFSS PWM_FLAG1, 0x7
+0417  2C19     GOTO 0x419
+1062:                              PWM_OVD_FLAG |= 0x20;
+0418  16F0     BSF PWM_OVD_FLAG, 0x5
+1063:                          }
+1064:                          if(PWM_OVD_FLAG & 0x20){
+0419  1EF0     BTFSS PWM_OVD_FLAG, 0x5
+041A  2C37     GOTO 0x437
+1065:                              if(PWM_R_OVD_COUNT){
+041B  0020     MOVLB 0x0
+041C  0824     MOVF PWM_R_OVD_COUNT, W
+041D  1903     BTFSC STATUS, 0x2
+041E  2C32     GOTO 0x432
+1066:                                  if(PWM_OUTPUT_FLAG & MOTOR_2_A){
+041F  1E76     BTFSS PWM_OUTPUT_FLAG, 0x4
+0420  2C27     GOTO 0x427
+1067:                                      PWM5DCH = PWM_OVD_DUTY;
+0421  082F     MOVF PWM_OVD_DUTY, W
+0422  002C     MOVLB 0xC
+0423  0098     MOVWF PWM5DCH
+1068:                                      PWM6DCH = PWM6DCH_BUFF;
+0424  0871     MOVF 0x671, W
+0425  009B     MOVWF PWM6DCH
+1069:                                  }
+0426  2C2E     GOTO 0x42E
+1070:                                  else if(PWM_OUTPUT_FLAG & MOTOR_2_B){
+0427  1EF6     BTFSS 0x676, 0x5
+0428  2C2E     GOTO 0x42E
+1071:                                      PWM6DCH = PWM_OVD_DUTY;
+0429  082F     MOVF 0x62F, W
+042A  002C     MOVLB 0xC
+042B  009B     MOVWF PWM6DCH
+1072:                                      PWM5DCH = PWM5DCH_BUFF;
+042C  0872     MOVF 0x672, W
+042D  0098     MOVWF PWM5DCH
+1073:                                  }
+1074:                                  PWM_R_OVD_COUNT --;
+042E  3001     MOVLW 0x1
+042F  0020     MOVLB 0x0
+0430  02A4     SUBWF PWM_R_OVD_COUNT, F
+1075:                              }
+0431  2C41     GOTO 0x441
+1076:                              else{//カウントが完了したタイミングでフラグをクリアする
+1077:                                  PWM_OVD_FLAG &= 0x0F;
+0432  300F     MOVLW 0xF
+0433  00FC     MOVWF __pcstackCOMMON
+0434  087C     MOVF __pcstackCOMMON, W
+0435  05F0     ANDWF PWM_OVD_FLAG, F
+0436  2C3C     GOTO 0x43C
+1078:                                  PWM5DCH = PWM5DCH_BUFF;
+1079:                                  PWM6DCH = PWM6DCH_BUFF;
+1080:                              }
+1081:                          }
+1082:                          else{
+1083:                              PWM5DCH = PWM3DCH_BUFF;
+0437  0874     MOVF PWM3DCH_BUFF, W
+0438  002C     MOVLB 0xC
+0439  0098     MOVWF PWM5DCH
+1084:                              PWM6DCH = PWM4DCH_BUFF;
+043A  0873     MOVF 0x673, W
+043B  2C40     GOTO 0x440
+1085:                          }
+1086:                      }
+1087:                      else{
+1088:                          PWM5DCH = PWM5DCH_BUFF;
+043C  0872     MOVF 0x672, W
+043D  002C     MOVLB 0xC
+043E  0098     MOVWF PWM5DCH
+1089:                          PWM6DCH = PWM6DCH_BUFF;
+043F  0871     MOVF 0x671, W
+0440  009B     MOVWF PWM6DCH
+1090:                      }
+1091:                  }
+1092:                  TMR2IF = 0;
+0441  0020     MOVLB 0x0
+0442  1091     BCF PIR1, 0x1
+1093:              }
+1094:          }
+0443  107E     BCF btemp, 0x0
+---  C:/Users/kojim/AppData/Local/Temp/xcAsfo4/driver_tmp_1.s  ------------------------------------------
+0446  249E     CALL 0x49E
+0447  00AF     MOVWF PWM_OVD_DUTY
+0498  0064     CLRWDT
+0499  0180     CLRF INDF0
+049A  3101     ADDFSR 0, 1
+049B  0B89     DECFSZ WREG, F
+049C  2C99     GOTO 0x499
+049D  3400     RETLW 0x0
+0448  3070     MOVLW 0x70
+0449  0084     MOVWF FSR0
+044A  3000     MOVLW 0x0
+044B  0085     MOVWF FSR0H
+044C  300C     MOVLW 0xC
+044D  2498     CALL 0x498
+044E  3020     MOVLW 0x20
+044F  0084     MOVWF FSR0
+0450  3000     MOVLW 0x0
+0451  0085     MOVWF FSR0H
+0452  300F     MOVLW 0xF
+0453  2498     CALL 0x498
+0454  107E     BCF btemp, 0x0
+0455  0020     MOVLB 0x0
+0456  2C57     GOTO 0x457

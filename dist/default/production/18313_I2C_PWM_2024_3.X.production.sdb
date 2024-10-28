@@ -1,0 +1,153 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PIC14E ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F18313 ]
+[d frameptr 6 ]
+"10 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"4 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"6 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"343 C:\Users\kojim\MPLABXProjects\18313_I2C_PWM_2024_3.X\newmain.c
+[v _main main `(v  1 e 1 0 ]
+"406
+[v _isr isr `II(v  1 e 1 0 ]
+"351 C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h
+[v _INTCON INTCON `VEuc  1 e 1 @11 ]
+"1377
+[v _PR2 PR2 `VEuc  1 e 1 @30 ]
+"1397
+[v _T2CON T2CON `VEuc  1 e 1 @31 ]
+"1468
+[v _TRISA TRISA `VEuc  1 e 1 @140 ]
+"1546
+[v _PIE1 PIE1 `VEuc  1 e 1 @145 ]
+"2023
+[v _LATA LATA `VEuc  1 e 1 @268 ]
+"2427
+[v _ANSELA ANSELA `VEuc  1 e 1 @396 ]
+"3377
+[v _SSP1BUF SSP1BUF `VEuc  1 e 1 @529 ]
+"3631
+[v _SSP1ADD SSP1ADD `VEuc  1 e 1 @530 ]
+"3885
+[v _SSP1MSK SSP1MSK `VEuc  1 e 1 @531 ]
+"4139
+[v _SSP1STAT SSP1STAT `VEuc  1 e 1 @532 ]
+"4261
+[v _SSP1CON1 SSP1CON1 `VEuc  1 e 1 @533 ]
+"4531
+[v _SSP1CON2 SSP1CON2 `VEuc  1 e 1 @534 ]
+"4653
+[v _SSP1CON3 SSP1CON3 `VEuc  1 e 1 @535 ]
+"4827
+[v _CCPR1L CCPR1L `VEuc  1 e 1 @657 ]
+"4847
+[v _CCPR1H CCPR1H `VEuc  1 e 1 @658 ]
+"4867
+[v _CCP1CON CCP1CON `VEuc  1 e 1 @659 ]
+"4979
+[v _CCPR2L CCPR2L `VEuc  1 e 1 @661 ]
+"4999
+[v _CCPR2H CCPR2H `VEuc  1 e 1 @662 ]
+"5019
+[v _CCP2CON CCP2CON `VEuc  1 e 1 @663 ]
+"5843
+[v _PWM5DCL PWM5DCL `VEuc  1 e 1 @1559 ]
+"5879
+[v _PWM5DCH PWM5DCH `VEuc  1 e 1 @1560 ]
+"5949
+[v _PWM5CON PWM5CON `VEuc  1 e 1 @1561 ]
+"6015
+[v _PWM6DCL PWM6DCL `VEuc  1 e 1 @1562 ]
+"6051
+[v _PWM6DCH PWM6DCH `VEuc  1 e 1 @1563 ]
+"6121
+[v _PWM6CON PWM6CON `VEuc  1 e 1 @1564 ]
+"9990
+[v _SSP1CLKPPS SSP1CLKPPS `VEuc  1 e 1 @3616 ]
+"10042
+[v _SSP1DATPPS SSP1DATPPS `VEuc  1 e 1 @3617 ]
+"10458
+[v _RA0PPS RA0PPS `VEuc  1 e 1 @3728 ]
+"10510
+[v _RA1PPS RA1PPS `VEuc  1 e 1 @3729 ]
+"10562
+[v _RA2PPS RA2PPS `VEuc  1 e 1 @3730 ]
+"10614
+[v _RA4PPS RA4PPS `VEuc  1 e 1 @3732 ]
+"10666
+[v _RA5PPS RA5PPS `VEuc  1 e 1 @3733 ]
+"13403
+[v _CKP CKP `VEb  1 e 0 @4268 ]
+"13781
+[v _D_nA D_nA `VEb  1 e 0 @4261 ]
+"15071
+[v _R_nW R_nW `VEb  1 e 0 @4258 ]
+"15215
+[v _SSP1IF SSP1IF `VEb  1 e 0 @139 ]
+"15530
+[v _TMR2IF TMR2IF `VEb  1 e 0 @137 ]
+"95 C:\Users\kojim\MPLABXProjects\18313_I2C_PWM_2024_3.X\newmain.c
+[v _I2C_BUFF I2C_BUFF `uc  1 e 1 0 ]
+"97
+[v _I2C_COUNT I2C_COUNT `uc  1 e 1 0 ]
+"98
+[v _I2C_ORDER I2C_ORDER `uc  1 e 1 0 ]
+"170
+[v _DUTY_L_NOW DUTY_L_NOW `s  1 e 2 0 ]
+"172
+[v _DUTY_L_TARGET DUTY_L_TARGET `uc  1 e 1 0 ]
+"173
+[v _DUTY_L_KEEP DUTY_L_KEEP `uc  1 e 1 0 ]
+"175
+[v _DUTY_R_NOW DUTY_R_NOW `s  1 e 2 0 ]
+"176
+[v _DUTY_R_TARGET DUTY_R_TARGET `uc  1 e 1 0 ]
+"177
+[v _DUTY_R_KEEP DUTY_R_KEEP `uc  1 e 1 0 ]
+"203
+[v _DUTY_COUNT_L DUTY_COUNT_L `uc  1 e 1 0 ]
+"204
+[v _DUTY_COUNT_R DUTY_COUNT_R `uc  1 e 1 0 ]
+"209
+[v _PWM_FLAG1 PWM_FLAG1 `uc  1 e 1 0 ]
+"214
+[v _PWM_FLAG2 PWM_FLAG2 `uc  1 e 1 0 ]
+"219
+[v _PWM_OUTPUT_FLAG PWM_OUTPUT_FLAG `uc  1 e 1 0 ]
+"262
+[v _DEAD_TIME_L DEAD_TIME_L `uc  1 e 1 0 ]
+"264
+[v _DEAD_TIME_R DEAD_TIME_R `uc  1 e 1 0 ]
+"265
+[v _DEAD_TIME_FLAG DEAD_TIME_FLAG `uc  1 e 1 0 ]
+"293
+[v _PWM_OVD_DUTY PWM_OVD_DUTY `uc  1 e 1 0 ]
+"299
+[v _PWM_L_OVD_COUNT PWM_L_OVD_COUNT `uc  1 e 1 0 ]
+"300
+[v _PWM_R_OVD_COUNT PWM_R_OVD_COUNT `uc  1 e 1 0 ]
+"302
+[v _PWM3DCH_BUFF PWM3DCH_BUFF `uc  1 e 1 0 ]
+"303
+[v _PWM4DCH_BUFF PWM4DCH_BUFF `uc  1 e 1 0 ]
+"304
+[v _PWM5DCH_BUFF PWM5DCH_BUFF `uc  1 e 1 0 ]
+"305
+[v _PWM6DCH_BUFF PWM6DCH_BUFF `uc  1 e 1 0 ]
+"307
+[v _PWM_OVD_FLAG PWM_OVD_FLAG `uc  1 e 1 0 ]
+"343
+[v _main main `(v  1 e 1 0 ]
+{
+"404
+} 0
+"406
+[v _isr isr `II(v  1 e 1 0 ]
+{
+"1094
+} 0

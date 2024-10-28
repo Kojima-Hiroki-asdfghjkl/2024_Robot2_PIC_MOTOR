@@ -1,0 +1,3093 @@
+
+
+Microchip MPLAB XC8 Assembler V2.50 build 20240725155939 
+                                                                                               Thu Oct 03 01:09:50 2024
+
+Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og9 
+     1                           	processor	16F18313
+     2                           	pagewidth 120
+     3                           	opt	flic
+     4                           	psect	idataBANK0,global,class=CODE,space=0,delta=2,noexec
+     5                           	psect	cinit,global,class=CODE,space=0,merge=1,delta=2
+     6                           	psect	bssCOMMON,global,class=COMMON,space=1,delta=1,noexec
+     7                           	psect	bssBANK0,global,class=BANK0,space=1,delta=1,noexec
+     8                           	psect	dataBANK0,global,class=BANK0,space=1,delta=1,noexec
+     9                           	psect	clrtext,global,class=CODE,space=0,delta=2
+    10                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1,noexec
+    11                           	psect	cstackBANK0,global,class=BANK0,space=1,delta=1,noexec
+    12                           	psect	maintext,global,class=CODE,space=0,merge=1,split=1,delta=2
+    13                           	psect	intentry,global,class=CODE,space=0,delta=2
+    14                           	psect	config,global,abs,ovrld,class=CONFIG,space=4,delta=2,noexec
+    15                           	dabs	1,0x7E,2
+    16     0000                     
+    17                           ; Generated 11/01/2024 GMT
+    18                           ; 
+    19                           ; Copyright © 2024, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    20                           ; All rights reserved.
+    21                           ; 
+    22                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+      +                          ip").
+    23                           ; 
+    24                           ; Redistribution and use in source and binary forms, with or without modification, are
+    25                           ; permitted provided that the following conditions are met:
+    26                           ; 
+    27                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+      +                          t of
+    28                           ;        conditions and the following disclaimer.
+    29                           ; 
+    30                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+      +                          list
+    31                           ;        of conditions and the following disclaimer in the documentation and/or other
+    32                           ;        materials provided with the distribution. Publication is not required when
+    33                           ;        this file is used in an embedded application.
+    34                           ; 
+    35                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+      +                          is
+    36                           ;        software without specific prior written permission.
+    37                           ; 
+    38                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    39                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+      +                          OR
+    40                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+      +                          T,
+    41                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    42                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    43                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+      +                          RICT
+    44                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+      +                          SE OF
+    45                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    46                           ; 
+    47                           ; 
+    48                           ; Code-generator required, PIC16F18313 Definitions
+    49                           ; 
+    50                           ; SFR Addresses
+    51     0008                     bsr             equ	8
+    52     0005                     fsr0h           equ	5
+    53     0004                     fsr0l           equ	4
+    54     0007                     fsr1h           equ	7
+    55     0006                     fsr1l           equ	6
+    56     0000                     indf            equ	0
+    57     0000                     indf0           equ	0
+    58     0001                     indf1           equ	1
+    59     000B                     intcon          equ	11
+    60     0002                     pc              equ	2
+    61     0002                     pcl             equ	2
+    62     000A                     pclath          equ	10
+    63     0003                     status          equ	3
+    64     0009                     wreg            equ	9
+    65     0000                     INDF0           equ	0	;# 
+    66     0001                     INDF1           equ	1	;# 
+    67     0002                     PCL             equ	2	;# 
+    68     0003                     STATUS          equ	3	;# 
+    69     0004                     FSR0L           equ	4	;# 
+    70     0005                     FSR0H           equ	5	;# 
+    71     0006                     FSR1L           equ	6	;# 
+    72     0007                     FSR1H           equ	7	;# 
+    73     0008                     BSR             equ	8	;# 
+    74     0009                     WREG            equ	9	;# 
+    75     000A                     PCLATH          equ	10	;# 
+    76     000B                     INTCON          equ	11	;# 
+    77     000C                     PORTA           equ	12	;# 
+    78     0010                     PIR0            equ	16	;# 
+    79     0011                     PIR1            equ	17	;# 
+    80     0012                     PIR2            equ	18	;# 
+    81     0013                     PIR3            equ	19	;# 
+    82     0014                     PIR4            equ	20	;# 
+    83     0015                     TMR0L           equ	21	;# 
+    84     0015                     TMR0            equ	21	;# 
+    85     0016                     TMR0H           equ	22	;# 
+    86     0016                     PR0             equ	22	;# 
+    87     0017                     T0CON0          equ	23	;# 
+    88     0018                     T0CON1          equ	24	;# 
+    89     0019                     TMR1            equ	25	;# 
+    90     0019                     TMR1L           equ	25	;# 
+    91     001A                     TMR1H           equ	26	;# 
+    92     001B                     T1CON           equ	27	;# 
+    93     001C                     T1GCON          equ	28	;# 
+    94     001D                     TMR2            equ	29	;# 
+    95     001E                     PR2             equ	30	;# 
+    96     001F                     T2CON           equ	31	;# 
+    97     008C                     TRISA           equ	140	;# 
+    98     0090                     PIE0            equ	144	;# 
+    99     0091                     PIE1            equ	145	;# 
+   100     0092                     PIE2            equ	146	;# 
+   101     0093                     PIE3            equ	147	;# 
+   102     0094                     PIE4            equ	148	;# 
+   103     0097                     WDTCON          equ	151	;# 
+   104     009B                     ADRES           equ	155	;# 
+   105     009B                     ADRESL          equ	155	;# 
+   106     009C                     ADRESH          equ	156	;# 
+   107     009D                     ADCON0          equ	157	;# 
+   108     009E                     ADCON1          equ	158	;# 
+   109     009F                     ADACT           equ	159	;# 
+   110     010C                     LATA            equ	268	;# 
+   111     0111                     CM1CON0         equ	273	;# 
+   112     0112                     CM1CON1         equ	274	;# 
+   113     0115                     CMOUT           equ	277	;# 
+   114     0116                     BORCON          equ	278	;# 
+   115     0117                     FVRCON          equ	279	;# 
+   116     0118                     DACCON0         equ	280	;# 
+   117     0119                     DACCON1         equ	281	;# 
+   118     018C                     ANSELA          equ	396	;# 
+   119     0197                     VREGCON         equ	407	;# 
+   120     0199                     RC1REG          equ	409	;# 
+   121     0199                     RCREG           equ	409	;# 
+   122     0199                     RCREG1          equ	409	;# 
+   123     019A                     TX1REG          equ	410	;# 
+   124     019A                     TXREG1          equ	410	;# 
+   125     019A                     TXREG           equ	410	;# 
+   126     019B                     SP1BRG          equ	411	;# 
+   127     019B                     SPBRG           equ	411	;# 
+   128     019B                     SP1BRGL         equ	411	;# 
+   129     019B                     SPBRG1          equ	411	;# 
+   130     019B                     SPBRGL          equ	411	;# 
+   131     019C                     SP1BRGH         equ	412	;# 
+   132     019C                     SPBRGH          equ	412	;# 
+   133     019C                     SPBRGH1         equ	412	;# 
+   134     019D                     RC1STA          equ	413	;# 
+   135     019D                     RCSTA1          equ	413	;# 
+   136     019D                     RCSTA           equ	413	;# 
+   137     019E                     TX1STA          equ	414	;# 
+   138     019E                     TXSTA1          equ	414	;# 
+   139     019E                     TXSTA           equ	414	;# 
+   140     019F                     BAUD1CON        equ	415	;# 
+   141     019F                     BAUDCON1        equ	415	;# 
+   142     019F                     BAUDCTL1        equ	415	;# 
+   143     019F                     BAUDCON         equ	415	;# 
+   144     019F                     BAUDCTL         equ	415	;# 
+   145     020C                     WPUA            equ	524	;# 
+   146     0211                     SSP1BUF         equ	529	;# 
+   147     0211                     SSPBUF          equ	529	;# 
+   148     0212                     SSP1ADD         equ	530	;# 
+   149     0212                     SSPADD          equ	530	;# 
+   150     0213                     SSP1MSK         equ	531	;# 
+   151     0213                     SSPMSK          equ	531	;# 
+   152     0214                     SSP1STAT        equ	532	;# 
+   153     0214                     SSPSTAT         equ	532	;# 
+   154     0215                     SSP1CON1        equ	533	;# 
+   155     0215                     SSPCON          equ	533	;# 
+   156     0215                     SSPCON1         equ	533	;# 
+   157     0215                     SSP1CON         equ	533	;# 
+   158     0216                     SSP1CON2        equ	534	;# 
+   159     0216                     SSPCON2         equ	534	;# 
+   160     0217                     SSP1CON3        equ	535	;# 
+   161     0217                     SSPCON3         equ	535	;# 
+   162     028C                     ODCONA          equ	652	;# 
+   163     0291                     CCPR1           equ	657	;# 
+   164     0291                     CCPR1L          equ	657	;# 
+   165     0292                     CCPR1H          equ	658	;# 
+   166     0293                     CCP1CON         equ	659	;# 
+   167     0294                     CCP1CAP         equ	660	;# 
+   168     0295                     CCPR2           equ	661	;# 
+   169     0295                     CCPR2L          equ	661	;# 
+   170     0296                     CCPR2H          equ	662	;# 
+   171     0297                     CCP2CON         equ	663	;# 
+   172     0298                     CCP2CAP         equ	664	;# 
+   173     030C                     SLRCONA         equ	780	;# 
+   174     038C                     INLVLA          equ	908	;# 
+   175     0391                     IOCAP           equ	913	;# 
+   176     0392                     IOCAN           equ	914	;# 
+   177     0393                     IOCAF           equ	915	;# 
+   178     039A                     CLKRCON         equ	922	;# 
+   179     039C                     MDCON           equ	924	;# 
+   180     039D                     MDSRC           equ	925	;# 
+   181     039E                     MDCARH          equ	926	;# 
+   182     039F                     MDCARL          equ	927	;# 
+   183     0498                     NCO1ACC         equ	1176	;# 
+   184     0498                     NCO1ACCL        equ	1176	;# 
+   185     0499                     NCO1ACCH        equ	1177	;# 
+   186     049A                     NCO1ACCU        equ	1178	;# 
+   187     049B                     NCO1INC         equ	1179	;# 
+   188     049B                     NCO1INCL        equ	1179	;# 
+   189     049C                     NCO1INCH        equ	1180	;# 
+   190     049D                     NCO1INCU        equ	1181	;# 
+   191     049E                     NCO1CON         equ	1182	;# 
+   192     049F                     NCO1CLK         equ	1183	;# 
+   193     0617                     PWM5DCL         equ	1559	;# 
+   194     0618                     PWM5DCH         equ	1560	;# 
+   195     0619                     PWM5CON         equ	1561	;# 
+   196     0619                     PWM5CON0        equ	1561	;# 
+   197     061A                     PWM6DCL         equ	1562	;# 
+   198     061B                     PWM6DCH         equ	1563	;# 
+   199     061C                     PWM6CON         equ	1564	;# 
+   200     061C                     PWM6CON0        equ	1564	;# 
+   201     0691                     CWG1CLKCON      equ	1681	;# 
+   202     0692                     CWG1DAT         equ	1682	;# 
+   203     0693                     CWG1DBR         equ	1683	;# 
+   204     0694                     CWG1DBF         equ	1684	;# 
+   205     0695                     CWG1CON0        equ	1685	;# 
+   206     0696                     CWG1CON1        equ	1686	;# 
+   207     0697                     CWG1AS0         equ	1687	;# 
+   208     0698                     CWG1AS1         equ	1688	;# 
+   209     0699                     CWG1STR         equ	1689	;# 
+   210     0891                     NVMADR          equ	2193	;# 
+   211     0891                     EEADR           equ	2193	;# 
+   212     0891                     PMADR           equ	2193	;# 
+   213     0891                     NVMADRL         equ	2193	;# 
+   214     0891                     EEADRL          equ	2193	;# 
+   215     0891                     PMADRL          equ	2193	;# 
+   216     0892                     NVMADRH         equ	2194	;# 
+   217     0892                     EEADRH          equ	2194	;# 
+   218     0892                     PMADRH          equ	2194	;# 
+   219     0893                     NVMDAT          equ	2195	;# 
+   220     0893                     EEDAT           equ	2195	;# 
+   221     0893                     PMDAT           equ	2195	;# 
+   222     0893                     NVMDATL         equ	2195	;# 
+   223     0893                     EEDATL          equ	2195	;# 
+   224     0893                     PMDATL          equ	2195	;# 
+   225     0894                     NVMDATH         equ	2196	;# 
+   226     0894                     EEDATH          equ	2196	;# 
+   227     0894                     PMDATH          equ	2196	;# 
+   228     0895                     NVMCON1         equ	2197	;# 
+   229     0895                     EECON1          equ	2197	;# 
+   230     0895                     PMCON1          equ	2197	;# 
+   231     0896                     NVMCON2         equ	2198	;# 
+   232     0896                     EECON2          equ	2198	;# 
+   233     0896                     PMCON2          equ	2198	;# 
+   234     089B                     PCON0           equ	2203	;# 
+   235     0911                     PMD0            equ	2321	;# 
+   236     0912                     PMD1            equ	2322	;# 
+   237     0913                     PMD2            equ	2323	;# 
+   238     0914                     PMD3            equ	2324	;# 
+   239     0915                     PMD4            equ	2325	;# 
+   240     0916                     PMD5            equ	2326	;# 
+   241     0918                     CPUDOZE         equ	2328	;# 
+   242     0919                     OSCCON1         equ	2329	;# 
+   243     091A                     OSCCON2         equ	2330	;# 
+   244     091B                     OSCCON3         equ	2331	;# 
+   245     091C                     OSCSTAT1        equ	2332	;# 
+   246     091D                     OSCEN           equ	2333	;# 
+   247     091E                     OSCTUNE         equ	2334	;# 
+   248     091F                     OSCFRQ          equ	2335	;# 
+   249     0E0F                     PPSLOCK         equ	3599	;# 
+   250     0E10                     INTPPS          equ	3600	;# 
+   251     0E11                     T0CKIPPS        equ	3601	;# 
+   252     0E12                     T1CKIPPS        equ	3602	;# 
+   253     0E13                     T1GPPS          equ	3603	;# 
+   254     0E14                     CCP1PPS         equ	3604	;# 
+   255     0E15                     CCP2PPS         equ	3605	;# 
+   256     0E18                     CWG1PPS         equ	3608	;# 
+   257     0E1A                     MDCIN1PPS       equ	3610	;# 
+   258     0E1B                     MDCIN2PPS       equ	3611	;# 
+   259     0E1C                     MDMINPPS        equ	3612	;# 
+   260     0E20                     SSP1CLKPPS      equ	3616	;# 
+   261     0E21                     SSP1DATPPS      equ	3617	;# 
+   262     0E22                     SSP1SSPPS       equ	3618	;# 
+   263     0E24                     RXPPS           equ	3620	;# 
+   264     0E25                     TXPPS           equ	3621	;# 
+   265     0E28                     CLCIN0PPS       equ	3624	;# 
+   266     0E29                     CLCIN1PPS       equ	3625	;# 
+   267     0E2A                     CLCIN2PPS       equ	3626	;# 
+   268     0E2B                     CLCIN3PPS       equ	3627	;# 
+   269     0E90                     RA0PPS          equ	3728	;# 
+   270     0E91                     RA1PPS          equ	3729	;# 
+   271     0E92                     RA2PPS          equ	3730	;# 
+   272     0E94                     RA4PPS          equ	3732	;# 
+   273     0E95                     RA5PPS          equ	3733	;# 
+   274     0F0F                     CLCDATA         equ	3855	;# 
+   275     0F10                     CLC1CON         equ	3856	;# 
+   276     0F11                     CLC1POL         equ	3857	;# 
+   277     0F12                     CLC1SEL0        equ	3858	;# 
+   278     0F13                     CLC1SEL1        equ	3859	;# 
+   279     0F14                     CLC1SEL2        equ	3860	;# 
+   280     0F15                     CLC1SEL3        equ	3861	;# 
+   281     0F16                     CLC1GLS0        equ	3862	;# 
+   282     0F17                     CLC1GLS1        equ	3863	;# 
+   283     0F18                     CLC1GLS2        equ	3864	;# 
+   284     0F19                     CLC1GLS3        equ	3865	;# 
+   285     0F1A                     CLC2CON         equ	3866	;# 
+   286     0F1B                     CLC2POL         equ	3867	;# 
+   287     0F1C                     CLC2SEL0        equ	3868	;# 
+   288     0F1D                     CLC2SEL1        equ	3869	;# 
+   289     0F1E                     CLC2SEL2        equ	3870	;# 
+   290     0F1F                     CLC2SEL3        equ	3871	;# 
+   291     0F20                     CLC2GLS0        equ	3872	;# 
+   292     0F21                     CLC2GLS1        equ	3873	;# 
+   293     0F22                     CLC2GLS2        equ	3874	;# 
+   294     0F23                     CLC2GLS3        equ	3875	;# 
+   295     0FE4                     STATUS_SHAD     equ	4068	;# 
+   296     0FE5                     WREG_SHAD       equ	4069	;# 
+   297     0FE6                     BSR_SHAD        equ	4070	;# 
+   298     0FE7                     PCLATH_SHAD     equ	4071	;# 
+   299     0FE8                     FSR0L_SHAD      equ	4072	;# 
+   300     0FE9                     FSR0H_SHAD      equ	4073	;# 
+   301     0FEA                     FSR1L_SHAD      equ	4074	;# 
+   302     0FEB                     FSR1H_SHAD      equ	4075	;# 
+   303     0FED                     STKPTR          equ	4077	;# 
+   304     0FEE                     TOSL            equ	4078	;# 
+   305     0FEF                     TOSH            equ	4079	;# 
+   306     0000                     INDF0           equ	0	;# 
+   307     0001                     INDF1           equ	1	;# 
+   308     0002                     PCL             equ	2	;# 
+   309     0003                     STATUS          equ	3	;# 
+   310     0004                     FSR0L           equ	4	;# 
+   311     0005                     FSR0H           equ	5	;# 
+   312     0006                     FSR1L           equ	6	;# 
+   313     0007                     FSR1H           equ	7	;# 
+   314     0008                     BSR             equ	8	;# 
+   315     0009                     WREG            equ	9	;# 
+   316     000A                     PCLATH          equ	10	;# 
+   317     000B                     INTCON          equ	11	;# 
+   318     000C                     PORTA           equ	12	;# 
+   319     0010                     PIR0            equ	16	;# 
+   320     0011                     PIR1            equ	17	;# 
+   321     0012                     PIR2            equ	18	;# 
+   322     0013                     PIR3            equ	19	;# 
+   323     0014                     PIR4            equ	20	;# 
+   324     0015                     TMR0L           equ	21	;# 
+   325     0015                     TMR0            equ	21	;# 
+   326     0016                     TMR0H           equ	22	;# 
+   327     0016                     PR0             equ	22	;# 
+   328     0017                     T0CON0          equ	23	;# 
+   329     0018                     T0CON1          equ	24	;# 
+   330     0019                     TMR1            equ	25	;# 
+   331     0019                     TMR1L           equ	25	;# 
+   332     001A                     TMR1H           equ	26	;# 
+   333     001B                     T1CON           equ	27	;# 
+   334     001C                     T1GCON          equ	28	;# 
+   335     001D                     TMR2            equ	29	;# 
+   336     001E                     PR2             equ	30	;# 
+   337     001F                     T2CON           equ	31	;# 
+   338     008C                     TRISA           equ	140	;# 
+   339     0090                     PIE0            equ	144	;# 
+   340     0091                     PIE1            equ	145	;# 
+   341     0092                     PIE2            equ	146	;# 
+   342     0093                     PIE3            equ	147	;# 
+   343     0094                     PIE4            equ	148	;# 
+   344     0097                     WDTCON          equ	151	;# 
+   345     009B                     ADRES           equ	155	;# 
+   346     009B                     ADRESL          equ	155	;# 
+   347     009C                     ADRESH          equ	156	;# 
+   348     009D                     ADCON0          equ	157	;# 
+   349     009E                     ADCON1          equ	158	;# 
+   350     009F                     ADACT           equ	159	;# 
+   351     010C                     LATA            equ	268	;# 
+   352     0111                     CM1CON0         equ	273	;# 
+   353     0112                     CM1CON1         equ	274	;# 
+   354     0115                     CMOUT           equ	277	;# 
+   355     0116                     BORCON          equ	278	;# 
+   356     0117                     FVRCON          equ	279	;# 
+   357     0118                     DACCON0         equ	280	;# 
+   358     0119                     DACCON1         equ	281	;# 
+   359     018C                     ANSELA          equ	396	;# 
+   360     0197                     VREGCON         equ	407	;# 
+   361     0199                     RC1REG          equ	409	;# 
+   362     0199                     RCREG           equ	409	;# 
+   363     0199                     RCREG1          equ	409	;# 
+   364     019A                     TX1REG          equ	410	;# 
+   365     019A                     TXREG1          equ	410	;# 
+   366     019A                     TXREG           equ	410	;# 
+   367     019B                     SP1BRG          equ	411	;# 
+   368     019B                     SPBRG           equ	411	;# 
+   369     019B                     SP1BRGL         equ	411	;# 
+   370     019B                     SPBRG1          equ	411	;# 
+   371     019B                     SPBRGL          equ	411	;# 
+   372     019C                     SP1BRGH         equ	412	;# 
+   373     019C                     SPBRGH          equ	412	;# 
+   374     019C                     SPBRGH1         equ	412	;# 
+   375     019D                     RC1STA          equ	413	;# 
+   376     019D                     RCSTA1          equ	413	;# 
+   377     019D                     RCSTA           equ	413	;# 
+   378     019E                     TX1STA          equ	414	;# 
+   379     019E                     TXSTA1          equ	414	;# 
+   380     019E                     TXSTA           equ	414	;# 
+   381     019F                     BAUD1CON        equ	415	;# 
+   382     019F                     BAUDCON1        equ	415	;# 
+   383     019F                     BAUDCTL1        equ	415	;# 
+   384     019F                     BAUDCON         equ	415	;# 
+   385     019F                     BAUDCTL         equ	415	;# 
+   386     020C                     WPUA            equ	524	;# 
+   387     0211                     SSP1BUF         equ	529	;# 
+   388     0211                     SSPBUF          equ	529	;# 
+   389     0212                     SSP1ADD         equ	530	;# 
+   390     0212                     SSPADD          equ	530	;# 
+   391     0213                     SSP1MSK         equ	531	;# 
+   392     0213                     SSPMSK          equ	531	;# 
+   393     0214                     SSP1STAT        equ	532	;# 
+   394     0214                     SSPSTAT         equ	532	;# 
+   395     0215                     SSP1CON1        equ	533	;# 
+   396     0215                     SSPCON          equ	533	;# 
+   397     0215                     SSPCON1         equ	533	;# 
+   398     0215                     SSP1CON         equ	533	;# 
+   399     0216                     SSP1CON2        equ	534	;# 
+   400     0216                     SSPCON2         equ	534	;# 
+   401     0217                     SSP1CON3        equ	535	;# 
+   402     0217                     SSPCON3         equ	535	;# 
+   403     028C                     ODCONA          equ	652	;# 
+   404     0291                     CCPR1           equ	657	;# 
+   405     0291                     CCPR1L          equ	657	;# 
+   406     0292                     CCPR1H          equ	658	;# 
+   407     0293                     CCP1CON         equ	659	;# 
+   408     0294                     CCP1CAP         equ	660	;# 
+   409     0295                     CCPR2           equ	661	;# 
+   410     0295                     CCPR2L          equ	661	;# 
+   411     0296                     CCPR2H          equ	662	;# 
+   412     0297                     CCP2CON         equ	663	;# 
+   413     0298                     CCP2CAP         equ	664	;# 
+   414     030C                     SLRCONA         equ	780	;# 
+   415     038C                     INLVLA          equ	908	;# 
+   416     0391                     IOCAP           equ	913	;# 
+   417     0392                     IOCAN           equ	914	;# 
+   418     0393                     IOCAF           equ	915	;# 
+   419     039A                     CLKRCON         equ	922	;# 
+   420     039C                     MDCON           equ	924	;# 
+   421     039D                     MDSRC           equ	925	;# 
+   422     039E                     MDCARH          equ	926	;# 
+   423     039F                     MDCARL          equ	927	;# 
+   424     0498                     NCO1ACC         equ	1176	;# 
+   425     0498                     NCO1ACCL        equ	1176	;# 
+   426     0499                     NCO1ACCH        equ	1177	;# 
+   427     049A                     NCO1ACCU        equ	1178	;# 
+   428     049B                     NCO1INC         equ	1179	;# 
+   429     049B                     NCO1INCL        equ	1179	;# 
+   430     049C                     NCO1INCH        equ	1180	;# 
+   431     049D                     NCO1INCU        equ	1181	;# 
+   432     049E                     NCO1CON         equ	1182	;# 
+   433     049F                     NCO1CLK         equ	1183	;# 
+   434     0617                     PWM5DCL         equ	1559	;# 
+   435     0618                     PWM5DCH         equ	1560	;# 
+   436     0619                     PWM5CON         equ	1561	;# 
+   437     0619                     PWM5CON0        equ	1561	;# 
+   438     061A                     PWM6DCL         equ	1562	;# 
+   439     061B                     PWM6DCH         equ	1563	;# 
+   440     061C                     PWM6CON         equ	1564	;# 
+   441     061C                     PWM6CON0        equ	1564	;# 
+   442     0691                     CWG1CLKCON      equ	1681	;# 
+   443     0692                     CWG1DAT         equ	1682	;# 
+   444     0693                     CWG1DBR         equ	1683	;# 
+   445     0694                     CWG1DBF         equ	1684	;# 
+   446     0695                     CWG1CON0        equ	1685	;# 
+   447     0696                     CWG1CON1        equ	1686	;# 
+   448     0697                     CWG1AS0         equ	1687	;# 
+   449     0698                     CWG1AS1         equ	1688	;# 
+   450     0699                     CWG1STR         equ	1689	;# 
+   451     0891                     NVMADR          equ	2193	;# 
+   452     0891                     EEADR           equ	2193	;# 
+   453     0891                     PMADR           equ	2193	;# 
+   454     0891                     NVMADRL         equ	2193	;# 
+   455     0891                     EEADRL          equ	2193	;# 
+   456     0891                     PMADRL          equ	2193	;# 
+   457     0892                     NVMADRH         equ	2194	;# 
+   458     0892                     EEADRH          equ	2194	;# 
+   459     0892                     PMADRH          equ	2194	;# 
+   460     0893                     NVMDAT          equ	2195	;# 
+   461     0893                     EEDAT           equ	2195	;# 
+   462     0893                     PMDAT           equ	2195	;# 
+   463     0893                     NVMDATL         equ	2195	;# 
+   464     0893                     EEDATL          equ	2195	;# 
+   465     0893                     PMDATL          equ	2195	;# 
+   466     0894                     NVMDATH         equ	2196	;# 
+   467     0894                     EEDATH          equ	2196	;# 
+   468     0894                     PMDATH          equ	2196	;# 
+   469     0895                     NVMCON1         equ	2197	;# 
+   470     0895                     EECON1          equ	2197	;# 
+   471     0895                     PMCON1          equ	2197	;# 
+   472     0896                     NVMCON2         equ	2198	;# 
+   473     0896                     EECON2          equ	2198	;# 
+   474     0896                     PMCON2          equ	2198	;# 
+   475     089B                     PCON0           equ	2203	;# 
+   476     0911                     PMD0            equ	2321	;# 
+   477     0912                     PMD1            equ	2322	;# 
+   478     0913                     PMD2            equ	2323	;# 
+   479     0914                     PMD3            equ	2324	;# 
+   480     0915                     PMD4            equ	2325	;# 
+   481     0916                     PMD5            equ	2326	;# 
+   482     0918                     CPUDOZE         equ	2328	;# 
+   483     0919                     OSCCON1         equ	2329	;# 
+   484     091A                     OSCCON2         equ	2330	;# 
+   485     091B                     OSCCON3         equ	2331	;# 
+   486     091C                     OSCSTAT1        equ	2332	;# 
+   487     091D                     OSCEN           equ	2333	;# 
+   488     091E                     OSCTUNE         equ	2334	;# 
+   489     091F                     OSCFRQ          equ	2335	;# 
+   490     0E0F                     PPSLOCK         equ	3599	;# 
+   491     0E10                     INTPPS          equ	3600	;# 
+   492     0E11                     T0CKIPPS        equ	3601	;# 
+   493     0E12                     T1CKIPPS        equ	3602	;# 
+   494     0E13                     T1GPPS          equ	3603	;# 
+   495     0E14                     CCP1PPS         equ	3604	;# 
+   496     0E15                     CCP2PPS         equ	3605	;# 
+   497     0E18                     CWG1PPS         equ	3608	;# 
+   498     0E1A                     MDCIN1PPS       equ	3610	;# 
+   499     0E1B                     MDCIN2PPS       equ	3611	;# 
+   500     0E1C                     MDMINPPS        equ	3612	;# 
+   501     0E20                     SSP1CLKPPS      equ	3616	;# 
+   502     0E21                     SSP1DATPPS      equ	3617	;# 
+   503     0E22                     SSP1SSPPS       equ	3618	;# 
+   504     0E24                     RXPPS           equ	3620	;# 
+   505     0E25                     TXPPS           equ	3621	;# 
+   506     0E28                     CLCIN0PPS       equ	3624	;# 
+   507     0E29                     CLCIN1PPS       equ	3625	;# 
+   508     0E2A                     CLCIN2PPS       equ	3626	;# 
+   509     0E2B                     CLCIN3PPS       equ	3627	;# 
+   510     0E90                     RA0PPS          equ	3728	;# 
+   511     0E91                     RA1PPS          equ	3729	;# 
+   512     0E92                     RA2PPS          equ	3730	;# 
+   513     0E94                     RA4PPS          equ	3732	;# 
+   514     0E95                     RA5PPS          equ	3733	;# 
+   515     0F0F                     CLCDATA         equ	3855	;# 
+   516     0F10                     CLC1CON         equ	3856	;# 
+   517     0F11                     CLC1POL         equ	3857	;# 
+   518     0F12                     CLC1SEL0        equ	3858	;# 
+   519     0F13                     CLC1SEL1        equ	3859	;# 
+   520     0F14                     CLC1SEL2        equ	3860	;# 
+   521     0F15                     CLC1SEL3        equ	3861	;# 
+   522     0F16                     CLC1GLS0        equ	3862	;# 
+   523     0F17                     CLC1GLS1        equ	3863	;# 
+   524     0F18                     CLC1GLS2        equ	3864	;# 
+   525     0F19                     CLC1GLS3        equ	3865	;# 
+   526     0F1A                     CLC2CON         equ	3866	;# 
+   527     0F1B                     CLC2POL         equ	3867	;# 
+   528     0F1C                     CLC2SEL0        equ	3868	;# 
+   529     0F1D                     CLC2SEL1        equ	3869	;# 
+   530     0F1E                     CLC2SEL2        equ	3870	;# 
+   531     0F1F                     CLC2SEL3        equ	3871	;# 
+   532     0F20                     CLC2GLS0        equ	3872	;# 
+   533     0F21                     CLC2GLS1        equ	3873	;# 
+   534     0F22                     CLC2GLS2        equ	3874	;# 
+   535     0F23                     CLC2GLS3        equ	3875	;# 
+   536     0FE4                     STATUS_SHAD     equ	4068	;# 
+   537     0FE5                     WREG_SHAD       equ	4069	;# 
+   538     0FE6                     BSR_SHAD        equ	4070	;# 
+   539     0FE7                     PCLATH_SHAD     equ	4071	;# 
+   540     0FE8                     FSR0L_SHAD      equ	4072	;# 
+   541     0FE9                     FSR0H_SHAD      equ	4073	;# 
+   542     0FEA                     FSR1L_SHAD      equ	4074	;# 
+   543     0FEB                     FSR1H_SHAD      equ	4075	;# 
+   544     0FED                     STKPTR          equ	4077	;# 
+   545     0FEE                     TOSL            equ	4078	;# 
+   546     0FEF                     TOSH            equ	4079	;# 
+   547                           
+   548                           	psect	idataBANK0
+   549     03EF                     __pidataBANK0:
+   550                           
+   551                           ;initializer for _PWM_OVD_DUTY
+   552     03EF  3480               	retlw	128
+   553     001E                     _PR2            set	30
+   554     001F                     _T2CON          set	31
+   555     000B                     _INTCON         set	11
+   556     0089                     _TMR2IF         set	137
+   557     008B                     _SSP1IF         set	139
+   558     0091                     _PIE1           set	145
+   559     008C                     _TRISA          set	140
+   560     010C                     _LATA           set	268
+   561     018C                     _ANSELA         set	396
+   562     0211                     _SSP1BUF        set	529
+   563     0212                     _SSP1ADD        set	530
+   564     0213                     _SSP1MSK        set	531
+   565     0217                     _SSP1CON3       set	535
+   566     0216                     _SSP1CON2       set	534
+   567     0215                     _SSP1CON1       set	533
+   568     0214                     _SSP1STAT       set	532
+   569     10AC                     _CKP            set	4268
+   570     10A2                     _R_nW           set	4258
+   571     10A5                     _D_nA           set	4261
+   572     0295                     _CCPR2L         set	661
+   573     0296                     _CCPR2H         set	662
+   574     0297                     _CCP2CON        set	663
+   575     0291                     _CCPR1L         set	657
+   576     0292                     _CCPR1H         set	658
+   577     0293                     _CCP1CON        set	659
+   578     061A                     _PWM6DCL        set	1562
+   579     061B                     _PWM6DCH        set	1563
+   580     061C                     _PWM6CON        set	1564
+   581     0617                     _PWM5DCL        set	1559
+   582     0618                     _PWM5DCH        set	1560
+   583     0619                     _PWM5CON        set	1561
+   584     0E20                     _SSP1CLKPPS     set	3616
+   585     0E21                     _SSP1DATPPS     set	3617
+   586     0E95                     _RA5PPS         set	3733
+   587     0E94                     _RA4PPS         set	3732
+   588     0E91                     _RA1PPS         set	3729
+   589     0E90                     _RA0PPS         set	3728
+   590     0E92                     _RA2PPS         set	3730
+   591                           
+   592                           	psect	cinit
+   593     0397                     start_initialization:	
+   594                           ; #config settings
+   595                           
+   596     0397                     __initialization:
+   597                           
+   598                           ; Initialize objects allocated to BANK0
+   599     0397  23EF               	fcall	__pidataBANK0	;fetch initializer
+   600     0398  00AF               	movwf	__pdataBANK0& (0+127)
+   601                           
+   602                           ; Clear objects allocated to COMMON
+   603     0399  3070               	movlw	low __pbssCOMMON
+   604     039A  0084               	movwf	4
+   605     039B  3000               	movlw	high __pbssCOMMON
+   606     039C  0085               	movwf	5
+   607     039D  300C               	movlw	12
+   608     039E  23E9               	fcall	clear_ram0
+   609                           
+   610                           ; Clear objects allocated to BANK0
+   611     039F  3020               	movlw	low __pbssBANK0
+   612     03A0  0084               	movwf	4
+   613     03A1  3000               	movlw	high __pbssBANK0
+   614     03A2  0085               	movwf	5
+   615     03A3  300F               	movlw	15
+   616     03A4  23E9               	fcall	clear_ram0
+   617     03A5                     end_of_initialization:	
+   618                           ;End of C runtime variable initialization code
+   619                           
+   620     03A5                     __end_of__initialization:
+   621     03A5  107E               	bcf	int$flags,0	;clear compiler interrupt flag (level 1)
+   622     03A6  0020               	movlb	0
+   623     03A7  2BA8               	ljmp	_main	;jump to C main() function
+   624                           
+   625                           	psect	bssCOMMON
+   626     0070                     __pbssCOMMON:
+   627     0070                     _PWM_OVD_FLAG:
+   628     0070                     	ds	1
+   629     0071                     _PWM6DCH_BUFF:
+   630     0071                     	ds	1
+   631     0072                     _PWM5DCH_BUFF:
+   632     0072                     	ds	1
+   633     0073                     _PWM4DCH_BUFF:
+   634     0073                     	ds	1
+   635     0074                     _PWM3DCH_BUFF:
+   636     0074                     	ds	1
+   637     0075                     _DEAD_TIME_FLAG:
+   638     0075                     	ds	1
+   639     0076                     _PWM_OUTPUT_FLAG:
+   640     0076                     	ds	1
+   641     0077                     _PWM_FLAG1:
+   642     0077                     	ds	1
+   643     0078                     _DUTY_R_TARGET:
+   644     0078                     	ds	1
+   645     0079                     _DUTY_L_TARGET:
+   646     0079                     	ds	1
+   647     007A                     _I2C_ORDER:
+   648     007A                     	ds	1
+   649     007B                     _I2C_BUFF:
+   650     007B                     	ds	1
+   651                           
+   652                           	psect	bssBANK0
+   653     0020                     __pbssBANK0:
+   654     0020                     _DUTY_R_NOW:
+   655     0020                     	ds	2
+   656     0022                     _DUTY_L_NOW:
+   657     0022                     	ds	2
+   658     0024                     _PWM_R_OVD_COUNT:
+   659     0024                     	ds	1
+   660     0025                     _PWM_L_OVD_COUNT:
+   661     0025                     	ds	1
+   662     0026                     _DEAD_TIME_R:
+   663     0026                     	ds	1
+   664     0027                     _DEAD_TIME_L:
+   665     0027                     	ds	1
+   666     0028                     _PWM_FLAG2:
+   667     0028                     	ds	1
+   668     0029                     _DUTY_COUNT_R:
+   669     0029                     	ds	1
+   670     002A                     _DUTY_COUNT_L:
+   671     002A                     	ds	1
+   672     002B                     _DUTY_R_KEEP:
+   673     002B                     	ds	1
+   674     002C                     _DUTY_L_KEEP:
+   675     002C                     	ds	1
+   676     002D                     _I2C_COUNT:
+   677     002D                     	ds	1
+   678     002E                     _I2C_SEND:
+   679     002E                     	ds	1
+   680                           
+   681                           	psect	dataBANK0
+   682     002F                     __pdataBANK0:
+   683     002F                     _PWM_OVD_DUTY:
+   684     002F                     	ds	1
+   685                           
+   686                           	psect	clrtext
+   687     03E9                     clear_ram0:	
+   688                           ;	Called with FSR0 containing the base address, and
+   689                           ;	WREG with the size to clear
+   690                           
+   691     03E9  0064               	clrwdt	;clear the watchdog before getting into this loop
+   692     03EA                     clrloop0:
+   693     03EA  0180               	clrf	0	;clear RAM location pointed to by FSR
+   694     03EB  3101               	addfsr 0,1
+   695     03EC  0B89               	decfsz	9,f	;Have we reached the end of clearing yet?
+   696     03ED  2BEA               	goto	clrloop0	;have we reached the end yet?
+   697     03EE  3400               	retlw	0	;all done for this memory range, return
+   698                           
+   699                           	psect	cstackCOMMON
+   700     007C                     __pcstackCOMMON:
+   701     007C                     ?_main:
+   702     007C                     ?_isr:	
+   703                           ; 1 bytes @ 0x0
+   704                           
+   705     007C                     ??_isr:	
+   706                           ; 1 bytes @ 0x0
+   707                           
+   708                           
+   709                           ; 1 bytes @ 0x0
+   710     007C                     	ds	2
+   711                           
+   712                           	psect	cstackBANK0
+   713     0000                     __pcstackBANK0:
+   714     0000                     ??_main:
+   715                           
+   716                           	psect	maintext
+   717     03A8                     __pmaintext:	
+   718                           ; 1 bytes @ 0x0
+   719 ;;
+   720 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   721 ;;
+   722 ;; *************** function _main *****************
+   723 ;; Defined at:
+   724 ;;		line 343 in file "newmain.c"
+   725 ;; Parameters:    Size  Location     Type
+   726 ;;		None
+   727 ;; Auto vars:     Size  Location     Type
+   728 ;;		None
+   729 ;; Return value:  Size  Location     Type
+   730 ;;                  1    wreg      void 
+   731 ;; Registers used:
+   732 ;;		status,2
+   733 ;; Tracked objects:
+   734 ;;		On entry : B1F/0
+   735 ;;		On exit  : B1A/0
+   736 ;;		Unchanged: B00/0
+   737 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
+   738 ;;      Params:         0       0       0       0
+   739 ;;      Locals:         0       0       0       0
+   740 ;;      Temps:          0       0       0       0
+   741 ;;      Totals:         0       0       0       0
+   742 ;;Total ram usage:        0 bytes
+   743 ;; Hardware stack levels required when called: 1
+   744 ;; This function calls:
+   745 ;;		Nothing
+   746 ;; This function is called by:
+   747 ;;		Startup code after reset
+   748 ;; This function uses a non-reentrant model
+   749 ;;
+   750                           
+   751     03A8                     _main:	
+   752                           ;psect for function _main
+   753                           
+   754                           
+   755                           ;newmain.c: 345:     TRISA = 0x0C;
+   756                           
+   757                           ;incstack = 0
+   758                           ; Regs used in _main: [status,2]
+   759     03A8  300C               	movlw	12
+   760     03A9  0021               	movlb	1	; select bank1
+   761     03AA  008C               	movwf	12	;volatile
+   762                           
+   763                           ;newmain.c: 346:     ANSELA = 0x00;
+   764     03AB  0023               	movlb	3	; select bank3
+   765     03AC  018C               	clrf	12	;volatile
+   766                           
+   767                           ;newmain.c: 347:     LATA = 0x33;
+   768     03AD  3033               	movlw	51
+   769     03AE  0022               	movlb	2	; select bank2
+   770     03AF  008C               	movwf	12	;volatile
+   771                           
+   772                           ;newmain.c: 351:     RA2PPS = 0b11001;
+   773     03B0  3019               	movlw	25
+   774     03B1  003D               	movlb	29	; select bank29
+   775     03B2  0092               	movwf	18	;volatile
+   776                           
+   777                           ;newmain.c: 352:     SSP1DATPPS = 2;
+   778     03B3  3002               	movlw	2
+   779     03B4  003C               	movlb	28	; select bank28
+   780     03B5  00A1               	movwf	33	;volatile
+   781                           
+   782                           ;newmain.c: 353:     SSP1CLKPPS = 3;
+   783     03B6  3003               	movlw	3
+   784     03B7  00A0               	movwf	32	;volatile
+   785                           
+   786                           ;newmain.c: 356:     RA0PPS = 0b01100;
+   787     03B8  300C               	movlw	12
+   788     03B9  003D               	movlb	29	; select bank29
+   789     03BA  0090               	movwf	16	;volatile
+   790                           
+   791                           ;newmain.c: 357:     RA1PPS = 0b01101;
+   792     03BB  300D               	movlw	13
+   793     03BC  0091               	movwf	17	;volatile
+   794                           
+   795                           ;newmain.c: 358:     RA4PPS = 0b00010;
+   796     03BD  3002               	movlw	2
+   797     03BE  0094               	movwf	20	;volatile
+   798                           
+   799                           ;newmain.c: 359:     RA5PPS = 0b00011;
+   800     03BF  3003               	movlw	3
+   801     03C0  0095               	movwf	21	;volatile
+   802                           
+   803                           ;newmain.c: 362:     INTCON = 0xC0;
+   804     03C1  30C0               	movlw	192
+   805     03C2  008B               	movwf	11	;volatile
+   806                           
+   807                           ;newmain.c: 363:     PIE1 = 0x0A;
+   808     03C3  300A               	movlw	10
+   809     03C4  0021               	movlb	1	; select bank1
+   810     03C5  0091               	movwf	17	;volatile
+   811                           
+   812                           ;newmain.c: 367:     SSP1STAT = 0b10000000;
+   813     03C6  3080               	movlw	128
+   814     03C7  0024               	movlb	4	; select bank4
+   815     03C8  0094               	movwf	20	;volatile
+   816                           
+   817                           ;newmain.c: 368:     SSP1CON1 = 0b00110110;
+   818     03C9  3036               	movlw	54
+   819     03CA  0095               	movwf	21	;volatile
+   820                           
+   821                           ;newmain.c: 369:     SSP1CON2 = 0x00;
+   822     03CB  0196               	clrf	22	;volatile
+   823                           
+   824                           ;newmain.c: 370:     SSP1CON3 = 0x00;
+   825     03CC  0197               	clrf	23	;volatile
+   826                           
+   827                           ;newmain.c: 371:     SSP1MSK = 0xFE;
+   828     03CD  30FE               	movlw	254
+   829     03CE  0093               	movwf	19	;volatile
+   830                           
+   831                           ;newmain.c: 372:     SSP1ADD = 0x12;
+   832     03CF  3012               	movlw	18
+   833     03D0  0092               	movwf	18	;volatile
+   834                           
+   835                           ;newmain.c: 376:     T2CON = 0b00000110;
+   836     03D1  3006               	movlw	6
+   837     03D2  0020               	movlb	0	; select bank0
+   838     03D3  009F               	movwf	31	;volatile
+   839                           
+   840                           ;newmain.c: 377:     PR2 = 0xFF;
+   841     03D4  30FF               	movlw	255
+   842     03D5  009E               	movwf	30	;volatile
+   843                           
+   844                           ;newmain.c: 381:     PWM5CON = 0x80;
+   845     03D6  3080               	movlw	128
+   846     03D7  002C               	movlb	12	; select bank12
+   847     03D8  0099               	movwf	25	;volatile
+   848                           
+   849                           ;newmain.c: 382:     PWM5DCH = 0x00;
+   850     03D9  0198               	clrf	24	;volatile
+   851                           
+   852                           ;newmain.c: 383:     PWM5DCL = 0x00;
+   853     03DA  0197               	clrf	23	;volatile
+   854                           
+   855                           ;newmain.c: 386:     PWM6CON = 0x80;
+   856     03DB  3080               	movlw	128
+   857     03DC  009C               	movwf	28	;volatile
+   858                           
+   859                           ;newmain.c: 387:     PWM6DCH = 0x00;
+   860     03DD  019B               	clrf	27	;volatile
+   861                           
+   862                           ;newmain.c: 388:     PWM6DCL = 0x00;
+   863     03DE  019A               	clrf	26	;volatile
+   864                           
+   865                           ;newmain.c: 392:     CCP1CON = 0x9F;
+   866     03DF  309F               	movlw	159
+   867     03E0  0025               	movlb	5	; select bank5
+   868     03E1  0093               	movwf	19	;volatile
+   869                           
+   870                           ;newmain.c: 393:     CCPR1H = 0x00;
+   871     03E2  0192               	clrf	18	;volatile
+   872                           
+   873                           ;newmain.c: 394:     CCPR1L = 0x00;
+   874     03E3  0191               	clrf	17	;volatile
+   875                           
+   876                           ;newmain.c: 397:     CCP2CON = 0x9F;
+   877     03E4  309F               	movlw	159
+   878     03E5  0097               	movwf	23	;volatile
+   879                           
+   880                           ;newmain.c: 398:     CCPR2H = 0x00;
+   881     03E6  0196               	clrf	22	;volatile
+   882                           
+   883                           ;newmain.c: 399:     CCPR2L = 0x00;
+   884     03E7  0195               	clrf	21	;volatile
+   885     03E8                     l133:	
+   886                           ;newmain.c: 402:     while(1);
+   887                           
+   888     03E8  2BE8               	goto	l133
+   889     03E9                     __end_of_main:
+   890                           
+   891                           	psect	intentry
+   892     0004                     __pintentry:	
+   893 ;; *************** function _isr *****************
+   894 ;; Defined at:
+   895 ;;		line 406 in file "newmain.c"
+   896 ;; Parameters:    Size  Location     Type
+   897 ;;		None
+   898 ;; Auto vars:     Size  Location     Type
+   899 ;;		None
+   900 ;; Return value:  Size  Location     Type
+   901 ;;                  1    wreg      void 
+   902 ;; Registers used:
+   903 ;;		wreg, status,2, status,0
+   904 ;; Tracked objects:
+   905 ;;		On entry : 0/0
+   906 ;;		On exit  : 1F/0
+   907 ;;		Unchanged: 0/0
+   908 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
+   909 ;;      Params:         0       0       0       0
+   910 ;;      Locals:         0       0       0       0
+   911 ;;      Temps:          2       0       0       0
+   912 ;;      Totals:         2       0       0       0
+   913 ;;Total ram usage:        2 bytes
+   914 ;; Hardware stack levels used: 1
+   915 ;; This function calls:
+   916 ;;		Nothing
+   917 ;; This function is called by:
+   918 ;;		Interrupt level 1
+   919 ;; This function uses a non-reentrant model
+   920 ;;
+   921                           
+   922     0004                     _isr:
+   923                           
+   924                           ;incstack = 0
+   925     0004  147E               	bsf	126,0	;set compiler interrupt flag (level 1)
+   926                           
+   927                           ; Regs used in _isr: [wreg+status,2+status,0]
+   928     0005  3180               	pagesel	$
+   929                           
+   930                           ;newmain.c: 407:     if(SSP1IF){
+   931     0006  0020               	movlb	0	; select bank0
+   932     0007  1D91               	btfss	17,3	;volatile
+   933     0008  29B2               	goto	i1l141
+   934                           
+   935                           ;newmain.c: 414:         I2C_BUFF = SSP1BUF;
+   936     0009  0024               	movlb	4	; select bank4
+   937     000A  0811               	movf	17,w	;volatile
+   938     000B  00FB               	movwf	_I2C_BUFF
+   939                           
+   940                           ;newmain.c: 415:         if(D_nA == 0){
+   941     000C  1A94               	btfsc	20,5	;volatile
+   942     000D  2813               	goto	i1l1663
+   943                           
+   944                           ;newmain.c: 416:             I2C_COUNT = 0;
+   945     000E  0020               	movlb	0	; select bank0
+   946     000F  01AD               	clrf	_I2C_COUNT
+   947                           
+   948                           ;newmain.c: 417:             if(R_nW == 0){
+   949     0010  0024               	movlb	4	; select bank4
+   950     0011  1D14               	btfss	20,2	;volatile
+   951                           
+   952                           ;newmain.c: 418:                 I2C_ORDER = 0;
+   953     0012  01FA               	clrf	_I2C_ORDER
+   954     0013                     i1l1663:
+   955                           
+   956                           ;newmain.c: 421:         if(R_nW){
+   957     0013  1D14               	btfss	20,2	;volatile
+   958                           
+   959                           ;newmain.c: 424:         else if(D_nA){
+   960     0014  1E94               	btfss	20,5	;volatile
+   961     0015  29AD               	goto	i1l2005
+   962                           
+   963                           ;newmain.c: 425:             if(I2C_COUNT == 0){
+   964     0016  0020               	movlb	0	; select bank0
+   965     0017  082D               	movf	_I2C_COUNT,w
+   966     0018  1D03               	btfss	3,2
+   967     0019  2955               	goto	i1l1935
+   968                           
+   969                           ;newmain.c: 426:                 I2C_ORDER = I2C_BUFF;
+   970     001A  087B               	movf	_I2C_BUFF,w
+   971     001B  00FA               	movwf	_I2C_ORDER
+   972                           
+   973                           ;newmain.c: 428:                 if(I2C_ORDER == 'B'){
+   974     001C  3042               	movlw	66
+   975     001D  067A               	xorwf	_I2C_ORDER,w
+   976     001E  1D03               	btfss	3,2
+   977     001F  2848               	goto	i1l1707
+   978                           
+   979                           ;newmain.c: 430:                     if(PWM_OUTPUT_FLAG & 0x04){
+   980     0020  1D76               	btfss	_PWM_OUTPUT_FLAG,2
+   981     0021  282F               	goto	i1l149
+   982                           
+   983                           ;newmain.c: 431:                         RA0PPS = 0b01100;
+   984     0022  300C               	movlw	12
+   985     0023  003D               	movlb	29	; select bank29
+   986     0024  0090               	movwf	16	;volatile
+   987                           
+   988                           ;newmain.c: 432:                         RA1PPS = 0b01101;
+   989     0025  300D               	movlw	13
+   990     0026  0091               	movwf	17	;volatile
+   991                           
+   992                           ;newmain.c: 433:                         PWM_OUTPUT_FLAG &= 0xFB;
+   993     0027  30FB               	movlw	251
+   994     0028  05F6               	andwf	_PWM_OUTPUT_FLAG,f
+   995                           
+   996                           ;newmain.c: 434:                         DEAD_TIME_FLAG &= 0xF8;
+   997     0029  30F8               	movlw	248
+   998     002A  05F5               	andwf	_DEAD_TIME_FLAG,f
+   999                           
+  1000                           ;newmain.c: 435:                         DEAD_TIME_FLAG |= 0x08;
+  1001     002B  15F5               	bsf	_DEAD_TIME_FLAG,3
+  1002     002C                     i1l1681:
+  1003                           
+  1004                           ;newmain.c: 436:                         DEAD_TIME_L = 0xFF;
+  1005     002C  30FF               	movlw	255
+  1006     002D  0020               	movlb	0	; select bank0
+  1007     002E  286E               	goto	L23
+  1008     002F                     i1l149:	
+  1009                           ;newmain.c: 440:                     else if(PWM_OUTPUT_FLAG & 0x02){
+  1010                           
+  1011                           ;newmain.c: 439:                     }
+  1012                           
+  1013                           ;newmain.c: 438:                         PWM_OVD_FLAG |= 0x01;
+  1014                           
+  1015                           ;newmain.c: 437:                         PWM_L_OVD_COUNT = 200;
+  1016                           
+  1017     002F  1CF6               	btfss	_PWM_OUTPUT_FLAG,1
+  1018     0030  283B               	goto	i1l151
+  1019                           
+  1020                           ;newmain.c: 441:                         PWM_FLAG1 |= 0x07;
+  1021     0031  3007               	movlw	7
+  1022     0032  04F7               	iorwf	_PWM_FLAG1,f
+  1023                           
+  1024                           ;newmain.c: 442:                         PWM_FLAG1 &= 0xF7;
+  1025     0033  30F7               	movlw	247
+  1026     0034  05F7               	andwf	_PWM_FLAG1,f
+  1027                           
+  1028                           ;newmain.c: 443:                         PWM_FLAG2 &= 0xF0;
+  1029     0035  30F0               	movlw	240
+  1030     0036                     L3:
+  1031     0036  05A8               	andwf	_PWM_FLAG2,f
+  1032                           
+  1033                           ;newmain.c: 444:                         DUTY_COUNT_L = 0xFF;
+  1034     0037  30FF               	movlw	255
+  1035     0038  00AA               	movwf	_DUTY_COUNT_L
+  1036                           
+  1037                           ;newmain.c: 445:                         DUTY_L_TARGET = 0;
+  1038     0039  01F9               	clrf	_DUTY_L_TARGET
+  1039     003A  286F               	goto	L21
+  1040     003B                     i1l151:	
+  1041                           ;newmain.c: 449:                     else if(PWM_OUTPUT_FLAG & 0x01){
+  1042                           
+  1043     003B  1C76               	btfss	_PWM_OUTPUT_FLAG,0
+  1044     003C  2840               	goto	i1l153
+  1045     003D                     i1l1697:
+  1046                           
+  1047                           ;newmain.c: 450:                         PWM_FLAG1 &= 0xF0;
+  1048     003D  30F0               	movlw	240
+  1049     003E  05F7               	andwf	_PWM_FLAG1,f
+  1050     003F  2871               	goto	L16
+  1051     0040                     i1l153:	
+  1052                           ;newmain.c: 454:                     else{
+  1053                           
+  1054                           
+  1055                           ;newmain.c: 455:                         if(DEAD_TIME_L & 0x80){
+  1056     0040  1FA7               	btfss	_DEAD_TIME_L,7
+  1057     0041  2846               	goto	i1l155
+  1058                           
+  1059                           ;newmain.c: 456:                             DEAD_TIME_FLAG |= 0x09;
+  1060     0042  3009               	movlw	9
+  1061     0043  04F5               	iorwf	_DEAD_TIME_FLAG,f
+  1062                           
+  1063                           ;newmain.c: 457:                             DEAD_TIME_FLAG &= 0xF9;
+  1064     0044  30F9               	movlw	249
+  1065     0045  286A               	goto	L2
+  1066     0046                     i1l155:	
+  1067                           ;newmain.c: 461:                         else{
+  1068                           
+  1069                           
+  1070                           ;newmain.c: 462:                             PWM_OUTPUT_FLAG |= 0x01;
+  1071     0046  1476               	bsf	_PWM_OUTPUT_FLAG,0
+  1072     0047  286D               	goto	L25
+  1073     0048                     i1l1707:	
+  1074                           ;newmain.c: 467:                     }
+  1075                           
+  1076                           ;newmain.c: 465:                             PWM_OVD_FLAG |= 0x01;
+  1077                           
+  1078                           ;newmain.c: 464:                             PWM_L_OVD_COUNT = 200;
+  1079                           
+  1080                           ;newmain.c: 463:                             DEAD_TIME_L = 0xFF;
+  1081                           
+  1082     0048  3043               	movlw	67
+  1083     0049  067A               	xorwf	_I2C_ORDER,w
+  1084     004A  1D03               	btfss	3,2
+  1085     004B  2873               	goto	i1l1743
+  1086                           
+  1087                           ;newmain.c: 470:                     if(PWM_OUTPUT_FLAG & 0x04){
+  1088     004C  1D76               	btfss	_PWM_OUTPUT_FLAG,2
+  1089     004D  285A               	goto	i1l159
+  1090                           
+  1091                           ;newmain.c: 471:                         RA0PPS = 0b01100;
+  1092     004E  300C               	movlw	12
+  1093     004F  003D               	movlb	29	; select bank29
+  1094     0050  0090               	movwf	16	;volatile
+  1095                           
+  1096                           ;newmain.c: 472:                         RA1PPS = 0b01101;
+  1097     0051  300D               	movlw	13
+  1098     0052  0091               	movwf	17	;volatile
+  1099                           
+  1100                           ;newmain.c: 473:                         PWM_OUTPUT_FLAG &= 0xFB;
+  1101     0053  30FB               	movlw	251
+  1102     0054  05F6               	andwf	_PWM_OUTPUT_FLAG,f
+  1103                           
+  1104                           ;newmain.c: 474:                         DEAD_TIME_FLAG &= 0xF9;
+  1105     0055  30F9               	movlw	249
+  1106     0056  05F5               	andwf	_DEAD_TIME_FLAG,f
+  1107                           
+  1108                           ;newmain.c: 475:                         DEAD_TIME_FLAG |= 0x09;
+  1109     0057  3009               	movlw	9
+  1110     0058  04F5               	iorwf	_DEAD_TIME_FLAG,f
+  1111     0059  282C               	goto	i1l1681
+  1112     005A                     i1l159:	
+  1113                           ;newmain.c: 480:                     else if(PWM_OUTPUT_FLAG & 0x01){
+  1114                           
+  1115     005A  1C76               	btfss	_PWM_OUTPUT_FLAG,0
+  1116     005B  2863               	goto	i1l161
+  1117                           
+  1118                           ;newmain.c: 481:                         PWM_FLAG1 |= 0x07;
+  1119     005C  3007               	movlw	7
+  1120     005D  04F7               	iorwf	_PWM_FLAG1,f
+  1121                           
+  1122                           ;newmain.c: 482:                         PWM_FLAG1 &= 0xF7;
+  1123     005E  30F7               	movlw	247
+  1124     005F  05F7               	andwf	_PWM_FLAG1,f
+  1125                           
+  1126                           ;newmain.c: 483:                         PWM_FLAG2 |= 0x08;
+  1127     0060  15A8               	bsf	_PWM_FLAG2,3
+  1128                           
+  1129                           ;newmain.c: 484:                         PWM_FLAG2 &= 0xF8;
+  1130     0061  30F8               	movlw	248
+  1131     0062  2836               	goto	L3
+  1132     0063                     i1l161:	
+  1133                           ;newmain.c: 491:                     else if(PWM_OUTPUT_FLAG & 0x02){
+  1134                           
+  1135     0063  18F6               	btfsc	_PWM_OUTPUT_FLAG,1
+  1136     0064  283D               	goto	i1l1697
+  1137                           
+  1138                           ;newmain.c: 496:                         if(DEAD_TIME_L & 0x80){
+  1139                           
+  1140                           ;newmain.c: 495:                     else{
+  1141     0065  1FA7               	btfss	_DEAD_TIME_L,7
+  1142     0066  286C               	goto	i1l165
+  1143                           
+  1144                           ;newmain.c: 497:                             DEAD_TIME_FLAG |= 0x0A;
+  1145     0067  300A               	movlw	10
+  1146     0068  04F5               	iorwf	_DEAD_TIME_FLAG,f
+  1147                           
+  1148                           ;newmain.c: 498:                             DEAD_TIME_FLAG &= 0xFA;
+  1149     0069  30FA               	movlw	250
+  1150     006A                     L2:
+  1151     006A  05F5               	andwf	_DEAD_TIME_FLAG,f
+  1152     006B  286F               	goto	L21
+  1153     006C                     i1l165:	
+  1154                           ;newmain.c: 502:                         else{
+  1155                           
+  1156                           
+  1157                           ;newmain.c: 503:                             PWM_OUTPUT_FLAG |= 0x02;
+  1158     006C  14F6               	bsf	_PWM_OUTPUT_FLAG,1
+  1159     006D                     L25:
+  1160                           
+  1161                           ;newmain.c: 504:                             DEAD_TIME_L = 0xFF;
+  1162     006D  30FF               	movlw	255
+  1163     006E                     L23:
+  1164     006E  00A7               	movwf	_DEAD_TIME_L
+  1165     006F                     L21:
+  1166                           
+  1167                           ;newmain.c: 505:                             PWM_L_OVD_COUNT = 200;
+  1168     006F  30C8               	movlw	200
+  1169     0070  00A5               	movwf	_PWM_L_OVD_COUNT
+  1170     0071                     L16:
+  1171                           
+  1172                           ;newmain.c: 506:                             PWM_OVD_FLAG |= 0x01;
+  1173     0071  1470               	bsf	_PWM_OVD_FLAG,0
+  1174     0072  29AB               	goto	i1l2003
+  1175     0073                     i1l1743:
+  1176     0073  3045               	movlw	69
+  1177     0074  067A               	xorwf	_I2C_ORDER,w
+  1178     0075  1D03               	btfss	3,2
+  1179     0076  289F               	goto	i1l1779
+  1180                           
+  1181                           ;newmain.c: 511:                     if(PWM_OUTPUT_FLAG & 0x40){
+  1182     0077  1F76               	btfss	_PWM_OUTPUT_FLAG,6
+  1183     0078  2886               	goto	i1l169
+  1184                           
+  1185                           ;newmain.c: 512:                         RA4PPS = 0b00010;
+  1186     0079  3002               	movlw	2
+  1187     007A  003D               	movlb	29	; select bank29
+  1188     007B  0094               	movwf	20	;volatile
+  1189                           
+  1190                           ;newmain.c: 513:                         RA5PPS = 0b00011;
+  1191     007C  3003               	movlw	3
+  1192     007D  0095               	movwf	21	;volatile
+  1193                           
+  1194                           ;newmain.c: 514:                         PWM_OUTPUT_FLAG &= 0xBF;
+  1195     007E  30BF               	movlw	191
+  1196     007F  05F6               	andwf	_PWM_OUTPUT_FLAG,f
+  1197                           
+  1198                           ;newmain.c: 515:                         DEAD_TIME_FLAG &= 0x8F;
+  1199     0080  308F               	movlw	143
+  1200     0081  05F5               	andwf	_DEAD_TIME_FLAG,f
+  1201                           
+  1202                           ;newmain.c: 516:                         DEAD_TIME_FLAG |= 0x80;
+  1203     0082  17F5               	bsf	_DEAD_TIME_FLAG,7
+  1204     0083                     i1l1753:
+  1205                           
+  1206                           ;newmain.c: 517:                         DEAD_TIME_R = 0xFF;
+  1207     0083  30FF               	movlw	255
+  1208     0084  0020               	movlb	0	; select bank0
+  1209     0085  28C5               	goto	L24
+  1210     0086                     i1l169:	
+  1211                           ;newmain.c: 522:                     else if(PWM_OUTPUT_FLAG & 0x20){
+  1212                           
+  1213                           ;newmain.c: 521:                     }
+  1214                           
+  1215                           ;newmain.c: 519:                         PWM_OVD_FLAG |= 0x20;
+  1216                           
+  1217                           ;newmain.c: 518:                         PWM_R_OVD_COUNT = 200;
+  1218                           
+  1219     0086  1EF6               	btfss	_PWM_OUTPUT_FLAG,5
+  1220     0087  2892               	goto	i1l171
+  1221                           
+  1222                           ;newmain.c: 523:                         PWM_FLAG1 |= 0x70;
+  1223     0088  3070               	movlw	112
+  1224     0089  04F7               	iorwf	_PWM_FLAG1,f
+  1225                           
+  1226                           ;newmain.c: 524:                         PWM_FLAG1 &= 0x7F;
+  1227     008A  307F               	movlw	127
+  1228     008B  05F7               	andwf	_PWM_FLAG1,f
+  1229                           
+  1230                           ;newmain.c: 525:                         PWM_FLAG2 &= 0x0F;
+  1231     008C  300F               	movlw	15
+  1232     008D                     L7:
+  1233     008D  05A8               	andwf	_PWM_FLAG2,f
+  1234                           
+  1235                           ;newmain.c: 526:                         DUTY_COUNT_R = 0xFF;
+  1236     008E  30FF               	movlw	255
+  1237     008F  00A9               	movwf	_DUTY_COUNT_R
+  1238                           
+  1239                           ;newmain.c: 527:                         DUTY_R_TARGET = 0;
+  1240     0090  01F8               	clrf	_DUTY_R_TARGET
+  1241     0091  28C6               	goto	L22
+  1242     0092                     i1l171:	
+  1243                           ;newmain.c: 531:                     else if(PWM_OUTPUT_FLAG & 0x10){
+  1244                           
+  1245     0092  1E76               	btfss	_PWM_OUTPUT_FLAG,4
+  1246     0093  2897               	goto	i1l173
+  1247     0094                     i1l1769:
+  1248                           
+  1249                           ;newmain.c: 532:                         PWM_FLAG1 &= 0x0F;
+  1250     0094  300F               	movlw	15
+  1251     0095  05F7               	andwf	_PWM_FLAG1,f
+  1252     0096  28C8               	goto	L6
+  1253     0097                     i1l173:	
+  1254                           ;newmain.c: 535:                     else{
+  1255                           
+  1256                           
+  1257                           ;newmain.c: 536:                         if(DEAD_TIME_R & 0x80){
+  1258     0097  1FA6               	btfss	_DEAD_TIME_R,7
+  1259     0098  289D               	goto	i1l175
+  1260                           
+  1261                           ;newmain.c: 537:                             DEAD_TIME_FLAG |= 0x90;
+  1262     0099  3090               	movlw	144
+  1263     009A  04F5               	iorwf	_DEAD_TIME_FLAG,f
+  1264                           
+  1265                           ;newmain.c: 538:                             DEAD_TIME_FLAG &= 0x9F;
+  1266     009B  309F               	movlw	159
+  1267     009C  28C1               	goto	L5
+  1268     009D                     i1l175:	
+  1269                           ;newmain.c: 542:                         else{
+  1270                           
+  1271                           
+  1272                           ;newmain.c: 543:                             PWM_OUTPUT_FLAG |= 0x10;
+  1273     009D  1676               	bsf	_PWM_OUTPUT_FLAG,4
+  1274     009E  28C4               	goto	L17
+  1275     009F                     i1l1779:	
+  1276                           ;newmain.c: 546:                             PWM_OVD_FLAG |= 0x20;
+  1277                           
+  1278                           ;newmain.c: 545:                             PWM_R_OVD_COUNT = 200;
+  1279                           
+  1280                           ;newmain.c: 544:                             DEAD_TIME_R = 0xFF;
+  1281                           
+  1282     009F  3046               	movlw	70
+  1283     00A0  067A               	xorwf	_I2C_ORDER,w
+  1284     00A1  1D03               	btfss	3,2
+  1285     00A2  28CA               	goto	i1l1815
+  1286                           
+  1287                           ;newmain.c: 551:                     if(PWM_OUTPUT_FLAG & 0x40){
+  1288     00A3  1F76               	btfss	_PWM_OUTPUT_FLAG,6
+  1289     00A4  28B1               	goto	i1l179
+  1290                           
+  1291                           ;newmain.c: 552:                         RA4PPS = 0b00010;
+  1292     00A5  3002               	movlw	2
+  1293     00A6  003D               	movlb	29	; select bank29
+  1294     00A7  0094               	movwf	20	;volatile
+  1295                           
+  1296                           ;newmain.c: 553:                         RA5PPS = 0b00011;
+  1297     00A8  3003               	movlw	3
+  1298     00A9  0095               	movwf	21	;volatile
+  1299                           
+  1300                           ;newmain.c: 554:                         PWM_OUTPUT_FLAG &= 0xBF;
+  1301     00AA  30BF               	movlw	191
+  1302     00AB  05F6               	andwf	_PWM_OUTPUT_FLAG,f
+  1303                           
+  1304                           ;newmain.c: 555:                         DEAD_TIME_FLAG &= 0x9F;
+  1305     00AC  309F               	movlw	159
+  1306     00AD  05F5               	andwf	_DEAD_TIME_FLAG,f
+  1307                           
+  1308                           ;newmain.c: 556:                         DEAD_TIME_FLAG |= 0x90;
+  1309     00AE  3090               	movlw	144
+  1310     00AF  04F5               	iorwf	_DEAD_TIME_FLAG,f
+  1311     00B0  2883               	goto	i1l1753
+  1312     00B1                     i1l179:	
+  1313                           ;newmain.c: 561:                     else if(PWM_OUTPUT_FLAG & 0x10){
+  1314                           
+  1315     00B1  1E76               	btfss	_PWM_OUTPUT_FLAG,4
+  1316     00B2  28BA               	goto	i1l181
+  1317                           
+  1318                           ;newmain.c: 562:                         PWM_FLAG1 |= 0x70;
+  1319     00B3  3070               	movlw	112
+  1320     00B4  04F7               	iorwf	_PWM_FLAG1,f
+  1321                           
+  1322                           ;newmain.c: 563:                         PWM_FLAG1 &= 0x7F;
+  1323     00B5  307F               	movlw	127
+  1324     00B6  05F7               	andwf	_PWM_FLAG1,f
+  1325                           
+  1326                           ;newmain.c: 564:                         PWM_FLAG2 |= 0x80;
+  1327     00B7  17A8               	bsf	_PWM_FLAG2,7
+  1328                           
+  1329                           ;newmain.c: 565:                         PWM_FLAG2 &= 0x8F;
+  1330     00B8  308F               	movlw	143
+  1331     00B9  288D               	goto	L7
+  1332     00BA                     i1l181:	
+  1333                           ;newmain.c: 571:                     else if(PWM_OUTPUT_FLAG & 0x20){
+  1334                           
+  1335     00BA  1AF6               	btfsc	_PWM_OUTPUT_FLAG,5
+  1336     00BB  2894               	goto	i1l1769
+  1337                           
+  1338                           ;newmain.c: 576:                         if(DEAD_TIME_R & 0x80){
+  1339                           
+  1340                           ;newmain.c: 575:                     else{
+  1341     00BC  1FA6               	btfss	_DEAD_TIME_R,7
+  1342     00BD  28C3               	goto	i1l185
+  1343                           
+  1344                           ;newmain.c: 577:                             DEAD_TIME_FLAG |= 0xA0;
+  1345     00BE  30A0               	movlw	160
+  1346     00BF  04F5               	iorwf	_DEAD_TIME_FLAG,f
+  1347                           
+  1348                           ;newmain.c: 578:                             DEAD_TIME_FLAG &= 0xAF;
+  1349     00C0  30AF               	movlw	175
+  1350     00C1                     L5:
+  1351     00C1  05F5               	andwf	_DEAD_TIME_FLAG,f
+  1352     00C2  28C6               	goto	L22
+  1353     00C3                     i1l185:	
+  1354                           ;newmain.c: 582:                         else{
+  1355                           
+  1356                           
+  1357                           ;newmain.c: 583:                             PWM_OUTPUT_FLAG |= 0x20;
+  1358     00C3  16F6               	bsf	_PWM_OUTPUT_FLAG,5
+  1359     00C4                     L17:
+  1360                           
+  1361                           ;newmain.c: 584:                             DEAD_TIME_R = 0xFF;
+  1362     00C4  30FF               	movlw	255
+  1363     00C5                     L24:
+  1364     00C5  00A6               	movwf	_DEAD_TIME_R
+  1365     00C6                     L22:
+  1366                           
+  1367                           ;newmain.c: 585:                             PWM_R_OVD_COUNT = 200;
+  1368     00C6  30C8               	movlw	200
+  1369     00C7  00A4               	movwf	_PWM_R_OVD_COUNT
+  1370     00C8                     L6:
+  1371                           
+  1372                           ;newmain.c: 586:                             PWM_OVD_FLAG |= 0x20;
+  1373     00C8  16F0               	bsf	_PWM_OVD_FLAG,5
+  1374     00C9  29AB               	goto	i1l2003
+  1375     00CA                     i1l1815:
+  1376     00CA  3047               	movlw	71
+  1377     00CB  067A               	xorwf	_I2C_ORDER,w
+  1378     00CC  1D03               	btfss	3,2
+  1379     00CD  28F2               	goto	i1l1847
+  1380                           
+  1381                           ;newmain.c: 591:                     if(PWM_OUTPUT_FLAG & 0x04);
+  1382     00CE  1976               	btfsc	_PWM_OUTPUT_FLAG,2
+  1383     00CF  29AB               	goto	i1l2003
+  1384     00D0  0876               	movf	_PWM_OUTPUT_FLAG,w
+  1385     00D1  3903               	andlw	3
+  1386     00D2  1903               	btfsc	3,2
+  1387     00D3  28DF               	goto	i1l191
+  1388                           
+  1389                           ;newmain.c: 594:                         PWM_FLAG1 |= 0x07;
+  1390     00D4  3007               	movlw	7
+  1391     00D5  04F7               	iorwf	_PWM_FLAG1,f
+  1392                           
+  1393                           ;newmain.c: 595:                         PWM_FLAG1 &= 0xF7;
+  1394     00D6  30F7               	movlw	247
+  1395     00D7  05F7               	andwf	_PWM_FLAG1,f
+  1396                           
+  1397                           ;newmain.c: 596:                         PWM_FLAG2 &= 0xFB;
+  1398     00D8  30FB               	movlw	251
+  1399     00D9  05A8               	andwf	_PWM_FLAG2,f
+  1400                           
+  1401                           ;newmain.c: 597:                         PWM_FLAG2 |= 0x04;
+  1402     00DA  1528               	bsf	_PWM_FLAG2,2
+  1403                           
+  1404                           ;newmain.c: 598:                         DUTY_COUNT_L = 0xFF;
+  1405     00DB  30FF               	movlw	255
+  1406     00DC  00AA               	movwf	_DUTY_COUNT_L
+  1407                           
+  1408                           ;newmain.c: 599:                         DUTY_L_TARGET = 0;
+  1409     00DD  01F9               	clrf	_DUTY_L_TARGET
+  1410     00DE  28E5               	goto	i1l1835
+  1411     00DF                     i1l191:	
+  1412                           ;newmain.c: 603:                     else{
+  1413                           
+  1414                           ;newmain.c: 602:                     }
+  1415                           
+  1416                           ;newmain.c: 601:                         PWM_OVD_FLAG &= 0xF0;
+  1417                           
+  1418                           ;newmain.c: 600:                         PWM_L_OVD_COUNT = 0;
+  1419                           
+  1420                           
+  1421                           ;newmain.c: 604:                         if(DEAD_TIME_L & 0x80){
+  1422     00DF  1FA7               	btfss	_DEAD_TIME_L,7
+  1423     00E0  28E8               	goto	i1l193
+  1424                           
+  1425                           ;newmain.c: 605:                             DEAD_TIME_FLAG |= 0x0A;
+  1426     00E1  300A               	movlw	10
+  1427     00E2  04F5               	iorwf	_DEAD_TIME_FLAG,f
+  1428                           
+  1429                           ;newmain.c: 606:                             DEAD_TIME_FLAG &= 0xFA;
+  1430     00E3  30FA               	movlw	250
+  1431     00E4  05F5               	andwf	_DEAD_TIME_FLAG,f
+  1432     00E5                     i1l1835:
+  1433                           
+  1434                           ;newmain.c: 607:                             PWM_L_OVD_COUNT = 0;
+  1435     00E5  01A5               	clrf	_PWM_L_OVD_COUNT
+  1436                           
+  1437                           ;newmain.c: 608:                             PWM_OVD_FLAG &= 0xF0;
+  1438     00E6  30F0               	movlw	240
+  1439     00E7  290F               	goto	L9
+  1440     00E8                     i1l193:	
+  1441                           ;newmain.c: 610:                         else{
+  1442                           
+  1443                           ;newmain.c: 609:                         }
+  1444                           
+  1445                           
+  1446                           ;newmain.c: 611:                             PWM_OUTPUT_FLAG |= 0x04;
+  1447     00E8  1576               	bsf	_PWM_OUTPUT_FLAG,2
+  1448                           
+  1449                           ;newmain.c: 612:                             DEAD_TIME_FLAG |= 0x04;
+  1450     00E9  1575               	bsf	_DEAD_TIME_FLAG,2
+  1451                           
+  1452                           ;newmain.c: 613:                             RA0PPS = 0x00;
+  1453     00EA  003D               	movlb	29	; select bank29
+  1454     00EB  0190               	clrf	16	;volatile
+  1455                           
+  1456                           ;newmain.c: 614:                             RA1PPS = 0x00;
+  1457     00EC  0191               	clrf	17	;volatile
+  1458                           
+  1459                           ;newmain.c: 615:                             PWM_FLAG1 |= 0x01;
+  1460     00ED  1477               	bsf	_PWM_FLAG1,0
+  1461     00EE                     i1l1843:
+  1462                           
+  1463                           ;newmain.c: 616:                             DEAD_TIME_L = 0xFF;
+  1464     00EE  30FF               	movlw	255
+  1465     00EF  0020               	movlb	0	; select bank0
+  1466     00F0  00A7               	movwf	_DEAD_TIME_L
+  1467     00F1  28E5               	goto	i1l1835
+  1468     00F2                     i1l1847:	
+  1469                           ;newmain.c: 617:                             PWM_L_OVD_COUNT = 0;
+  1470                           
+  1471     00F2  3048               	movlw	72
+  1472     00F3  067A               	xorwf	_I2C_ORDER,w
+  1473     00F4  1D03               	btfss	3,2
+  1474     00F5  291B               	goto	i1l1879
+  1475                           
+  1476                           ;newmain.c: 623:                     if(PWM_OUTPUT_FLAG & 0x40);
+  1477     00F6  1B76               	btfsc	_PWM_OUTPUT_FLAG,6
+  1478     00F7  29AB               	goto	i1l2003
+  1479     00F8  0876               	movf	_PWM_OUTPUT_FLAG,w
+  1480     00F9  3930               	andlw	48
+  1481     00FA  1903               	btfsc	3,2
+  1482     00FB  2907               	goto	i1l199
+  1483                           
+  1484                           ;newmain.c: 625:                         PWM_FLAG1 |= 0x70;
+  1485     00FC  3070               	movlw	112
+  1486     00FD  04F7               	iorwf	_PWM_FLAG1,f
+  1487                           
+  1488                           ;newmain.c: 626:                         PWM_FLAG1 &= 0x7F;
+  1489     00FE  307F               	movlw	127
+  1490     00FF  05F7               	andwf	_PWM_FLAG1,f
+  1491                           
+  1492                           ;newmain.c: 627:                         PWM_FLAG2 &= 0xBF;
+  1493     0100  30BF               	movlw	191
+  1494     0101  05A8               	andwf	_PWM_FLAG2,f
+  1495                           
+  1496                           ;newmain.c: 628:                         PWM_FLAG2 |= 0x40;
+  1497     0102  1728               	bsf	_PWM_FLAG2,6
+  1498                           
+  1499                           ;newmain.c: 629:                         DUTY_COUNT_R = 0xFF;
+  1500     0103  30FF               	movlw	255
+  1501     0104  00A9               	movwf	_DUTY_COUNT_R
+  1502                           
+  1503                           ;newmain.c: 630:                         DUTY_R_TARGET = 0;
+  1504     0105  01F8               	clrf	_DUTY_R_TARGET
+  1505     0106  290D               	goto	i1l1867
+  1506     0107                     i1l199:	
+  1507                           ;newmain.c: 634:                     else{
+  1508                           
+  1509                           ;newmain.c: 633:                     }
+  1510                           
+  1511                           ;newmain.c: 632:                         PWM_OVD_FLAG &= 0x0F;
+  1512                           
+  1513                           ;newmain.c: 631:                         PWM_R_OVD_COUNT = 0;
+  1514                           
+  1515                           
+  1516                           ;newmain.c: 635:                         if(DEAD_TIME_R & 0x80){
+  1517     0107  1FA6               	btfss	_DEAD_TIME_R,7
+  1518     0108  2911               	goto	i1l201
+  1519                           
+  1520                           ;newmain.c: 636:                             DEAD_TIME_FLAG |= 0xA0;
+  1521     0109  30A0               	movlw	160
+  1522     010A  04F5               	iorwf	_DEAD_TIME_FLAG,f
+  1523                           
+  1524                           ;newmain.c: 637:                             DEAD_TIME_FLAG &= 0xAF;
+  1525     010B  30AF               	movlw	175
+  1526     010C  05F5               	andwf	_DEAD_TIME_FLAG,f
+  1527     010D                     i1l1867:
+  1528                           
+  1529                           ;newmain.c: 638:                             PWM_R_OVD_COUNT = 0;
+  1530     010D  01A4               	clrf	_PWM_R_OVD_COUNT
+  1531                           
+  1532                           ;newmain.c: 639:                             PWM_OVD_FLAG &= 0x0F;
+  1533     010E  300F               	movlw	15
+  1534     010F                     L9:
+  1535     010F  05F0               	andwf	_PWM_OVD_FLAG,f
+  1536                           
+  1537                           ;newmain.c: 640:                         }
+  1538     0110  29AB               	goto	i1l2003
+  1539     0111                     i1l201:	
+  1540                           ;newmain.c: 641:                         else{
+  1541                           
+  1542                           
+  1543                           ;newmain.c: 642:                             PWM_OUTPUT_FLAG |= 0x40;
+  1544     0111  1776               	bsf	_PWM_OUTPUT_FLAG,6
+  1545                           
+  1546                           ;newmain.c: 643:                             DEAD_TIME_FLAG |= 0x40;
+  1547     0112  1775               	bsf	_DEAD_TIME_FLAG,6
+  1548                           
+  1549                           ;newmain.c: 644:                             RA4PPS = 0x00;
+  1550     0113  003D               	movlb	29	; select bank29
+  1551     0114  0194               	clrf	20	;volatile
+  1552                           
+  1553                           ;newmain.c: 645:                             RA5PPS = 0x00;
+  1554     0115  0195               	clrf	21	;volatile
+  1555                           
+  1556                           ;newmain.c: 646:                             PWM_FLAG1 |= 0x10;
+  1557     0116  1677               	bsf	_PWM_FLAG1,4
+  1558     0117                     i1l1875:
+  1559                           
+  1560                           ;newmain.c: 647:                             DEAD_TIME_R = 0xFF;
+  1561     0117  30FF               	movlw	255
+  1562     0118  0020               	movlb	0	; select bank0
+  1563     0119  00A6               	movwf	_DEAD_TIME_R
+  1564     011A  290D               	goto	i1l1867
+  1565     011B                     i1l1879:	
+  1566                           ;newmain.c: 648:                             PWM_R_OVD_COUNT = 0;
+  1567                           
+  1568     011B  3049               	movlw	73
+  1569     011C  067A               	xorwf	_I2C_ORDER,w
+  1570     011D  1D03               	btfss	3,2
+  1571     011E  2938               	goto	i1l1907
+  1572                           
+  1573                           ;newmain.c: 654:                     CCPR1H = 0;
+  1574     011F  0025               	movlb	5	; select bank5
+  1575     0120  0192               	clrf	18	;volatile
+  1576                           
+  1577                           ;newmain.c: 655:                     CCPR2H = 0;
+  1578     0121  0196               	clrf	22	;volatile
+  1579                           
+  1580                           ;newmain.c: 656:                     PWM3DCH_BUFF = 0;
+  1581     0122  01F4               	clrf	_PWM3DCH_BUFF
+  1582                           
+  1583                           ;newmain.c: 657:                     PWM4DCH_BUFF = 0;
+  1584     0123  01F3               	clrf	_PWM4DCH_BUFF
+  1585                           
+  1586                           ;newmain.c: 658:                     RA0PPS = 0b01100;
+  1587     0124  300C               	movlw	12
+  1588     0125  003D               	movlb	29	; select bank29
+  1589     0126  0090               	movwf	16	;volatile
+  1590                           
+  1591                           ;newmain.c: 659:                     RA1PPS = 0b01101;
+  1592     0127  300D               	movlw	13
+  1593     0128  0091               	movwf	17	;volatile
+  1594                           
+  1595                           ;newmain.c: 660:                     PWM_OUTPUT_FLAG &= 0xF0;
+  1596     0129  30F0               	movlw	240
+  1597     012A  05F6               	andwf	_PWM_OUTPUT_FLAG,f
+  1598                           
+  1599                           ;newmain.c: 661:                     DUTY_L_NOW = 0;
+  1600     012B  0020               	movlb	0	; select bank0
+  1601     012C  01A2               	clrf	_DUTY_L_NOW
+  1602     012D  01A3               	clrf	_DUTY_L_NOW+1
+  1603                           
+  1604                           ;newmain.c: 662:                     DUTY_L_TARGET = 0;
+  1605     012E  01F9               	clrf	_DUTY_L_TARGET
+  1606                           
+  1607                           ;newmain.c: 663:                     DUTY_L_KEEP = 0;
+  1608     012F  01AC               	clrf	_DUTY_L_KEEP
+  1609                           
+  1610                           ;newmain.c: 664:                     DUTY_COUNT_L = 0;
+  1611     0130  01AA               	clrf	_DUTY_COUNT_L
+  1612                           
+  1613                           ;newmain.c: 665:                     PWM_FLAG1 &= 0xF0;
+  1614     0131  30F0               	movlw	240
+  1615     0132  05F7               	andwf	_PWM_FLAG1,f
+  1616                           
+  1617                           ;newmain.c: 666:                     PWM_FLAG2 &= 0xF0;
+  1618     0133  30F0               	movlw	240
+  1619     0134  05A8               	andwf	_PWM_FLAG2,f
+  1620                           
+  1621                           ;newmain.c: 667:                     DEAD_TIME_FLAG &= 0xF0;
+  1622     0135  30F0               	movlw	240
+  1623     0136  05F5               	andwf	_DEAD_TIME_FLAG,f
+  1624     0137  28EE               	goto	i1l1843
+  1625     0138                     i1l1907:
+  1626     0138  304A               	movlw	74
+  1627     0139  067A               	xorwf	_I2C_ORDER,w
+  1628     013A  1D03               	btfss	3,2
+  1629     013B  29AB               	goto	i1l2003
+  1630                           
+  1631                           ;newmain.c: 673:                     PWM5DCH = 0;
+  1632     013C  002C               	movlb	12	; select bank12
+  1633     013D  0198               	clrf	24	;volatile
+  1634                           
+  1635                           ;newmain.c: 674:                     PWM6DCH = 0;
+  1636     013E  019B               	clrf	27	;volatile
+  1637                           
+  1638                           ;newmain.c: 675:                     PWM5DCH_BUFF = 0;
+  1639     013F  01F2               	clrf	_PWM5DCH_BUFF
+  1640                           
+  1641                           ;newmain.c: 676:                     PWM6DCH_BUFF = 0;
+  1642     0140  01F1               	clrf	_PWM6DCH_BUFF
+  1643                           
+  1644                           ;newmain.c: 677:                     RA4PPS = 0b00010;
+  1645     0141  3002               	movlw	2
+  1646     0142  003D               	movlb	29	; select bank29
+  1647     0143  0094               	movwf	20	;volatile
+  1648                           
+  1649                           ;newmain.c: 678:                     RA5PPS = 0b00011;
+  1650     0144  3003               	movlw	3
+  1651     0145  0095               	movwf	21	;volatile
+  1652                           
+  1653                           ;newmain.c: 679:                     PWM_OUTPUT_FLAG &= 0x0F;
+  1654     0146  300F               	movlw	15
+  1655     0147  05F6               	andwf	_PWM_OUTPUT_FLAG,f
+  1656                           
+  1657                           ;newmain.c: 680:                     DUTY_R_NOW = 0;
+  1658     0148  0020               	movlb	0	; select bank0
+  1659     0149  01A0               	clrf	_DUTY_R_NOW
+  1660     014A  01A1               	clrf	_DUTY_R_NOW+1
+  1661                           
+  1662                           ;newmain.c: 681:                     DUTY_R_TARGET = 0;
+  1663     014B  01F8               	clrf	_DUTY_R_TARGET
+  1664                           
+  1665                           ;newmain.c: 682:                     DUTY_R_KEEP = 0;
+  1666     014C  01AB               	clrf	_DUTY_R_KEEP
+  1667                           
+  1668                           ;newmain.c: 683:                     DUTY_COUNT_R = 0;
+  1669     014D  01A9               	clrf	_DUTY_COUNT_R
+  1670                           
+  1671                           ;newmain.c: 684:                     PWM_FLAG1 &= 0x0F;
+  1672     014E  300F               	movlw	15
+  1673     014F  05F7               	andwf	_PWM_FLAG1,f
+  1674                           
+  1675                           ;newmain.c: 685:                     PWM_FLAG2 &= 0x0F;
+  1676     0150  300F               	movlw	15
+  1677     0151  05A8               	andwf	_PWM_FLAG2,f
+  1678                           
+  1679                           ;newmain.c: 686:                     DEAD_TIME_FLAG &= 0x0F;
+  1680     0152  300F               	movlw	15
+  1681     0153  05F5               	andwf	_DEAD_TIME_FLAG,f
+  1682     0154  2917               	goto	i1l1875
+  1683     0155                     i1l1935:
+  1684                           
+  1685                           ;newmain.c: 693:                 if(I2C_ORDER == 'A'){
+  1686     0155  3041               	movlw	65
+  1687     0156  067A               	xorwf	_I2C_ORDER,w
+  1688     0157  1D03               	btfss	3,2
+  1689     0158  297D               	goto	i1l1967
+  1690                           
+  1691                           ;newmain.c: 694:                     if(PWM_FLAG1 & 0x01){
+  1692     0159  1C77               	btfss	_PWM_FLAG1,0
+  1693     015A  295E               	goto	i1l1941
+  1694                           
+  1695                           ;newmain.c: 695:                         DUTY_L_KEEP = I2C_BUFF;
+  1696     015B  087B               	movf	_I2C_BUFF,w
+  1697     015C  00AC               	movwf	_DUTY_L_KEEP
+  1698                           
+  1699                           ;newmain.c: 696:                     }
+  1700     015D  29AB               	goto	i1l2003
+  1701     015E                     i1l1941:
+  1702                           
+  1703                           ;newmain.c: 698:                         DUTY_L_TARGET = I2C_BUFF;
+  1704     015E  087B               	movf	_I2C_BUFF,w
+  1705     015F  00F9               	movwf	_DUTY_L_TARGET
+  1706                           
+  1707                           ;newmain.c: 699:                         if(PWM_OUTPUT_FLAG & 0x01){
+  1708     0160  1C76               	btfss	_PWM_OUTPUT_FLAG,0
+  1709     0161  2965               	goto	i1l211
+  1710                           
+  1711                           ;newmain.c: 700:                             if(PWM3DCH_BUFF < I2C_BUFF){
+  1712     0162  087B               	movf	_I2C_BUFF,w
+  1713     0163  0274               	subwf	_PWM3DCH_BUFF,w
+  1714     0164  2969               	goto	L18
+  1715     0165                     i1l211:	
+  1716                           ;newmain.c: 707:                         else if(PWM_OUTPUT_FLAG & 0x02){
+  1717                           
+  1718     0165  1CF6               	btfss	_PWM_OUTPUT_FLAG,1
+  1719     0166  29AB               	goto	i1l2003
+  1720                           
+  1721                           ;newmain.c: 708:                             if(PWM4DCH_BUFF < I2C_BUFF){
+  1722     0167  087B               	movf	_I2C_BUFF,w
+  1723     0168  0273               	subwf	_PWM4DCH_BUFF,w
+  1724     0169                     L18:
+  1725     0169  1803               	skipnc
+  1726     016A  2971               	goto	i1l1957
+  1727                           
+  1728                           ;newmain.c: 710:                                 PWM_FLAG1 |= 0x08;
+  1729                           
+  1730                           ;newmain.c: 709: GO_MOTOR_1_DUTY_HI:
+  1731     016B  15F7               	bsf	_PWM_FLAG1,3
+  1732                           
+  1733                           ;newmain.c: 711:                                 PWM_FLAG1 &= 0xF8;
+  1734     016C  30F8               	movlw	248
+  1735     016D  05F7               	andwf	_PWM_FLAG1,f
+  1736                           
+  1737                           ;newmain.c: 712:                                 DUTY_COUNT_L = 0xFF;
+  1738     016E  30FF               	movlw	255
+  1739     016F  00AA               	movwf	_DUTY_COUNT_L
+  1740                           
+  1741                           ;newmain.c: 713:                             }
+  1742     0170  29AB               	goto	i1l2003
+  1743     0171                     i1l1957:
+  1744                           
+  1745                           ;newmain.c: 716:                                 PWM_FLAG1 &= 0xF4;
+  1746     0171  30F4               	movlw	244
+  1747     0172  05F7               	andwf	_PWM_FLAG1,f
+  1748                           
+  1749                           ;newmain.c: 717:                                 DUTY_COUNT_L = 0xFF;
+  1750     0173  30FF               	movlw	255
+  1751     0174  00AA               	movwf	_DUTY_COUNT_L
+  1752                           
+  1753                           ;newmain.c: 718:                                 if(I2C_BUFF == 0){
+  1754     0175  087B               	movf	_I2C_BUFF,w
+  1755     0176  1D03               	btfss	3,2
+  1756     0177  297B               	goto	i1l220
+  1757                           
+  1758                           ;newmain.c: 719:                                     PWM_FLAG1 |= 0x06;
+  1759     0178  3006               	movlw	6
+  1760     0179  04F7               	iorwf	_PWM_FLAG1,f
+  1761     017A  28E5               	goto	i1l1835
+  1762     017B                     i1l220:	
+  1763                           ;newmain.c: 723:                                 else{
+  1764                           
+  1765                           
+  1766                           ;newmain.c: 724:                                     PWM_FLAG1 |= 0x04;
+  1767     017B  1577               	bsf	_PWM_FLAG1,2
+  1768     017C  29AB               	goto	i1l2003
+  1769     017D                     i1l1967:
+  1770     017D  3044               	movlw	68
+  1771     017E  067A               	xorwf	_I2C_ORDER,w
+  1772     017F  1D03               	btfss	3,2
+  1773     0180  29A5               	goto	i1l1999
+  1774                           
+  1775                           ;newmain.c: 731:                     if(PWM_FLAG1 & 0x10){
+  1776     0181  1E77               	btfss	_PWM_FLAG1,4
+  1777     0182  2986               	goto	i1l1973
+  1778                           
+  1779                           ;newmain.c: 732:                         DUTY_R_KEEP = I2C_BUFF;
+  1780     0183  087B               	movf	_I2C_BUFF,w
+  1781     0184  00AB               	movwf	_DUTY_R_KEEP
+  1782                           
+  1783                           ;newmain.c: 733:                     }
+  1784     0185  29AB               	goto	i1l2003
+  1785     0186                     i1l1973:
+  1786                           
+  1787                           ;newmain.c: 735:                         DUTY_R_TARGET = I2C_BUFF;
+  1788     0186  087B               	movf	_I2C_BUFF,w
+  1789     0187  00F8               	movwf	_DUTY_R_TARGET
+  1790                           
+  1791                           ;newmain.c: 736:                         if(PWM_OUTPUT_FLAG & 0x10){
+  1792     0188  1E76               	btfss	_PWM_OUTPUT_FLAG,4
+  1793     0189  298D               	goto	i1l226
+  1794                           
+  1795                           ;newmain.c: 737:                             if(PWM5DCH_BUFF < I2C_BUFF){
+  1796     018A  087B               	movf	_I2C_BUFF,w
+  1797     018B  0272               	subwf	_PWM5DCH_BUFF,w
+  1798     018C  2991               	goto	L19
+  1799     018D                     i1l226:	
+  1800                           ;newmain.c: 744:                         else if(PWM_OUTPUT_FLAG & 0x20){
+  1801                           
+  1802     018D  1EF6               	btfss	_PWM_OUTPUT_FLAG,5
+  1803     018E  29AB               	goto	i1l2003
+  1804                           
+  1805                           ;newmain.c: 745:                             if(PWM6DCH_BUFF < I2C_BUFF){
+  1806     018F  087B               	movf	_I2C_BUFF,w
+  1807     0190  0271               	subwf	_PWM6DCH_BUFF,w
+  1808     0191                     L19:
+  1809     0191  1803               	skipnc
+  1810     0192  2999               	goto	i1l1989
+  1811                           
+  1812                           ;newmain.c: 747:                                 PWM_FLAG1 |= 0x80;
+  1813                           
+  1814                           ;newmain.c: 746: GO_MOTOR_2_DUTY_HI:
+  1815     0193  17F7               	bsf	_PWM_FLAG1,7
+  1816                           
+  1817                           ;newmain.c: 748:                                 PWM_FLAG1 &= 0x8F;
+  1818     0194  308F               	movlw	143
+  1819     0195  05F7               	andwf	_PWM_FLAG1,f
+  1820                           
+  1821                           ;newmain.c: 749:                                 DUTY_COUNT_R = 0xFF;
+  1822     0196  30FF               	movlw	255
+  1823     0197  00A9               	movwf	_DUTY_COUNT_R
+  1824                           
+  1825                           ;newmain.c: 750:                             }
+  1826     0198  29AB               	goto	i1l2003
+  1827     0199                     i1l1989:
+  1828                           
+  1829                           ;newmain.c: 753:                                 PWM_FLAG1 &= 0x4F;
+  1830     0199  304F               	movlw	79
+  1831     019A  05F7               	andwf	_PWM_FLAG1,f
+  1832                           
+  1833                           ;newmain.c: 754:                                 DUTY_COUNT_R = 0xFF;
+  1834     019B  30FF               	movlw	255
+  1835     019C  00A9               	movwf	_DUTY_COUNT_R
+  1836                           
+  1837                           ;newmain.c: 755:                                 if(I2C_BUFF == 0){
+  1838     019D  087B               	movf	_I2C_BUFF,w
+  1839     019E  1D03               	btfss	3,2
+  1840     019F  29A3               	goto	i1l235
+  1841                           
+  1842                           ;newmain.c: 756:                                     PWM_FLAG1 |= 0x60;
+  1843     01A0  3060               	movlw	96
+  1844     01A1  04F7               	iorwf	_PWM_FLAG1,f
+  1845     01A2  290D               	goto	i1l1867
+  1846     01A3                     i1l235:	
+  1847                           ;newmain.c: 760:                                 else{
+  1848                           
+  1849                           
+  1850                           ;newmain.c: 761:                                     PWM_FLAG1 |= 0x40;
+  1851     01A3  1777               	bsf	_PWM_FLAG1,6
+  1852     01A4  29AB               	goto	i1l2003
+  1853     01A5                     i1l1999:
+  1854     01A5  3058               	movlw	88
+  1855     01A6  067A               	xorwf	_I2C_ORDER,w
+  1856     01A7  1D03               	btfss	3,2
+  1857     01A8  29AB               	goto	i1l2003
+  1858                           
+  1859                           ;newmain.c: 768:                     PWM_OVD_DUTY = I2C_BUFF;
+  1860     01A9  087B               	movf	_I2C_BUFF,w
+  1861     01AA  00AF               	movwf	_PWM_OVD_DUTY
+  1862     01AB                     i1l2003:
+  1863                           
+  1864                           ;newmain.c: 771:             I2C_COUNT ++;
+  1865     01AB  3001               	movlw	1
+  1866     01AC  07AD               	addwf	_I2C_COUNT,f
+  1867     01AD                     i1l2005:
+  1868                           
+  1869                           ;newmain.c: 773:         CKP = 1;
+  1870     01AD  0024               	movlb	4	; select bank4
+  1871     01AE  1615               	bsf	21,4	;volatile
+  1872                           
+  1873                           ;newmain.c: 774:         SSP1IF = 0;
+  1874     01AF  0020               	movlb	0	; select bank0
+  1875     01B0  1191               	bcf	17,3	;volatile
+  1876                           
+  1877                           ;newmain.c: 775:     }
+  1878     01B1  2B94               	goto	i1l341
+  1879     01B2                     i1l141:	
+  1880                           ;newmain.c: 776:     else if(TMR2IF){
+  1881                           
+  1882     01B2  1C91               	btfss	17,1	;volatile
+  1883     01B3  2B94               	goto	i1l341
+  1884                           
+  1885                           ;newmain.c: 779:         if(DEAD_TIME_L & 0x80){
+  1886     01B4  1FA7               	btfss	_DEAD_TIME_L,7
+  1887     01B5  29B9               	goto	i1l241
+  1888                           
+  1889                           ;newmain.c: 780:             DEAD_TIME_L ++;
+  1890     01B6  3001               	movlw	1
+  1891     01B7  07A7               	addwf	_DEAD_TIME_L,f
+  1892                           
+  1893                           ;newmain.c: 781:         }
+  1894     01B8  29D8               	goto	i1l2045
+  1895     01B9                     i1l241:	
+  1896                           ;newmain.c: 782:         else if(DEAD_TIME_FLAG & 0x08){
+  1897                           
+  1898     01B9  1DF5               	btfss	_DEAD_TIME_FLAG,3
+  1899     01BA  29D8               	goto	i1l2045
+  1900                           
+  1901                           ;newmain.c: 783:             if(PWM_FLAG1 & 0x01){
+  1902     01BB  1C77               	btfss	_PWM_FLAG1,0
+  1903     01BC  29C3               	goto	i1l2023
+  1904                           
+  1905                           ;newmain.c: 784:                 DUTY_L_TARGET = DUTY_L_KEEP;
+  1906     01BD  082C               	movf	_DUTY_L_KEEP,w
+  1907     01BE  00F9               	movwf	_DUTY_L_TARGET
+  1908                           
+  1909                           ;newmain.c: 785:                 DUTY_L_KEEP = 0;
+  1910     01BF  01AC               	clrf	_DUTY_L_KEEP
+  1911                           
+  1912                           ;newmain.c: 786:                 PWM_FLAG1 &= 0xFE;
+  1913     01C0  30FE               	movlw	254
+  1914     01C1  05F7               	andwf	_PWM_FLAG1,f
+  1915                           
+  1916                           ;newmain.c: 787:                 PWM_FLAG1 |= 0x08;
+  1917     01C2  15F7               	bsf	_PWM_FLAG1,3
+  1918     01C3                     i1l2023:
+  1919                           
+  1920                           ;newmain.c: 790:             if(DEAD_TIME_FLAG & 0x02){
+  1921     01C3  1CF5               	btfss	_DEAD_TIME_FLAG,1
+  1922     01C4  29CE               	goto	i1l245
+  1923                           
+  1924                           ;newmain.c: 791:                 DEAD_TIME_FLAG &= 0xF4;
+  1925     01C5  30F4               	movlw	244
+  1926     01C6  05F5               	andwf	_DEAD_TIME_FLAG,f
+  1927                           
+  1928                           ;newmain.c: 792:                 DEAD_TIME_FLAG |= 0x04;
+  1929     01C7  1575               	bsf	_DEAD_TIME_FLAG,2
+  1930                           
+  1931                           ;newmain.c: 793:                 RA0PPS = 0x00;
+  1932     01C8  003D               	movlb	29	; select bank29
+  1933     01C9  0190               	clrf	16	;volatile
+  1934                           
+  1935                           ;newmain.c: 794:                 RA1PPS = 0x00;
+  1936     01CA  0191               	clrf	17	;volatile
+  1937                           
+  1938                           ;newmain.c: 795:                 PWM_OUTPUT_FLAG |= 0x04;
+  1939     01CB  1576               	bsf	_PWM_OUTPUT_FLAG,2
+  1940                           
+  1941                           ;newmain.c: 796:                 PWM_FLAG1 |= 0x01;
+  1942     01CC  1477               	bsf	_PWM_FLAG1,0
+  1943                           
+  1944                           ;newmain.c: 797:             }
+  1945     01CD  29D5               	goto	i1l2043
+  1946     01CE                     i1l245:	
+  1947                           ;newmain.c: 798:             else if(DEAD_TIME_FLAG & 0x01){
+  1948                           
+  1949     01CE  1C75               	btfss	_DEAD_TIME_FLAG,0
+  1950     01CF  29D2               	goto	i1l247
+  1951                           
+  1952                           ;newmain.c: 799:                 PWM_OUTPUT_FLAG |= 0x02;
+  1953     01D0  14F6               	bsf	_PWM_OUTPUT_FLAG,1
+  1954                           
+  1955                           ;newmain.c: 801:             }
+  1956     01D1  29D3               	goto	i1l2039
+  1957     01D2                     i1l247:	
+  1958                           ;newmain.c: 802:             else{
+  1959                           
+  1960                           
+  1961                           ;newmain.c: 803:                 PWM_OUTPUT_FLAG |= 0x01;
+  1962     01D2  1476               	bsf	_PWM_OUTPUT_FLAG,0
+  1963     01D3                     i1l2039:
+  1964                           
+  1965                           ;newmain.c: 800:                 DEAD_TIME_FLAG &= 0xF0;
+  1966     01D3  30F0               	movlw	240
+  1967     01D4  05F5               	andwf	_DEAD_TIME_FLAG,f
+  1968     01D5                     i1l2043:
+  1969                           
+  1970                           ;newmain.c: 807:             DEAD_TIME_L = 0xFF;
+  1971     01D5  30FF               	movlw	255
+  1972     01D6  0020               	movlb	0	; select bank0
+  1973     01D7  00A7               	movwf	_DEAD_TIME_L
+  1974     01D8                     i1l2045:
+  1975                           
+  1976                           ;newmain.c: 810:         if((DEAD_TIME_FLAG & 0x04) == 0){
+  1977     01D8  1975               	btfsc	_DEAD_TIME_FLAG,2
+  1978     01D9  2A9E               	goto	i1l2157
+  1979                           
+  1980                           ;newmain.c: 812:             if(DUTY_COUNT_L & 0x80){
+  1981     01DA  1FAA               	btfss	_DUTY_COUNT_L,7
+  1982     01DB  2A71               	goto	i1l2125
+  1983                           
+  1984                           ;newmain.c: 813:                 if(PWM_OUTPUT_FLAG & 0x01){
+  1985     01DC  1C76               	btfss	_PWM_OUTPUT_FLAG,0
+  1986     01DD  2A1B               	goto	i1l2081
+  1987                           
+  1988                           ;newmain.c: 814:                     DUTY_L_NOW = PWM3DCH_BUFF;
+  1989     01DE  0874               	movf	_PWM3DCH_BUFF,w
+  1990     01DF  00FC               	movwf	??_isr
+  1991     01E0  01FD               	clrf	??_isr+1
+  1992     01E1  087C               	movf	??_isr,w
+  1993     01E2  00A2               	movwf	_DUTY_L_NOW
+  1994     01E3  087D               	movf	??_isr+1,w
+  1995     01E4  00A3               	movwf	_DUTY_L_NOW+1
+  1996                           
+  1997                           ;newmain.c: 815:                     if(PWM_FLAG1 & 0x08){
+  1998     01E5  1DF7               	btfss	_PWM_FLAG1,3
+  1999     01E6  2A05               	goto	i1l252
+  2000                           
+  2001                           ;newmain.c: 816:                         if(PWM3DCH_BUFF < DUTY_L_TARGET){
+  2002     01E7  0879               	movf	_DUTY_L_TARGET,w
+  2003     01E8  0274               	subwf	_PWM3DCH_BUFF,w
+  2004     01E9  1803               	skipnc
+  2005     01EA  29EF               	goto	i1l253
+  2006                           
+  2007                           ;newmain.c: 817:                             DUTY_L_NOW += 5;
+  2008     01EB  3005               	movlw	5
+  2009     01EC  07A2               	addwf	_DUTY_L_NOW,f
+  2010     01ED  3000               	movlw	0
+  2011     01EE  3DA3               	addwfc	_DUTY_L_NOW+1,f
+  2012     01EF                     i1l253:	
+  2013                           ;newmain.c: 818:                         }
+  2014                           
+  2015                           
+  2016                           ;newmain.c: 819:                         if(DUTY_L_NOW >= DUTY_L_TARGET){
+  2017     01EF  0823               	movf	_DUTY_L_NOW+1,w
+  2018     01F0  3A80               	xorlw	128
+  2019     01F1  00FC               	movwf	??_isr
+  2020     01F2  3080               	movlw	128
+  2021     01F3  027C               	subwf	??_isr,w
+  2022     01F4  1D03               	skipz
+  2023     01F5  29F8               	goto	u179_25
+  2024     01F6  0879               	movf	_DUTY_L_TARGET,w
+  2025     01F7  0222               	subwf	_DUTY_L_NOW,w
+  2026     01F8                     u179_25:
+  2027     01F8  1C03               	skipc
+  2028     01F9  29FF               	goto	i1l2063
+  2029                           
+  2030                           ;newmain.c: 820:                             PWM3DCH_BUFF = DUTY_L_TARGET;
+  2031     01FA  0879               	movf	_DUTY_L_TARGET,w
+  2032     01FB  00F4               	movwf	_PWM3DCH_BUFF
+  2033     01FC                     i1l2061:
+  2034                           
+  2035                           ;newmain.c: 821:                             PWM_FLAG1 &= 0xF7;
+  2036     01FC  30F7               	movlw	247
+  2037     01FD  05F7               	andwf	_PWM_FLAG1,f
+  2038                           
+  2039                           ;newmain.c: 822:                         }
+  2040     01FE  2A73               	goto	i1l2127
+  2041     01FF                     i1l2063:
+  2042                           
+  2043                           ;newmain.c: 824:                             PWM3DCH_BUFF = (char)DUTY_L_NOW;
+  2044     01FF  0020               	movlb	0	; select bank0
+  2045     0200  0822               	movf	_DUTY_L_NOW,w
+  2046     0201  00F4               	movwf	_PWM3DCH_BUFF
+  2047     0202                     i1l2065:
+  2048                           
+  2049                           ;newmain.c: 825:                             DUTY_COUNT_L = 0xFF;
+  2050     0202  30FF               	movlw	255
+  2051     0203  00AA               	movwf	_DUTY_COUNT_L
+  2052                           
+  2053                           ;newmain.c: 827:                     }
+  2054                           
+  2055                           ;newmain.c: 826:                         }
+  2056     0204  2A73               	goto	i1l2127
+  2057     0205                     i1l252:	
+  2058                           ;newmain.c: 828:                     else if(PWM_FLAG1 & 0x04){
+  2059                           
+  2060     0205  1D77               	btfss	_PWM_FLAG1,2
+  2061     0206  2A73               	goto	i1l2127
+  2062                           
+  2063                           ;newmain.c: 829:                         if(PWM3DCH_BUFF > DUTY_L_TARGET){
+  2064     0207  0874               	movf	_PWM3DCH_BUFF,w
+  2065     0208  0279               	subwf	_DUTY_L_TARGET,w
+  2066     0209  1803               	skipnc
+  2067     020A  2A0F               	goto	i1l258
+  2068                           
+  2069                           ;newmain.c: 830:                             DUTY_L_NOW -= 5;
+  2070     020B  30FB               	movlw	251
+  2071     020C  07A2               	addwf	_DUTY_L_NOW,f
+  2072     020D  30FF               	movlw	255
+  2073     020E  3DA3               	addwfc	_DUTY_L_NOW+1,f
+  2074     020F                     i1l258:	
+  2075                           ;newmain.c: 831:                         }
+  2076                           
+  2077                           
+  2078                           ;newmain.c: 832:                         if(DUTY_L_NOW <= DUTY_L_TARGET){
+  2079     020F  0823               	movf	_DUTY_L_NOW+1,w
+  2080     0210  3A80               	xorlw	128
+  2081     0211  3C80               	sublw	128
+  2082     0212  1D03               	skipz
+  2083     0213  2A16               	goto	u182_25
+  2084     0214  0822               	movf	_DUTY_L_NOW,w
+  2085     0215  0279               	subwf	_DUTY_L_TARGET,w
+  2086     0216                     u182_25:
+  2087     0216  1C03               	skipc
+  2088     0217  29FF               	goto	i1l2063
+  2089                           
+  2090                           ;newmain.c: 833:                             PWM3DCH_BUFF = DUTY_L_TARGET;
+  2091     0218  0879               	movf	_DUTY_L_TARGET,w
+  2092     0219  00F4               	movwf	_PWM3DCH_BUFF
+  2093                           
+  2094                           ;newmain.c: 836:                             goto GO_MOTOR_1_STOP;
+  2095     021A  2A53               	goto	i1l2073
+  2096     021B                     i1l2081:
+  2097                           
+  2098                           ;newmain.c: 845:                     DUTY_L_NOW = PWM4DCH_BUFF;
+  2099     021B  0873               	movf	_PWM4DCH_BUFF,w
+  2100     021C  00FC               	movwf	??_isr
+  2101     021D  01FD               	clrf	??_isr+1
+  2102     021E  087C               	movf	??_isr,w
+  2103     021F  00A2               	movwf	_DUTY_L_NOW
+  2104     0220  087D               	movf	??_isr+1,w
+  2105     0221  00A3               	movwf	_DUTY_L_NOW+1
+  2106                           
+  2107                           ;newmain.c: 846:                     if(PWM_FLAG1 & 0x08){
+  2108     0222  1DF7               	btfss	_PWM_FLAG1,3
+  2109     0223  2A3E               	goto	i1l263
+  2110                           
+  2111                           ;newmain.c: 847:                         if(PWM4DCH_BUFF < DUTY_L_TARGET){
+  2112     0224  0879               	movf	_DUTY_L_TARGET,w
+  2113     0225  0273               	subwf	_PWM4DCH_BUFF,w
+  2114     0226  1803               	skipnc
+  2115     0227  2A2C               	goto	i1l264
+  2116                           
+  2117                           ;newmain.c: 848:                             DUTY_L_NOW += 5;
+  2118     0228  3005               	movlw	5
+  2119     0229  07A2               	addwf	_DUTY_L_NOW,f
+  2120     022A  3000               	movlw	0
+  2121     022B  3DA3               	addwfc	_DUTY_L_NOW+1,f
+  2122     022C                     i1l264:	
+  2123                           ;newmain.c: 849:                         }
+  2124                           
+  2125                           
+  2126                           ;newmain.c: 850:                         if(DUTY_L_NOW >= DUTY_L_TARGET){
+  2127     022C  0823               	movf	_DUTY_L_NOW+1,w
+  2128     022D  3A80               	xorlw	128
+  2129     022E  00FC               	movwf	??_isr
+  2130     022F  3080               	movlw	128
+  2131     0230  027C               	subwf	??_isr,w
+  2132     0231  1D03               	skipz
+  2133     0232  2A35               	goto	u185_25
+  2134     0233  0879               	movf	_DUTY_L_TARGET,w
+  2135     0234  0222               	subwf	_DUTY_L_NOW,w
+  2136     0235                     u185_25:
+  2137     0235  1C03               	skipc
+  2138     0236  2A3A               	goto	i1l2093
+  2139                           
+  2140                           ;newmain.c: 851:                             PWM4DCH_BUFF = DUTY_L_TARGET;
+  2141     0237  0879               	movf	_DUTY_L_TARGET,w
+  2142     0238  00F3               	movwf	_PWM4DCH_BUFF
+  2143     0239  29FC               	goto	i1l2061
+  2144     023A                     i1l2093:
+  2145                           
+  2146                           ;newmain.c: 855:                             PWM4DCH_BUFF = (char)DUTY_L_NOW;
+  2147     023A  0020               	movlb	0	; select bank0
+  2148     023B  0822               	movf	_DUTY_L_NOW,w
+  2149     023C  00F3               	movwf	_PWM4DCH_BUFF
+  2150     023D  2A02               	goto	i1l2065
+  2151     023E                     i1l263:	
+  2152                           ;newmain.c: 859:                     else if(PWM_FLAG1 & 0x04){
+  2153                           
+  2154     023E  1D77               	btfss	_PWM_FLAG1,2
+  2155     023F  2A73               	goto	i1l2127
+  2156                           
+  2157                           ;newmain.c: 860:                         if(PWM4DCH_BUFF > DUTY_L_TARGET){
+  2158     0240  0873               	movf	_PWM4DCH_BUFF,w
+  2159     0241  0279               	subwf	_DUTY_L_TARGET,w
+  2160     0242  1803               	skipnc
+  2161     0243  2A48               	goto	i1l269
+  2162                           
+  2163                           ;newmain.c: 861:                             DUTY_L_NOW -= 5;
+  2164     0244  30FB               	movlw	251
+  2165     0245  07A2               	addwf	_DUTY_L_NOW,f
+  2166     0246  30FF               	movlw	255
+  2167     0247  3DA3               	addwfc	_DUTY_L_NOW+1,f
+  2168     0248                     i1l269:	
+  2169                           ;newmain.c: 862:                         }
+  2170                           
+  2171                           
+  2172                           ;newmain.c: 863:                         if(DUTY_L_NOW <= DUTY_L_TARGET){
+  2173     0248  0823               	movf	_DUTY_L_NOW+1,w
+  2174     0249  3A80               	xorlw	128
+  2175     024A  3C80               	sublw	128
+  2176     024B  1D03               	skipz
+  2177     024C  2A4F               	goto	u188_25
+  2178     024D  0822               	movf	_DUTY_L_NOW,w
+  2179     024E  0279               	subwf	_DUTY_L_TARGET,w
+  2180     024F                     u188_25:
+  2181     024F  1C03               	skipc
+  2182     0250  2A3A               	goto	i1l2093
+  2183                           
+  2184                           ;newmain.c: 864:                             PWM4DCH_BUFF = DUTY_L_TARGET;
+  2185     0251  0879               	movf	_DUTY_L_TARGET,w
+  2186     0252  00F3               	movwf	_PWM4DCH_BUFF
+  2187     0253                     i1l2073:
+  2188                           
+  2189                           ;newmain.c: 834:                             PWM_FLAG1 &= 0xFB;
+  2190     0253  30FB               	movlw	251
+  2191     0254  05F7               	andwf	_PWM_FLAG1,f
+  2192                           
+  2193                           ;newmain.c: 867:                             if(PWM_FLAG1 & 0x02){
+  2194     0255  1CF7               	btfss	_PWM_FLAG1,1
+  2195     0256  2A73               	goto	i1l2127
+  2196                           
+  2197                           ;newmain.c: 868:                                 PWM_OUTPUT_FLAG &= 0xFC;
+  2198     0257  30FC               	movlw	252
+  2199     0258  05F6               	andwf	_PWM_OUTPUT_FLAG,f
+  2200                           
+  2201                           ;newmain.c: 869:                                 DEAD_TIME_L = 0xFF;
+  2202     0259  30FF               	movlw	255
+  2203     025A  0020               	movlb	0	; select bank0
+  2204     025B  00A7               	movwf	_DEAD_TIME_L
+  2205                           
+  2206                           ;newmain.c: 870:                                 PWM_FLAG1 &= 0xFD;
+  2207     025C  30FD               	movlw	253
+  2208     025D  05F7               	andwf	_PWM_FLAG1,f
+  2209                           
+  2210                           ;newmain.c: 871:                                 if(PWM_FLAG1 & 0x01){
+  2211     025E  1C77               	btfss	_PWM_FLAG1,0
+  2212     025F  2A73               	goto	i1l2127
+  2213                           
+  2214                           ;newmain.c: 872:                                     if(PWM_FLAG2 & 0x04){
+  2215     0260  1D28               	btfss	_PWM_FLAG2,2
+  2216     0261  2A66               	goto	i1l273
+  2217                           
+  2218                           ;newmain.c: 873:                                         DEAD_TIME_FLAG |= 0x0A;
+  2219     0262  300A               	movlw	10
+  2220     0263  04F5               	iorwf	_DEAD_TIME_FLAG,f
+  2221                           
+  2222                           ;newmain.c: 874:                                         DEAD_TIME_FLAG &= 0xFA;
+  2223     0264  30FA               	movlw	250
+  2224     0265  2A6F               	goto	L11
+  2225     0266                     i1l273:	
+  2226                           ;newmain.c: 876:                                     else{
+  2227                           
+  2228                           ;newmain.c: 875:                                     }
+  2229                           
+  2230                           
+  2231                           ;newmain.c: 877:                                         if(PWM_FLAG2 & 0x08){
+  2232     0266  1DA8               	btfss	_PWM_FLAG2,3
+  2233     0267  2A6C               	goto	i1l2119
+  2234                           
+  2235                           ;newmain.c: 878:                                             DEAD_TIME_FLAG |= 0x0D;
+  2236     0268  300D               	movlw	13
+  2237     0269  04F5               	iorwf	_DEAD_TIME_FLAG,f
+  2238                           
+  2239                           ;newmain.c: 879:                                             DEAD_TIME_FLAG &= 0xFD;
+  2240     026A  30FD               	movlw	253
+  2241     026B  2A6F               	goto	L11
+  2242     026C                     i1l2119:	
+  2243                           ;newmain.c: 880:                                         }
+  2244                           
+  2245                           
+  2246                           ;newmain.c: 882:                                             DEAD_TIME_FLAG |= 0x0C;
+  2247     026C  300C               	movlw	12
+  2248     026D  04F5               	iorwf	_DEAD_TIME_FLAG,f
+  2249                           
+  2250                           ;newmain.c: 883:                                             DEAD_TIME_FLAG &= 0xFC;
+  2251     026E  30FC               	movlw	252
+  2252     026F                     L11:
+  2253     026F  05F5               	andwf	_DEAD_TIME_FLAG,f
+  2254     0270  2A73               	goto	i1l2127
+  2255     0271                     i1l2125:
+  2256                           
+  2257                           ;newmain.c: 897:                 DUTY_COUNT_L ++;
+  2258     0271  3001               	movlw	1
+  2259     0272  07AA               	addwf	_DUTY_COUNT_L,f
+  2260     0273                     i1l2127:
+  2261                           
+  2262                           ;newmain.c: 899:             if(PWM_OVD_FLAG & 0x01){
+  2263     0273  1C70               	btfss	_PWM_OVD_FLAG,0
+  2264     0274  2A99               	goto	i1l2153
+  2265                           
+  2266                           ;newmain.c: 900:                 if(PWM_FLAG1 & 0x01){
+  2267     0275  1C77               	btfss	_PWM_FLAG1,0
+  2268     0276  2A7A               	goto	i1l280
+  2269                           
+  2270                           ;newmain.c: 902:                     PWM_OVD_FLAG &= 0xFD;
+  2271     0277  30FD               	movlw	253
+  2272     0278  05F0               	andwf	_PWM_OVD_FLAG,f
+  2273                           
+  2274                           ;newmain.c: 903:                 }
+  2275     0279  2A7E               	goto	i1l281
+  2276     027A                     i1l280:	
+  2277                           ;newmain.c: 904:                 else if(((PWM_OVD_FLAG & 0x02) == 0) && (PWM_FLAG1 & 0x
+      +                          08)){
+  2278                           
+  2279     027A  1CF0               	btfss	_PWM_OVD_FLAG,1
+  2280     027B  1DF7               	btfss	_PWM_FLAG1,3
+  2281     027C  2A7E               	goto	i1l281
+  2282                           
+  2283                           ;newmain.c: 905:                     PWM_OVD_FLAG |= 0x02;
+  2284     027D  14F0               	bsf	_PWM_OVD_FLAG,1
+  2285     027E                     i1l281:
+  2286                           
+  2287                           ;newmain.c: 907:                 if(PWM_OVD_FLAG & 0x02){
+  2288     027E  1CF0               	btfss	_PWM_OVD_FLAG,1
+  2289     027F  2A99               	goto	i1l2153
+  2290                           
+  2291                           ;newmain.c: 908:                     if(PWM_L_OVD_COUNT){
+  2292     0280  0020               	movlb	0	; select bank0
+  2293     0281  0825               	movf	_PWM_L_OVD_COUNT,w
+  2294     0282  1903               	btfsc	3,2
+  2295     0283  2A97               	goto	i1l2147
+  2296                           
+  2297                           ;newmain.c: 909:                         if(PWM_OUTPUT_FLAG & 0x01){
+  2298     0284  1C76               	btfss	_PWM_OUTPUT_FLAG,0
+  2299     0285  2A8C               	goto	i1l285
+  2300                           
+  2301                           ;newmain.c: 910:                             CCPR1H = PWM_OVD_DUTY;
+  2302     0286  082F               	movf	_PWM_OVD_DUTY,w
+  2303     0287  0025               	movlb	5	; select bank5
+  2304     0288  0092               	movwf	18	;volatile
+  2305                           
+  2306                           ;newmain.c: 911:                             CCPR2H = PWM4DCH_BUFF;
+  2307     0289  0873               	movf	_PWM4DCH_BUFF,w
+  2308     028A  0096               	movwf	22	;volatile
+  2309                           
+  2310                           ;newmain.c: 912:                         }
+  2311     028B  2A93               	goto	i1l2145
+  2312     028C                     i1l285:	
+  2313                           ;newmain.c: 913:                         else if(PWM_OUTPUT_FLAG & 0x02){
+  2314                           
+  2315     028C  1CF6               	btfss	_PWM_OUTPUT_FLAG,1
+  2316     028D  2A93               	goto	i1l2145
+  2317                           
+  2318                           ;newmain.c: 914:                             CCPR2H = PWM_OVD_DUTY;
+  2319     028E  082F               	movf	_PWM_OVD_DUTY,w
+  2320     028F  0025               	movlb	5	; select bank5
+  2321     0290  0096               	movwf	22	;volatile
+  2322                           
+  2323                           ;newmain.c: 915:                             CCPR1H = PWM3DCH_BUFF;
+  2324     0291  0874               	movf	_PWM3DCH_BUFF,w
+  2325     0292  0092               	movwf	18	;volatile
+  2326     0293                     i1l2145:
+  2327                           
+  2328                           ;newmain.c: 917:                         PWM_L_OVD_COUNT --;
+  2329     0293  3001               	movlw	1
+  2330     0294  0020               	movlb	0	; select bank0
+  2331     0295  02A5               	subwf	_PWM_L_OVD_COUNT,f
+  2332                           
+  2333                           ;newmain.c: 918:                     }
+  2334     0296  2A9E               	goto	i1l2157
+  2335     0297                     i1l2147:
+  2336                           
+  2337                           ;newmain.c: 920:                         PWM_OVD_FLAG &= 0xFC;
+  2338     0297  30FC               	movlw	252
+  2339     0298  05F0               	andwf	_PWM_OVD_FLAG,f
+  2340     0299                     i1l2153:	
+  2341                           ;newmain.c: 922:                         CCPR2H = PWM4DCH_BUFF;
+  2342                           
+  2343                           ;newmain.c: 921:                         CCPR1H = PWM3DCH_BUFF;
+  2344                           
+  2345                           
+  2346                           ;newmain.c: 926:                     CCPR1H = PWM3DCH_BUFF;
+  2347     0299  0874               	movf	_PWM3DCH_BUFF,w
+  2348     029A  0025               	movlb	5	; select bank5
+  2349     029B  0092               	movwf	18	;volatile
+  2350                           
+  2351                           ;newmain.c: 927:                     CCPR2H = PWM4DCH_BUFF;
+  2352     029C  0873               	movf	_PWM4DCH_BUFF,w
+  2353     029D  0096               	movwf	22	;volatile
+  2354     029E                     i1l2157:
+  2355                           
+  2356                           ;newmain.c: 937:         if(DEAD_TIME_R & 0x80){
+  2357     029E  0020               	movlb	0	; select bank0
+  2358     029F  1FA6               	btfss	_DEAD_TIME_R,7
+  2359     02A0  2AA4               	goto	i1l291
+  2360                           
+  2361                           ;newmain.c: 938:             DEAD_TIME_R ++;
+  2362     02A1  3001               	movlw	1
+  2363     02A2  07A6               	addwf	_DEAD_TIME_R,f
+  2364                           
+  2365                           ;newmain.c: 939:         }
+  2366     02A3  2AC3               	goto	i1l2193
+  2367     02A4                     i1l291:	
+  2368                           ;newmain.c: 940:         else if(DEAD_TIME_FLAG & 0x80){
+  2369                           
+  2370     02A4  1FF5               	btfss	_DEAD_TIME_FLAG,7
+  2371     02A5  2AC3               	goto	i1l2193
+  2372                           
+  2373                           ;newmain.c: 941:             if(PWM_FLAG1 & 0x10){
+  2374     02A6  1E77               	btfss	_PWM_FLAG1,4
+  2375     02A7  2AAE               	goto	i1l2171
+  2376                           
+  2377                           ;newmain.c: 942:                 DUTY_R_TARGET = DUTY_R_KEEP;
+  2378     02A8  082B               	movf	_DUTY_R_KEEP,w
+  2379     02A9  00F8               	movwf	_DUTY_R_TARGET
+  2380                           
+  2381                           ;newmain.c: 943:                 DUTY_R_KEEP = 0;
+  2382     02AA  01AB               	clrf	_DUTY_R_KEEP
+  2383                           
+  2384                           ;newmain.c: 944:                 PWM_FLAG1 &= 0xEF;
+  2385     02AB  30EF               	movlw	239
+  2386     02AC  05F7               	andwf	_PWM_FLAG1,f
+  2387                           
+  2388                           ;newmain.c: 945:                 PWM_FLAG1 |= 0x80;
+  2389     02AD  17F7               	bsf	_PWM_FLAG1,7
+  2390     02AE                     i1l2171:
+  2391                           
+  2392                           ;newmain.c: 948:             if(DEAD_TIME_FLAG & 0x20){
+  2393     02AE  1EF5               	btfss	_DEAD_TIME_FLAG,5
+  2394     02AF  2AB9               	goto	i1l295
+  2395                           
+  2396                           ;newmain.c: 949:                 DEAD_TIME_FLAG &= 0x4F;
+  2397     02B0  304F               	movlw	79
+  2398     02B1  05F5               	andwf	_DEAD_TIME_FLAG,f
+  2399                           
+  2400                           ;newmain.c: 950:                 DEAD_TIME_FLAG |= 0x40;
+  2401     02B2  1775               	bsf	_DEAD_TIME_FLAG,6
+  2402                           
+  2403                           ;newmain.c: 951:                 RA4PPS = 0x00;
+  2404     02B3  003D               	movlb	29	; select bank29
+  2405     02B4  0194               	clrf	20	;volatile
+  2406                           
+  2407                           ;newmain.c: 952:                 RA5PPS = 0x00;
+  2408     02B5  0195               	clrf	21	;volatile
+  2409                           
+  2410                           ;newmain.c: 953:                 PWM_OUTPUT_FLAG |= 0x40;
+  2411     02B6  1776               	bsf	_PWM_OUTPUT_FLAG,6
+  2412                           
+  2413                           ;newmain.c: 954:                 PWM_FLAG1 |= 0x10;
+  2414     02B7  1677               	bsf	_PWM_FLAG1,4
+  2415                           
+  2416                           ;newmain.c: 955:             }
+  2417     02B8  2AC0               	goto	i1l2191
+  2418     02B9                     i1l295:	
+  2419                           ;newmain.c: 956:             else if(DEAD_TIME_FLAG & 0x10){
+  2420                           
+  2421     02B9  1E75               	btfss	_DEAD_TIME_FLAG,4
+  2422     02BA  2ABD               	goto	i1l297
+  2423                           
+  2424                           ;newmain.c: 957:                 PWM_OUTPUT_FLAG |= 0x20;
+  2425     02BB  16F6               	bsf	_PWM_OUTPUT_FLAG,5
+  2426                           
+  2427                           ;newmain.c: 959:             }
+  2428     02BC  2ABE               	goto	i1l2187
+  2429     02BD                     i1l297:	
+  2430                           ;newmain.c: 960:             else{
+  2431                           
+  2432                           
+  2433                           ;newmain.c: 961:                 PWM_OUTPUT_FLAG |= 0x10;
+  2434     02BD  1676               	bsf	_PWM_OUTPUT_FLAG,4
+  2435     02BE                     i1l2187:
+  2436                           
+  2437                           ;newmain.c: 958:                 DEAD_TIME_FLAG &= 0x0F;
+  2438     02BE  300F               	movlw	15
+  2439     02BF  05F5               	andwf	_DEAD_TIME_FLAG,f
+  2440     02C0                     i1l2191:
+  2441                           
+  2442                           ;newmain.c: 964:             DEAD_TIME_R = 0xFF;
+  2443     02C0  30FF               	movlw	255
+  2444     02C1  0020               	movlb	0	; select bank0
+  2445     02C2  00A6               	movwf	_DEAD_TIME_R
+  2446     02C3                     i1l2193:
+  2447                           
+  2448                           ;newmain.c: 967:         if((DEAD_TIME_FLAG & 0x40) == 0){
+  2449     02C3  1B75               	btfsc	_DEAD_TIME_FLAG,6
+  2450     02C4  2B92               	goto	i1l2305
+  2451                           
+  2452                           ;newmain.c: 969:             if(DUTY_COUNT_R & 0x80){
+  2453     02C5  1FA9               	btfss	_DUTY_COUNT_R,7
+  2454     02C6  2B5F               	goto	i1l2273
+  2455                           
+  2456                           ;newmain.c: 970:                 if(PWM_OUTPUT_FLAG & 0x10){
+  2457     02C7  1E76               	btfss	_PWM_OUTPUT_FLAG,4
+  2458     02C8  2B07               	goto	i1l2229
+  2459                           
+  2460                           ;newmain.c: 971:                     DUTY_R_NOW = PWM5DCH_BUFF;
+  2461     02C9  0872               	movf	_PWM5DCH_BUFF,w
+  2462     02CA  00FC               	movwf	??_isr
+  2463     02CB  01FD               	clrf	??_isr+1
+  2464     02CC  087C               	movf	??_isr,w
+  2465     02CD  00A0               	movwf	_DUTY_R_NOW
+  2466     02CE  087D               	movf	??_isr+1,w
+  2467     02CF  00A1               	movwf	_DUTY_R_NOW+1
+  2468                           
+  2469                           ;newmain.c: 972:                     if(PWM_FLAG1 & 0x80){
+  2470     02D0  1FF7               	btfss	_PWM_FLAG1,7
+  2471     02D1  2AF1               	goto	i1l302
+  2472                           
+  2473                           ;newmain.c: 973:                         if(PWM5DCH_BUFF < DUTY_R_TARGET){
+  2474     02D2  0878               	movf	_DUTY_R_TARGET,w
+  2475     02D3  0272               	subwf	_PWM5DCH_BUFF,w
+  2476     02D4  1803               	skipnc
+  2477     02D5  2ADA               	goto	i1l303
+  2478                           
+  2479                           ;newmain.c: 974:                             DUTY_R_NOW += 5;
+  2480     02D6  3005               	movlw	5
+  2481     02D7  07A0               	addwf	_DUTY_R_NOW,f
+  2482     02D8  3000               	movlw	0
+  2483     02D9  3DA1               	addwfc	_DUTY_R_NOW+1,f
+  2484     02DA                     i1l303:	
+  2485                           ;newmain.c: 975:                         }
+  2486                           
+  2487                           
+  2488                           ;newmain.c: 976:                         if(DUTY_R_NOW >= DUTY_R_TARGET){
+  2489     02DA  0821               	movf	_DUTY_R_NOW+1,w
+  2490     02DB  3A80               	xorlw	128
+  2491     02DC  00FC               	movwf	??_isr
+  2492     02DD  3080               	movlw	128
+  2493     02DE  027C               	subwf	??_isr,w
+  2494     02DF  1D03               	skipz
+  2495     02E0  2AE3               	goto	u211_25
+  2496     02E1  0878               	movf	_DUTY_R_TARGET,w
+  2497     02E2  0220               	subwf	_DUTY_R_NOW,w
+  2498     02E3                     u211_25:
+  2499     02E3  1C03               	skipc
+  2500     02E4  2AEA               	goto	i1l2211
+  2501                           
+  2502                           ;newmain.c: 977:                             PWM5DCH_BUFF = DUTY_R_TARGET;
+  2503     02E5  0878               	movf	_DUTY_R_TARGET,w
+  2504     02E6  00F2               	movwf	_PWM5DCH_BUFF
+  2505                           
+  2506                           ;newmain.c: 978:                             PWM_FLAG1 &= 0x7F;
+  2507     02E7  307F               	movlw	127
+  2508     02E8  05F7               	andwf	_PWM_FLAG1,f
+  2509                           
+  2510                           ;newmain.c: 979:                         }
+  2511     02E9  2B61               	goto	i1l2275
+  2512     02EA                     i1l2211:
+  2513                           
+  2514                           ;newmain.c: 981:                             PWM5DCH_BUFF = (char)DUTY_R_NOW;
+  2515     02EA  0020               	movlb	0	; select bank0
+  2516     02EB  0820               	movf	_DUTY_R_NOW,w
+  2517     02EC  00F2               	movwf	_PWM5DCH_BUFF
+  2518     02ED                     i1l2213:
+  2519                           
+  2520                           ;newmain.c: 982:                             DUTY_COUNT_R = 0xFF;
+  2521     02ED  30FF               	movlw	255
+  2522     02EE  0020               	movlb	0	; select bank0
+  2523     02EF  00A9               	movwf	_DUTY_COUNT_R
+  2524                           
+  2525                           ;newmain.c: 984:                     }
+  2526                           
+  2527                           ;newmain.c: 983:                         }
+  2528     02F0  2B61               	goto	i1l2275
+  2529     02F1                     i1l302:	
+  2530                           ;newmain.c: 985:                     else if(PWM_FLAG1 & 0x40){
+  2531                           
+  2532     02F1  1F77               	btfss	_PWM_FLAG1,6
+  2533     02F2  2B61               	goto	i1l2275
+  2534                           
+  2535                           ;newmain.c: 986:                         if(PWM5DCH_BUFF > DUTY_R_TARGET){
+  2536     02F3  0872               	movf	_PWM5DCH_BUFF,w
+  2537     02F4  0278               	subwf	_DUTY_R_TARGET,w
+  2538     02F5  1803               	skipnc
+  2539     02F6  2AFB               	goto	i1l308
+  2540                           
+  2541                           ;newmain.c: 987:                             DUTY_R_NOW -= 5;
+  2542     02F7  30FB               	movlw	251
+  2543     02F8  07A0               	addwf	_DUTY_R_NOW,f
+  2544     02F9  30FF               	movlw	255
+  2545     02FA  3DA1               	addwfc	_DUTY_R_NOW+1,f
+  2546     02FB                     i1l308:	
+  2547                           ;newmain.c: 988:                         }
+  2548                           
+  2549                           
+  2550                           ;newmain.c: 989:                         if(DUTY_R_NOW <= DUTY_R_TARGET){
+  2551     02FB  0821               	movf	_DUTY_R_NOW+1,w
+  2552     02FC  3A80               	xorlw	128
+  2553     02FD  3C80               	sublw	128
+  2554     02FE  1D03               	skipz
+  2555     02FF  2B02               	goto	u214_25
+  2556     0300  0820               	movf	_DUTY_R_NOW,w
+  2557     0301  0278               	subwf	_DUTY_R_TARGET,w
+  2558     0302                     u214_25:
+  2559     0302  1C03               	skipc
+  2560     0303  2AEA               	goto	i1l2211
+  2561                           
+  2562                           ;newmain.c: 990:                             PWM5DCH_BUFF = DUTY_R_TARGET;
+  2563     0304  0878               	movf	_DUTY_R_TARGET,w
+  2564     0305  00F2               	movwf	_PWM5DCH_BUFF
+  2565                           
+  2566                           ;newmain.c: 993:                             goto GO_MOTOR_2_STOP;
+  2567     0306  2B41               	goto	i1l2221
+  2568     0307                     i1l2229:
+  2569                           
+  2570                           ;newmain.c: 1002:                     DUTY_R_NOW = PWM6DCH_BUFF;
+  2571     0307  0871               	movf	_PWM6DCH_BUFF,w
+  2572     0308  00FC               	movwf	??_isr
+  2573     0309  01FD               	clrf	??_isr+1
+  2574     030A  087C               	movf	??_isr,w
+  2575     030B  00A0               	movwf	_DUTY_R_NOW
+  2576     030C  087D               	movf	??_isr+1,w
+  2577     030D  00A1               	movwf	_DUTY_R_NOW+1
+  2578                           
+  2579                           ;newmain.c: 1003:                     if(PWM_FLAG1 & 0x80){
+  2580     030E  1FF7               	btfss	_PWM_FLAG1,7
+  2581     030F  2B2C               	goto	i1l313
+  2582                           
+  2583                           ;newmain.c: 1004:                         if(PWM6DCH_BUFF < DUTY_R_TARGET){
+  2584     0310  0878               	movf	_DUTY_R_TARGET,w
+  2585     0311  0271               	subwf	_PWM6DCH_BUFF,w
+  2586     0312  1803               	skipnc
+  2587     0313  2B18               	goto	i1l314
+  2588                           
+  2589                           ;newmain.c: 1005:                             DUTY_R_NOW += 5;
+  2590     0314  3005               	movlw	5
+  2591     0315  07A0               	addwf	_DUTY_R_NOW,f
+  2592     0316  3000               	movlw	0
+  2593     0317  3DA1               	addwfc	_DUTY_R_NOW+1,f
+  2594     0318                     i1l314:	
+  2595                           ;newmain.c: 1006:                         }
+  2596                           
+  2597                           
+  2598                           ;newmain.c: 1007:                         if(DUTY_R_NOW >= DUTY_R_TARGET){
+  2599     0318  0821               	movf	_DUTY_R_NOW+1,w
+  2600     0319  3A80               	xorlw	128
+  2601     031A  00FC               	movwf	??_isr
+  2602     031B  3080               	movlw	128
+  2603     031C  027C               	subwf	??_isr,w
+  2604     031D  1D03               	skipz
+  2605     031E  2B21               	goto	u217_25
+  2606     031F  0878               	movf	_DUTY_R_TARGET,w
+  2607     0320  0220               	subwf	_DUTY_R_NOW,w
+  2608     0321                     u217_25:
+  2609     0321  1C03               	skipc
+  2610     0322  2B28               	goto	i1l2241
+  2611                           
+  2612                           ;newmain.c: 1008:                             PWM6DCH_BUFF = DUTY_R_TARGET;
+  2613     0323  0878               	movf	_DUTY_R_TARGET,w
+  2614     0324  00F1               	movwf	_PWM6DCH_BUFF
+  2615                           
+  2616                           ;newmain.c: 1009:                             PWM_FLAG1 &= 0x7F;
+  2617     0325  307F               	movlw	127
+  2618     0326  05F7               	andwf	_PWM_FLAG1,f
+  2619                           
+  2620                           ;newmain.c: 1010:                         }
+  2621     0327  2AED               	goto	i1l2213
+  2622     0328                     i1l2241:
+  2623                           
+  2624                           ;newmain.c: 1012:                             PWM6DCH_BUFF = (char)DUTY_R_NOW;
+  2625     0328  0020               	movlb	0	; select bank0
+  2626     0329  0820               	movf	_DUTY_R_NOW,w
+  2627     032A  00F1               	movwf	_PWM6DCH_BUFF
+  2628     032B  2AED               	goto	i1l2213
+  2629     032C                     i1l313:	
+  2630                           ;newmain.c: 1016:                     else if(PWM_FLAG1 & 0x40){
+  2631                           
+  2632     032C  1F77               	btfss	_PWM_FLAG1,6
+  2633     032D  2B61               	goto	i1l2275
+  2634                           
+  2635                           ;newmain.c: 1017:                         if(PWM6DCH_BUFF > DUTY_R_TARGET){
+  2636     032E  0871               	movf	_PWM6DCH_BUFF,w
+  2637     032F  0278               	subwf	_DUTY_R_TARGET,w
+  2638     0330  1803               	skipnc
+  2639     0331  2B36               	goto	i1l319
+  2640                           
+  2641                           ;newmain.c: 1018:                             DUTY_R_NOW -= 5;
+  2642     0332  30FB               	movlw	251
+  2643     0333  07A0               	addwf	_DUTY_R_NOW,f
+  2644     0334  30FF               	movlw	255
+  2645     0335  3DA1               	addwfc	_DUTY_R_NOW+1,f
+  2646     0336                     i1l319:	
+  2647                           ;newmain.c: 1019:                         }
+  2648                           
+  2649                           
+  2650                           ;newmain.c: 1020:                         if(DUTY_R_NOW <= DUTY_R_TARGET){
+  2651     0336  0821               	movf	_DUTY_R_NOW+1,w
+  2652     0337  3A80               	xorlw	128
+  2653     0338  3C80               	sublw	128
+  2654     0339  1D03               	skipz
+  2655     033A  2B3D               	goto	u220_25
+  2656     033B  0820               	movf	_DUTY_R_NOW,w
+  2657     033C  0278               	subwf	_DUTY_R_TARGET,w
+  2658     033D                     u220_25:
+  2659     033D  1C03               	skipc
+  2660     033E  2B28               	goto	i1l2241
+  2661                           
+  2662                           ;newmain.c: 1021:                             PWM6DCH_BUFF = DUTY_R_TARGET;
+  2663     033F  0878               	movf	_DUTY_R_TARGET,w
+  2664     0340  00F1               	movwf	_PWM6DCH_BUFF
+  2665     0341                     i1l2221:
+  2666                           
+  2667                           ;newmain.c: 991:                             PWM_FLAG1 &= 0xBF;
+  2668     0341  30BF               	movlw	191
+  2669     0342  05F7               	andwf	_PWM_FLAG1,f
+  2670                           
+  2671                           ;newmain.c: 1024:                             if(PWM_FLAG1 & 0x20){
+  2672     0343  1EF7               	btfss	_PWM_FLAG1,5
+  2673     0344  2B61               	goto	i1l2275
+  2674                           
+  2675                           ;newmain.c: 1025:                                 PWM_OUTPUT_FLAG &= 0xCF;
+  2676     0345  30CF               	movlw	207
+  2677     0346  05F6               	andwf	_PWM_OUTPUT_FLAG,f
+  2678                           
+  2679                           ;newmain.c: 1026:                                 DEAD_TIME_R = 0xFF;
+  2680     0347  30FF               	movlw	255
+  2681     0348  0020               	movlb	0	; select bank0
+  2682     0349  00A6               	movwf	_DEAD_TIME_R
+  2683                           
+  2684                           ;newmain.c: 1027:                                 PWM_FLAG1 &= 0xDF;
+  2685     034A  30DF               	movlw	223
+  2686     034B  05F7               	andwf	_PWM_FLAG1,f
+  2687                           
+  2688                           ;newmain.c: 1028:                                 if(PWM_FLAG1 & 0x10){
+  2689     034C  1E77               	btfss	_PWM_FLAG1,4
+  2690     034D  2B61               	goto	i1l2275
+  2691                           
+  2692                           ;newmain.c: 1029:                                     if(PWM_FLAG2 & 0x40){
+  2693     034E  1F28               	btfss	_PWM_FLAG2,6
+  2694     034F  2B54               	goto	i1l323
+  2695                           
+  2696                           ;newmain.c: 1030:                                         DEAD_TIME_FLAG |= 0xA0;
+  2697     0350  30A0               	movlw	160
+  2698     0351  04F5               	iorwf	_DEAD_TIME_FLAG,f
+  2699                           
+  2700                           ;newmain.c: 1031:                                         DEAD_TIME_FLAG &= 0xAF;
+  2701     0352  30AF               	movlw	175
+  2702     0353  2B5D               	goto	L13
+  2703     0354                     i1l323:	
+  2704                           ;newmain.c: 1033:                                     else{
+  2705                           
+  2706                           ;newmain.c: 1032:                                     }
+  2707                           
+  2708                           
+  2709                           ;newmain.c: 1034:                                         if(PWM_FLAG2 & 0x80){
+  2710     0354  1FA8               	btfss	_PWM_FLAG2,7
+  2711     0355  2B5A               	goto	i1l2267
+  2712                           
+  2713                           ;newmain.c: 1035:                                             DEAD_TIME_FLAG |= 0xD0;
+  2714     0356  30D0               	movlw	208
+  2715     0357  04F5               	iorwf	_DEAD_TIME_FLAG,f
+  2716                           
+  2717                           ;newmain.c: 1036:                                             DEAD_TIME_FLAG &= 0xDF;
+  2718     0358  30DF               	movlw	223
+  2719     0359  2B5D               	goto	L13
+  2720     035A                     i1l2267:	
+  2721                           ;newmain.c: 1037:                                         }
+  2722                           
+  2723                           
+  2724                           ;newmain.c: 1039:                                             DEAD_TIME_FLAG |= 0xC0;
+  2725     035A  30C0               	movlw	192
+  2726     035B  04F5               	iorwf	_DEAD_TIME_FLAG,f
+  2727                           
+  2728                           ;newmain.c: 1040:                                             DEAD_TIME_FLAG &= 0xCF;
+  2729     035C  30CF               	movlw	207
+  2730     035D                     L13:
+  2731     035D  05F5               	andwf	_DEAD_TIME_FLAG,f
+  2732     035E  2B61               	goto	i1l2275
+  2733     035F                     i1l2273:
+  2734                           
+  2735                           ;newmain.c: 1054:                 DUTY_COUNT_R ++;
+  2736     035F  3001               	movlw	1
+  2737     0360  07A9               	addwf	_DUTY_COUNT_R,f
+  2738     0361                     i1l2275:
+  2739                           
+  2740                           ;newmain.c: 1056:             if(PWM_OVD_FLAG & 0x20){
+  2741     0361  1EF0               	btfss	_PWM_OVD_FLAG,5
+  2742     0362  2B8D               	goto	i1l2303
+  2743                           
+  2744                           ;newmain.c: 1057:                 if(PWM_FLAG1 & 0x10){
+  2745     0363  1E77               	btfss	_PWM_FLAG1,4
+  2746     0364  2B68               	goto	i1l330
+  2747                           
+  2748                           ;newmain.c: 1059:                     PWM_OVD_FLAG &= 0xFD;
+  2749     0365  30FD               	movlw	253
+  2750     0366  05F0               	andwf	_PWM_OVD_FLAG,f
+  2751                           
+  2752                           ;newmain.c: 1060:                 }
+  2753     0367  2B6C               	goto	i1l331
+  2754     0368                     i1l330:	
+  2755                           ;newmain.c: 1061:                 else if(((PWM_OVD_FLAG & 0x20) == 0) && (PWM_FLAG1 & 0
+      +                          x80)){
+  2756                           
+  2757     0368  1EF0               	btfss	_PWM_OVD_FLAG,5
+  2758     0369  1FF7               	btfss	_PWM_FLAG1,7
+  2759     036A  2B6C               	goto	i1l331
+  2760                           
+  2761                           ;newmain.c: 1062:                     PWM_OVD_FLAG |= 0x20;
+  2762     036B  16F0               	bsf	_PWM_OVD_FLAG,5
+  2763     036C                     i1l331:
+  2764                           
+  2765                           ;newmain.c: 1064:                 if(PWM_OVD_FLAG & 0x20){
+  2766     036C  1EF0               	btfss	_PWM_OVD_FLAG,5
+  2767     036D  2B88               	goto	i1l2301
+  2768                           
+  2769                           ;newmain.c: 1065:                     if(PWM_R_OVD_COUNT){
+  2770     036E  0020               	movlb	0	; select bank0
+  2771     036F  0824               	movf	_PWM_R_OVD_COUNT,w
+  2772     0370  1903               	btfsc	3,2
+  2773     0371  2B85               	goto	i1l2295
+  2774                           
+  2775                           ;newmain.c: 1066:                         if(PWM_OUTPUT_FLAG & 0x10){
+  2776     0372  1E76               	btfss	_PWM_OUTPUT_FLAG,4
+  2777     0373  2B7A               	goto	i1l335
+  2778                           
+  2779                           ;newmain.c: 1067:                             PWM5DCH = PWM_OVD_DUTY;
+  2780     0374  082F               	movf	_PWM_OVD_DUTY,w
+  2781     0375  002C               	movlb	12	; select bank12
+  2782     0376  0098               	movwf	24	;volatile
+  2783                           
+  2784                           ;newmain.c: 1068:                             PWM6DCH = PWM6DCH_BUFF;
+  2785     0377  0871               	movf	_PWM6DCH_BUFF,w
+  2786     0378  009B               	movwf	27	;volatile
+  2787                           
+  2788                           ;newmain.c: 1069:                         }
+  2789     0379  2B81               	goto	i1l2293
+  2790     037A                     i1l335:	
+  2791                           ;newmain.c: 1070:                         else if(PWM_OUTPUT_FLAG & 0x20){
+  2792                           
+  2793     037A  1EF6               	btfss	_PWM_OUTPUT_FLAG,5
+  2794     037B  2B81               	goto	i1l2293
+  2795                           
+  2796                           ;newmain.c: 1071:                             PWM6DCH = PWM_OVD_DUTY;
+  2797     037C  082F               	movf	_PWM_OVD_DUTY,w
+  2798     037D  002C               	movlb	12	; select bank12
+  2799     037E  009B               	movwf	27	;volatile
+  2800                           
+  2801                           ;newmain.c: 1072:                             PWM5DCH = PWM5DCH_BUFF;
+  2802     037F  0872               	movf	_PWM5DCH_BUFF,w
+  2803     0380  0098               	movwf	24	;volatile
+  2804     0381                     i1l2293:
+  2805                           
+  2806                           ;newmain.c: 1074:                         PWM_R_OVD_COUNT --;
+  2807     0381  3001               	movlw	1
+  2808     0382  0020               	movlb	0	; select bank0
+  2809     0383  02A4               	subwf	_PWM_R_OVD_COUNT,f
+  2810                           
+  2811                           ;newmain.c: 1075:                     }
+  2812     0384  2B92               	goto	i1l2305
+  2813     0385                     i1l2295:
+  2814                           
+  2815                           ;newmain.c: 1077:                         PWM_OVD_FLAG &= 0x0F;
+  2816     0385  300F               	movlw	15
+  2817     0386  05F0               	andwf	_PWM_OVD_FLAG,f
+  2818     0387  2B8D               	goto	i1l2303
+  2819     0388                     i1l2301:	
+  2820                           ;newmain.c: 1079:                         PWM6DCH = PWM6DCH_BUFF;
+  2821                           
+  2822                           ;newmain.c: 1078:                         PWM5DCH = PWM5DCH_BUFF;
+  2823                           
+  2824                           
+  2825                           ;newmain.c: 1083:                     PWM5DCH = PWM3DCH_BUFF;
+  2826     0388  0874               	movf	_PWM3DCH_BUFF,w
+  2827     0389  002C               	movlb	12	; select bank12
+  2828     038A  0098               	movwf	24	;volatile
+  2829                           
+  2830                           ;newmain.c: 1084:                     PWM6DCH = PWM4DCH_BUFF;
+  2831     038B  0873               	movf	_PWM4DCH_BUFF,w
+  2832     038C  2B91               	goto	L14
+  2833     038D                     i1l2303:
+  2834                           
+  2835                           ;newmain.c: 1088:                 PWM5DCH = PWM5DCH_BUFF;
+  2836     038D  0872               	movf	_PWM5DCH_BUFF,w
+  2837     038E  002C               	movlb	12	; select bank12
+  2838     038F  0098               	movwf	24	;volatile
+  2839                           
+  2840                           ;newmain.c: 1089:                 PWM6DCH = PWM6DCH_BUFF;
+  2841     0390  0871               	movf	_PWM6DCH_BUFF,w
+  2842     0391                     L14:
+  2843     0391  009B               	movwf	27	;volatile
+  2844     0392                     i1l2305:
+  2845                           
+  2846                           ;newmain.c: 1092:         TMR2IF = 0;
+  2847     0392  0020               	movlb	0	; select bank0
+  2848     0393  1091               	bcf	17,1	;volatile
+  2849     0394                     i1l341:
+  2850     0394  107E               	bcf	126,0	;clear compiler interrupt flag (level 1)
+  2851     0395  0009               	retfie
+  2852     0396                     __end_of_isr:
+  2853     0000                     ___latbits      equ	0
+  2854     007E                     btemp           set	126	;btemp
+  2855     007E                     int$flags       set	126
+  2856     007E                     wtemp0          set	126
+  2857                           
+  2858                           	psect	config
+  2859                           
+  2860                           ;Config register CONFIG1 @ 0x8007
+  2861                           ;	FEXTOSC External Oscillator mode Selection bits
+  2862                           ;	FEXTOSC = OFF, Oscillator not enabled
+  2863                           ;	Power-up default value for COSC bits
+  2864                           ;	RSTOSC = HFINT32, HFINTOSC with 2x PLL (32MHz)
+  2865                           ;	Clock Out Enable bit
+  2866                           ;	CLKOUTEN = OFF, CLKOUT function is disabled; I/O or oscillator function on OSC2
+  2867                           ;	Clock Switch Enable bit
+  2868                           ;	CSWEN = OFF, The NOSC and NDIV bits cannot be changed by user software
+  2869                           ;	Fail-Safe Clock Monitor Enable
+  2870                           ;	FCMEN = OFF, Fail-Safe Clock Monitor is disabled
+  2871     8007                     	org	32775
+  2872     8007  178C               	dw	6028
+  2873                           
+  2874                           ;Config register CONFIG2 @ 0x8008
+  2875                           ;	Master Clear Enable bit
+  2876                           ;	MCLRE = OFF, MCLR/VPP pin function is digital input; MCLR internally disabled; Weak pu
+      +                          ll-up under control of port pin's WPU control bit.
+  2877                           ;	Power-up Timer Enable bit
+  2878                           ;	PWRTE = ON, PWRT enabled
+  2879                           ;	Watchdog Timer Enable bits
+  2880                           ;	WDTE = OFF, WDT disabled; SWDTEN is ignored
+  2881                           ;	Low-power BOR enable bit
+  2882                           ;	LPBOREN = OFF, ULPBOR disabled
+  2883                           ;	Brown-out Reset Enable bits
+  2884                           ;	BOREN = OFF, Brown-out Reset disabled
+  2885                           ;	Brown-out Reset Voltage selection bit
+  2886                           ;	BORV = LOW, Brown-out voltage (Vbor) set to 2.45V
+  2887                           ;	PPSLOCK bit One-Way Set Enable bit
+  2888                           ;	PPS1WAY = ON, The PPSLOCK bit can be cleared and set only once; PPS registers remain l
+      +                          ocked after one clear/set cycle
+  2889                           ;	Stack Overflow/Underflow Reset Enable bit
+  2890                           ;	STVREN = ON, Stack Overflow or Underflow will cause a Reset
+  2891                           ;	Debugger enable bit
+  2892                           ;	DEBUG = OFF, Background debugger disabled
+  2893     8008                     	org	32776
+  2894     8008  3F30               	dw	16176
+  2895                           
+  2896                           ;Config register CONFIG3 @ 0x8009
+  2897                           ;	User NVM self-write protection bits
+  2898                           ;	WRT = OFF, Write protection off
+  2899                           ;	Low Voltage Programming Enable bit
+  2900                           ;	LVP = OFF, HV on MCLR/VPP must be used for programming.
+  2901     8009                     	org	32777
+  2902     8009  1FFF               	dw	8191
+  2903                           
+  2904                           ;Config register CONFIG4 @ 0x800A
+  2905                           ;	User NVM Program Memory Code Protection bit
+  2906                           ;	CP = OFF, User NVM code protection disabled
+  2907                           ;	Data NVM Memory Code Protection bit
+  2908                           ;	CPD = OFF, Data NVM code protection disabled
+  2909     800A                     	org	32778
+  2910     800A  3FFF               	dw	16383
+
+Data Sizes:
+    Strings     0
+    Constant    0
+    Data        1
+    BSS         27
+    Persistent  32
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMMON           14      2      14
+    BANK0            80      0      16
+    BANK1            80      0       0
+    BANK2            80      0       0
+
+Pointer List with Targets:
+
+    None.
+
+Critical Paths under _main in COMMON
+
+    None.
+
+Critical Paths under _isr in COMMON
+
+    None.
+
+Critical Paths under _main in BANK0
+
+    None.
+
+Critical Paths under _isr in BANK0
+
+    None.
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Critical Paths under _isr in BANK1
+
+    None.
+
+Critical Paths under _main in BANK2
+
+    None.
+
+Critical Paths under _isr in BANK2
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 0     0      0       0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 0
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (1) _isr                                                  2     2      0       0
+                                              0 COMMON     2     2      0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 1
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+
+ _isr (ROOT)
+
+Address spaces:
+Name               Size   Autos  Total    Usage
+BITCOMMON           14      0       0      0.0%
+BITBANK0            80      0       0      0.0%
+BITBANK1            80      0       0      0.0%
+BITBANK2            80      0       0      0.0%
+BIGRAM             240      0       0      0.0%
+COMMON              14      2      14    100.0%
+BANK0               80      0      16     20.0%
+BANK1               80      0       0      0.0%
+BANK2               80      0       0      0.0%
+STACK                0      0       0      0.0%
+DATA                 0      0      30      0.0%
+
+
+Microchip Technology PIC Macro Assembler V2.50 build 20240725155939 
+Symbol Table                                                                                   Thu Oct 03 01:09:50 2024
+
+           _PWM_OVD_FLAG 0070             _PWM_OVD_DUTY 002F                      l133 03E8  
+                    _CKP 10AC                      _PR2 001E                      _isr 0004  
+                    wreg 0009                     ?_isr 007C                     _LATA 010C  
+                   _PIE1 0091                     _D_nA 10A5                     _R_nW 10A2  
+                   _main 03A8                     fsr0h 0005                     indf0 0000  
+                   fsr0l 0004                     btemp 007E                     start 0396  
+                  ??_isr 007C                    ?_main 007C                    _T2CON 001F  
+                  i1l201 0111                    i1l211 0165                    i1l220 017B  
+                  i1l141 01B2                    i1l302 02F1                    i1l303 02DA  
+                  i1l151 003B                    i1l313 032C                    i1l241 01B9  
+                  i1l161 0063                    i1l153 0040                    i1l330 0368  
+                  i1l314 0318                    i1l226 018D                    i1l331 036C  
+                  i1l323 0354                    i1l235 01A3                    i1l171 0092  
+                  i1l155 0046                    i1l308 02FB                    i1l252 0205  
+                  i1l253 01EF                    i1l245 01CE                    i1l341 0394  
+                  i1l181 00BA                    i1l173 0097                    i1l165 006C  
+                  i1l149 002F                    i1l335 037A                    i1l319 0336  
+                  i1l263 023E                    i1l247 01D2                    i1l191 00DF  
+                  i1l175 009D                    i1l159 005A                    i1l280 027A  
+                  i1l264 022C                    i1l281 027E                    i1l273 0266  
+                  i1l193 00E8                    i1l185 00C3                    i1l169 0086  
+                  i1l258 020F                    i1l291 02A4                    i1l179 00B1  
+                  i1l285 028C                    i1l269 0248                    i1l295 02B9  
+                  i1l199 0107                    i1l297 02BD                    _TRISA 008C  
+        _PWM_OUTPUT_FLAG 0076          _PWM_L_OVD_COUNT 0025                    status 0003  
+                  wtemp0 007E          __initialization 0397             __end_of_main 03E9  
+                 ??_main 0000                   _CCPR1H 0292                   _CCPR2H 0296  
+                 _CCPR1L 0291                   _CCPR2L 0295                   _ANSELA 018C  
+                 _RA0PPS 0E90                   _RA1PPS 0E91                   _RA2PPS 0E92  
+                 _RA4PPS 0E94                   _RA5PPS 0E95                   i1l2003 01AB  
+                 i1l2005 01AD                   i1l2023 01C3                   i1l2211 02EA  
+                 i1l2043 01D5                   i1l2301 0388                   i1l2221 0341  
+                 i1l2213 02ED                   i1l2061 01FC                   i1l2125 0271  
+                 i1l2045 01D8                   i1l2303 038D                   i1l2119 026C  
+                 i1l2127 0273                   i1l2063 01FF                   i1l2039 01D3  
+                 i1l2241 0328                   i1l2305 0392                   i1l2145 0293  
+                 i1l2153 0299                   i1l2073 0253                   i1l2065 0202  
+                 i1l2081 021B                   i1l2171 02AE                   i1l2147 0297  
+                 i1l2229 0307                   i1l2093 023A                   i1l2157 029E  
+                 i1l2191 02C0                   i1l2273 035F                   i1l2193 02C3  
+                 i1l2267 035A                   i1l2275 0361                   i1l2187 02BE  
+                 i1l1707 0048                   i1l2293 0381                   i1l2295 0385  
+                 i1l1815 00CA                   i1l1743 0073                   i1l1663 0013  
+                 i1l1753 0083                   i1l1681 002C                   i1l1907 0138  
+                 i1l1843 00EE                   i1l1835 00E5                   i1l1941 015E  
+                 i1l1847 00F2                   i1l1935 0155                   i1l1769 0094  
+                 i1l1697 003D                   i1l1875 0117                   i1l1867 010D  
+                 i1l1779 009F                   u211_25 02E3                   i1l1973 0186  
+                 i1l1957 0171                   i1l1967 017D                   i1l1879 011B  
+                 u220_25 033D                   i1l1989 0199                   i1l1999 01A5  
+                 u214_25 0302                   _INTCON 000B                   u217_25 0321  
+                 u182_25 0216                   u185_25 0235                   u179_25 01F8  
+                 u188_25 024F                   _TMR2IF 0089                   _SSP1IF 008B  
+        _PWM_R_OVD_COUNT 0024  __end_of__initialization 03A5            _DUTY_L_TARGET 0079  
+         __pcstackCOMMON 007C             __pidataBANK0 03EF            _DUTY_R_TARGET 0078  
+             __pbssBANK0 0020               __pmaintext 03A8               __pintentry 0004  
+                _CCP1CON 0293                  _CCP2CON 0297                  _PWM5DCH 0618  
+                _PWM5DCL 0617                  _PWM6DCH 061B                  _PWM6DCL 061A  
+                _PWM5CON 0619                  _PWM6CON 061C                  _SSP1ADD 0212  
+                _SSP1BUF 0211                  _SSP1MSK 0213                _I2C_COUNT 002D  
+              _I2C_ORDER 007A           _DEAD_TIME_FLAG 0075                  clrloop0 03EA  
+   end_of_initialization 03A5                _PWM_FLAG1 0077                _PWM_FLAG2 0028  
+            _DEAD_TIME_L 0027              _DEAD_TIME_R 0026      start_initialization 0397  
+            __end_of_isr 0396              __pdataBANK0 002F             _DUTY_COUNT_L 002A  
+           _DUTY_COUNT_R 0029              __pbssCOMMON 0070                ___latbits 0000  
+          __pcstackBANK0 0000                 _I2C_BUFF 007B                 _I2C_SEND 002E  
+              clear_ram0 03E9                 _SSP1CON1 0215                 _SSP1CON2 0216  
+               _SSP1CON3 0217                 _SSP1STAT 0214             _PWM3DCH_BUFF 0074  
+           _PWM4DCH_BUFF 0073             _PWM5DCH_BUFF 0072             _PWM6DCH_BUFF 0071  
+            _DUTY_L_KEEP 002C              _DUTY_R_KEEP 002B                 int$flags 007E  
+             _DUTY_L_NOW 0022               _DUTY_R_NOW 0020                 intlevel1 0000  
+             _SSP1DATPPS 0E21               _SSP1CLKPPS 0E20  

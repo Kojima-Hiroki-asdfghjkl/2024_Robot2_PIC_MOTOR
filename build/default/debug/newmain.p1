@@ -1,0 +1,3523 @@
+Version 4.0 HI-TECH Software Intermediate Code
+[p mainexit ]
+"1468 C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 1468: extern volatile unsigned char TRISA __attribute__((address(0x08C)));
+[v _TRISA `Vuc ~T0 @X0 0 e@140 ]
+"2427
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 2427: extern volatile unsigned char ANSELA __attribute__((address(0x18C)));
+[v _ANSELA `Vuc ~T0 @X0 0 e@396 ]
+"2023
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 2023: extern volatile unsigned char LATA __attribute__((address(0x10C)));
+[v _LATA `Vuc ~T0 @X0 0 e@268 ]
+"10562
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 10562: extern volatile unsigned char RA2PPS __attribute__((address(0xE92)));
+[v _RA2PPS `Vuc ~T0 @X0 0 e@3730 ]
+"10042
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 10042: extern volatile unsigned char SSP1DATPPS __attribute__((address(0xE21)));
+[v _SSP1DATPPS `Vuc ~T0 @X0 0 e@3617 ]
+"9990
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 9990: extern volatile unsigned char SSP1CLKPPS __attribute__((address(0xE20)));
+[v _SSP1CLKPPS `Vuc ~T0 @X0 0 e@3616 ]
+"10458
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 10458: extern volatile unsigned char RA0PPS __attribute__((address(0xE90)));
+[v _RA0PPS `Vuc ~T0 @X0 0 e@3728 ]
+"10510
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 10510: extern volatile unsigned char RA1PPS __attribute__((address(0xE91)));
+[v _RA1PPS `Vuc ~T0 @X0 0 e@3729 ]
+"10614
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 10614: extern volatile unsigned char RA4PPS __attribute__((address(0xE94)));
+[v _RA4PPS `Vuc ~T0 @X0 0 e@3732 ]
+"10666
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 10666: extern volatile unsigned char RA5PPS __attribute__((address(0xE95)));
+[v _RA5PPS `Vuc ~T0 @X0 0 e@3733 ]
+"351
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 351: extern volatile unsigned char INTCON __attribute__((address(0x00B)));
+[v _INTCON `Vuc ~T0 @X0 0 e@11 ]
+"1546
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 1546: extern volatile unsigned char PIE1 __attribute__((address(0x091)));
+[v _PIE1 `Vuc ~T0 @X0 0 e@145 ]
+"4139
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 4139: extern volatile unsigned char SSP1STAT __attribute__((address(0x214)));
+[v _SSP1STAT `Vuc ~T0 @X0 0 e@532 ]
+"4261
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 4261: extern volatile unsigned char SSP1CON1 __attribute__((address(0x215)));
+[v _SSP1CON1 `Vuc ~T0 @X0 0 e@533 ]
+"4531
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 4531: extern volatile unsigned char SSP1CON2 __attribute__((address(0x216)));
+[v _SSP1CON2 `Vuc ~T0 @X0 0 e@534 ]
+"4653
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 4653: extern volatile unsigned char SSP1CON3 __attribute__((address(0x217)));
+[v _SSP1CON3 `Vuc ~T0 @X0 0 e@535 ]
+"3885
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 3885: extern volatile unsigned char SSP1MSK __attribute__((address(0x213)));
+[v _SSP1MSK `Vuc ~T0 @X0 0 e@531 ]
+"3631
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 3631: extern volatile unsigned char SSP1ADD __attribute__((address(0x212)));
+[v _SSP1ADD `Vuc ~T0 @X0 0 e@530 ]
+"1397
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 1397: extern volatile unsigned char T2CON __attribute__((address(0x01F)));
+[v _T2CON `Vuc ~T0 @X0 0 e@31 ]
+"1377
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 1377: extern volatile unsigned char PR2 __attribute__((address(0x01E)));
+[v _PR2 `Vuc ~T0 @X0 0 e@30 ]
+"5949
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 5949: extern volatile unsigned char PWM5CON __attribute__((address(0x619)));
+[v _PWM5CON `Vuc ~T0 @X0 0 e@1561 ]
+"5879
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 5879: extern volatile unsigned char PWM5DCH __attribute__((address(0x618)));
+[v _PWM5DCH `Vuc ~T0 @X0 0 e@1560 ]
+"5843
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 5843: extern volatile unsigned char PWM5DCL __attribute__((address(0x617)));
+[v _PWM5DCL `Vuc ~T0 @X0 0 e@1559 ]
+"6121
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 6121: extern volatile unsigned char PWM6CON __attribute__((address(0x61C)));
+[v _PWM6CON `Vuc ~T0 @X0 0 e@1564 ]
+"6051
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 6051: extern volatile unsigned char PWM6DCH __attribute__((address(0x61B)));
+[v _PWM6DCH `Vuc ~T0 @X0 0 e@1563 ]
+"6015
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 6015: extern volatile unsigned char PWM6DCL __attribute__((address(0x61A)));
+[v _PWM6DCL `Vuc ~T0 @X0 0 e@1562 ]
+"4867
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 4867: extern volatile unsigned char CCP1CON __attribute__((address(0x293)));
+[v _CCP1CON `Vuc ~T0 @X0 0 e@659 ]
+"4847
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 4847: extern volatile unsigned char CCPR1H __attribute__((address(0x292)));
+[v _CCPR1H `Vuc ~T0 @X0 0 e@658 ]
+"4827
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 4827: extern volatile unsigned char CCPR1L __attribute__((address(0x291)));
+[v _CCPR1L `Vuc ~T0 @X0 0 e@657 ]
+"5019
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 5019: extern volatile unsigned char CCP2CON __attribute__((address(0x297)));
+[v _CCP2CON `Vuc ~T0 @X0 0 e@663 ]
+"4999
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 4999: extern volatile unsigned char CCPR2H __attribute__((address(0x296)));
+[v _CCPR2H `Vuc ~T0 @X0 0 e@662 ]
+"4979
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 4979: extern volatile unsigned char CCPR2L __attribute__((address(0x295)));
+[v _CCPR2L `Vuc ~T0 @X0 0 e@661 ]
+[t ~ __interrupt . k ]
+[t T1 __interrupt ]
+"15215
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 15215: extern volatile __bit SSP1IF __attribute__((address(0x8B)));
+[v _SSP1IF `Vb ~T0 @X0 0 e@139 ]
+"3377
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 3377: extern volatile unsigned char SSP1BUF __attribute__((address(0x211)));
+[v _SSP1BUF `Vuc ~T0 @X0 0 e@529 ]
+"13781
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 13781: extern volatile __bit D_nA __attribute__((address(0x10A5)));
+[v _D_nA `Vb ~T0 @X0 0 e@4261 ]
+"15071
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 15071: extern volatile __bit R_nW __attribute__((address(0x10A2)));
+[v _R_nW `Vb ~T0 @X0 0 e@4258 ]
+"13403
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 13403: extern volatile __bit CKP __attribute__((address(0x10AC)));
+[v _CKP `Vb ~T0 @X0 0 e@4268 ]
+"15530
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 15530: extern volatile __bit TMR2IF __attribute__((address(0x89)));
+[v _TMR2IF `Vb ~T0 @X0 0 e@137 ]
+"40 newmain.c
+[p x FEXTOSC  =  OFF     ]
+"41
+[p x RSTOSC  =  HFINT32  ]
+"42
+[p x CLKOUTEN  =  OFF    ]
+"43
+[p x CSWEN  =  OFF       ]
+"44
+[p x FCMEN  =  OFF       ]
+"47
+[p x MCLRE  =  OFF       ]
+"48
+[p x PWRTE  =  ON        ]
+"49
+[p x WDTE  =  OFF        ]
+"50
+[p x LPBOREN  =  OFF     ]
+"51
+[p x BOREN  =  OFF       ]
+"52
+[p x BORV  =  LOW        ]
+"53
+[p x PPS1WAY  =  ON      ]
+"54
+[p x STVREN  =  ON       ]
+"55
+[p x DEBUG  =  OFF       ]
+"58
+[p x WRT  =  OFF         ]
+"59
+[p x LVP  =  OFF         ]
+"63
+[p x CP  =  OFF          ]
+"64
+[p x CPD  =  OFF         ]
+"54 C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 54: __asm("INDF0 equ 00h");
+[; <" INDF0 equ 00h ;# ">
+"74
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 74: __asm("INDF1 equ 01h");
+[; <" INDF1 equ 01h ;# ">
+"94
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 94: __asm("PCL equ 02h");
+[; <" PCL equ 02h ;# ">
+"114
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 114: __asm("STATUS equ 03h");
+[; <" STATUS equ 03h ;# ">
+"177
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 177: __asm("FSR0L equ 04h");
+[; <" FSR0L equ 04h ;# ">
+"197
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 197: __asm("FSR0H equ 05h");
+[; <" FSR0H equ 05h ;# ">
+"221
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 221: __asm("FSR1L equ 06h");
+[; <" FSR1L equ 06h ;# ">
+"241
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 241: __asm("FSR1H equ 07h");
+[; <" FSR1H equ 07h ;# ">
+"261
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 261: __asm("BSR equ 08h");
+[; <" BSR equ 08h ;# ">
+"313
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 313: __asm("WREG equ 09h");
+[; <" WREG equ 09h ;# ">
+"333
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 333: __asm("PCLATH equ 0Ah");
+[; <" PCLATH equ 0Ah ;# ">
+"353
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 353: __asm("INTCON equ 0Bh");
+[; <" INTCON equ 0Bh ;# ">
+"386
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 386: __asm("PORTA equ 0Ch");
+[; <" PORTA equ 0Ch ;# ">
+"436
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 436: __asm("PIR0 equ 010h");
+[; <" PIR0 equ 010h ;# ">
+"469
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 469: __asm("PIR1 equ 011h");
+[; <" PIR1 equ 011h ;# ">
+"531
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 531: __asm("PIR2 equ 012h");
+[; <" PIR2 equ 012h ;# ">
+"564
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 564: __asm("PIR3 equ 013h");
+[; <" PIR3 equ 013h ;# ">
+"603
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 603: __asm("PIR4 equ 014h");
+[; <" PIR4 equ 014h ;# ">
+"636
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 636: __asm("TMR0L equ 015h");
+[; <" TMR0L equ 015h ;# ">
+"641
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 641: __asm("TMR0 equ 015h");
+[; <" TMR0 equ 015h ;# ">
+"774
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 774: __asm("TMR0H equ 016h");
+[; <" TMR0H equ 016h ;# ">
+"779
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 779: __asm("PR0 equ 016h");
+[; <" PR0 equ 016h ;# ">
+"1028
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 1028: __asm("T0CON0 equ 017h");
+[; <" T0CON0 equ 017h ;# ">
+"1093
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 1093: __asm("T0CON1 equ 018h");
+[; <" T0CON1 equ 018h ;# ">
+"1170
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 1170: __asm("TMR1 equ 019h");
+[; <" TMR1 equ 019h ;# ">
+"1177
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 1177: __asm("TMR1L equ 019h");
+[; <" TMR1L equ 019h ;# ">
+"1197
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 1197: __asm("TMR1H equ 01Ah");
+[; <" TMR1H equ 01Ah ;# ">
+"1217
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 1217: __asm("T1CON equ 01Bh");
+[; <" T1CON equ 01Bh ;# ">
+"1289
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 1289: __asm("T1GCON equ 01Ch");
+[; <" T1GCON equ 01Ch ;# ">
+"1359
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 1359: __asm("TMR2 equ 01Dh");
+[; <" TMR2 equ 01Dh ;# ">
+"1379
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 1379: __asm("PR2 equ 01Eh");
+[; <" PR2 equ 01Eh ;# ">
+"1399
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 1399: __asm("T2CON equ 01Fh");
+[; <" T2CON equ 01Fh ;# ">
+"1470
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 1470: __asm("TRISA equ 08Ch");
+[; <" TRISA equ 08Ch ;# ">
+"1515
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 1515: __asm("PIE0 equ 090h");
+[; <" PIE0 equ 090h ;# ">
+"1548
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 1548: __asm("PIE1 equ 091h");
+[; <" PIE1 equ 091h ;# ">
+"1610
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 1610: __asm("PIE2 equ 092h");
+[; <" PIE2 equ 092h ;# ">
+"1643
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 1643: __asm("PIE3 equ 093h");
+[; <" PIE3 equ 093h ;# ">
+"1682
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 1682: __asm("PIE4 equ 094h");
+[; <" PIE4 equ 094h ;# ">
+"1715
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 1715: __asm("WDTCON equ 097h");
+[; <" WDTCON equ 097h ;# ">
+"1774
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 1774: __asm("ADRES equ 09Bh");
+[; <" ADRES equ 09Bh ;# ">
+"1781
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 1781: __asm("ADRESL equ 09Bh");
+[; <" ADRESL equ 09Bh ;# ">
+"1801
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 1801: __asm("ADRESH equ 09Ch");
+[; <" ADRESH equ 09Ch ;# ">
+"1821
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 1821: __asm("ADCON0 equ 09Dh");
+[; <" ADCON0 equ 09Dh ;# ">
+"1907
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 1907: __asm("ADCON1 equ 09Eh");
+[; <" ADCON1 equ 09Eh ;# ">
+"1979
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 1979: __asm("ADACT equ 09Fh");
+[; <" ADACT equ 09Fh ;# ">
+"2025
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 2025: __asm("LATA equ 010Ch");
+[; <" LATA equ 010Ch ;# ">
+"2070
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 2070: __asm("CM1CON0 equ 0111h");
+[; <" CM1CON0 equ 0111h ;# ">
+"2122
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 2122: __asm("CM1CON1 equ 0112h");
+[; <" CM1CON1 equ 0112h ;# ">
+"2198
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 2198: __asm("CMOUT equ 0115h");
+[; <" CMOUT equ 0115h ;# ">
+"2218
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 2218: __asm("BORCON equ 0116h");
+[; <" BORCON equ 0116h ;# ">
+"2245
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 2245: __asm("FVRCON equ 0117h");
+[; <" FVRCON equ 0117h ;# ">
+"2321
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 2321: __asm("DACCON0 equ 0118h");
+[; <" DACCON0 equ 0118h ;# ">
+"2377
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 2377: __asm("DACCON1 equ 0119h");
+[; <" DACCON1 equ 0119h ;# ">
+"2429
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 2429: __asm("ANSELA equ 018Ch");
+[; <" ANSELA equ 018Ch ;# ">
+"2474
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 2474: __asm("VREGCON equ 0197h");
+[; <" VREGCON equ 0197h ;# ">
+"2495
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 2495: __asm("RC1REG equ 0199h");
+[; <" RC1REG equ 0199h ;# ">
+"2500
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 2500: __asm("RCREG equ 0199h");
+[; <" RCREG equ 0199h ;# ">
+"2504
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 2504: __asm("RCREG1 equ 0199h");
+[; <" RCREG1 equ 0199h ;# ">
+"2549
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 2549: __asm("TX1REG equ 019Ah");
+[; <" TX1REG equ 019Ah ;# ">
+"2554
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 2554: __asm("TXREG1 equ 019Ah");
+[; <" TXREG1 equ 019Ah ;# ">
+"2558
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 2558: __asm("TXREG equ 019Ah");
+[; <" TXREG equ 019Ah ;# ">
+"2603
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 2603: __asm("SP1BRG equ 019Bh");
+[; <" SP1BRG equ 019Bh ;# ">
+"2608
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 2608: __asm("SPBRG equ 019Bh");
+[; <" SPBRG equ 019Bh ;# ">
+"2615
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 2615: __asm("SP1BRGL equ 019Bh");
+[; <" SP1BRGL equ 019Bh ;# ">
+"2620
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 2620: __asm("SPBRG1 equ 019Bh");
+[; <" SPBRG1 equ 019Bh ;# ">
+"2624
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 2624: __asm("SPBRGL equ 019Bh");
+[; <" SPBRGL equ 019Bh ;# ">
+"2669
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 2669: __asm("SP1BRGH equ 019Ch");
+[; <" SP1BRGH equ 019Ch ;# ">
+"2674
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 2674: __asm("SPBRGH equ 019Ch");
+[; <" SPBRGH equ 019Ch ;# ">
+"2678
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 2678: __asm("SPBRGH1 equ 019Ch");
+[; <" SPBRGH1 equ 019Ch ;# ">
+"2723
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 2723: __asm("RC1STA equ 019Dh");
+[; <" RC1STA equ 019Dh ;# ">
+"2728
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 2728: __asm("RCSTA1 equ 019Dh");
+[; <" RCSTA1 equ 019Dh ;# ">
+"2732
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 2732: __asm("RCSTA equ 019Dh");
+[; <" RCSTA equ 019Dh ;# ">
+"2903
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 2903: __asm("TX1STA equ 019Eh");
+[; <" TX1STA equ 019Eh ;# ">
+"2908
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 2908: __asm("TXSTA1 equ 019Eh");
+[; <" TXSTA1 equ 019Eh ;# ">
+"2912
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 2912: __asm("TXSTA equ 019Eh");
+[; <" TXSTA equ 019Eh ;# ">
+"3083
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 3083: __asm("BAUD1CON equ 019Fh");
+[; <" BAUD1CON equ 019Fh ;# ">
+"3088
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 3088: __asm("BAUDCON1 equ 019Fh");
+[; <" BAUDCON1 equ 019Fh ;# ">
+"3092
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 3092: __asm("BAUDCTL1 equ 019Fh");
+[; <" BAUDCTL1 equ 019Fh ;# ">
+"3096
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 3096: __asm("BAUDCON equ 019Fh");
+[; <" BAUDCON equ 019Fh ;# ">
+"3100
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 3100: __asm("BAUDCTL equ 019Fh");
+[; <" BAUDCTL equ 019Fh ;# ">
+"3329
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 3329: __asm("WPUA equ 020Ch");
+[; <" WPUA equ 020Ch ;# ">
+"3379
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 3379: __asm("SSP1BUF equ 0211h");
+[; <" SSP1BUF equ 0211h ;# ">
+"3384
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 3384: __asm("SSPBUF equ 0211h");
+[; <" SSPBUF equ 0211h ;# ">
+"3633
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 3633: __asm("SSP1ADD equ 0212h");
+[; <" SSP1ADD equ 0212h ;# ">
+"3638
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 3638: __asm("SSPADD equ 0212h");
+[; <" SSPADD equ 0212h ;# ">
+"3887
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 3887: __asm("SSP1MSK equ 0213h");
+[; <" SSP1MSK equ 0213h ;# ">
+"3892
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 3892: __asm("SSPMSK equ 0213h");
+[; <" SSPMSK equ 0213h ;# ">
+"4141
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 4141: __asm("SSP1STAT equ 0214h");
+[; <" SSP1STAT equ 0214h ;# ">
+"4146
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 4146: __asm("SSPSTAT equ 0214h");
+[; <" SSPSTAT equ 0214h ;# ">
+"4263
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 4263: __asm("SSP1CON1 equ 0215h");
+[; <" SSP1CON1 equ 0215h ;# ">
+"4268
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 4268: __asm("SSPCON equ 0215h");
+[; <" SSPCON equ 0215h ;# ">
+"4272
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 4272: __asm("SSPCON1 equ 0215h");
+[; <" SSPCON1 equ 0215h ;# ">
+"4276
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 4276: __asm("SSP1CON equ 0215h");
+[; <" SSP1CON equ 0215h ;# ">
+"4533
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 4533: __asm("SSP1CON2 equ 0216h");
+[; <" SSP1CON2 equ 0216h ;# ">
+"4538
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 4538: __asm("SSPCON2 equ 0216h");
+[; <" SSPCON2 equ 0216h ;# ">
+"4655
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 4655: __asm("SSP1CON3 equ 0217h");
+[; <" SSP1CON3 equ 0217h ;# ">
+"4660
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 4660: __asm("SSPCON3 equ 0217h");
+[; <" SSPCON3 equ 0217h ;# ">
+"4777
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 4777: __asm("ODCONA equ 028Ch");
+[; <" ODCONA equ 028Ch ;# ">
+"4822
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 4822: __asm("CCPR1 equ 0291h");
+[; <" CCPR1 equ 0291h ;# ">
+"4829
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 4829: __asm("CCPR1L equ 0291h");
+[; <" CCPR1L equ 0291h ;# ">
+"4849
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 4849: __asm("CCPR1H equ 0292h");
+[; <" CCPR1H equ 0292h ;# ">
+"4869
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 4869: __asm("CCP1CON equ 0293h");
+[; <" CCP1CON equ 0293h ;# ">
+"4934
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 4934: __asm("CCP1CAP equ 0294h");
+[; <" CCP1CAP equ 0294h ;# ">
+"4974
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 4974: __asm("CCPR2 equ 0295h");
+[; <" CCPR2 equ 0295h ;# ">
+"4981
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 4981: __asm("CCPR2L equ 0295h");
+[; <" CCPR2L equ 0295h ;# ">
+"5001
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 5001: __asm("CCPR2H equ 0296h");
+[; <" CCPR2H equ 0296h ;# ">
+"5021
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 5021: __asm("CCP2CON equ 0297h");
+[; <" CCP2CON equ 0297h ;# ">
+"5086
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 5086: __asm("CCP2CAP equ 0298h");
+[; <" CCP2CAP equ 0298h ;# ">
+"5126
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 5126: __asm("SLRCONA equ 030Ch");
+[; <" SLRCONA equ 030Ch ;# ">
+"5171
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 5171: __asm("INLVLA equ 038Ch");
+[; <" INLVLA equ 038Ch ;# ">
+"5221
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 5221: __asm("IOCAP equ 0391h");
+[; <" IOCAP equ 0391h ;# ">
+"5271
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 5271: __asm("IOCAN equ 0392h");
+[; <" IOCAN equ 0392h ;# ">
+"5321
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 5321: __asm("IOCAF equ 0393h");
+[; <" IOCAF equ 0393h ;# ">
+"5371
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 5371: __asm("CLKRCON equ 039Ah");
+[; <" CLKRCON equ 039Ah ;# ">
+"5436
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 5436: __asm("MDCON equ 039Ch");
+[; <" MDCON equ 039Ch ;# ">
+"5476
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 5476: __asm("MDSRC equ 039Dh");
+[; <" MDSRC equ 039Dh ;# ">
+"5522
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 5522: __asm("MDCARH equ 039Eh");
+[; <" MDCARH equ 039Eh ;# ">
+"5581
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 5581: __asm("MDCARL equ 039Fh");
+[; <" MDCARL equ 039Fh ;# ">
+"5642
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 5642: __asm("NCO1ACC equ 0498h");
+[; <" NCO1ACC equ 0498h ;# ">
+"5649
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 5649: __asm("NCO1ACCL equ 0498h");
+[; <" NCO1ACCL equ 0498h ;# ">
+"5669
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 5669: __asm("NCO1ACCH equ 0499h");
+[; <" NCO1ACCH equ 0499h ;# ">
+"5689
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 5689: __asm("NCO1ACCU equ 049Ah");
+[; <" NCO1ACCU equ 049Ah ;# ">
+"5711
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 5711: __asm("NCO1INC equ 049Bh");
+[; <" NCO1INC equ 049Bh ;# ">
+"5718
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 5718: __asm("NCO1INCL equ 049Bh");
+[; <" NCO1INCL equ 049Bh ;# ">
+"5738
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 5738: __asm("NCO1INCH equ 049Ch");
+[; <" NCO1INCH equ 049Ch ;# ">
+"5758
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 5758: __asm("NCO1INCU equ 049Dh");
+[; <" NCO1INCU equ 049Dh ;# ">
+"5778
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 5778: __asm("NCO1CON equ 049Eh");
+[; <" NCO1CON equ 049Eh ;# ">
+"5818
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 5818: __asm("NCO1CLK equ 049Fh");
+[; <" NCO1CLK equ 049Fh ;# ">
+"5845
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 5845: __asm("PWM5DCL equ 0617h");
+[; <" PWM5DCL equ 0617h ;# ">
+"5881
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 5881: __asm("PWM5DCH equ 0618h");
+[; <" PWM5DCH equ 0618h ;# ">
+"5951
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 5951: __asm("PWM5CON equ 0619h");
+[; <" PWM5CON equ 0619h ;# ">
+"5956
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 5956: __asm("PWM5CON0 equ 0619h");
+[; <" PWM5CON0 equ 0619h ;# ">
+"6017
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 6017: __asm("PWM6DCL equ 061Ah");
+[; <" PWM6DCL equ 061Ah ;# ">
+"6053
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 6053: __asm("PWM6DCH equ 061Bh");
+[; <" PWM6DCH equ 061Bh ;# ">
+"6123
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 6123: __asm("PWM6CON equ 061Ch");
+[; <" PWM6CON equ 061Ch ;# ">
+"6128
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 6128: __asm("PWM6CON0 equ 061Ch");
+[; <" PWM6CON0 equ 061Ch ;# ">
+"6189
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 6189: __asm("CWG1CLKCON equ 0691h");
+[; <" CWG1CLKCON equ 0691h ;# ">
+"6217
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 6217: __asm("CWG1DAT equ 0692h");
+[; <" CWG1DAT equ 0692h ;# ">
+"6263
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 6263: __asm("CWG1DBR equ 0693h");
+[; <" CWG1DBR equ 0693h ;# ">
+"6367
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 6367: __asm("CWG1DBF equ 0694h");
+[; <" CWG1DBF equ 0694h ;# ">
+"6471
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 6471: __asm("CWG1CON0 equ 0695h");
+[; <" CWG1CON0 equ 0695h ;# ">
+"6572
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 6572: __asm("CWG1CON1 equ 0696h");
+[; <" CWG1CON1 equ 0696h ;# ">
+"6650
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 6650: __asm("CWG1AS0 equ 0697h");
+[; <" CWG1AS0 equ 0697h ;# ">
+"6770
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 6770: __asm("CWG1AS1 equ 0698h");
+[; <" CWG1AS1 equ 0698h ;# ">
+"6803
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 6803: __asm("CWG1STR equ 0699h");
+[; <" CWG1STR equ 0699h ;# ">
+"6915
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 6915: __asm("NVMADR equ 0891h");
+[; <" NVMADR equ 0891h ;# ">
+"6920
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 6920: __asm("EEADR equ 0891h");
+[; <" EEADR equ 0891h ;# ">
+"6924
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 6924: __asm("PMADR equ 0891h");
+[; <" PMADR equ 0891h ;# ">
+"6931
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 6931: __asm("NVMADRL equ 0891h");
+[; <" NVMADRL equ 0891h ;# ">
+"6936
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 6936: __asm("EEADRL equ 0891h");
+[; <" EEADRL equ 0891h ;# ">
+"6940
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 6940: __asm("PMADRL equ 0891h");
+[; <" PMADRL equ 0891h ;# ">
+"7333
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 7333: __asm("NVMADRH equ 0892h");
+[; <" NVMADRH equ 0892h ;# ">
+"7338
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 7338: __asm("EEADRH equ 0892h");
+[; <" EEADRH equ 0892h ;# ">
+"7342
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 7342: __asm("PMADRH equ 0892h");
+[; <" PMADRH equ 0892h ;# ">
+"7681
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 7681: __asm("NVMDAT equ 0893h");
+[; <" NVMDAT equ 0893h ;# ">
+"7686
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 7686: __asm("EEDAT equ 0893h");
+[; <" EEDAT equ 0893h ;# ">
+"7690
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 7690: __asm("PMDAT equ 0893h");
+[; <" PMDAT equ 0893h ;# ">
+"7697
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 7697: __asm("NVMDATL equ 0893h");
+[; <" NVMDATL equ 0893h ;# ">
+"7702
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 7702: __asm("EEDATL equ 0893h");
+[; <" EEDATL equ 0893h ;# ">
+"7706
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 7706: __asm("PMDATL equ 0893h");
+[; <" PMDATL equ 0893h ;# ">
+"8099
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 8099: __asm("NVMDATH equ 0894h");
+[; <" NVMDATH equ 0894h ;# ">
+"8104
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 8104: __asm("EEDATH equ 0894h");
+[; <" EEDATH equ 0894h ;# ">
+"8108
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 8108: __asm("PMDATH equ 0894h");
+[; <" PMDATH equ 0894h ;# ">
+"8429
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 8429: __asm("NVMCON1 equ 0895h");
+[; <" NVMCON1 equ 0895h ;# ">
+"8434
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 8434: __asm("EECON1 equ 0895h");
+[; <" EECON1 equ 0895h ;# ">
+"8438
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 8438: __asm("PMCON1 equ 0895h");
+[; <" PMCON1 equ 0895h ;# ">
+"8618
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 8618: __asm("NVMCON2 equ 0896h");
+[; <" NVMCON2 equ 0896h ;# ">
+"8623
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 8623: __asm("EECON2 equ 0896h");
+[; <" EECON2 equ 0896h ;# ">
+"8627
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 8627: __asm("PMCON2 equ 0896h");
+[; <" PMCON2 equ 0896h ;# ">
+"8720
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 8720: __asm("PCON0 equ 089Bh");
+[; <" PCON0 equ 089Bh ;# ">
+"8777
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 8777: __asm("PMD0 equ 0911h");
+[; <" PMD0 equ 0911h ;# ">
+"8822
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 8822: __asm("PMD1 equ 0912h");
+[; <" PMD1 equ 0912h ;# ">
+"8861
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 8861: __asm("PMD2 equ 0913h");
+[; <" PMD2 equ 0913h ;# ">
+"8895
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 8895: __asm("PMD3 equ 0914h");
+[; <" PMD3 equ 0914h ;# ">
+"8940
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 8940: __asm("PMD4 equ 0915h");
+[; <" PMD4 equ 0915h ;# ">
+"8968
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 8968: __asm("PMD5 equ 0916h");
+[; <" PMD5 equ 0916h ;# ">
+"9000
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 9000: __asm("CPUDOZE equ 0918h");
+[; <" CPUDOZE equ 0918h ;# ">
+"9065
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 9065: __asm("OSCCON1 equ 0919h");
+[; <" OSCCON1 equ 0919h ;# ">
+"9135
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 9135: __asm("OSCCON2 equ 091Ah");
+[; <" OSCCON2 equ 091Ah ;# ">
+"9205
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 9205: __asm("OSCCON3 equ 091Bh");
+[; <" OSCCON3 equ 091Bh ;# ">
+"9250
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 9250: __asm("OSCSTAT1 equ 091Ch");
+[; <" OSCSTAT1 equ 091Ch ;# ">
+"9302
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 9302: __asm("OSCEN equ 091Dh");
+[; <" OSCEN equ 091Dh ;# ">
+"9348
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 9348: __asm("OSCTUNE equ 091Eh");
+[; <" OSCTUNE equ 091Eh ;# ">
+"9406
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 9406: __asm("OSCFRQ equ 091Fh");
+[; <" OSCFRQ equ 091Fh ;# ">
+"9452
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 9452: __asm("PPSLOCK equ 0E0Fh");
+[; <" PPSLOCK equ 0E0Fh ;# ">
+"9472
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 9472: __asm("INTPPS equ 0E10h");
+[; <" INTPPS equ 0E10h ;# ">
+"9524
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 9524: __asm("T0CKIPPS equ 0E11h");
+[; <" T0CKIPPS equ 0E11h ;# ">
+"9576
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 9576: __asm("T1CKIPPS equ 0E12h");
+[; <" T1CKIPPS equ 0E12h ;# ">
+"9628
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 9628: __asm("T1GPPS equ 0E13h");
+[; <" T1GPPS equ 0E13h ;# ">
+"9680
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 9680: __asm("CCP1PPS equ 0E14h");
+[; <" CCP1PPS equ 0E14h ;# ">
+"9732
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 9732: __asm("CCP2PPS equ 0E15h");
+[; <" CCP2PPS equ 0E15h ;# ">
+"9784
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 9784: __asm("CWG1PPS equ 0E18h");
+[; <" CWG1PPS equ 0E18h ;# ">
+"9836
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 9836: __asm("MDCIN1PPS equ 0E1Ah");
+[; <" MDCIN1PPS equ 0E1Ah ;# ">
+"9888
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 9888: __asm("MDCIN2PPS equ 0E1Bh");
+[; <" MDCIN2PPS equ 0E1Bh ;# ">
+"9940
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 9940: __asm("MDMINPPS equ 0E1Ch");
+[; <" MDMINPPS equ 0E1Ch ;# ">
+"9992
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 9992: __asm("SSP1CLKPPS equ 0E20h");
+[; <" SSP1CLKPPS equ 0E20h ;# ">
+"10044
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 10044: __asm("SSP1DATPPS equ 0E21h");
+[; <" SSP1DATPPS equ 0E21h ;# ">
+"10096
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 10096: __asm("SSP1SSPPS equ 0E22h");
+[; <" SSP1SSPPS equ 0E22h ;# ">
+"10148
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 10148: __asm("RXPPS equ 0E24h");
+[; <" RXPPS equ 0E24h ;# ">
+"10200
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 10200: __asm("TXPPS equ 0E25h");
+[; <" TXPPS equ 0E25h ;# ">
+"10252
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 10252: __asm("CLCIN0PPS equ 0E28h");
+[; <" CLCIN0PPS equ 0E28h ;# ">
+"10304
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 10304: __asm("CLCIN1PPS equ 0E29h");
+[; <" CLCIN1PPS equ 0E29h ;# ">
+"10356
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 10356: __asm("CLCIN2PPS equ 0E2Ah");
+[; <" CLCIN2PPS equ 0E2Ah ;# ">
+"10408
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 10408: __asm("CLCIN3PPS equ 0E2Bh");
+[; <" CLCIN3PPS equ 0E2Bh ;# ">
+"10460
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 10460: __asm("RA0PPS equ 0E90h");
+[; <" RA0PPS equ 0E90h ;# ">
+"10512
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 10512: __asm("RA1PPS equ 0E91h");
+[; <" RA1PPS equ 0E91h ;# ">
+"10564
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 10564: __asm("RA2PPS equ 0E92h");
+[; <" RA2PPS equ 0E92h ;# ">
+"10616
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 10616: __asm("RA4PPS equ 0E94h");
+[; <" RA4PPS equ 0E94h ;# ">
+"10668
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 10668: __asm("RA5PPS equ 0E95h");
+[; <" RA5PPS equ 0E95h ;# ">
+"10720
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 10720: __asm("CLCDATA equ 0F0Fh");
+[; <" CLCDATA equ 0F0Fh ;# ">
+"10746
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 10746: __asm("CLC1CON equ 0F10h");
+[; <" CLC1CON equ 0F10h ;# ">
+"10864
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 10864: __asm("CLC1POL equ 0F11h");
+[; <" CLC1POL equ 0F11h ;# ">
+"10942
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 10942: __asm("CLC1SEL0 equ 0F12h");
+[; <" CLC1SEL0 equ 0F12h ;# ">
+"11034
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 11034: __asm("CLC1SEL1 equ 0F13h");
+[; <" CLC1SEL1 equ 0F13h ;# ">
+"11126
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 11126: __asm("CLC1SEL2 equ 0F14h");
+[; <" CLC1SEL2 equ 0F14h ;# ">
+"11218
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 11218: __asm("CLC1SEL3 equ 0F15h");
+[; <" CLC1SEL3 equ 0F15h ;# ">
+"11310
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 11310: __asm("CLC1GLS0 equ 0F16h");
+[; <" CLC1GLS0 equ 0F16h ;# ">
+"11422
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 11422: __asm("CLC1GLS1 equ 0F17h");
+[; <" CLC1GLS1 equ 0F17h ;# ">
+"11534
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 11534: __asm("CLC1GLS2 equ 0F18h");
+[; <" CLC1GLS2 equ 0F18h ;# ">
+"11646
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 11646: __asm("CLC1GLS3 equ 0F19h");
+[; <" CLC1GLS3 equ 0F19h ;# ">
+"11758
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 11758: __asm("CLC2CON equ 0F1Ah");
+[; <" CLC2CON equ 0F1Ah ;# ">
+"11876
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 11876: __asm("CLC2POL equ 0F1Bh");
+[; <" CLC2POL equ 0F1Bh ;# ">
+"11954
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 11954: __asm("CLC2SEL0 equ 0F1Ch");
+[; <" CLC2SEL0 equ 0F1Ch ;# ">
+"12046
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 12046: __asm("CLC2SEL1 equ 0F1Dh");
+[; <" CLC2SEL1 equ 0F1Dh ;# ">
+"12138
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 12138: __asm("CLC2SEL2 equ 0F1Eh");
+[; <" CLC2SEL2 equ 0F1Eh ;# ">
+"12230
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 12230: __asm("CLC2SEL3 equ 0F1Fh");
+[; <" CLC2SEL3 equ 0F1Fh ;# ">
+"12322
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 12322: __asm("CLC2GLS0 equ 0F20h");
+[; <" CLC2GLS0 equ 0F20h ;# ">
+"12434
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 12434: __asm("CLC2GLS1 equ 0F21h");
+[; <" CLC2GLS1 equ 0F21h ;# ">
+"12546
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 12546: __asm("CLC2GLS2 equ 0F22h");
+[; <" CLC2GLS2 equ 0F22h ;# ">
+"12658
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 12658: __asm("CLC2GLS3 equ 0F23h");
+[; <" CLC2GLS3 equ 0F23h ;# ">
+"12770
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 12770: __asm("STATUS_SHAD equ 0FE4h");
+[; <" STATUS_SHAD equ 0FE4h ;# ">
+"12802
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 12802: __asm("WREG_SHAD equ 0FE5h");
+[; <" WREG_SHAD equ 0FE5h ;# ">
+"12822
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 12822: __asm("BSR_SHAD equ 0FE6h");
+[; <" BSR_SHAD equ 0FE6h ;# ">
+"12842
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 12842: __asm("PCLATH_SHAD equ 0FE7h");
+[; <" PCLATH_SHAD equ 0FE7h ;# ">
+"12862
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 12862: __asm("FSR0L_SHAD equ 0FE8h");
+[; <" FSR0L_SHAD equ 0FE8h ;# ">
+"12882
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 12882: __asm("FSR0H_SHAD equ 0FE9h");
+[; <" FSR0H_SHAD equ 0FE9h ;# ">
+"12902
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 12902: __asm("FSR1L_SHAD equ 0FEAh");
+[; <" FSR1L_SHAD equ 0FEAh ;# ">
+"12922
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 12922: __asm("FSR1H_SHAD equ 0FEBh");
+[; <" FSR1H_SHAD equ 0FEBh ;# ">
+"12942
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 12942: __asm("STKPTR equ 0FEDh");
+[; <" STKPTR equ 0FEDh ;# ">
+"12962
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 12962: __asm("TOSL equ 0FEEh");
+[; <" TOSL equ 0FEEh ;# ">
+"12982
+[; ;C:/Users/kojim/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f18313.h: 12982: __asm("TOSH equ 0FEFh");
+[; <" TOSH equ 0FEFh ;# ">
+"95 newmain.c
+[; ;newmain.c: 95: char I2C_BUFF = 0;
+[v _I2C_BUFF `uc ~T0 @X0 1 e ]
+[i _I2C_BUFF
+-> -> 0 `i `uc
+]
+"96
+[; ;newmain.c: 96: char I2C_SEND = 0;
+[v _I2C_SEND `uc ~T0 @X0 1 e ]
+[i _I2C_SEND
+-> -> 0 `i `uc
+]
+"97
+[; ;newmain.c: 97: char I2C_COUNT = 0;
+[v _I2C_COUNT `uc ~T0 @X0 1 e ]
+[i _I2C_COUNT
+-> -> 0 `i `uc
+]
+"98
+[; ;newmain.c: 98: char I2C_ORDER = 0;
+[v _I2C_ORDER `uc ~T0 @X0 1 e ]
+[i _I2C_ORDER
+-> -> 0 `i `uc
+]
+"170
+[; ;newmain.c: 170: short DUTY_L_NOW = 0;
+[v _DUTY_L_NOW `s ~T0 @X0 1 e ]
+[i _DUTY_L_NOW
+-> -> 0 `i `s
+]
+"172
+[; ;newmain.c: 172: char DUTY_L_TARGET = 0;
+[v _DUTY_L_TARGET `uc ~T0 @X0 1 e ]
+[i _DUTY_L_TARGET
+-> -> 0 `i `uc
+]
+"173
+[; ;newmain.c: 173: char DUTY_L_KEEP = 0;
+[v _DUTY_L_KEEP `uc ~T0 @X0 1 e ]
+[i _DUTY_L_KEEP
+-> -> 0 `i `uc
+]
+"175
+[; ;newmain.c: 175: short DUTY_R_NOW = 0;
+[v _DUTY_R_NOW `s ~T0 @X0 1 e ]
+[i _DUTY_R_NOW
+-> -> 0 `i `s
+]
+"176
+[; ;newmain.c: 176: char DUTY_R_TARGET = 0;
+[v _DUTY_R_TARGET `uc ~T0 @X0 1 e ]
+[i _DUTY_R_TARGET
+-> -> 0 `i `uc
+]
+"177
+[; ;newmain.c: 177: char DUTY_R_KEEP = 0;
+[v _DUTY_R_KEEP `uc ~T0 @X0 1 e ]
+[i _DUTY_R_KEEP
+-> -> 0 `i `uc
+]
+"203
+[; ;newmain.c: 203: char DUTY_COUNT_L = 0;
+[v _DUTY_COUNT_L `uc ~T0 @X0 1 e ]
+[i _DUTY_COUNT_L
+-> -> 0 `i `uc
+]
+"204
+[; ;newmain.c: 204: char DUTY_COUNT_R = 0;
+[v _DUTY_COUNT_R `uc ~T0 @X0 1 e ]
+[i _DUTY_COUNT_R
+-> -> 0 `i `uc
+]
+"209
+[; ;newmain.c: 209: char PWM_FLAG1 = 0;
+[v _PWM_FLAG1 `uc ~T0 @X0 1 e ]
+[i _PWM_FLAG1
+-> -> 0 `i `uc
+]
+"214
+[; ;newmain.c: 214: char PWM_FLAG2 = 0;
+[v _PWM_FLAG2 `uc ~T0 @X0 1 e ]
+[i _PWM_FLAG2
+-> -> 0 `i `uc
+]
+"219
+[; ;newmain.c: 219: char PWM_OUTPUT_FLAG = 0;
+[v _PWM_OUTPUT_FLAG `uc ~T0 @X0 1 e ]
+[i _PWM_OUTPUT_FLAG
+-> -> 0 `i `uc
+]
+"262
+[; ;newmain.c: 262: char DEAD_TIME_L = 0;
+[v _DEAD_TIME_L `uc ~T0 @X0 1 e ]
+[i _DEAD_TIME_L
+-> -> 0 `i `uc
+]
+"264
+[; ;newmain.c: 264: char DEAD_TIME_R = 0;
+[v _DEAD_TIME_R `uc ~T0 @X0 1 e ]
+[i _DEAD_TIME_R
+-> -> 0 `i `uc
+]
+"265
+[; ;newmain.c: 265: char DEAD_TIME_FLAG = 0;
+[v _DEAD_TIME_FLAG `uc ~T0 @X0 1 e ]
+[i _DEAD_TIME_FLAG
+-> -> 0 `i `uc
+]
+"293
+[; ;newmain.c: 293: char PWM_OVD_DUTY = 128;
+[v _PWM_OVD_DUTY `uc ~T0 @X0 1 e ]
+[i _PWM_OVD_DUTY
+-> -> 128 `i `uc
+]
+"299
+[; ;newmain.c: 299: char PWM_L_OVD_COUNT = 0;
+[v _PWM_L_OVD_COUNT `uc ~T0 @X0 1 e ]
+[i _PWM_L_OVD_COUNT
+-> -> 0 `i `uc
+]
+"300
+[; ;newmain.c: 300: char PWM_R_OVD_COUNT = 0;
+[v _PWM_R_OVD_COUNT `uc ~T0 @X0 1 e ]
+[i _PWM_R_OVD_COUNT
+-> -> 0 `i `uc
+]
+"302
+[; ;newmain.c: 302: char PWM3DCH_BUFF = 0;
+[v _PWM3DCH_BUFF `uc ~T0 @X0 1 e ]
+[i _PWM3DCH_BUFF
+-> -> 0 `i `uc
+]
+"303
+[; ;newmain.c: 303: char PWM4DCH_BUFF = 0;
+[v _PWM4DCH_BUFF `uc ~T0 @X0 1 e ]
+[i _PWM4DCH_BUFF
+-> -> 0 `i `uc
+]
+"304
+[; ;newmain.c: 304: char PWM5DCH_BUFF = 0;
+[v _PWM5DCH_BUFF `uc ~T0 @X0 1 e ]
+[i _PWM5DCH_BUFF
+-> -> 0 `i `uc
+]
+"305
+[; ;newmain.c: 305: char PWM6DCH_BUFF = 0;
+[v _PWM6DCH_BUFF `uc ~T0 @X0 1 e ]
+[i _PWM6DCH_BUFF
+-> -> 0 `i `uc
+]
+"307
+[; ;newmain.c: 307: char PWM_OVD_FLAG = 0;
+[v _PWM_OVD_FLAG `uc ~T0 @X0 1 e ]
+[i _PWM_OVD_FLAG
+-> -> 0 `i `uc
+]
+[v $root$_main `(v ~T0 @X0 0 e ]
+"343
+[; ;newmain.c: 343: void main(void) {
+[v _main `(v ~T0 @X0 1 ef ]
+{
+[e :U _main ]
+[f ]
+"345
+[; ;newmain.c: 345:     TRISA = 0x0C;
+[e = _TRISA -> -> 12 `i `uc ]
+"346
+[; ;newmain.c: 346:     ANSELA = 0x00;
+[e = _ANSELA -> -> 0 `i `uc ]
+"347
+[; ;newmain.c: 347:     LATA = 0x33;
+[e = _LATA -> -> 51 `i `uc ]
+"351
+[; ;newmain.c: 351:     RA2PPS = 0b11001;
+[e = _RA2PPS -> -> 25 `i `uc ]
+"352
+[; ;newmain.c: 352:     SSP1DATPPS = 2;
+[e = _SSP1DATPPS -> -> 2 `i `uc ]
+"353
+[; ;newmain.c: 353:     SSP1CLKPPS = 3;
+[e = _SSP1CLKPPS -> -> 3 `i `uc ]
+"356
+[; ;newmain.c: 356:     RA0PPS = 0b01100;
+[e = _RA0PPS -> -> 12 `i `uc ]
+"357
+[; ;newmain.c: 357:     RA1PPS = 0b01101;
+[e = _RA1PPS -> -> 13 `i `uc ]
+"358
+[; ;newmain.c: 358:     RA4PPS = 0b00010;
+[e = _RA4PPS -> -> 2 `i `uc ]
+"359
+[; ;newmain.c: 359:     RA5PPS = 0b00011;
+[e = _RA5PPS -> -> 3 `i `uc ]
+"362
+[; ;newmain.c: 362:     INTCON = 0xC0;
+[e = _INTCON -> -> 192 `i `uc ]
+"363
+[; ;newmain.c: 363:     PIE1 = 0x0A;
+[e = _PIE1 -> -> 10 `i `uc ]
+"367
+[; ;newmain.c: 367:     SSP1STAT = 0b10000000;
+[e = _SSP1STAT -> -> 128 `i `uc ]
+"368
+[; ;newmain.c: 368:     SSP1CON1 = 0b00110110;
+[e = _SSP1CON1 -> -> 54 `i `uc ]
+"369
+[; ;newmain.c: 369:     SSP1CON2 = 0x00;
+[e = _SSP1CON2 -> -> 0 `i `uc ]
+"370
+[; ;newmain.c: 370:     SSP1CON3 = 0x00;
+[e = _SSP1CON3 -> -> 0 `i `uc ]
+"371
+[; ;newmain.c: 371:     SSP1MSK = 0xFE;
+[e = _SSP1MSK -> -> 254 `i `uc ]
+"372
+[; ;newmain.c: 372:     SSP1ADD = 0x12;
+[e = _SSP1ADD -> -> 18 `i `uc ]
+"376
+[; ;newmain.c: 376:     T2CON = 0b00000110;
+[e = _T2CON -> -> 6 `i `uc ]
+"377
+[; ;newmain.c: 377:     PR2 = 0xFF;
+[e = _PR2 -> -> 255 `i `uc ]
+"381
+[; ;newmain.c: 381:     PWM5CON = 0x80;
+[e = _PWM5CON -> -> 128 `i `uc ]
+"382
+[; ;newmain.c: 382:     PWM5DCH = 0x00;
+[e = _PWM5DCH -> -> 0 `i `uc ]
+"383
+[; ;newmain.c: 383:     PWM5DCL = 0x00;
+[e = _PWM5DCL -> -> 0 `i `uc ]
+"386
+[; ;newmain.c: 386:     PWM6CON = 0x80;
+[e = _PWM6CON -> -> 128 `i `uc ]
+"387
+[; ;newmain.c: 387:     PWM6DCH = 0x00;
+[e = _PWM6DCH -> -> 0 `i `uc ]
+"388
+[; ;newmain.c: 388:     PWM6DCL = 0x00;
+[e = _PWM6DCL -> -> 0 `i `uc ]
+"392
+[; ;newmain.c: 392:     CCP1CON = 0x9F;
+[e = _CCP1CON -> -> 159 `i `uc ]
+"393
+[; ;newmain.c: 393:     CCPR1H = 0x00;
+[e = _CCPR1H -> -> 0 `i `uc ]
+"394
+[; ;newmain.c: 394:     CCPR1L = 0x00;
+[e = _CCPR1L -> -> 0 `i `uc ]
+"397
+[; ;newmain.c: 397:     CCP2CON = 0x9F;
+[e = _CCP2CON -> -> 159 `i `uc ]
+"398
+[; ;newmain.c: 398:     CCPR2H = 0x00;
+[e = _CCPR2H -> -> 0 `i `uc ]
+"399
+[; ;newmain.c: 399:     CCPR2L = 0x00;
+[e = _CCPR2L -> -> 0 `i `uc ]
+"402
+[; ;newmain.c: 402:     while(1);
+[e :U 662 ]
+[e :U 661 ]
+[e $U 662  ]
+[e :U 663 ]
+"403
+[; ;newmain.c: 403:     return;
+[e $UE 660  ]
+"404
+[; ;newmain.c: 404: }
+[e :UE 660 ]
+}
+[v $root$_isr `(v ~T0 @X0 0 e ]
+"406
+[; ;newmain.c: 406: void __attribute__((picinterrupt(("")))) isr(void){
+[v _isr `(v ~T1 @X0 1 ef ]
+{
+[e :U _isr ]
+[f ]
+"407
+[; ;newmain.c: 407:     if(SSP1IF){
+[e $ ! _SSP1IF 665  ]
+{
+"414
+[; ;newmain.c: 414:         I2C_BUFF = SSP1BUF;
+[e = _I2C_BUFF -> _SSP1BUF `uc ]
+"415
+[; ;newmain.c: 415:         if(D_nA == 0){
+[e $ ! == -> _D_nA `i -> 0 `i 666  ]
+{
+"416
+[; ;newmain.c: 416:             I2C_COUNT = 0;
+[e = _I2C_COUNT -> -> 0 `i `uc ]
+"417
+[; ;newmain.c: 417:             if(R_nW == 0){
+[e $ ! == -> _R_nW `i -> 0 `i 667  ]
+{
+"418
+[; ;newmain.c: 418:                 I2C_ORDER = 0;
+[e = _I2C_ORDER -> -> 0 `i `uc ]
+"419
+[; ;newmain.c: 419:             }
+}
+[e :U 667 ]
+"420
+[; ;newmain.c: 420:         }
+}
+[e :U 666 ]
+"421
+[; ;newmain.c: 421:         if(R_nW){
+[e $ ! _R_nW 668  ]
+{
+"423
+[; ;newmain.c: 423:         }
+}
+[e $U 669  ]
+"424
+[; ;newmain.c: 424:         else if(D_nA){
+[e :U 668 ]
+[e $ ! _D_nA 670  ]
+{
+"425
+[; ;newmain.c: 425:             if(I2C_COUNT == 0){
+[e $ ! == -> _I2C_COUNT `i -> 0 `i 671  ]
+{
+"426
+[; ;newmain.c: 426:                 I2C_ORDER = I2C_BUFF;
+[e = _I2C_ORDER _I2C_BUFF ]
+"428
+[; ;newmain.c: 428:                 if(I2C_ORDER == 'B'){
+[e $ ! == -> _I2C_ORDER `ui -> 66 `ui 672  ]
+{
+"430
+[; ;newmain.c: 430:                     if(PWM_OUTPUT_FLAG & 0x04){
+[e $ ! != & -> _PWM_OUTPUT_FLAG `i -> 4 `i -> 0 `i 673  ]
+{
+"431
+[; ;newmain.c: 431:                         RA0PPS = 0b01100;
+[e = _RA0PPS -> -> 12 `i `uc ]
+"432
+[; ;newmain.c: 432:                         RA1PPS = 0b01101;
+[e = _RA1PPS -> -> 13 `i `uc ]
+"433
+[; ;newmain.c: 433:                         PWM_OUTPUT_FLAG &= 0xFB;
+[e =& _PWM_OUTPUT_FLAG -> -> 251 `i `uc ]
+"434
+[; ;newmain.c: 434:                         DEAD_TIME_FLAG &= 0xF8;
+[e =& _DEAD_TIME_FLAG -> -> 248 `i `uc ]
+"435
+[; ;newmain.c: 435:                         DEAD_TIME_FLAG |= 0x08;
+[e =| _DEAD_TIME_FLAG -> -> 8 `i `uc ]
+"436
+[; ;newmain.c: 436:                         DEAD_TIME_L = 0xFF;
+[e = _DEAD_TIME_L -> -> 255 `i `uc ]
+"437
+[; ;newmain.c: 437:                         PWM_L_OVD_COUNT = 200;
+[e = _PWM_L_OVD_COUNT -> -> 200 `i `uc ]
+"438
+[; ;newmain.c: 438:                         PWM_OVD_FLAG |= 0x01;
+[e =| _PWM_OVD_FLAG -> -> 1 `i `uc ]
+"439
+[; ;newmain.c: 439:                     }
+}
+[e $U 674  ]
+"440
+[; ;newmain.c: 440:                     else if(PWM_OUTPUT_FLAG & 0x02){
+[e :U 673 ]
+[e $ ! != & -> _PWM_OUTPUT_FLAG `i -> 2 `i -> 0 `i 675  ]
+{
+"441
+[; ;newmain.c: 441:                         PWM_FLAG1 |= 0x07;
+[e =| _PWM_FLAG1 -> -> 7 `i `uc ]
+"442
+[; ;newmain.c: 442:                         PWM_FLAG1 &= 0xF7;
+[e =& _PWM_FLAG1 -> -> 247 `i `uc ]
+"443
+[; ;newmain.c: 443:                         PWM_FLAG2 &= 0xF0;
+[e =& _PWM_FLAG2 -> -> 240 `i `uc ]
+"444
+[; ;newmain.c: 444:                         DUTY_COUNT_L = 0xFF;
+[e = _DUTY_COUNT_L -> -> 255 `i `uc ]
+"445
+[; ;newmain.c: 445:                         DUTY_L_TARGET = 0;
+[e = _DUTY_L_TARGET -> -> 0 `i `uc ]
+"446
+[; ;newmain.c: 446:                         PWM_L_OVD_COUNT = 200;
+[e = _PWM_L_OVD_COUNT -> -> 200 `i `uc ]
+"447
+[; ;newmain.c: 447:                         PWM_OVD_FLAG |= 0x01;
+[e =| _PWM_OVD_FLAG -> -> 1 `i `uc ]
+"448
+[; ;newmain.c: 448:                     }
+}
+[e $U 676  ]
+"449
+[; ;newmain.c: 449:                     else if(PWM_OUTPUT_FLAG & 0x01){
+[e :U 675 ]
+[e $ ! != & -> _PWM_OUTPUT_FLAG `i -> 1 `i -> 0 `i 677  ]
+{
+"450
+[; ;newmain.c: 450:                         PWM_FLAG1 &= 0xF0;
+[e =& _PWM_FLAG1 -> -> 240 `i `uc ]
+"451
+[; ;newmain.c: 451:                         PWM_OVD_FLAG |= 0x01;
+[e =| _PWM_OVD_FLAG -> -> 1 `i `uc ]
+"453
+[; ;newmain.c: 453:                     }
+}
+[e $U 678  ]
+"454
+[; ;newmain.c: 454:                     else{
+[e :U 677 ]
+{
+"455
+[; ;newmain.c: 455:                         if(DEAD_TIME_L & 0x80){
+[e $ ! != & -> _DEAD_TIME_L `i -> 128 `i -> 0 `i 679  ]
+{
+"456
+[; ;newmain.c: 456:                             DEAD_TIME_FLAG |= 0x09;
+[e =| _DEAD_TIME_FLAG -> -> 9 `i `uc ]
+"457
+[; ;newmain.c: 457:                             DEAD_TIME_FLAG &= 0xF9;
+[e =& _DEAD_TIME_FLAG -> -> 249 `i `uc ]
+"458
+[; ;newmain.c: 458:                             PWM_L_OVD_COUNT = 200;
+[e = _PWM_L_OVD_COUNT -> -> 200 `i `uc ]
+"459
+[; ;newmain.c: 459:                             PWM_OVD_FLAG |= 0x01;
+[e =| _PWM_OVD_FLAG -> -> 1 `i `uc ]
+"460
+[; ;newmain.c: 460:                         }
+}
+[e $U 680  ]
+"461
+[; ;newmain.c: 461:                         else{
+[e :U 679 ]
+{
+"462
+[; ;newmain.c: 462:                             PWM_OUTPUT_FLAG |= 0x01;
+[e =| _PWM_OUTPUT_FLAG -> -> 1 `i `uc ]
+"463
+[; ;newmain.c: 463:                             DEAD_TIME_L = 0xFF;
+[e = _DEAD_TIME_L -> -> 255 `i `uc ]
+"464
+[; ;newmain.c: 464:                             PWM_L_OVD_COUNT = 200;
+[e = _PWM_L_OVD_COUNT -> -> 200 `i `uc ]
+"465
+[; ;newmain.c: 465:                             PWM_OVD_FLAG |= 0x01;
+[e =| _PWM_OVD_FLAG -> -> 1 `i `uc ]
+"466
+[; ;newmain.c: 466:                         }
+}
+[e :U 680 ]
+"467
+[; ;newmain.c: 467:                     }
+}
+[e :U 678 ]
+[e :U 676 ]
+[e :U 674 ]
+"468
+[; ;newmain.c: 468:                 }
+}
+[e $U 681  ]
+"469
+[; ;newmain.c: 469:                 else if(I2C_ORDER == 'C'){
+[e :U 672 ]
+[e $ ! == -> _I2C_ORDER `ui -> 67 `ui 682  ]
+{
+"470
+[; ;newmain.c: 470:                     if(PWM_OUTPUT_FLAG & 0x04){
+[e $ ! != & -> _PWM_OUTPUT_FLAG `i -> 4 `i -> 0 `i 683  ]
+{
+"471
+[; ;newmain.c: 471:                         RA0PPS = 0b01100;
+[e = _RA0PPS -> -> 12 `i `uc ]
+"472
+[; ;newmain.c: 472:                         RA1PPS = 0b01101;
+[e = _RA1PPS -> -> 13 `i `uc ]
+"473
+[; ;newmain.c: 473:                         PWM_OUTPUT_FLAG &= 0xFB;
+[e =& _PWM_OUTPUT_FLAG -> -> 251 `i `uc ]
+"474
+[; ;newmain.c: 474:                         DEAD_TIME_FLAG &= 0xF9;
+[e =& _DEAD_TIME_FLAG -> -> 249 `i `uc ]
+"475
+[; ;newmain.c: 475:                         DEAD_TIME_FLAG |= 0x09;
+[e =| _DEAD_TIME_FLAG -> -> 9 `i `uc ]
+"476
+[; ;newmain.c: 476:                         DEAD_TIME_L = 0xFF;
+[e = _DEAD_TIME_L -> -> 255 `i `uc ]
+"477
+[; ;newmain.c: 477:                         PWM_L_OVD_COUNT = 200;
+[e = _PWM_L_OVD_COUNT -> -> 200 `i `uc ]
+"478
+[; ;newmain.c: 478:                         PWM_OVD_FLAG |= 0x01;
+[e =| _PWM_OVD_FLAG -> -> 1 `i `uc ]
+"479
+[; ;newmain.c: 479:                     }
+}
+[e $U 684  ]
+"480
+[; ;newmain.c: 480:                     else if(PWM_OUTPUT_FLAG & 0x01){
+[e :U 683 ]
+[e $ ! != & -> _PWM_OUTPUT_FLAG `i -> 1 `i -> 0 `i 685  ]
+{
+"481
+[; ;newmain.c: 481:                         PWM_FLAG1 |= 0x07;
+[e =| _PWM_FLAG1 -> -> 7 `i `uc ]
+"482
+[; ;newmain.c: 482:                         PWM_FLAG1 &= 0xF7;
+[e =& _PWM_FLAG1 -> -> 247 `i `uc ]
+"483
+[; ;newmain.c: 483:                         PWM_FLAG2 |= 0x08;
+[e =| _PWM_FLAG2 -> -> 8 `i `uc ]
+"484
+[; ;newmain.c: 484:                         PWM_FLAG2 &= 0xF8;
+[e =& _PWM_FLAG2 -> -> 248 `i `uc ]
+"485
+[; ;newmain.c: 485:                         DUTY_COUNT_L = 0xFF;
+[e = _DUTY_COUNT_L -> -> 255 `i `uc ]
+"486
+[; ;newmain.c: 486:                         DUTY_L_TARGET = 0;
+[e = _DUTY_L_TARGET -> -> 0 `i `uc ]
+"487
+[; ;newmain.c: 487:                         PWM_L_OVD_COUNT = 200;
+[e = _PWM_L_OVD_COUNT -> -> 200 `i `uc ]
+"488
+[; ;newmain.c: 488:                         PWM_OVD_FLAG |= 0x01;
+[e =| _PWM_OVD_FLAG -> -> 1 `i `uc ]
+"490
+[; ;newmain.c: 490:                     }
+}
+[e $U 686  ]
+"491
+[; ;newmain.c: 491:                     else if(PWM_OUTPUT_FLAG & 0x02){
+[e :U 685 ]
+[e $ ! != & -> _PWM_OUTPUT_FLAG `i -> 2 `i -> 0 `i 687  ]
+{
+"492
+[; ;newmain.c: 492:                         PWM_FLAG1 &= 0xF0;
+[e =& _PWM_FLAG1 -> -> 240 `i `uc ]
+"493
+[; ;newmain.c: 493:                         PWM_OVD_FLAG |= 0x01;
+[e =| _PWM_OVD_FLAG -> -> 1 `i `uc ]
+"494
+[; ;newmain.c: 494:                     }
+}
+[e $U 688  ]
+"495
+[; ;newmain.c: 495:                     else{
+[e :U 687 ]
+{
+"496
+[; ;newmain.c: 496:                         if(DEAD_TIME_L & 0x80){
+[e $ ! != & -> _DEAD_TIME_L `i -> 128 `i -> 0 `i 689  ]
+{
+"497
+[; ;newmain.c: 497:                             DEAD_TIME_FLAG |= 0x0A;
+[e =| _DEAD_TIME_FLAG -> -> 10 `i `uc ]
+"498
+[; ;newmain.c: 498:                             DEAD_TIME_FLAG &= 0xFA;
+[e =& _DEAD_TIME_FLAG -> -> 250 `i `uc ]
+"499
+[; ;newmain.c: 499:                             PWM_L_OVD_COUNT = 200;
+[e = _PWM_L_OVD_COUNT -> -> 200 `i `uc ]
+"500
+[; ;newmain.c: 500:                             PWM_OVD_FLAG |= 0x01;
+[e =| _PWM_OVD_FLAG -> -> 1 `i `uc ]
+"501
+[; ;newmain.c: 501:                         }
+}
+[e $U 690  ]
+"502
+[; ;newmain.c: 502:                         else{
+[e :U 689 ]
+{
+"503
+[; ;newmain.c: 503:                             PWM_OUTPUT_FLAG |= 0x02;
+[e =| _PWM_OUTPUT_FLAG -> -> 2 `i `uc ]
+"504
+[; ;newmain.c: 504:                             DEAD_TIME_L = 0xFF;
+[e = _DEAD_TIME_L -> -> 255 `i `uc ]
+"505
+[; ;newmain.c: 505:                             PWM_L_OVD_COUNT = 200;
+[e = _PWM_L_OVD_COUNT -> -> 200 `i `uc ]
+"506
+[; ;newmain.c: 506:                             PWM_OVD_FLAG |= 0x01;
+[e =| _PWM_OVD_FLAG -> -> 1 `i `uc ]
+"507
+[; ;newmain.c: 507:                         }
+}
+[e :U 690 ]
+"508
+[; ;newmain.c: 508:                     }
+}
+[e :U 688 ]
+[e :U 686 ]
+[e :U 684 ]
+"509
+[; ;newmain.c: 509:                 }
+}
+[e $U 691  ]
+"510
+[; ;newmain.c: 510:                 else if(I2C_ORDER == 'E'){
+[e :U 682 ]
+[e $ ! == -> _I2C_ORDER `ui -> 69 `ui 692  ]
+{
+"511
+[; ;newmain.c: 511:                     if(PWM_OUTPUT_FLAG & 0x40){
+[e $ ! != & -> _PWM_OUTPUT_FLAG `i -> 64 `i -> 0 `i 693  ]
+{
+"512
+[; ;newmain.c: 512:                         RA4PPS = 0b00010;
+[e = _RA4PPS -> -> 2 `i `uc ]
+"513
+[; ;newmain.c: 513:                         RA5PPS = 0b00011;
+[e = _RA5PPS -> -> 3 `i `uc ]
+"514
+[; ;newmain.c: 514:                         PWM_OUTPUT_FLAG &= 0xBF;
+[e =& _PWM_OUTPUT_FLAG -> -> 191 `i `uc ]
+"515
+[; ;newmain.c: 515:                         DEAD_TIME_FLAG &= 0x8F;
+[e =& _DEAD_TIME_FLAG -> -> 143 `i `uc ]
+"516
+[; ;newmain.c: 516:                         DEAD_TIME_FLAG |= 0x80;
+[e =| _DEAD_TIME_FLAG -> -> 128 `i `uc ]
+"517
+[; ;newmain.c: 517:                         DEAD_TIME_R = 0xFF;
+[e = _DEAD_TIME_R -> -> 255 `i `uc ]
+"518
+[; ;newmain.c: 518:                         PWM_R_OVD_COUNT = 200;
+[e = _PWM_R_OVD_COUNT -> -> 200 `i `uc ]
+"519
+[; ;newmain.c: 519:                         PWM_OVD_FLAG |= 0x20;
+[e =| _PWM_OVD_FLAG -> -> 32 `i `uc ]
+"521
+[; ;newmain.c: 521:                     }
+}
+[e $U 694  ]
+"522
+[; ;newmain.c: 522:                     else if(PWM_OUTPUT_FLAG & 0x20){
+[e :U 693 ]
+[e $ ! != & -> _PWM_OUTPUT_FLAG `i -> 32 `i -> 0 `i 695  ]
+{
+"523
+[; ;newmain.c: 523:                         PWM_FLAG1 |= 0x70;
+[e =| _PWM_FLAG1 -> -> 112 `i `uc ]
+"524
+[; ;newmain.c: 524:                         PWM_FLAG1 &= 0x7F;
+[e =& _PWM_FLAG1 -> -> 127 `i `uc ]
+"525
+[; ;newmain.c: 525:                         PWM_FLAG2 &= 0x0F;
+[e =& _PWM_FLAG2 -> -> 15 `i `uc ]
+"526
+[; ;newmain.c: 526:                         DUTY_COUNT_R = 0xFF;
+[e = _DUTY_COUNT_R -> -> 255 `i `uc ]
+"527
+[; ;newmain.c: 527:                         DUTY_R_TARGET = 0;
+[e = _DUTY_R_TARGET -> -> 0 `i `uc ]
+"528
+[; ;newmain.c: 528:                         PWM_R_OVD_COUNT = 200;
+[e = _PWM_R_OVD_COUNT -> -> 200 `i `uc ]
+"529
+[; ;newmain.c: 529:                         PWM_OVD_FLAG |= 0x20;
+[e =| _PWM_OVD_FLAG -> -> 32 `i `uc ]
+"530
+[; ;newmain.c: 530:                     }
+}
+[e $U 696  ]
+"531
+[; ;newmain.c: 531:                     else if(PWM_OUTPUT_FLAG & 0x10){
+[e :U 695 ]
+[e $ ! != & -> _PWM_OUTPUT_FLAG `i -> 16 `i -> 0 `i 697  ]
+{
+"532
+[; ;newmain.c: 532:                         PWM_FLAG1 &= 0x0F;
+[e =& _PWM_FLAG1 -> -> 15 `i `uc ]
+"533
+[; ;newmain.c: 533:                         PWM_OVD_FLAG |= 0x20;
+[e =| _PWM_OVD_FLAG -> -> 32 `i `uc ]
+"534
+[; ;newmain.c: 534:                     }
+}
+[e $U 698  ]
+"535
+[; ;newmain.c: 535:                     else{
+[e :U 697 ]
+{
+"536
+[; ;newmain.c: 536:                         if(DEAD_TIME_R & 0x80){
+[e $ ! != & -> _DEAD_TIME_R `i -> 128 `i -> 0 `i 699  ]
+{
+"537
+[; ;newmain.c: 537:                             DEAD_TIME_FLAG |= 0x90;
+[e =| _DEAD_TIME_FLAG -> -> 144 `i `uc ]
+"538
+[; ;newmain.c: 538:                             DEAD_TIME_FLAG &= 0x9F;
+[e =& _DEAD_TIME_FLAG -> -> 159 `i `uc ]
+"539
+[; ;newmain.c: 539:                             PWM_R_OVD_COUNT = 200;
+[e = _PWM_R_OVD_COUNT -> -> 200 `i `uc ]
+"540
+[; ;newmain.c: 540:                             PWM_OVD_FLAG |= 0x20;
+[e =| _PWM_OVD_FLAG -> -> 32 `i `uc ]
+"541
+[; ;newmain.c: 541:                         }
+}
+[e $U 700  ]
+"542
+[; ;newmain.c: 542:                         else{
+[e :U 699 ]
+{
+"543
+[; ;newmain.c: 543:                             PWM_OUTPUT_FLAG |= 0x10;
+[e =| _PWM_OUTPUT_FLAG -> -> 16 `i `uc ]
+"544
+[; ;newmain.c: 544:                             DEAD_TIME_R = 0xFF;
+[e = _DEAD_TIME_R -> -> 255 `i `uc ]
+"545
+[; ;newmain.c: 545:                             PWM_R_OVD_COUNT = 200;
+[e = _PWM_R_OVD_COUNT -> -> 200 `i `uc ]
+"546
+[; ;newmain.c: 546:                             PWM_OVD_FLAG |= 0x20;
+[e =| _PWM_OVD_FLAG -> -> 32 `i `uc ]
+"547
+[; ;newmain.c: 547:                         }
+}
+[e :U 700 ]
+"548
+[; ;newmain.c: 548:                     }
+}
+[e :U 698 ]
+[e :U 696 ]
+[e :U 694 ]
+"549
+[; ;newmain.c: 549:                 }
+}
+[e $U 701  ]
+"550
+[; ;newmain.c: 550:                 else if(I2C_ORDER == 'F'){
+[e :U 692 ]
+[e $ ! == -> _I2C_ORDER `ui -> 70 `ui 702  ]
+{
+"551
+[; ;newmain.c: 551:                     if(PWM_OUTPUT_FLAG & 0x40){
+[e $ ! != & -> _PWM_OUTPUT_FLAG `i -> 64 `i -> 0 `i 703  ]
+{
+"552
+[; ;newmain.c: 552:                         RA4PPS = 0b00010;
+[e = _RA4PPS -> -> 2 `i `uc ]
+"553
+[; ;newmain.c: 553:                         RA5PPS = 0b00011;
+[e = _RA5PPS -> -> 3 `i `uc ]
+"554
+[; ;newmain.c: 554:                         PWM_OUTPUT_FLAG &= 0xBF;
+[e =& _PWM_OUTPUT_FLAG -> -> 191 `i `uc ]
+"555
+[; ;newmain.c: 555:                         DEAD_TIME_FLAG &= 0x9F;
+[e =& _DEAD_TIME_FLAG -> -> 159 `i `uc ]
+"556
+[; ;newmain.c: 556:                         DEAD_TIME_FLAG |= 0x90;
+[e =| _DEAD_TIME_FLAG -> -> 144 `i `uc ]
+"557
+[; ;newmain.c: 557:                         DEAD_TIME_R = 0xFF;
+[e = _DEAD_TIME_R -> -> 255 `i `uc ]
+"558
+[; ;newmain.c: 558:                         PWM_R_OVD_COUNT = 200;
+[e = _PWM_R_OVD_COUNT -> -> 200 `i `uc ]
+"559
+[; ;newmain.c: 559:                         PWM_OVD_FLAG |= 0x20;
+[e =| _PWM_OVD_FLAG -> -> 32 `i `uc ]
+"560
+[; ;newmain.c: 560:                     }
+}
+[e $U 704  ]
+"561
+[; ;newmain.c: 561:                     else if(PWM_OUTPUT_FLAG & 0x10){
+[e :U 703 ]
+[e $ ! != & -> _PWM_OUTPUT_FLAG `i -> 16 `i -> 0 `i 705  ]
+{
+"562
+[; ;newmain.c: 562:                         PWM_FLAG1 |= 0x70;
+[e =| _PWM_FLAG1 -> -> 112 `i `uc ]
+"563
+[; ;newmain.c: 563:                         PWM_FLAG1 &= 0x7F;
+[e =& _PWM_FLAG1 -> -> 127 `i `uc ]
+"564
+[; ;newmain.c: 564:                         PWM_FLAG2 |= 0x80;
+[e =| _PWM_FLAG2 -> -> 128 `i `uc ]
+"565
+[; ;newmain.c: 565:                         PWM_FLAG2 &= 0x8F;
+[e =& _PWM_FLAG2 -> -> 143 `i `uc ]
+"566
+[; ;newmain.c: 566:                         DUTY_COUNT_R = 0xFF;
+[e = _DUTY_COUNT_R -> -> 255 `i `uc ]
+"567
+[; ;newmain.c: 567:                         DUTY_R_TARGET = 0;
+[e = _DUTY_R_TARGET -> -> 0 `i `uc ]
+"568
+[; ;newmain.c: 568:                         PWM_R_OVD_COUNT = 200;
+[e = _PWM_R_OVD_COUNT -> -> 200 `i `uc ]
+"569
+[; ;newmain.c: 569:                         PWM_OVD_FLAG |= 0x20;
+[e =| _PWM_OVD_FLAG -> -> 32 `i `uc ]
+"570
+[; ;newmain.c: 570:                     }
+}
+[e $U 706  ]
+"571
+[; ;newmain.c: 571:                     else if(PWM_OUTPUT_FLAG & 0x20){
+[e :U 705 ]
+[e $ ! != & -> _PWM_OUTPUT_FLAG `i -> 32 `i -> 0 `i 707  ]
+{
+"572
+[; ;newmain.c: 572:                         PWM_FLAG1 &= 0x0F;
+[e =& _PWM_FLAG1 -> -> 15 `i `uc ]
+"573
+[; ;newmain.c: 573:                         PWM_OVD_FLAG |= 0x20;
+[e =| _PWM_OVD_FLAG -> -> 32 `i `uc ]
+"574
+[; ;newmain.c: 574:                     }
+}
+[e $U 708  ]
+"575
+[; ;newmain.c: 575:                     else{
+[e :U 707 ]
+{
+"576
+[; ;newmain.c: 576:                         if(DEAD_TIME_R & 0x80){
+[e $ ! != & -> _DEAD_TIME_R `i -> 128 `i -> 0 `i 709  ]
+{
+"577
+[; ;newmain.c: 577:                             DEAD_TIME_FLAG |= 0xA0;
+[e =| _DEAD_TIME_FLAG -> -> 160 `i `uc ]
+"578
+[; ;newmain.c: 578:                             DEAD_TIME_FLAG &= 0xAF;
+[e =& _DEAD_TIME_FLAG -> -> 175 `i `uc ]
+"579
+[; ;newmain.c: 579:                             PWM_R_OVD_COUNT = 200;
+[e = _PWM_R_OVD_COUNT -> -> 200 `i `uc ]
+"580
+[; ;newmain.c: 580:                             PWM_OVD_FLAG |= 0x20;
+[e =| _PWM_OVD_FLAG -> -> 32 `i `uc ]
+"581
+[; ;newmain.c: 581:                         }
+}
+[e $U 710  ]
+"582
+[; ;newmain.c: 582:                         else{
+[e :U 709 ]
+{
+"583
+[; ;newmain.c: 583:                             PWM_OUTPUT_FLAG |= 0x20;
+[e =| _PWM_OUTPUT_FLAG -> -> 32 `i `uc ]
+"584
+[; ;newmain.c: 584:                             DEAD_TIME_R = 0xFF;
+[e = _DEAD_TIME_R -> -> 255 `i `uc ]
+"585
+[; ;newmain.c: 585:                             PWM_R_OVD_COUNT = 200;
+[e = _PWM_R_OVD_COUNT -> -> 200 `i `uc ]
+"586
+[; ;newmain.c: 586:                             PWM_OVD_FLAG |= 0x20;
+[e =| _PWM_OVD_FLAG -> -> 32 `i `uc ]
+"587
+[; ;newmain.c: 587:                         }
+}
+[e :U 710 ]
+"588
+[; ;newmain.c: 588:                     }
+}
+[e :U 708 ]
+[e :U 706 ]
+[e :U 704 ]
+"589
+[; ;newmain.c: 589:                 }
+}
+[e $U 711  ]
+"590
+[; ;newmain.c: 590:                 else if(I2C_ORDER == 'G'){
+[e :U 702 ]
+[e $ ! == -> _I2C_ORDER `ui -> 71 `ui 712  ]
+{
+"591
+[; ;newmain.c: 591:                     if(PWM_OUTPUT_FLAG & 0x04);
+[e $ ! != & -> _PWM_OUTPUT_FLAG `i -> 4 `i -> 0 `i 713  ]
+[e $U 714  ]
+"593
+[; ;newmain.c: 593:                     else if(PWM_OUTPUT_FLAG & 0x03){
+[e :U 713 ]
+[e $ ! != & -> _PWM_OUTPUT_FLAG `i -> 3 `i -> 0 `i 715  ]
+{
+"594
+[; ;newmain.c: 594:                         PWM_FLAG1 |= 0x07;
+[e =| _PWM_FLAG1 -> -> 7 `i `uc ]
+"595
+[; ;newmain.c: 595:                         PWM_FLAG1 &= 0xF7;
+[e =& _PWM_FLAG1 -> -> 247 `i `uc ]
+"596
+[; ;newmain.c: 596:                         PWM_FLAG2 &= 0xFB;
+[e =& _PWM_FLAG2 -> -> 251 `i `uc ]
+"597
+[; ;newmain.c: 597:                         PWM_FLAG2 |= 0x04;
+[e =| _PWM_FLAG2 -> -> 4 `i `uc ]
+"598
+[; ;newmain.c: 598:                         DUTY_COUNT_L = 0xFF;
+[e = _DUTY_COUNT_L -> -> 255 `i `uc ]
+"599
+[; ;newmain.c: 599:                         DUTY_L_TARGET = 0;
+[e = _DUTY_L_TARGET -> -> 0 `i `uc ]
+"600
+[; ;newmain.c: 600:                         PWM_L_OVD_COUNT = 0;
+[e = _PWM_L_OVD_COUNT -> -> 0 `i `uc ]
+"601
+[; ;newmain.c: 601:                         PWM_OVD_FLAG &= 0xF0;
+[e =& _PWM_OVD_FLAG -> -> 240 `i `uc ]
+"602
+[; ;newmain.c: 602:                     }
+}
+[e $U 716  ]
+"603
+[; ;newmain.c: 603:                     else{
+[e :U 715 ]
+{
+"604
+[; ;newmain.c: 604:                         if(DEAD_TIME_L & 0x80){
+[e $ ! != & -> _DEAD_TIME_L `i -> 128 `i -> 0 `i 717  ]
+{
+"605
+[; ;newmain.c: 605:                             DEAD_TIME_FLAG |= 0x0A;
+[e =| _DEAD_TIME_FLAG -> -> 10 `i `uc ]
+"606
+[; ;newmain.c: 606:                             DEAD_TIME_FLAG &= 0xFA;
+[e =& _DEAD_TIME_FLAG -> -> 250 `i `uc ]
+"607
+[; ;newmain.c: 607:                             PWM_L_OVD_COUNT = 0;
+[e = _PWM_L_OVD_COUNT -> -> 0 `i `uc ]
+"608
+[; ;newmain.c: 608:                             PWM_OVD_FLAG &= 0xF0;
+[e =& _PWM_OVD_FLAG -> -> 240 `i `uc ]
+"609
+[; ;newmain.c: 609:                         }
+}
+[e $U 718  ]
+"610
+[; ;newmain.c: 610:                         else{
+[e :U 717 ]
+{
+"611
+[; ;newmain.c: 611:                             PWM_OUTPUT_FLAG |= 0x04;
+[e =| _PWM_OUTPUT_FLAG -> -> 4 `i `uc ]
+"612
+[; ;newmain.c: 612:                             DEAD_TIME_FLAG |= 0x04;
+[e =| _DEAD_TIME_FLAG -> -> 4 `i `uc ]
+"613
+[; ;newmain.c: 613:                             RA0PPS = 0x00;
+[e = _RA0PPS -> -> 0 `i `uc ]
+"614
+[; ;newmain.c: 614:                             RA1PPS = 0x00;
+[e = _RA1PPS -> -> 0 `i `uc ]
+"615
+[; ;newmain.c: 615:                             PWM_FLAG1 |= 0x01;
+[e =| _PWM_FLAG1 -> -> 1 `i `uc ]
+"616
+[; ;newmain.c: 616:                             DEAD_TIME_L = 0xFF;
+[e = _DEAD_TIME_L -> -> 255 `i `uc ]
+"617
+[; ;newmain.c: 617:                             PWM_L_OVD_COUNT = 0;
+[e = _PWM_L_OVD_COUNT -> -> 0 `i `uc ]
+"618
+[; ;newmain.c: 618:                             PWM_OVD_FLAG &= 0xF0;
+[e =& _PWM_OVD_FLAG -> -> 240 `i `uc ]
+"619
+[; ;newmain.c: 619:                         }
+}
+[e :U 718 ]
+"620
+[; ;newmain.c: 620:                     }
+}
+[e :U 716 ]
+[e :U 714 ]
+"621
+[; ;newmain.c: 621:                 }
+}
+[e $U 719  ]
+"622
+[; ;newmain.c: 622:                 else if(I2C_ORDER == 'H'){
+[e :U 712 ]
+[e $ ! == -> _I2C_ORDER `ui -> 72 `ui 720  ]
+{
+"623
+[; ;newmain.c: 623:                     if(PWM_OUTPUT_FLAG & 0x40);
+[e $ ! != & -> _PWM_OUTPUT_FLAG `i -> 64 `i -> 0 `i 721  ]
+[e $U 722  ]
+"624
+[; ;newmain.c: 624:                     else if(PWM_OUTPUT_FLAG & 0x30){
+[e :U 721 ]
+[e $ ! != & -> _PWM_OUTPUT_FLAG `i -> 48 `i -> 0 `i 723  ]
+{
+"625
+[; ;newmain.c: 625:                         PWM_FLAG1 |= 0x70;
+[e =| _PWM_FLAG1 -> -> 112 `i `uc ]
+"626
+[; ;newmain.c: 626:                         PWM_FLAG1 &= 0x7F;
+[e =& _PWM_FLAG1 -> -> 127 `i `uc ]
+"627
+[; ;newmain.c: 627:                         PWM_FLAG2 &= 0xBF;
+[e =& _PWM_FLAG2 -> -> 191 `i `uc ]
+"628
+[; ;newmain.c: 628:                         PWM_FLAG2 |= 0x40;
+[e =| _PWM_FLAG2 -> -> 64 `i `uc ]
+"629
+[; ;newmain.c: 629:                         DUTY_COUNT_R = 0xFF;
+[e = _DUTY_COUNT_R -> -> 255 `i `uc ]
+"630
+[; ;newmain.c: 630:                         DUTY_R_TARGET = 0;
+[e = _DUTY_R_TARGET -> -> 0 `i `uc ]
+"631
+[; ;newmain.c: 631:                         PWM_R_OVD_COUNT = 0;
+[e = _PWM_R_OVD_COUNT -> -> 0 `i `uc ]
+"632
+[; ;newmain.c: 632:                         PWM_OVD_FLAG &= 0x0F;
+[e =& _PWM_OVD_FLAG -> -> 15 `i `uc ]
+"633
+[; ;newmain.c: 633:                     }
+}
+[e $U 724  ]
+"634
+[; ;newmain.c: 634:                     else{
+[e :U 723 ]
+{
+"635
+[; ;newmain.c: 635:                         if(DEAD_TIME_R & 0x80){
+[e $ ! != & -> _DEAD_TIME_R `i -> 128 `i -> 0 `i 725  ]
+{
+"636
+[; ;newmain.c: 636:                             DEAD_TIME_FLAG |= 0xA0;
+[e =| _DEAD_TIME_FLAG -> -> 160 `i `uc ]
+"637
+[; ;newmain.c: 637:                             DEAD_TIME_FLAG &= 0xAF;
+[e =& _DEAD_TIME_FLAG -> -> 175 `i `uc ]
+"638
+[; ;newmain.c: 638:                             PWM_R_OVD_COUNT = 0;
+[e = _PWM_R_OVD_COUNT -> -> 0 `i `uc ]
+"639
+[; ;newmain.c: 639:                             PWM_OVD_FLAG &= 0x0F;
+[e =& _PWM_OVD_FLAG -> -> 15 `i `uc ]
+"640
+[; ;newmain.c: 640:                         }
+}
+[e $U 726  ]
+"641
+[; ;newmain.c: 641:                         else{
+[e :U 725 ]
+{
+"642
+[; ;newmain.c: 642:                             PWM_OUTPUT_FLAG |= 0x40;
+[e =| _PWM_OUTPUT_FLAG -> -> 64 `i `uc ]
+"643
+[; ;newmain.c: 643:                             DEAD_TIME_FLAG |= 0x40;
+[e =| _DEAD_TIME_FLAG -> -> 64 `i `uc ]
+"644
+[; ;newmain.c: 644:                             RA4PPS = 0x00;
+[e = _RA4PPS -> -> 0 `i `uc ]
+"645
+[; ;newmain.c: 645:                             RA5PPS = 0x00;
+[e = _RA5PPS -> -> 0 `i `uc ]
+"646
+[; ;newmain.c: 646:                             PWM_FLAG1 |= 0x10;
+[e =| _PWM_FLAG1 -> -> 16 `i `uc ]
+"647
+[; ;newmain.c: 647:                             DEAD_TIME_R = 0xFF;
+[e = _DEAD_TIME_R -> -> 255 `i `uc ]
+"648
+[; ;newmain.c: 648:                             PWM_R_OVD_COUNT = 0;
+[e = _PWM_R_OVD_COUNT -> -> 0 `i `uc ]
+"649
+[; ;newmain.c: 649:                             PWM_OVD_FLAG &= 0x0F;
+[e =& _PWM_OVD_FLAG -> -> 15 `i `uc ]
+"650
+[; ;newmain.c: 650:                         }
+}
+[e :U 726 ]
+"651
+[; ;newmain.c: 651:                     }
+}
+[e :U 724 ]
+[e :U 722 ]
+"652
+[; ;newmain.c: 652:                 }
+}
+[e $U 727  ]
+"653
+[; ;newmain.c: 653:                 else if(I2C_ORDER == 'I'){
+[e :U 720 ]
+[e $ ! == -> _I2C_ORDER `ui -> 73 `ui 728  ]
+{
+"654
+[; ;newmain.c: 654:                     CCPR1H = 0;
+[e = _CCPR1H -> -> 0 `i `uc ]
+"655
+[; ;newmain.c: 655:                     CCPR2H = 0;
+[e = _CCPR2H -> -> 0 `i `uc ]
+"656
+[; ;newmain.c: 656:                     PWM3DCH_BUFF = 0;
+[e = _PWM3DCH_BUFF -> -> 0 `i `uc ]
+"657
+[; ;newmain.c: 657:                     PWM4DCH_BUFF = 0;
+[e = _PWM4DCH_BUFF -> -> 0 `i `uc ]
+"658
+[; ;newmain.c: 658:                     RA0PPS = 0b01100;
+[e = _RA0PPS -> -> 12 `i `uc ]
+"659
+[; ;newmain.c: 659:                     RA1PPS = 0b01101;
+[e = _RA1PPS -> -> 13 `i `uc ]
+"660
+[; ;newmain.c: 660:                     PWM_OUTPUT_FLAG &= 0xF0;
+[e =& _PWM_OUTPUT_FLAG -> -> 240 `i `uc ]
+"661
+[; ;newmain.c: 661:                     DUTY_L_NOW = 0;
+[e = _DUTY_L_NOW -> -> 0 `i `s ]
+"662
+[; ;newmain.c: 662:                     DUTY_L_TARGET = 0;
+[e = _DUTY_L_TARGET -> -> 0 `i `uc ]
+"663
+[; ;newmain.c: 663:                     DUTY_L_KEEP = 0;
+[e = _DUTY_L_KEEP -> -> 0 `i `uc ]
+"664
+[; ;newmain.c: 664:                     DUTY_COUNT_L = 0;
+[e = _DUTY_COUNT_L -> -> 0 `i `uc ]
+"665
+[; ;newmain.c: 665:                     PWM_FLAG1 &= 0xF0;
+[e =& _PWM_FLAG1 -> -> 240 `i `uc ]
+"666
+[; ;newmain.c: 666:                     PWM_FLAG2 &= 0xF0;
+[e =& _PWM_FLAG2 -> -> 240 `i `uc ]
+"667
+[; ;newmain.c: 667:                     DEAD_TIME_FLAG &= 0xF0;
+[e =& _DEAD_TIME_FLAG -> -> 240 `i `uc ]
+"668
+[; ;newmain.c: 668:                     DEAD_TIME_L = 0xFF;
+[e = _DEAD_TIME_L -> -> 255 `i `uc ]
+"669
+[; ;newmain.c: 669:                     PWM_L_OVD_COUNT = 0;
+[e = _PWM_L_OVD_COUNT -> -> 0 `i `uc ]
+"670
+[; ;newmain.c: 670:                     PWM_OVD_FLAG &= 0xF0;
+[e =& _PWM_OVD_FLAG -> -> 240 `i `uc ]
+"671
+[; ;newmain.c: 671:                 }
+}
+[e $U 729  ]
+"672
+[; ;newmain.c: 672:                 else if(I2C_ORDER == 'J'){
+[e :U 728 ]
+[e $ ! == -> _I2C_ORDER `ui -> 74 `ui 730  ]
+{
+"673
+[; ;newmain.c: 673:                     PWM5DCH = 0;
+[e = _PWM5DCH -> -> 0 `i `uc ]
+"674
+[; ;newmain.c: 674:                     PWM6DCH = 0;
+[e = _PWM6DCH -> -> 0 `i `uc ]
+"675
+[; ;newmain.c: 675:                     PWM5DCH_BUFF = 0;
+[e = _PWM5DCH_BUFF -> -> 0 `i `uc ]
+"676
+[; ;newmain.c: 676:                     PWM6DCH_BUFF = 0;
+[e = _PWM6DCH_BUFF -> -> 0 `i `uc ]
+"677
+[; ;newmain.c: 677:                     RA4PPS = 0b00010;
+[e = _RA4PPS -> -> 2 `i `uc ]
+"678
+[; ;newmain.c: 678:                     RA5PPS = 0b00011;
+[e = _RA5PPS -> -> 3 `i `uc ]
+"679
+[; ;newmain.c: 679:                     PWM_OUTPUT_FLAG &= 0x0F;
+[e =& _PWM_OUTPUT_FLAG -> -> 15 `i `uc ]
+"680
+[; ;newmain.c: 680:                     DUTY_R_NOW = 0;
+[e = _DUTY_R_NOW -> -> 0 `i `s ]
+"681
+[; ;newmain.c: 681:                     DUTY_R_TARGET = 0;
+[e = _DUTY_R_TARGET -> -> 0 `i `uc ]
+"682
+[; ;newmain.c: 682:                     DUTY_R_KEEP = 0;
+[e = _DUTY_R_KEEP -> -> 0 `i `uc ]
+"683
+[; ;newmain.c: 683:                     DUTY_COUNT_R = 0;
+[e = _DUTY_COUNT_R -> -> 0 `i `uc ]
+"684
+[; ;newmain.c: 684:                     PWM_FLAG1 &= 0x0F;
+[e =& _PWM_FLAG1 -> -> 15 `i `uc ]
+"685
+[; ;newmain.c: 685:                     PWM_FLAG2 &= 0x0F;
+[e =& _PWM_FLAG2 -> -> 15 `i `uc ]
+"686
+[; ;newmain.c: 686:                     DEAD_TIME_FLAG &= 0x0F;
+[e =& _DEAD_TIME_FLAG -> -> 15 `i `uc ]
+"687
+[; ;newmain.c: 687:                     DEAD_TIME_R = 0xFF;
+[e = _DEAD_TIME_R -> -> 255 `i `uc ]
+"688
+[; ;newmain.c: 688:                     PWM_R_OVD_COUNT = 0;
+[e = _PWM_R_OVD_COUNT -> -> 0 `i `uc ]
+"689
+[; ;newmain.c: 689:                     PWM_OVD_FLAG &= 0x0F;
+[e =& _PWM_OVD_FLAG -> -> 15 `i `uc ]
+"690
+[; ;newmain.c: 690:                 }
+}
+[e :U 730 ]
+[e :U 729 ]
+[e :U 727 ]
+[e :U 719 ]
+[e :U 711 ]
+[e :U 701 ]
+[e :U 691 ]
+[e :U 681 ]
+"691
+[; ;newmain.c: 691:             }
+}
+[e $U 731  ]
+"692
+[; ;newmain.c: 692:             else{
+[e :U 671 ]
+{
+"693
+[; ;newmain.c: 693:                 if(I2C_ORDER == 'A'){
+[e $ ! == -> _I2C_ORDER `ui -> 65 `ui 732  ]
+{
+"694
+[; ;newmain.c: 694:                     if(PWM_FLAG1 & 0x01){
+[e $ ! != & -> _PWM_FLAG1 `i -> 1 `i -> 0 `i 733  ]
+{
+"695
+[; ;newmain.c: 695:                         DUTY_L_KEEP = I2C_BUFF;
+[e = _DUTY_L_KEEP _I2C_BUFF ]
+"696
+[; ;newmain.c: 696:                     }
+}
+[e $U 734  ]
+"697
+[; ;newmain.c: 697:                     else{
+[e :U 733 ]
+{
+"698
+[; ;newmain.c: 698:                         DUTY_L_TARGET = I2C_BUFF;
+[e = _DUTY_L_TARGET _I2C_BUFF ]
+"699
+[; ;newmain.c: 699:                         if(PWM_OUTPUT_FLAG & 0x01){
+[e $ ! != & -> _PWM_OUTPUT_FLAG `i -> 1 `i -> 0 `i 735  ]
+{
+"700
+[; ;newmain.c: 700:                             if(PWM3DCH_BUFF < I2C_BUFF){
+[e $ ! < -> _PWM3DCH_BUFF `i -> _I2C_BUFF `i 736  ]
+{
+"701
+[; ;newmain.c: 701:                                 goto GO_MOTOR_1_DUTY_HI;
+[e $U 737  ]
+"702
+[; ;newmain.c: 702:                             }
+}
+[e $U 738  ]
+"703
+[; ;newmain.c: 703:                             else{
+[e :U 736 ]
+{
+"704
+[; ;newmain.c: 704:                                 goto GO_MOTOR_1_DUTY_LO;
+[e $U 739  ]
+"705
+[; ;newmain.c: 705:                             }
+}
+[e :U 738 ]
+"706
+[; ;newmain.c: 706:                         }
+}
+[e $U 740  ]
+"707
+[; ;newmain.c: 707:                         else if(PWM_OUTPUT_FLAG & 0x02){
+[e :U 735 ]
+[e $ ! != & -> _PWM_OUTPUT_FLAG `i -> 2 `i -> 0 `i 741  ]
+{
+"708
+[; ;newmain.c: 708:                             if(PWM4DCH_BUFF < I2C_BUFF){
+[e $ ! < -> _PWM4DCH_BUFF `i -> _I2C_BUFF `i 742  ]
+{
+"709
+[; ;newmain.c: 709: GO_MOTOR_1_DUTY_HI:
+[e :U 737 ]
+"710
+[; ;newmain.c: 710:                                 PWM_FLAG1 |= 0x08;
+[e =| _PWM_FLAG1 -> -> 8 `i `uc ]
+"711
+[; ;newmain.c: 711:                                 PWM_FLAG1 &= 0xF8;
+[e =& _PWM_FLAG1 -> -> 248 `i `uc ]
+"712
+[; ;newmain.c: 712:                                 DUTY_COUNT_L = 0xFF;
+[e = _DUTY_COUNT_L -> -> 255 `i `uc ]
+"713
+[; ;newmain.c: 713:                             }
+}
+[e $U 743  ]
+"714
+[; ;newmain.c: 714:                             else{
+[e :U 742 ]
+{
+"715
+[; ;newmain.c: 715: GO_MOTOR_1_DUTY_LO:
+[e :U 739 ]
+"716
+[; ;newmain.c: 716:                                 PWM_FLAG1 &= 0xF4;
+[e =& _PWM_FLAG1 -> -> 244 `i `uc ]
+"717
+[; ;newmain.c: 717:                                 DUTY_COUNT_L = 0xFF;
+[e = _DUTY_COUNT_L -> -> 255 `i `uc ]
+"718
+[; ;newmain.c: 718:                                 if(I2C_BUFF == 0){
+[e $ ! == -> _I2C_BUFF `i -> 0 `i 744  ]
+{
+"719
+[; ;newmain.c: 719:                                     PWM_FLAG1 |= 0x06;
+[e =| _PWM_FLAG1 -> -> 6 `i `uc ]
+"720
+[; ;newmain.c: 720:                                     PWM_L_OVD_COUNT = 0;
+[e = _PWM_L_OVD_COUNT -> -> 0 `i `uc ]
+"721
+[; ;newmain.c: 721:                                     PWM_OVD_FLAG &= 0xF0;
+[e =& _PWM_OVD_FLAG -> -> 240 `i `uc ]
+"722
+[; ;newmain.c: 722:                                 }
+}
+[e $U 745  ]
+"723
+[; ;newmain.c: 723:                                 else{
+[e :U 744 ]
+{
+"724
+[; ;newmain.c: 724:                                     PWM_FLAG1 |= 0x04;
+[e =| _PWM_FLAG1 -> -> 4 `i `uc ]
+"725
+[; ;newmain.c: 725:                                 }
+}
+[e :U 745 ]
+"726
+[; ;newmain.c: 726:                             }
+}
+[e :U 743 ]
+"727
+[; ;newmain.c: 727:                         }
+}
+[e :U 741 ]
+[e :U 740 ]
+"728
+[; ;newmain.c: 728:                     }
+}
+[e :U 734 ]
+"729
+[; ;newmain.c: 729:                 }
+}
+[e $U 746  ]
+"730
+[; ;newmain.c: 730:                 else if(I2C_ORDER == 'D'){
+[e :U 732 ]
+[e $ ! == -> _I2C_ORDER `ui -> 68 `ui 747  ]
+{
+"731
+[; ;newmain.c: 731:                     if(PWM_FLAG1 & 0x10){
+[e $ ! != & -> _PWM_FLAG1 `i -> 16 `i -> 0 `i 748  ]
+{
+"732
+[; ;newmain.c: 732:                         DUTY_R_KEEP = I2C_BUFF;
+[e = _DUTY_R_KEEP _I2C_BUFF ]
+"733
+[; ;newmain.c: 733:                     }
+}
+[e $U 749  ]
+"734
+[; ;newmain.c: 734:                     else{
+[e :U 748 ]
+{
+"735
+[; ;newmain.c: 735:                         DUTY_R_TARGET = I2C_BUFF;
+[e = _DUTY_R_TARGET _I2C_BUFF ]
+"736
+[; ;newmain.c: 736:                         if(PWM_OUTPUT_FLAG & 0x10){
+[e $ ! != & -> _PWM_OUTPUT_FLAG `i -> 16 `i -> 0 `i 750  ]
+{
+"737
+[; ;newmain.c: 737:                             if(PWM5DCH_BUFF < I2C_BUFF){
+[e $ ! < -> _PWM5DCH_BUFF `i -> _I2C_BUFF `i 751  ]
+{
+"738
+[; ;newmain.c: 738:                                 goto GO_MOTOR_2_DUTY_HI;
+[e $U 752  ]
+"739
+[; ;newmain.c: 739:                             }
+}
+[e $U 753  ]
+"740
+[; ;newmain.c: 740:                             else{
+[e :U 751 ]
+{
+"741
+[; ;newmain.c: 741:                                 goto GO_MOTOR_2_DUTY_LO;
+[e $U 754  ]
+"742
+[; ;newmain.c: 742:                             }
+}
+[e :U 753 ]
+"743
+[; ;newmain.c: 743:                         }
+}
+[e $U 755  ]
+"744
+[; ;newmain.c: 744:                         else if(PWM_OUTPUT_FLAG & 0x20){
+[e :U 750 ]
+[e $ ! != & -> _PWM_OUTPUT_FLAG `i -> 32 `i -> 0 `i 756  ]
+{
+"745
+[; ;newmain.c: 745:                             if(PWM6DCH_BUFF < I2C_BUFF){
+[e $ ! < -> _PWM6DCH_BUFF `i -> _I2C_BUFF `i 757  ]
+{
+"746
+[; ;newmain.c: 746: GO_MOTOR_2_DUTY_HI:
+[e :U 752 ]
+"747
+[; ;newmain.c: 747:                                 PWM_FLAG1 |= 0x80;
+[e =| _PWM_FLAG1 -> -> 128 `i `uc ]
+"748
+[; ;newmain.c: 748:                                 PWM_FLAG1 &= 0x8F;
+[e =& _PWM_FLAG1 -> -> 143 `i `uc ]
+"749
+[; ;newmain.c: 749:                                 DUTY_COUNT_R = 0xFF;
+[e = _DUTY_COUNT_R -> -> 255 `i `uc ]
+"750
+[; ;newmain.c: 750:                             }
+}
+[e $U 758  ]
+"751
+[; ;newmain.c: 751:                             else{
+[e :U 757 ]
+{
+"752
+[; ;newmain.c: 752: GO_MOTOR_2_DUTY_LO:
+[e :U 754 ]
+"753
+[; ;newmain.c: 753:                                 PWM_FLAG1 &= 0x4F;
+[e =& _PWM_FLAG1 -> -> 79 `i `uc ]
+"754
+[; ;newmain.c: 754:                                 DUTY_COUNT_R = 0xFF;
+[e = _DUTY_COUNT_R -> -> 255 `i `uc ]
+"755
+[; ;newmain.c: 755:                                 if(I2C_BUFF == 0){
+[e $ ! == -> _I2C_BUFF `i -> 0 `i 759  ]
+{
+"756
+[; ;newmain.c: 756:                                     PWM_FLAG1 |= 0x60;
+[e =| _PWM_FLAG1 -> -> 96 `i `uc ]
+"757
+[; ;newmain.c: 757:                                     PWM_R_OVD_COUNT = 0;
+[e = _PWM_R_OVD_COUNT -> -> 0 `i `uc ]
+"758
+[; ;newmain.c: 758:                                     PWM_OVD_FLAG &= 0x0F;
+[e =& _PWM_OVD_FLAG -> -> 15 `i `uc ]
+"759
+[; ;newmain.c: 759:                                 }
+}
+[e $U 760  ]
+"760
+[; ;newmain.c: 760:                                 else{
+[e :U 759 ]
+{
+"761
+[; ;newmain.c: 761:                                     PWM_FLAG1 |= 0x40;
+[e =| _PWM_FLAG1 -> -> 64 `i `uc ]
+"762
+[; ;newmain.c: 762:                                 }
+}
+[e :U 760 ]
+"763
+[; ;newmain.c: 763:                             }
+}
+[e :U 758 ]
+"764
+[; ;newmain.c: 764:                         }
+}
+[e :U 756 ]
+[e :U 755 ]
+"765
+[; ;newmain.c: 765:                     }
+}
+[e :U 749 ]
+"766
+[; ;newmain.c: 766:                 }
+}
+[e $U 761  ]
+"767
+[; ;newmain.c: 767:                 else if(I2C_ORDER == 'X'){
+[e :U 747 ]
+[e $ ! == -> _I2C_ORDER `ui -> 88 `ui 762  ]
+{
+"768
+[; ;newmain.c: 768:                     PWM_OVD_DUTY = I2C_BUFF;
+[e = _PWM_OVD_DUTY _I2C_BUFF ]
+"769
+[; ;newmain.c: 769:                 }
+}
+[e :U 762 ]
+[e :U 761 ]
+[e :U 746 ]
+"770
+[; ;newmain.c: 770:             }
+}
+[e :U 731 ]
+"771
+[; ;newmain.c: 771:             I2C_COUNT ++;
+[e ++ _I2C_COUNT -> -> 1 `i `uc ]
+"772
+[; ;newmain.c: 772:         }
+}
+[e :U 670 ]
+[e :U 669 ]
+"773
+[; ;newmain.c: 773:         CKP = 1;
+[e = _CKP -> -> 1 `i `b ]
+"774
+[; ;newmain.c: 774:         SSP1IF = 0;
+[e = _SSP1IF -> -> 0 `i `b ]
+"775
+[; ;newmain.c: 775:     }
+}
+[e $U 763  ]
+"776
+[; ;newmain.c: 776:     else if(TMR2IF){
+[e :U 665 ]
+[e $ ! _TMR2IF 764  ]
+{
+"779
+[; ;newmain.c: 779:         if(DEAD_TIME_L & 0x80){
+[e $ ! != & -> _DEAD_TIME_L `i -> 128 `i -> 0 `i 765  ]
+{
+"780
+[; ;newmain.c: 780:             DEAD_TIME_L ++;
+[e ++ _DEAD_TIME_L -> -> 1 `i `uc ]
+"781
+[; ;newmain.c: 781:         }
+}
+[e $U 766  ]
+"782
+[; ;newmain.c: 782:         else if(DEAD_TIME_FLAG & 0x08){
+[e :U 765 ]
+[e $ ! != & -> _DEAD_TIME_FLAG `i -> 8 `i -> 0 `i 767  ]
+{
+"783
+[; ;newmain.c: 783:             if(PWM_FLAG1 & 0x01){
+[e $ ! != & -> _PWM_FLAG1 `i -> 1 `i -> 0 `i 768  ]
+{
+"784
+[; ;newmain.c: 784:                 DUTY_L_TARGET = DUTY_L_KEEP;
+[e = _DUTY_L_TARGET _DUTY_L_KEEP ]
+"785
+[; ;newmain.c: 785:                 DUTY_L_KEEP = 0;
+[e = _DUTY_L_KEEP -> -> 0 `i `uc ]
+"786
+[; ;newmain.c: 786:                 PWM_FLAG1 &= 0xFE;
+[e =& _PWM_FLAG1 -> -> 254 `i `uc ]
+"787
+[; ;newmain.c: 787:                 PWM_FLAG1 |= 0x08;
+[e =| _PWM_FLAG1 -> -> 8 `i `uc ]
+"788
+[; ;newmain.c: 788:             }
+}
+[e :U 768 ]
+"790
+[; ;newmain.c: 790:             if(DEAD_TIME_FLAG & 0x02){
+[e $ ! != & -> _DEAD_TIME_FLAG `i -> 2 `i -> 0 `i 769  ]
+{
+"791
+[; ;newmain.c: 791:                 DEAD_TIME_FLAG &= 0xF4;
+[e =& _DEAD_TIME_FLAG -> -> 244 `i `uc ]
+"792
+[; ;newmain.c: 792:                 DEAD_TIME_FLAG |= 0x04;
+[e =| _DEAD_TIME_FLAG -> -> 4 `i `uc ]
+"793
+[; ;newmain.c: 793:                 RA0PPS = 0x00;
+[e = _RA0PPS -> -> 0 `i `uc ]
+"794
+[; ;newmain.c: 794:                 RA1PPS = 0x00;
+[e = _RA1PPS -> -> 0 `i `uc ]
+"795
+[; ;newmain.c: 795:                 PWM_OUTPUT_FLAG |= 0x04;
+[e =| _PWM_OUTPUT_FLAG -> -> 4 `i `uc ]
+"796
+[; ;newmain.c: 796:                 PWM_FLAG1 |= 0x01;
+[e =| _PWM_FLAG1 -> -> 1 `i `uc ]
+"797
+[; ;newmain.c: 797:             }
+}
+[e $U 770  ]
+"798
+[; ;newmain.c: 798:             else if(DEAD_TIME_FLAG & 0x01){
+[e :U 769 ]
+[e $ ! != & -> _DEAD_TIME_FLAG `i -> 1 `i -> 0 `i 771  ]
+{
+"799
+[; ;newmain.c: 799:                 PWM_OUTPUT_FLAG |= 0x02;
+[e =| _PWM_OUTPUT_FLAG -> -> 2 `i `uc ]
+"800
+[; ;newmain.c: 800:                 DEAD_TIME_FLAG &= 0xF0;
+[e =& _DEAD_TIME_FLAG -> -> 240 `i `uc ]
+"801
+[; ;newmain.c: 801:             }
+}
+[e $U 772  ]
+"802
+[; ;newmain.c: 802:             else{
+[e :U 771 ]
+{
+"803
+[; ;newmain.c: 803:                 PWM_OUTPUT_FLAG |= 0x01;
+[e =| _PWM_OUTPUT_FLAG -> -> 1 `i `uc ]
+"804
+[; ;newmain.c: 804:                 DEAD_TIME_FLAG &= 0xF0;
+[e =& _DEAD_TIME_FLAG -> -> 240 `i `uc ]
+"805
+[; ;newmain.c: 805:             }
+}
+[e :U 772 ]
+[e :U 770 ]
+"807
+[; ;newmain.c: 807:             DEAD_TIME_L = 0xFF;
+[e = _DEAD_TIME_L -> -> 255 `i `uc ]
+"808
+[; ;newmain.c: 808:         }
+}
+[e :U 767 ]
+[e :U 766 ]
+"810
+[; ;newmain.c: 810:         if((DEAD_TIME_FLAG & 0x04) == 0){
+[e $ ! == & -> _DEAD_TIME_FLAG `i -> 4 `i -> 0 `i 773  ]
+{
+"812
+[; ;newmain.c: 812:             if(DUTY_COUNT_L & 0x80){
+[e $ ! != & -> _DUTY_COUNT_L `i -> 128 `i -> 0 `i 774  ]
+{
+"813
+[; ;newmain.c: 813:                 if(PWM_OUTPUT_FLAG & 0x01){
+[e $ ! != & -> _PWM_OUTPUT_FLAG `i -> 1 `i -> 0 `i 775  ]
+{
+"814
+[; ;newmain.c: 814:                     DUTY_L_NOW = PWM3DCH_BUFF;
+[e = _DUTY_L_NOW -> _PWM3DCH_BUFF `s ]
+"815
+[; ;newmain.c: 815:                     if(PWM_FLAG1 & 0x08){
+[e $ ! != & -> _PWM_FLAG1 `i -> 8 `i -> 0 `i 776  ]
+{
+"816
+[; ;newmain.c: 816:                         if(PWM3DCH_BUFF < DUTY_L_TARGET){
+[e $ ! < -> _PWM3DCH_BUFF `i -> _DUTY_L_TARGET `i 777  ]
+{
+"817
+[; ;newmain.c: 817:                             DUTY_L_NOW += 5;
+[e =+ _DUTY_L_NOW -> -> 5 `i `s ]
+"818
+[; ;newmain.c: 818:                         }
+}
+[e :U 777 ]
+"819
+[; ;newmain.c: 819:                         if(DUTY_L_NOW >= DUTY_L_TARGET){
+[e $ ! >= -> _DUTY_L_NOW `i -> _DUTY_L_TARGET `i 778  ]
+{
+"820
+[; ;newmain.c: 820:                             PWM3DCH_BUFF = DUTY_L_TARGET;
+[e = _PWM3DCH_BUFF _DUTY_L_TARGET ]
+"821
+[; ;newmain.c: 821:                             PWM_FLAG1 &= 0xF7;
+[e =& _PWM_FLAG1 -> -> 247 `i `uc ]
+"822
+[; ;newmain.c: 822:                         }
+}
+[e $U 779  ]
+"823
+[; ;newmain.c: 823:                         else{
+[e :U 778 ]
+{
+"824
+[; ;newmain.c: 824:                             PWM3DCH_BUFF = (char)DUTY_L_NOW;
+[e = _PWM3DCH_BUFF -> _DUTY_L_NOW `uc ]
+"825
+[; ;newmain.c: 825:                             DUTY_COUNT_L = 0xFF;
+[e = _DUTY_COUNT_L -> -> 255 `i `uc ]
+"826
+[; ;newmain.c: 826:                         }
+}
+[e :U 779 ]
+"827
+[; ;newmain.c: 827:                     }
+}
+[e $U 780  ]
+"828
+[; ;newmain.c: 828:                     else if(PWM_FLAG1 & 0x04){
+[e :U 776 ]
+[e $ ! != & -> _PWM_FLAG1 `i -> 4 `i -> 0 `i 781  ]
+{
+"829
+[; ;newmain.c: 829:                         if(PWM3DCH_BUFF > DUTY_L_TARGET){
+[e $ ! > -> _PWM3DCH_BUFF `i -> _DUTY_L_TARGET `i 782  ]
+{
+"830
+[; ;newmain.c: 830:                             DUTY_L_NOW -= 5;
+[e =- _DUTY_L_NOW -> -> 5 `i `s ]
+"831
+[; ;newmain.c: 831:                         }
+}
+[e :U 782 ]
+"832
+[; ;newmain.c: 832:                         if(DUTY_L_NOW <= DUTY_L_TARGET){
+[e $ ! <= -> _DUTY_L_NOW `i -> _DUTY_L_TARGET `i 783  ]
+{
+"833
+[; ;newmain.c: 833:                             PWM3DCH_BUFF = DUTY_L_TARGET;
+[e = _PWM3DCH_BUFF _DUTY_L_TARGET ]
+"834
+[; ;newmain.c: 834:                             PWM_FLAG1 &= 0xFB;
+[e =& _PWM_FLAG1 -> -> 251 `i `uc ]
+"836
+[; ;newmain.c: 836:                             goto GO_MOTOR_1_STOP;
+[e $U 784  ]
+"837
+[; ;newmain.c: 837:                         }
+}
+[e $U 785  ]
+"838
+[; ;newmain.c: 838:                         else{
+[e :U 783 ]
+{
+"839
+[; ;newmain.c: 839:                             PWM3DCH_BUFF = (char)DUTY_L_NOW;
+[e = _PWM3DCH_BUFF -> _DUTY_L_NOW `uc ]
+"840
+[; ;newmain.c: 840:                             DUTY_COUNT_L = 0xFF;
+[e = _DUTY_COUNT_L -> -> 255 `i `uc ]
+"841
+[; ;newmain.c: 841:                         }
+}
+[e :U 785 ]
+"842
+[; ;newmain.c: 842:                     }
+}
+[e :U 781 ]
+[e :U 780 ]
+"843
+[; ;newmain.c: 843:                 }
+}
+[e $U 786  ]
+"844
+[; ;newmain.c: 844:                 else{
+[e :U 775 ]
+{
+"845
+[; ;newmain.c: 845:                     DUTY_L_NOW = PWM4DCH_BUFF;
+[e = _DUTY_L_NOW -> _PWM4DCH_BUFF `s ]
+"846
+[; ;newmain.c: 846:                     if(PWM_FLAG1 & 0x08){
+[e $ ! != & -> _PWM_FLAG1 `i -> 8 `i -> 0 `i 787  ]
+{
+"847
+[; ;newmain.c: 847:                         if(PWM4DCH_BUFF < DUTY_L_TARGET){
+[e $ ! < -> _PWM4DCH_BUFF `i -> _DUTY_L_TARGET `i 788  ]
+{
+"848
+[; ;newmain.c: 848:                             DUTY_L_NOW += 5;
+[e =+ _DUTY_L_NOW -> -> 5 `i `s ]
+"849
+[; ;newmain.c: 849:                         }
+}
+[e :U 788 ]
+"850
+[; ;newmain.c: 850:                         if(DUTY_L_NOW >= DUTY_L_TARGET){
+[e $ ! >= -> _DUTY_L_NOW `i -> _DUTY_L_TARGET `i 789  ]
+{
+"851
+[; ;newmain.c: 851:                             PWM4DCH_BUFF = DUTY_L_TARGET;
+[e = _PWM4DCH_BUFF _DUTY_L_TARGET ]
+"852
+[; ;newmain.c: 852:                             PWM_FLAG1 &= 0xF7;
+[e =& _PWM_FLAG1 -> -> 247 `i `uc ]
+"853
+[; ;newmain.c: 853:                         }
+}
+[e $U 790  ]
+"854
+[; ;newmain.c: 854:                         else{
+[e :U 789 ]
+{
+"855
+[; ;newmain.c: 855:                             PWM4DCH_BUFF = (char)DUTY_L_NOW;
+[e = _PWM4DCH_BUFF -> _DUTY_L_NOW `uc ]
+"856
+[; ;newmain.c: 856:                             DUTY_COUNT_L = 0xFF;
+[e = _DUTY_COUNT_L -> -> 255 `i `uc ]
+"857
+[; ;newmain.c: 857:                         }
+}
+[e :U 790 ]
+"858
+[; ;newmain.c: 858:                     }
+}
+[e $U 791  ]
+"859
+[; ;newmain.c: 859:                     else if(PWM_FLAG1 & 0x04){
+[e :U 787 ]
+[e $ ! != & -> _PWM_FLAG1 `i -> 4 `i -> 0 `i 792  ]
+{
+"860
+[; ;newmain.c: 860:                         if(PWM4DCH_BUFF > DUTY_L_TARGET){
+[e $ ! > -> _PWM4DCH_BUFF `i -> _DUTY_L_TARGET `i 793  ]
+{
+"861
+[; ;newmain.c: 861:                             DUTY_L_NOW -= 5;
+[e =- _DUTY_L_NOW -> -> 5 `i `s ]
+"862
+[; ;newmain.c: 862:                         }
+}
+[e :U 793 ]
+"863
+[; ;newmain.c: 863:                         if(DUTY_L_NOW <= DUTY_L_TARGET){
+[e $ ! <= -> _DUTY_L_NOW `i -> _DUTY_L_TARGET `i 794  ]
+{
+"864
+[; ;newmain.c: 864:                             PWM4DCH_BUFF = DUTY_L_TARGET;
+[e = _PWM4DCH_BUFF _DUTY_L_TARGET ]
+"865
+[; ;newmain.c: 865:                             PWM_FLAG1 &= 0xFB;
+[e =& _PWM_FLAG1 -> -> 251 `i `uc ]
+"866
+[; ;newmain.c: 866: GO_MOTOR_1_STOP:
+[e :U 784 ]
+"867
+[; ;newmain.c: 867:                             if(PWM_FLAG1 & 0x02){
+[e $ ! != & -> _PWM_FLAG1 `i -> 2 `i -> 0 `i 795  ]
+{
+"868
+[; ;newmain.c: 868:                                 PWM_OUTPUT_FLAG &= 0xFC;
+[e =& _PWM_OUTPUT_FLAG -> -> 252 `i `uc ]
+"869
+[; ;newmain.c: 869:                                 DEAD_TIME_L = 0xFF;
+[e = _DEAD_TIME_L -> -> 255 `i `uc ]
+"870
+[; ;newmain.c: 870:                                 PWM_FLAG1 &= 0xFD;
+[e =& _PWM_FLAG1 -> -> 253 `i `uc ]
+"871
+[; ;newmain.c: 871:                                 if(PWM_FLAG1 & 0x01){
+[e $ ! != & -> _PWM_FLAG1 `i -> 1 `i -> 0 `i 796  ]
+{
+"872
+[; ;newmain.c: 872:                                     if(PWM_FLAG2 & 0x04){
+[e $ ! != & -> _PWM_FLAG2 `i -> 4 `i -> 0 `i 797  ]
+{
+"873
+[; ;newmain.c: 873:                                         DEAD_TIME_FLAG |= 0x0A;
+[e =| _DEAD_TIME_FLAG -> -> 10 `i `uc ]
+"874
+[; ;newmain.c: 874:                                         DEAD_TIME_FLAG &= 0xFA;
+[e =& _DEAD_TIME_FLAG -> -> 250 `i `uc ]
+"875
+[; ;newmain.c: 875:                                     }
+}
+[e $U 798  ]
+"876
+[; ;newmain.c: 876:                                     else{
+[e :U 797 ]
+{
+"877
+[; ;newmain.c: 877:                                         if(PWM_FLAG2 & 0x08){
+[e $ ! != & -> _PWM_FLAG2 `i -> 8 `i -> 0 `i 799  ]
+{
+"878
+[; ;newmain.c: 878:                                             DEAD_TIME_FLAG |= 0x0D;
+[e =| _DEAD_TIME_FLAG -> -> 13 `i `uc ]
+"879
+[; ;newmain.c: 879:                                             DEAD_TIME_FLAG &= 0xFD;
+[e =& _DEAD_TIME_FLAG -> -> 253 `i `uc ]
+"880
+[; ;newmain.c: 880:                                         }
+}
+[e $U 800  ]
+"881
+[; ;newmain.c: 881:                                         else{
+[e :U 799 ]
+{
+"882
+[; ;newmain.c: 882:                                             DEAD_TIME_FLAG |= 0x0C;
+[e =| _DEAD_TIME_FLAG -> -> 12 `i `uc ]
+"883
+[; ;newmain.c: 883:                                             DEAD_TIME_FLAG &= 0xFC;
+[e =& _DEAD_TIME_FLAG -> -> 252 `i `uc ]
+"884
+[; ;newmain.c: 884:                                         }
+}
+[e :U 800 ]
+"885
+[; ;newmain.c: 885:                                     }
+}
+[e :U 798 ]
+"886
+[; ;newmain.c: 886:                                 }
+}
+[e :U 796 ]
+"887
+[; ;newmain.c: 887:                             }
+}
+[e :U 795 ]
+"888
+[; ;newmain.c: 888:                         }
+}
+[e $U 801  ]
+"889
+[; ;newmain.c: 889:                         else{
+[e :U 794 ]
+{
+"890
+[; ;newmain.c: 890:                             PWM4DCH_BUFF = (char)DUTY_L_NOW;
+[e = _PWM4DCH_BUFF -> _DUTY_L_NOW `uc ]
+"891
+[; ;newmain.c: 891:                             DUTY_COUNT_L = 0xFF;
+[e = _DUTY_COUNT_L -> -> 255 `i `uc ]
+"892
+[; ;newmain.c: 892:                         }
+}
+[e :U 801 ]
+"893
+[; ;newmain.c: 893:                     }
+}
+[e :U 792 ]
+[e :U 791 ]
+"894
+[; ;newmain.c: 894:                 }
+}
+[e :U 786 ]
+"895
+[; ;newmain.c: 895:             }
+}
+[e $U 802  ]
+"896
+[; ;newmain.c: 896:             else{
+[e :U 774 ]
+{
+"897
+[; ;newmain.c: 897:                 DUTY_COUNT_L ++;
+[e ++ _DUTY_COUNT_L -> -> 1 `i `uc ]
+"898
+[; ;newmain.c: 898:             }
+}
+[e :U 802 ]
+"899
+[; ;newmain.c: 899:             if(PWM_OVD_FLAG & 0x01){
+[e $ ! != & -> _PWM_OVD_FLAG `i -> 1 `i -> 0 `i 803  ]
+{
+"900
+[; ;newmain.c: 900:                 if(PWM_FLAG1 & 0x01){
+[e $ ! != & -> _PWM_FLAG1 `i -> 1 `i -> 0 `i 804  ]
+{
+"902
+[; ;newmain.c: 902:                     PWM_OVD_FLAG &= 0xFD;
+[e =& _PWM_OVD_FLAG -> -> 253 `i `uc ]
+"903
+[; ;newmain.c: 903:                 }
+}
+[e $U 805  ]
+"904
+[; ;newmain.c: 904:                 else if(((PWM_OVD_FLAG & 0x02) == 0) && (PWM_FLAG1 & 0x08)){
+[e :U 804 ]
+[e $ ! && == & -> _PWM_OVD_FLAG `i -> 2 `i -> 0 `i != & -> _PWM_FLAG1 `i -> 8 `i -> 0 `i 806  ]
+{
+"905
+[; ;newmain.c: 905:                     PWM_OVD_FLAG |= 0x02;
+[e =| _PWM_OVD_FLAG -> -> 2 `i `uc ]
+"906
+[; ;newmain.c: 906:                 }
+}
+[e :U 806 ]
+[e :U 805 ]
+"907
+[; ;newmain.c: 907:                 if(PWM_OVD_FLAG & 0x02){
+[e $ ! != & -> _PWM_OVD_FLAG `i -> 2 `i -> 0 `i 807  ]
+{
+"908
+[; ;newmain.c: 908:                     if(PWM_L_OVD_COUNT){
+[e $ ! != -> _PWM_L_OVD_COUNT `i -> 0 `i 808  ]
+{
+"909
+[; ;newmain.c: 909:                         if(PWM_OUTPUT_FLAG & 0x01){
+[e $ ! != & -> _PWM_OUTPUT_FLAG `i -> 1 `i -> 0 `i 809  ]
+{
+"910
+[; ;newmain.c: 910:                             CCPR1H = PWM_OVD_DUTY;
+[e = _CCPR1H -> _PWM_OVD_DUTY `uc ]
+"911
+[; ;newmain.c: 911:                             CCPR2H = PWM4DCH_BUFF;
+[e = _CCPR2H -> _PWM4DCH_BUFF `uc ]
+"912
+[; ;newmain.c: 912:                         }
+}
+[e $U 810  ]
+"913
+[; ;newmain.c: 913:                         else if(PWM_OUTPUT_FLAG & 0x02){
+[e :U 809 ]
+[e $ ! != & -> _PWM_OUTPUT_FLAG `i -> 2 `i -> 0 `i 811  ]
+{
+"914
+[; ;newmain.c: 914:                             CCPR2H = PWM_OVD_DUTY;
+[e = _CCPR2H -> _PWM_OVD_DUTY `uc ]
+"915
+[; ;newmain.c: 915:                             CCPR1H = PWM3DCH_BUFF;
+[e = _CCPR1H -> _PWM3DCH_BUFF `uc ]
+"916
+[; ;newmain.c: 916:                         }
+}
+[e :U 811 ]
+[e :U 810 ]
+"917
+[; ;newmain.c: 917:                         PWM_L_OVD_COUNT --;
+[e -- _PWM_L_OVD_COUNT -> -> 1 `i `uc ]
+"918
+[; ;newmain.c: 918:                     }
+}
+[e $U 812  ]
+"919
+[; ;newmain.c: 919:                     else{
+[e :U 808 ]
+{
+"920
+[; ;newmain.c: 920:                         PWM_OVD_FLAG &= 0xFC;
+[e =& _PWM_OVD_FLAG -> -> 252 `i `uc ]
+"921
+[; ;newmain.c: 921:                         CCPR1H = PWM3DCH_BUFF;
+[e = _CCPR1H -> _PWM3DCH_BUFF `uc ]
+"922
+[; ;newmain.c: 922:                         CCPR2H = PWM4DCH_BUFF;
+[e = _CCPR2H -> _PWM4DCH_BUFF `uc ]
+"923
+[; ;newmain.c: 923:                     }
+}
+[e :U 812 ]
+"924
+[; ;newmain.c: 924:                 }
+}
+[e $U 813  ]
+"925
+[; ;newmain.c: 925:                 else{
+[e :U 807 ]
+{
+"926
+[; ;newmain.c: 926:                     CCPR1H = PWM3DCH_BUFF;
+[e = _CCPR1H -> _PWM3DCH_BUFF `uc ]
+"927
+[; ;newmain.c: 927:                     CCPR2H = PWM4DCH_BUFF;
+[e = _CCPR2H -> _PWM4DCH_BUFF `uc ]
+"928
+[; ;newmain.c: 928:                 }
+}
+[e :U 813 ]
+"929
+[; ;newmain.c: 929:             }
+}
+[e $U 814  ]
+"930
+[; ;newmain.c: 930:             else{
+[e :U 803 ]
+{
+"931
+[; ;newmain.c: 931:                 CCPR1H = PWM3DCH_BUFF;
+[e = _CCPR1H -> _PWM3DCH_BUFF `uc ]
+"932
+[; ;newmain.c: 932:                 CCPR2H = PWM4DCH_BUFF;
+[e = _CCPR2H -> _PWM4DCH_BUFF `uc ]
+"933
+[; ;newmain.c: 933:             }
+}
+[e :U 814 ]
+"934
+[; ;newmain.c: 934:         }
+}
+[e :U 773 ]
+"937
+[; ;newmain.c: 937:         if(DEAD_TIME_R & 0x80){
+[e $ ! != & -> _DEAD_TIME_R `i -> 128 `i -> 0 `i 815  ]
+{
+"938
+[; ;newmain.c: 938:             DEAD_TIME_R ++;
+[e ++ _DEAD_TIME_R -> -> 1 `i `uc ]
+"939
+[; ;newmain.c: 939:         }
+}
+[e $U 816  ]
+"940
+[; ;newmain.c: 940:         else if(DEAD_TIME_FLAG & 0x80){
+[e :U 815 ]
+[e $ ! != & -> _DEAD_TIME_FLAG `i -> 128 `i -> 0 `i 817  ]
+{
+"941
+[; ;newmain.c: 941:             if(PWM_FLAG1 & 0x10){
+[e $ ! != & -> _PWM_FLAG1 `i -> 16 `i -> 0 `i 818  ]
+{
+"942
+[; ;newmain.c: 942:                 DUTY_R_TARGET = DUTY_R_KEEP;
+[e = _DUTY_R_TARGET _DUTY_R_KEEP ]
+"943
+[; ;newmain.c: 943:                 DUTY_R_KEEP = 0;
+[e = _DUTY_R_KEEP -> -> 0 `i `uc ]
+"944
+[; ;newmain.c: 944:                 PWM_FLAG1 &= 0xEF;
+[e =& _PWM_FLAG1 -> -> 239 `i `uc ]
+"945
+[; ;newmain.c: 945:                 PWM_FLAG1 |= 0x80;
+[e =| _PWM_FLAG1 -> -> 128 `i `uc ]
+"946
+[; ;newmain.c: 946:             }
+}
+[e :U 818 ]
+"948
+[; ;newmain.c: 948:             if(DEAD_TIME_FLAG & 0x20){
+[e $ ! != & -> _DEAD_TIME_FLAG `i -> 32 `i -> 0 `i 819  ]
+{
+"949
+[; ;newmain.c: 949:                 DEAD_TIME_FLAG &= 0x4F;
+[e =& _DEAD_TIME_FLAG -> -> 79 `i `uc ]
+"950
+[; ;newmain.c: 950:                 DEAD_TIME_FLAG |= 0x40;
+[e =| _DEAD_TIME_FLAG -> -> 64 `i `uc ]
+"951
+[; ;newmain.c: 951:                 RA4PPS = 0x00;
+[e = _RA4PPS -> -> 0 `i `uc ]
+"952
+[; ;newmain.c: 952:                 RA5PPS = 0x00;
+[e = _RA5PPS -> -> 0 `i `uc ]
+"953
+[; ;newmain.c: 953:                 PWM_OUTPUT_FLAG |= 0x40;
+[e =| _PWM_OUTPUT_FLAG -> -> 64 `i `uc ]
+"954
+[; ;newmain.c: 954:                 PWM_FLAG1 |= 0x10;
+[e =| _PWM_FLAG1 -> -> 16 `i `uc ]
+"955
+[; ;newmain.c: 955:             }
+}
+[e $U 820  ]
+"956
+[; ;newmain.c: 956:             else if(DEAD_TIME_FLAG & 0x10){
+[e :U 819 ]
+[e $ ! != & -> _DEAD_TIME_FLAG `i -> 16 `i -> 0 `i 821  ]
+{
+"957
+[; ;newmain.c: 957:                 PWM_OUTPUT_FLAG |= 0x20;
+[e =| _PWM_OUTPUT_FLAG -> -> 32 `i `uc ]
+"958
+[; ;newmain.c: 958:                 DEAD_TIME_FLAG &= 0x0F;
+[e =& _DEAD_TIME_FLAG -> -> 15 `i `uc ]
+"959
+[; ;newmain.c: 959:             }
+}
+[e $U 822  ]
+"960
+[; ;newmain.c: 960:             else{
+[e :U 821 ]
+{
+"961
+[; ;newmain.c: 961:                 PWM_OUTPUT_FLAG |= 0x10;
+[e =| _PWM_OUTPUT_FLAG -> -> 16 `i `uc ]
+"962
+[; ;newmain.c: 962:                 DEAD_TIME_FLAG &= 0x0F;
+[e =& _DEAD_TIME_FLAG -> -> 15 `i `uc ]
+"963
+[; ;newmain.c: 963:             }
+}
+[e :U 822 ]
+[e :U 820 ]
+"964
+[; ;newmain.c: 964:             DEAD_TIME_R = 0xFF;
+[e = _DEAD_TIME_R -> -> 255 `i `uc ]
+"965
+[; ;newmain.c: 965:         }
+}
+[e :U 817 ]
+[e :U 816 ]
+"967
+[; ;newmain.c: 967:         if((DEAD_TIME_FLAG & 0x40) == 0){
+[e $ ! == & -> _DEAD_TIME_FLAG `i -> 64 `i -> 0 `i 823  ]
+{
+"969
+[; ;newmain.c: 969:             if(DUTY_COUNT_R & 0x80){
+[e $ ! != & -> _DUTY_COUNT_R `i -> 128 `i -> 0 `i 824  ]
+{
+"970
+[; ;newmain.c: 970:                 if(PWM_OUTPUT_FLAG & 0x10){
+[e $ ! != & -> _PWM_OUTPUT_FLAG `i -> 16 `i -> 0 `i 825  ]
+{
+"971
+[; ;newmain.c: 971:                     DUTY_R_NOW = PWM5DCH_BUFF;
+[e = _DUTY_R_NOW -> _PWM5DCH_BUFF `s ]
+"972
+[; ;newmain.c: 972:                     if(PWM_FLAG1 & 0x80){
+[e $ ! != & -> _PWM_FLAG1 `i -> 128 `i -> 0 `i 826  ]
+{
+"973
+[; ;newmain.c: 973:                         if(PWM5DCH_BUFF < DUTY_R_TARGET){
+[e $ ! < -> _PWM5DCH_BUFF `i -> _DUTY_R_TARGET `i 827  ]
+{
+"974
+[; ;newmain.c: 974:                             DUTY_R_NOW += 5;
+[e =+ _DUTY_R_NOW -> -> 5 `i `s ]
+"975
+[; ;newmain.c: 975:                         }
+}
+[e :U 827 ]
+"976
+[; ;newmain.c: 976:                         if(DUTY_R_NOW >= DUTY_R_TARGET){
+[e $ ! >= -> _DUTY_R_NOW `i -> _DUTY_R_TARGET `i 828  ]
+{
+"977
+[; ;newmain.c: 977:                             PWM5DCH_BUFF = DUTY_R_TARGET;
+[e = _PWM5DCH_BUFF _DUTY_R_TARGET ]
+"978
+[; ;newmain.c: 978:                             PWM_FLAG1 &= 0x7F;
+[e =& _PWM_FLAG1 -> -> 127 `i `uc ]
+"979
+[; ;newmain.c: 979:                         }
+}
+[e $U 829  ]
+"980
+[; ;newmain.c: 980:                         else{
+[e :U 828 ]
+{
+"981
+[; ;newmain.c: 981:                             PWM5DCH_BUFF = (char)DUTY_R_NOW;
+[e = _PWM5DCH_BUFF -> _DUTY_R_NOW `uc ]
+"982
+[; ;newmain.c: 982:                             DUTY_COUNT_R = 0xFF;
+[e = _DUTY_COUNT_R -> -> 255 `i `uc ]
+"983
+[; ;newmain.c: 983:                         }
+}
+[e :U 829 ]
+"984
+[; ;newmain.c: 984:                     }
+}
+[e $U 830  ]
+"985
+[; ;newmain.c: 985:                     else if(PWM_FLAG1 & 0x40){
+[e :U 826 ]
+[e $ ! != & -> _PWM_FLAG1 `i -> 64 `i -> 0 `i 831  ]
+{
+"986
+[; ;newmain.c: 986:                         if(PWM5DCH_BUFF > DUTY_R_TARGET){
+[e $ ! > -> _PWM5DCH_BUFF `i -> _DUTY_R_TARGET `i 832  ]
+{
+"987
+[; ;newmain.c: 987:                             DUTY_R_NOW -= 5;
+[e =- _DUTY_R_NOW -> -> 5 `i `s ]
+"988
+[; ;newmain.c: 988:                         }
+}
+[e :U 832 ]
+"989
+[; ;newmain.c: 989:                         if(DUTY_R_NOW <= DUTY_R_TARGET){
+[e $ ! <= -> _DUTY_R_NOW `i -> _DUTY_R_TARGET `i 833  ]
+{
+"990
+[; ;newmain.c: 990:                             PWM5DCH_BUFF = DUTY_R_TARGET;
+[e = _PWM5DCH_BUFF _DUTY_R_TARGET ]
+"991
+[; ;newmain.c: 991:                             PWM_FLAG1 &= 0xBF;
+[e =& _PWM_FLAG1 -> -> 191 `i `uc ]
+"993
+[; ;newmain.c: 993:                             goto GO_MOTOR_2_STOP;
+[e $U 834  ]
+"994
+[; ;newmain.c: 994:                         }
+}
+[e $U 835  ]
+"995
+[; ;newmain.c: 995:                         else{
+[e :U 833 ]
+{
+"996
+[; ;newmain.c: 996:                             PWM5DCH_BUFF = (char)DUTY_R_NOW;
+[e = _PWM5DCH_BUFF -> _DUTY_R_NOW `uc ]
+"997
+[; ;newmain.c: 997:                             DUTY_COUNT_R = 0xFF;
+[e = _DUTY_COUNT_R -> -> 255 `i `uc ]
+"998
+[; ;newmain.c: 998:                         }
+}
+[e :U 835 ]
+"999
+[; ;newmain.c: 999:                     }
+}
+[e :U 831 ]
+[e :U 830 ]
+"1000
+[; ;newmain.c: 1000:                 }
+}
+[e $U 836  ]
+"1001
+[; ;newmain.c: 1001:                 else{
+[e :U 825 ]
+{
+"1002
+[; ;newmain.c: 1002:                     DUTY_R_NOW = PWM6DCH_BUFF;
+[e = _DUTY_R_NOW -> _PWM6DCH_BUFF `s ]
+"1003
+[; ;newmain.c: 1003:                     if(PWM_FLAG1 & 0x80){
+[e $ ! != & -> _PWM_FLAG1 `i -> 128 `i -> 0 `i 837  ]
+{
+"1004
+[; ;newmain.c: 1004:                         if(PWM6DCH_BUFF < DUTY_R_TARGET){
+[e $ ! < -> _PWM6DCH_BUFF `i -> _DUTY_R_TARGET `i 838  ]
+{
+"1005
+[; ;newmain.c: 1005:                             DUTY_R_NOW += 5;
+[e =+ _DUTY_R_NOW -> -> 5 `i `s ]
+"1006
+[; ;newmain.c: 1006:                         }
+}
+[e :U 838 ]
+"1007
+[; ;newmain.c: 1007:                         if(DUTY_R_NOW >= DUTY_R_TARGET){
+[e $ ! >= -> _DUTY_R_NOW `i -> _DUTY_R_TARGET `i 839  ]
+{
+"1008
+[; ;newmain.c: 1008:                             PWM6DCH_BUFF = DUTY_R_TARGET;
+[e = _PWM6DCH_BUFF _DUTY_R_TARGET ]
+"1009
+[; ;newmain.c: 1009:                             PWM_FLAG1 &= 0x7F;
+[e =& _PWM_FLAG1 -> -> 127 `i `uc ]
+"1010
+[; ;newmain.c: 1010:                         }
+}
+[e $U 840  ]
+"1011
+[; ;newmain.c: 1011:                         else{
+[e :U 839 ]
+{
+"1012
+[; ;newmain.c: 1012:                             PWM6DCH_BUFF = (char)DUTY_R_NOW;
+[e = _PWM6DCH_BUFF -> _DUTY_R_NOW `uc ]
+"1013
+[; ;newmain.c: 1013:                         }
+}
+[e :U 840 ]
+"1014
+[; ;newmain.c: 1014:                         DUTY_COUNT_R = 0xFF;
+[e = _DUTY_COUNT_R -> -> 255 `i `uc ]
+"1015
+[; ;newmain.c: 1015:                     }
+}
+[e $U 841  ]
+"1016
+[; ;newmain.c: 1016:                     else if(PWM_FLAG1 & 0x40){
+[e :U 837 ]
+[e $ ! != & -> _PWM_FLAG1 `i -> 64 `i -> 0 `i 842  ]
+{
+"1017
+[; ;newmain.c: 1017:                         if(PWM6DCH_BUFF > DUTY_R_TARGET){
+[e $ ! > -> _PWM6DCH_BUFF `i -> _DUTY_R_TARGET `i 843  ]
+{
+"1018
+[; ;newmain.c: 1018:                             DUTY_R_NOW -= 5;
+[e =- _DUTY_R_NOW -> -> 5 `i `s ]
+"1019
+[; ;newmain.c: 1019:                         }
+}
+[e :U 843 ]
+"1020
+[; ;newmain.c: 1020:                         if(DUTY_R_NOW <= DUTY_R_TARGET){
+[e $ ! <= -> _DUTY_R_NOW `i -> _DUTY_R_TARGET `i 844  ]
+{
+"1021
+[; ;newmain.c: 1021:                             PWM6DCH_BUFF = DUTY_R_TARGET;
+[e = _PWM6DCH_BUFF _DUTY_R_TARGET ]
+"1022
+[; ;newmain.c: 1022:                             PWM_FLAG1 &= 0xBF;
+[e =& _PWM_FLAG1 -> -> 191 `i `uc ]
+"1023
+[; ;newmain.c: 1023: GO_MOTOR_2_STOP:
+[e :U 834 ]
+"1024
+[; ;newmain.c: 1024:                             if(PWM_FLAG1 & 0x20){
+[e $ ! != & -> _PWM_FLAG1 `i -> 32 `i -> 0 `i 845  ]
+{
+"1025
+[; ;newmain.c: 1025:                                 PWM_OUTPUT_FLAG &= 0xCF;
+[e =& _PWM_OUTPUT_FLAG -> -> 207 `i `uc ]
+"1026
+[; ;newmain.c: 1026:                                 DEAD_TIME_R = 0xFF;
+[e = _DEAD_TIME_R -> -> 255 `i `uc ]
+"1027
+[; ;newmain.c: 1027:                                 PWM_FLAG1 &= 0xDF;
+[e =& _PWM_FLAG1 -> -> 223 `i `uc ]
+"1028
+[; ;newmain.c: 1028:                                 if(PWM_FLAG1 & 0x10){
+[e $ ! != & -> _PWM_FLAG1 `i -> 16 `i -> 0 `i 846  ]
+{
+"1029
+[; ;newmain.c: 1029:                                     if(PWM_FLAG2 & 0x40){
+[e $ ! != & -> _PWM_FLAG2 `i -> 64 `i -> 0 `i 847  ]
+{
+"1030
+[; ;newmain.c: 1030:                                         DEAD_TIME_FLAG |= 0xA0;
+[e =| _DEAD_TIME_FLAG -> -> 160 `i `uc ]
+"1031
+[; ;newmain.c: 1031:                                         DEAD_TIME_FLAG &= 0xAF;
+[e =& _DEAD_TIME_FLAG -> -> 175 `i `uc ]
+"1032
+[; ;newmain.c: 1032:                                     }
+}
+[e $U 848  ]
+"1033
+[; ;newmain.c: 1033:                                     else{
+[e :U 847 ]
+{
+"1034
+[; ;newmain.c: 1034:                                         if(PWM_FLAG2 & 0x80){
+[e $ ! != & -> _PWM_FLAG2 `i -> 128 `i -> 0 `i 849  ]
+{
+"1035
+[; ;newmain.c: 1035:                                             DEAD_TIME_FLAG |= 0xD0;
+[e =| _DEAD_TIME_FLAG -> -> 208 `i `uc ]
+"1036
+[; ;newmain.c: 1036:                                             DEAD_TIME_FLAG &= 0xDF;
+[e =& _DEAD_TIME_FLAG -> -> 223 `i `uc ]
+"1037
+[; ;newmain.c: 1037:                                         }
+}
+[e $U 850  ]
+"1038
+[; ;newmain.c: 1038:                                         else{
+[e :U 849 ]
+{
+"1039
+[; ;newmain.c: 1039:                                             DEAD_TIME_FLAG |= 0xC0;
+[e =| _DEAD_TIME_FLAG -> -> 192 `i `uc ]
+"1040
+[; ;newmain.c: 1040:                                             DEAD_TIME_FLAG &= 0xCF;
+[e =& _DEAD_TIME_FLAG -> -> 207 `i `uc ]
+"1041
+[; ;newmain.c: 1041:                                         }
+}
+[e :U 850 ]
+"1042
+[; ;newmain.c: 1042:                                     }
+}
+[e :U 848 ]
+"1043
+[; ;newmain.c: 1043:                                 }
+}
+[e :U 846 ]
+"1044
+[; ;newmain.c: 1044:                             }
+}
+[e :U 845 ]
+"1045
+[; ;newmain.c: 1045:                         }
+}
+[e $U 851  ]
+"1046
+[; ;newmain.c: 1046:                         else{
+[e :U 844 ]
+{
+"1047
+[; ;newmain.c: 1047:                             PWM6DCH_BUFF = (char)DUTY_R_NOW;
+[e = _PWM6DCH_BUFF -> _DUTY_R_NOW `uc ]
+"1048
+[; ;newmain.c: 1048:                             DUTY_COUNT_R = 0xFF;
+[e = _DUTY_COUNT_R -> -> 255 `i `uc ]
+"1049
+[; ;newmain.c: 1049:                         }
+}
+[e :U 851 ]
+"1050
+[; ;newmain.c: 1050:                     }
+}
+[e :U 842 ]
+[e :U 841 ]
+"1051
+[; ;newmain.c: 1051:                 }
+}
+[e :U 836 ]
+"1052
+[; ;newmain.c: 1052:             }
+}
+[e $U 852  ]
+"1053
+[; ;newmain.c: 1053:             else{
+[e :U 824 ]
+{
+"1054
+[; ;newmain.c: 1054:                 DUTY_COUNT_R ++;
+[e ++ _DUTY_COUNT_R -> -> 1 `i `uc ]
+"1055
+[; ;newmain.c: 1055:             }
+}
+[e :U 852 ]
+"1056
+[; ;newmain.c: 1056:             if(PWM_OVD_FLAG & 0x20){
+[e $ ! != & -> _PWM_OVD_FLAG `i -> 32 `i -> 0 `i 853  ]
+{
+"1057
+[; ;newmain.c: 1057:                 if(PWM_FLAG1 & 0x10){
+[e $ ! != & -> _PWM_FLAG1 `i -> 16 `i -> 0 `i 854  ]
+{
+"1059
+[; ;newmain.c: 1059:                     PWM_OVD_FLAG &= 0xFD;
+[e =& _PWM_OVD_FLAG -> -> 253 `i `uc ]
+"1060
+[; ;newmain.c: 1060:                 }
+}
+[e $U 855  ]
+"1061
+[; ;newmain.c: 1061:                 else if(((PWM_OVD_FLAG & 0x20) == 0) && (PWM_FLAG1 & 0x80)){
+[e :U 854 ]
+[e $ ! && == & -> _PWM_OVD_FLAG `i -> 32 `i -> 0 `i != & -> _PWM_FLAG1 `i -> 128 `i -> 0 `i 856  ]
+{
+"1062
+[; ;newmain.c: 1062:                     PWM_OVD_FLAG |= 0x20;
+[e =| _PWM_OVD_FLAG -> -> 32 `i `uc ]
+"1063
+[; ;newmain.c: 1063:                 }
+}
+[e :U 856 ]
+[e :U 855 ]
+"1064
+[; ;newmain.c: 1064:                 if(PWM_OVD_FLAG & 0x20){
+[e $ ! != & -> _PWM_OVD_FLAG `i -> 32 `i -> 0 `i 857  ]
+{
+"1065
+[; ;newmain.c: 1065:                     if(PWM_R_OVD_COUNT){
+[e $ ! != -> _PWM_R_OVD_COUNT `i -> 0 `i 858  ]
+{
+"1066
+[; ;newmain.c: 1066:                         if(PWM_OUTPUT_FLAG & 0x10){
+[e $ ! != & -> _PWM_OUTPUT_FLAG `i -> 16 `i -> 0 `i 859  ]
+{
+"1067
+[; ;newmain.c: 1067:                             PWM5DCH = PWM_OVD_DUTY;
+[e = _PWM5DCH -> _PWM_OVD_DUTY `uc ]
+"1068
+[; ;newmain.c: 1068:                             PWM6DCH = PWM6DCH_BUFF;
+[e = _PWM6DCH -> _PWM6DCH_BUFF `uc ]
+"1069
+[; ;newmain.c: 1069:                         }
+}
+[e $U 860  ]
+"1070
+[; ;newmain.c: 1070:                         else if(PWM_OUTPUT_FLAG & 0x20){
+[e :U 859 ]
+[e $ ! != & -> _PWM_OUTPUT_FLAG `i -> 32 `i -> 0 `i 861  ]
+{
+"1071
+[; ;newmain.c: 1071:                             PWM6DCH = PWM_OVD_DUTY;
+[e = _PWM6DCH -> _PWM_OVD_DUTY `uc ]
+"1072
+[; ;newmain.c: 1072:                             PWM5DCH = PWM5DCH_BUFF;
+[e = _PWM5DCH -> _PWM5DCH_BUFF `uc ]
+"1073
+[; ;newmain.c: 1073:                         }
+}
+[e :U 861 ]
+[e :U 860 ]
+"1074
+[; ;newmain.c: 1074:                         PWM_R_OVD_COUNT --;
+[e -- _PWM_R_OVD_COUNT -> -> 1 `i `uc ]
+"1075
+[; ;newmain.c: 1075:                     }
+}
+[e $U 862  ]
+"1076
+[; ;newmain.c: 1076:                     else{
+[e :U 858 ]
+{
+"1077
+[; ;newmain.c: 1077:                         PWM_OVD_FLAG &= 0x0F;
+[e =& _PWM_OVD_FLAG -> -> 15 `i `uc ]
+"1078
+[; ;newmain.c: 1078:                         PWM5DCH = PWM5DCH_BUFF;
+[e = _PWM5DCH -> _PWM5DCH_BUFF `uc ]
+"1079
+[; ;newmain.c: 1079:                         PWM6DCH = PWM6DCH_BUFF;
+[e = _PWM6DCH -> _PWM6DCH_BUFF `uc ]
+"1080
+[; ;newmain.c: 1080:                     }
+}
+[e :U 862 ]
+"1081
+[; ;newmain.c: 1081:                 }
+}
+[e $U 863  ]
+"1082
+[; ;newmain.c: 1082:                 else{
+[e :U 857 ]
+{
+"1083
+[; ;newmain.c: 1083:                     PWM5DCH = PWM3DCH_BUFF;
+[e = _PWM5DCH -> _PWM3DCH_BUFF `uc ]
+"1084
+[; ;newmain.c: 1084:                     PWM6DCH = PWM4DCH_BUFF;
+[e = _PWM6DCH -> _PWM4DCH_BUFF `uc ]
+"1085
+[; ;newmain.c: 1085:                 }
+}
+[e :U 863 ]
+"1086
+[; ;newmain.c: 1086:             }
+}
+[e $U 864  ]
+"1087
+[; ;newmain.c: 1087:             else{
+[e :U 853 ]
+{
+"1088
+[; ;newmain.c: 1088:                 PWM5DCH = PWM5DCH_BUFF;
+[e = _PWM5DCH -> _PWM5DCH_BUFF `uc ]
+"1089
+[; ;newmain.c: 1089:                 PWM6DCH = PWM6DCH_BUFF;
+[e = _PWM6DCH -> _PWM6DCH_BUFF `uc ]
+"1090
+[; ;newmain.c: 1090:             }
+}
+[e :U 864 ]
+"1091
+[; ;newmain.c: 1091:         }
+}
+[e :U 823 ]
+"1092
+[; ;newmain.c: 1092:         TMR2IF = 0;
+[e = _TMR2IF -> -> 0 `i `b ]
+"1093
+[; ;newmain.c: 1093:     }
+}
+[e :U 764 ]
+[e :U 763 ]
+"1094
+[; ;newmain.c: 1094: }
+[e :UE 664 ]
+}

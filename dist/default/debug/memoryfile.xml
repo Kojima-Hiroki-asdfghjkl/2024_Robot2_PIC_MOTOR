@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <executable name="dist/default/debug\18313_I2C_PWM_2024_3.X.debug.hex">
+    <memory name="program">
+      <units>words</units>
+      <length>2048</length>
+      <used>1005</used>
+      <free>1043</free>
+    </memory>
+    <memory name="data">
+      <units>bytes</units>
+      <length>256</length>
+      <used>32</used>
+      <free>224</free>
+    </memory>
+  </executable>
+</project>
